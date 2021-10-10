@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PF-ClassesWizard", "PF-ClassesWizard\PF-ClassesWizard.csproj", "{892503ED-615C-44BC-954A-52F45CA2EFB8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PF-Core", "PF-Core\PF-Core.csproj", "{6914B48B-7F6A-4344-9553-C67D300F458F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PF-Classes", "PF-Classes\PF-Classes.csproj", "{2C450B5D-04B8-4FE0-A029-91D81B23A830}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{892503ED-615C-44BC-954A-52F45CA2EFB8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{892503ED-615C-44BC-954A-52F45CA2EFB8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{892503ED-615C-44BC-954A-52F45CA2EFB8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{892503ED-615C-44BC-954A-52F45CA2EFB8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6914B48B-7F6A-4344-9553-C67D300F458F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6914B48B-7F6A-4344-9553-C67D300F458F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6914B48B-7F6A-4344-9553-C67D300F458F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6914B48B-7F6A-4344-9553-C67D300F458F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2C450B5D-04B8-4FE0-A029-91D81B23A830}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2C450B5D-04B8-4FE0-A029-91D81B23A830}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2C450B5D-04B8-4FE0-A029-91D81B23A830}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2C450B5D-04B8-4FE0-A029-91D81B23A830}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
