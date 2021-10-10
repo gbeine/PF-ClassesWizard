@@ -25,7 +25,7 @@ namespace PF_Core.Extensions
 
         public static List<T> GetAll<T>(this LibraryScriptableObject library) where T : BlueprintScriptableObject
         {
-            _logger.Debug(String.Format("Get all {0}", typeof(T)));
+            _logger.Debug($"Get all {typeof(T)}");
             return library.GetAllBlueprints()
                 .Where(
                     bso => bso.GetType().Equals(typeof(T)))
@@ -36,7 +36,7 @@ namespace PF_Core.Extensions
         
         public static void AddAsset(this LibraryScriptableObject library, BlueprintScriptableObject blueprint)
         {
-            _logger.Debug(String.Format("Adding {0} with id {1}", blueprint, blueprint.AssetGuid));
+            _logger.Debug($"Adding {blueprint} with id {blueprint.AssetGuid}");
 
             BlueprintScriptableObject existing;
             if (library.BlueprintsByAssetId.TryGetValue(blueprint.AssetGuid, out existing))
@@ -57,6 +57,8 @@ namespace PF_Core.Extensions
             library.BlueprintsByAssetId[blueprint.AssetGuid] = blueprint;
             
             _guidStorage.addEntry(blueprint.name, blueprint.AssetGuid);
+
+            _logger.Debug($"DONE: Adding {blueprint} with id {blueprint.AssetGuid}");
         }
 
     }

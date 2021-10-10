@@ -1,7 +1,6 @@
 using System;
 using System.Collections.Generic;
 using Kingmaker.Blueprints.Classes;
-using Kingmaker.UnitLogic.Abilities.Blueprints;
 using PF_Core.Facades;
 
 namespace PF_Core.Repositories
@@ -27,7 +26,7 @@ namespace PF_Core.Repositories
         
         public BlueprintFeature GetFeature(String assetId)
         {
-            _logger.Debug(String.Format("Search for Feature {0}", assetId));
+            _logger.Debug($"Search for Feature {assetId}");
             return _library.GetFeature(assetId);
         }
     }

@@ -1,7 +1,6 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using Kingmaker.Blueprints.Classes;
 using Kingmaker.UnitLogic.Abilities.Blueprints;
 using PF_Core.Facades;
 
@@ -27,7 +26,7 @@ namespace PF_Core.Repositories
         
         public BlueprintAbility GetSpell(String assetId)
         {
-            _logger.Debug(String.Format("Search for Spell {0}", assetId));
+            _logger.Debug($"Search for Spell {assetId}");
             return _library.GetAbility(assetId);
         }
 

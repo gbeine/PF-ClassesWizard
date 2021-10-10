@@ -5,7 +5,6 @@ using Kingmaker.Blueprints.Items.Armors;
 using Kingmaker.Designers.Mechanics.Facts;
 using Kingmaker.EntitySystem.Stats;
 using Kingmaker.Enums;
-using Kingmaker.UI.ServiceWindow.CharacterScreen;
 using Kingmaker.UnitLogic.Abilities.Blueprints;
 using Kingmaker.UnitLogic.FactLogic;
 using PF_Core.Extensions;
@@ -22,7 +21,7 @@ namespace PF_Core.Factories
         
         public BlueprintFeature createFeature(String name, String guid)
         {
-            _logger.Debug(String.Format("Create feature {0} with id {1}", name, guid));
+            _logger.Debug($"Create feature {name} with id {guid}");
 
             BlueprintFeature feature = _library.Create<BlueprintFeature>();
             blueprintFeature_set_AssetId(feature, guid);
@@ -30,12 +29,13 @@ namespace PF_Core.Factories
 
             _library.Add(feature);
 
+            _logger.Debug($"DONE: Create feature {name} with id {guid}");
             return feature;
         }
 
         public BlueprintFeature createFeatureFrom(String name, String guid, String fromAssetId)
         {
-            _logger.Debug(String.Format("Create feature {0} with id {1} based on {2}", name, guid, fromAssetId));
+            _logger.Debug($"Create feature {name} with id {guid} based on {fromAssetId}");
 
             BlueprintFeature original = _library.GetFeature(fromAssetId);
             BlueprintFeature clone = UnityEngine.Object.Instantiate(original);
@@ -44,6 +44,7 @@ namespace PF_Core.Factories
 
             _library.Add(clone);
 
+            _logger.Debug($"DONE: Create feature {name} with id {guid} based on {fromAssetId}");
             return clone;
         }
 

@@ -22,6 +22,7 @@ namespace PF_Core.Factories
 
             _library.Add(characterClass);
 
+            _logger.Debug($"DONE: Create class {name} with id {guid}");
             return characterClass;
         }
 
@@ -33,6 +34,7 @@ namespace PF_Core.Factories
             characterClass.LocalizedName = _localizationFactory.CreateString($"{name}.Name", displayName);
             characterClass.LocalizedDescription = _localizationFactory.CreateString($"{name}.Description", description);
 
+            _logger.Debug($"DONE: Create class {name} with id {guid}");
             return characterClass;
         }
 

@@ -1,7 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Drawing;
-using System.Linq;
 using Kingmaker.Blueprints.Classes;
 using PF_Core.Facades;
 
@@ -27,7 +25,7 @@ namespace PF_Core.Repositories
         
         public BlueprintArchetype GetArchetype(String assetId)
         {
-            _logger.Debug(String.Format("Search for Archetype {0}", assetId));
+            _logger.Debug($"Search for Archetype {assetId}");
             return _library.GetArchetype(assetId);
         }
 

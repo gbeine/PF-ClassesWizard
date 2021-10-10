@@ -1,5 +1,4 @@
 using System;
-using System.Security.AccessControl;
 using Harmony12;
 using Kingmaker.Blueprints.Classes.Spells;
 using Kingmaker.UnitLogic.Abilities.Blueprints;
@@ -37,6 +36,7 @@ namespace PF_Core.Filter
                 }
             }
 
+            _logger.Log("DONE: Excluding spells from list");
             return this;
         }
 
@@ -64,7 +64,7 @@ namespace PF_Core.Filter
                     spellList.SpellsByLevel.Add(spellLevelListToAdd);
                 }
             }
-
+            _logger.Log($"DONE: Add spell from {blueprintSpellList.name}");
             return this;
         }
 

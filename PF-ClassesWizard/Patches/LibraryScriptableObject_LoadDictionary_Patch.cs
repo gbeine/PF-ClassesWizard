@@ -3,7 +3,6 @@ using Kingmaker.Blueprints;
 using PF_Classes;
 using PF_Core;
 using PF_Core.Facades;
-using PF_Core.Repositories;
 
 namespace PF_ClassesWizard.Patches
 {
@@ -15,8 +14,12 @@ namespace PF_ClassesWizard.Patches
 
         static void Postfix(LibraryScriptableObject __instance)
         {
+            _logger.Log("Patching library");
+
             Library library = new Library(__instance);
             Loader.init();
+
+            _logger.Log("DONE: Patching library");
         }
     }
 }

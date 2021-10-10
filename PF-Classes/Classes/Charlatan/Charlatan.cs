@@ -1,5 +1,4 @@
 using System;
-using Epic.OnlineServices;
 using Kingmaker.Blueprints.Classes;
 using Kingmaker.Blueprints.Classes.Spells;
 using Kingmaker.EntitySystem.Stats;
@@ -8,7 +7,6 @@ using Kingmaker.UnitLogic.Alignments;
 using PF_Classes.Identifier;
 using PF_Core.Extensions;
 using PF_Core.Filter;
-using PF_Core.Repositories;
 using PF_Core;
 
 namespace PF_Classes.Classes.Charlatan
@@ -24,47 +22,53 @@ namespace PF_Classes.Classes.Charlatan
         private const String CHARLATAN_CLASS_NAME = "CharlatanClass";
         private const String CHARLATAN_CLASS_DISPLAY_NAME = "Charlatan";
 
-        private const String CHARLATAN_CLASS_DESCRIPTION = "The charlatan is a jolly fellow who gets through life with a few tricks and a bit of magic. Only very rarely does a charlatan have to take up arms, in most cases she manages to get out of trouble through illusion or persuasion.";
+        private const String CHARLATAN_CLASS_DESCRIPTION =
+            "The charlatan is a jolly fellow who gets through life with a few tricks and a bit of magic. Only very rarely does a charlatan have to take up arms, in most cases she manages to get out of trouble through illusion or persuasion.";
 
         private const String CHARLATAN_PROGRESSION_NAME = "CharlatanProgression";
         private const String CHARLATAN_SPELLBOOK_NAME = "CharlatanSpellbook";
 
         private const String CHARLATAN_PROFICIENCIES_NAME = "CharlatanProficiencies";
         private const String CHARLATAN_PROFICIENCIES_DISPLAY_NAME = "Charlatan Proficiencies";
-        private const String CHARLATAN_PROFICIENCIES_DESCRIPTION = "Charlatans are skilled in the use of all simple weapons, short swords, long swords, dueling swords, rapiers, and short bows. They are proficient with light armour and shields.";
-        
+
+        private const String CHARLATAN_PROFICIENCIES_DESCRIPTION =
+            "Charlatans are skilled in the use of all simple weapons, short swords, long swords, dueling swords, rapiers, and short bows. They are proficient with light armour and shields.";
+
         private static readonly Logger _logger = Logger.INSTANCE;
-        
+
         public Charlatan()
         {
             BlueprintCharacterClass charlatan_class = CharlatanCharacterClass();
 
-            BlueprintFeature charlatan_cantrips = Cantrips(charlatan_class);
-            BlueprintFeature charlatan_proficiencies = Proficiencies();
-
             charlatan_class.Spellbook = Spellbook(charlatan_class);
+
+            BlueprintFeature charlatan_proficiencies = Proficiencies();
+            BlueprintFeature charlatan_cantrips = Cantrips(charlatan_class);
+
             charlatan_class.Progression = Progession(charlatan_class);
 
             charlatan_class.ClassSkills = ClassSkills();
             charlatan_class.RecommendedAttributes = RecommendedAttributes();
             charlatan_class.NotRecommendedAttributes = NotRecommendedAttributes();
             charlatan_class.AddComponent(
-                    _prerequisitesFactory.createPrerequisiteAlignment(
-                        AlignmentMaskType.Chaotic |
-                        AlignmentMaskType.NeutralGood |
-                        AlignmentMaskType.NeutralEvil |
-                        AlignmentMaskType.TrueNeutral
-                        )
-                    );
+                _prerequisitesFactory.createPrerequisiteAlignment(
+                    AlignmentMaskType.Chaotic |
+                    AlignmentMaskType.NeutralGood |
+                    AlignmentMaskType.NeutralEvil |
+                    AlignmentMaskType.TrueNeutral
+                )
+            );
 
             _classesRepository.RegisterCharacterClass(charlatan_class);
         }
 
         private BlueprintCharacterClass CharlatanCharacterClass()
         {
-            BlueprintCharacterClass charlatan_class = _classFactoryFactory.createClass(CHARLATAN_CLASS_NAME, CHARLATAN_CLASS, CHARLATAN_CLASS_DISPLAY_NAME, CHARLATAN_CLASS_DESCRIPTION);
+            BlueprintCharacterClass charlatan_class = _classFactoryFactory.createClass(CHARLATAN_CLASS_NAME,
+                CHARLATAN_CLASS, CHARLATAN_CLASS_DISPLAY_NAME, CHARLATAN_CLASS_DESCRIPTION);
 
-            var kineticist_class = _classesRepository.GetCharacterClass(PF_Classes.Identifier.CharacterClasses.KINETICIST);
+            var kineticist_class =
+                _classesRepository.GetCharacterClass(PF_Classes.Identifier.CharacterClasses.KINETICIST);
             var rouge_class = _classesRepository.GetCharacterClass(PF_Classes.Identifier.CharacterClasses.ROUGE);
 
             charlatan_class.m_Icon = kineticist_class.Icon;
@@ -90,6 +94,8 @@ namespace PF_Classes.Classes.Charlatan
 
         private new BlueprintFeature Proficiencies()
         {
+            _logger.Log("Create proficiencies");
+
             BlueprintFeature charlatan_proficiencies = _featureFactory.createFeatureFrom(
                 CHARLATAN_PROFICIENCIES_NAME,
                 CHARLATAN_PROFICIENCIES,
@@ -98,18 +104,22 @@ namespace PF_Classes.Classes.Charlatan
                 CHARLATAN_PROFICIENCIES_DESCRIPTION);
 
             charlatan_proficiencies.AddComponent(
-                _featureFactory.createAddFact(_featuresRepository.GetFeature(Features.WEAPON_PROFICIENCY_DUELLING_SWORD)));
+                _featureFactory.createAddFact(
+                    _featuresRepository.GetFeature(Features.WEAPON_PROFICIENCY_DUELLING_SWORD)));
             charlatan_proficiencies.AddComponent(
                 _featureFactory.createAddFact(_featuresRepository.GetFeature(Features.WEAPON_PROFICIENCY_ESTOC)));
             charlatan_proficiencies.AddComponent(
                 _featureFactory.createAddWeaponProficiencies(
                     WeaponCategory.Longbow, WeaponCategory.Starknife)
             );
+
+            _logger.Log("DONE: Create proficiencies");
             return charlatan_proficiencies;
         }
 
         private new BlueprintFeature Cantrips(BlueprintCharacterClass charlatan_class)
         {
+            _logger.Log("Create cantrips");
             BlueprintFeature charlatan_cantrips = _featureFactory.createCantrips(
                 "CharlatanCantrips",
                 "Cantrips",
@@ -120,17 +130,20 @@ namespace PF_Classes.Classes.Charlatan
                 StatType.Intelligence,
                 charlatan_class.Spellbook.SpellList.SpellsByLevel[0].Spells.ToArray()
             );
+
+            _logger.Log("DONE: Create cantrips");
             return charlatan_cantrips;
         }
 
         private new BlueprintSpellbook Spellbook(BlueprintCharacterClass charlatan_class)
         {
+            _logger.Log("Create spellbook");
             var wizard_class = _classesRepository.GetCharacterClass(Identifier.CharacterClasses.WIZARD);
             var bard_class = _classesRepository.GetCharacterClass(Identifier.CharacterClasses.BARD);
             var ranger_class = _classesRepository.GetCharacterClass(Identifier.CharacterClasses.RANGER);
 
             BlueprintSpellList charlatanSpellList =
-                _spellbookFactory.createSpellList("CharlatanList", "8b4fc86d687646648c551a740718118c", 10);
+                _spellbookFactory.createSpellList("CharlatanSpellList", "8b4fc86d687646648c551a740718118c", 10);
             charlatanSpellList.SpellsByLevel[1].Spells.Add(_spellRepository.GetSpell(Spells.CURE_LIGHT_WOUNDS_CAST));
             charlatanSpellList.SpellsByLevel[1].Spells.Add(_spellRepository.GetSpell(Spells.SUMMON_MONSTER_I_SINGLE));
             charlatanSpellList.SpellsByLevel[2].Spells.Add(_spellRepository.GetSpell(Spells.CURE_MODERATE_WOUNDS_CAST));
@@ -165,29 +178,30 @@ namespace PF_Classes.Classes.Charlatan
                     || p.School == SpellSchool.Necromancy))
                 .addSpellsFromList(charlatanSpellList)
                 .SpellSpellList;
-            
-            BlueprintSpellbook spellbook = _spellbookFactory.createSpellbookFrom(
+
+            BlueprintSpellbook spellbook = _spellbookFactory.createSpellbook(
                 CHARLATAN_SPELLBOOK_NAME,
                 CHARLATAN_SPELLBOOK,
-                Spellbooks.WIZARD_SPELLBOOK,
                 charlatan_class,
                 true,
                 true,
-                false,
+                true,
                 false,
                 StatType.Intelligence,
-                wizard_class.Spellbook.SpellsKnown,
-                wizard_class.Spellbook.SpellsPerDay,
-                wizard_class.Spellbook.CantripsType,
+                SpellsKnown(),
+                SpellsPerDay(),
+                CantripsType.Cantrips,
                 spellList
-                );
-
+            );
+            
+            _logger.Log("DONE: Create spellbook");
             return spellbook;
         }
 
         private new BlueprintProgression Progession(BlueprintCharacterClass charlatan_class)
         {
-            BlueprintProgression charlatan_progression = _progressionFactory.createProgression(CHARLATAN_PROGRESSION_NAME,
+            BlueprintProgression charlatan_progression = _progressionFactory.createProgression(
+                CHARLATAN_PROGRESSION_NAME,
                 CHARLATAN_PROGRESSION, charlatan_class.Name,
                 charlatan_class.Description, charlatan_class.Icon, FeatureGroup.None, charlatan_class);
             charlatan_progression.LevelEntries = LevelEntries();
@@ -196,7 +210,7 @@ namespace PF_Classes.Classes.Charlatan
 
             return charlatan_progression;
         }
-        
+
         private new StatType[] ClassSkills()
         {
             return new StatType[]
@@ -210,9 +224,9 @@ namespace PF_Classes.Classes.Charlatan
                 StatType.SkillUseMagicDevice
             };
         }
-        
+
         private new StatType[] RecommendedAttributes()
-        { 
+        {
             return new StatType[]
             {
                 StatType.Dexterity,
@@ -222,7 +236,7 @@ namespace PF_Classes.Classes.Charlatan
         }
 
         private new LevelEntry[] LevelEntries()
-        { 
+        {
             return new LevelEntry[]
             {
                 _levelEntryFactory.LevelEntry(1,
@@ -275,7 +289,7 @@ namespace PF_Classes.Classes.Charlatan
                 ),
                 _levelEntryFactory.LevelEntry(11,
                     _featuresRepository.GetFeature(Features.BARD_JACK_OF_ALL_TRADES)
-                    ),
+                ),
                 _levelEntryFactory.LevelEntry(12,
                     _featuresRepository.GetFeature(Features.ROUGE_TALENT),
                     _featuresRepository.GetFeature(Features.INQUISITOR_TEAMWORK)
@@ -309,9 +323,9 @@ namespace PF_Classes.Classes.Charlatan
                 )
             };
         }
-        
+
         private new BlueprintFeatureBase[] UiDeterminatorsGroup()
-        { 
+        {
             return new BlueprintFeatureBase[]
             {
                 _featuresRepository.GetFeature(Features.ROUGE_TRAPFINDING),
@@ -321,7 +335,7 @@ namespace PF_Classes.Classes.Charlatan
                 _featuresRepository.GetFeature(CHARLATAN_PROFICIENCIES)
             };
         }
-        
+
         private new UIGroup[] UiGroups()
         {
             return new UIGroup[]
@@ -352,6 +366,58 @@ namespace PF_Classes.Classes.Charlatan
             };
         }
 
+        private BlueprintSpellsTable SpellsPerDay()
+        {
+            return _spellbookFactory.createSpellsTable("CharlatanSpellsPerDay", "d9adb154906244f39fd7439a5f4d6ac2",
+                _spellbookFactory.createSpellsLevelEntry(), // 0
+                _spellbookFactory.createSpellsLevelEntry(0, 1), //1
+                _spellbookFactory.createSpellsLevelEntry(0, 2), //2
+                _spellbookFactory.createSpellsLevelEntry(0, 2, 1), //3
+                _spellbookFactory.createSpellsLevelEntry(0, 3, 2), //4
+                _spellbookFactory.createSpellsLevelEntry(0, 3, 2, 1), //5
+                _spellbookFactory.createSpellsLevelEntry(0, 3, 3, 2), //6
+                _spellbookFactory.createSpellsLevelEntry(0, 4, 3, 2, 1), //7
+                _spellbookFactory.createSpellsLevelEntry(0, 4, 3, 3, 2), //8
+                _spellbookFactory.createSpellsLevelEntry(0, 4, 4, 3, 2, 1), //9
+                _spellbookFactory.createSpellsLevelEntry(0, 4, 4, 3, 3, 2), //10
+                _spellbookFactory.createSpellsLevelEntry(0, 4, 4, 4, 3, 2, 1), //11
+                _spellbookFactory.createSpellsLevelEntry(0, 4, 4, 4, 3, 3, 2), //12
+                _spellbookFactory.createSpellsLevelEntry(0, 4, 4, 4, 4, 3, 2, 1), //13
+                _spellbookFactory.createSpellsLevelEntry(0, 4, 4, 4, 4, 3, 3, 2), //14
+                _spellbookFactory.createSpellsLevelEntry(0, 4, 4, 4, 4, 4, 3, 2, 1), //15
+                _spellbookFactory.createSpellsLevelEntry(0, 4, 4, 4, 4, 4, 3, 3, 2), //16
+                _spellbookFactory.createSpellsLevelEntry(0, 4, 4, 4, 4, 4, 4, 3, 2, 1), //17
+                _spellbookFactory.createSpellsLevelEntry(0, 4, 4, 4, 4, 4, 4, 3, 3, 2), //18
+                _spellbookFactory.createSpellsLevelEntry(0, 4, 4, 4, 4, 4, 4, 4, 3, 3), //19
+                _spellbookFactory.createSpellsLevelEntry(0, 4, 4, 4, 4, 4, 4, 4, 4, 4) //20
+            );
+        }
 
+        private BlueprintSpellsTable SpellsKnown()
+        {
+            return _spellbookFactory.createSpellsTable("CharlatanSpellsKnown", "69b34210916a46fc8dd031950aa5d9b7",
+                _spellbookFactory.createSpellsLevelEntry(0, 0), // 0
+                _spellbookFactory.createSpellsLevelEntry(0, 6), //1
+                _spellbookFactory.createSpellsLevelEntry(0, 6), //2
+                _spellbookFactory.createSpellsLevelEntry(0, 6, 2), //3
+                _spellbookFactory.createSpellsLevelEntry(0, 6, 2), //4
+                _spellbookFactory.createSpellsLevelEntry(0, 6, 2, 2), //5
+                _spellbookFactory.createSpellsLevelEntry(0, 6, 2, 2), //6
+                _spellbookFactory.createSpellsLevelEntry(0, 7, 4, 2, 2), //7
+                _spellbookFactory.createSpellsLevelEntry(0, 7, 4, 2, 2), //8
+                _spellbookFactory.createSpellsLevelEntry(0, 7, 4, 4, 2, 2), //9
+                _spellbookFactory.createSpellsLevelEntry(0, 7, 4, 4, 2, 2), //10
+                _spellbookFactory.createSpellsLevelEntry(0, 8, 6, 4, 4, 2, 2), //11
+                _spellbookFactory.createSpellsLevelEntry(0, 8, 6, 4, 4, 2, 2), //12
+                _spellbookFactory.createSpellsLevelEntry(0, 8, 6, 6, 4, 4, 2, 2), //13
+                _spellbookFactory.createSpellsLevelEntry(0, 8, 6, 6, 4, 4, 2, 2), //14
+                _spellbookFactory.createSpellsLevelEntry(0, 8, 7, 6, 6, 4, 4, 2, 2), //15
+                _spellbookFactory.createSpellsLevelEntry(0, 8, 7, 6, 6, 4, 4, 2, 2), //16
+                _spellbookFactory.createSpellsLevelEntry(0, 8, 7, 7, 6, 6, 4, 4, 2, 2), //17
+                _spellbookFactory.createSpellsLevelEntry(0, 8, 7, 7, 6, 6, 4, 4, 4, 2), //18
+                _spellbookFactory.createSpellsLevelEntry(0, 8, 8, 7, 7, 6, 6, 4, 4, 4), //19
+                _spellbookFactory.createSpellsLevelEntry(0, 8, 8, 7, 7, 6, 6, 4, 4, 4) //20
+            );
+        }
     }
 }

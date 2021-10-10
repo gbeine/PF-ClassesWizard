@@ -2,7 +2,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Kingmaker.Blueprints.Classes;
-using Kingmaker.UI.Kingdom;
 using PF_Core.Facades;
 
 namespace PF_Core.Repositories
@@ -39,14 +38,15 @@ namespace PF_Core.Repositories
 
         public BlueprintCharacterClass GetCharacterClass(String assetId)
         {
-            _logger.Debug(String.Format("Search for CharacterClass {0}", assetId));
+            _logger.Debug($"Search for CharacterClass {assetId}");
             return _library.GetCharacterClass(assetId);
         }
 
         public void RegisterCharacterClass(BlueprintCharacterClass blueprintCharacterClass)
         {
-            _logger.Debug(String.Format("Add CharacterClass {0}", blueprintCharacterClass.Name));
+            _logger.Debug($"Add CharacterClass {blueprintCharacterClass.Name}");
             _library.RegisterCharacterClass(blueprintCharacterClass);
+            _logger.Debug($"DONE: Add CharacterClass {blueprintCharacterClass.Name}");
         }
 
     }

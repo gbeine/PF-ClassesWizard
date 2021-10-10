@@ -1,7 +1,6 @@
 ﻿using System;
 using PF_Classes.Classes.Charlatan;
 using PF_Core;
-using PF_Core.Repositories;
 
 namespace PF_Classes
 {
@@ -30,6 +29,7 @@ namespace PF_Classes
                     _logger.Error(e.StackTrace);
                     throw;
                 }
+                _logger.Log("DONE: Loading classes...");
 
                 loaded = true;
             }
