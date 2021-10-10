@@ -4,5 +4,6 @@
   "Author": "gbeine",
   "Version": "0.0.1",
   "AssemblyName": "PF-ClassesWizard.dll",
-  "EntryMethod": "PF_ClassesWizard.Main.Load"
+  "EntryMethod": "PF_ClassesWizard.Main.Load",
+  "HomePage": "https://github.com/gbeine/PF-ClassesWizard"
 }
