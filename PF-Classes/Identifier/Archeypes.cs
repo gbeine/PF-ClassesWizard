@@ -2,8 +2,12 @@ using System;
 
 namespace PF_Classes.Identifier
 {
-    public class Archtetypes
+    public class Archetypes : Identifier
     {
+        public static readonly Archetypes INSTANCE = new Archetypes();
+
+        private Archetypes() { }
+
         public const String ALCHEMIST_CHIRURGEON             = "063440d550b25524abcb8dc2590d0168";
         public const String ALCHEMIST_GRENADIER              = "6af888a7800b3e949a40f558ff204aae";
         public const String ALCHEMIST_VIVISECTIONIST         = "68cbcd9fbf1fb1d489562f829bb97e38";

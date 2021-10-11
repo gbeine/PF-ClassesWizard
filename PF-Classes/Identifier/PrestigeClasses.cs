@@ -2,8 +2,12 @@ using System;
 
 namespace PF_Classes.Identifier
 {
-    public class PrestigeClasses
+    public class PrestigeClasses : Identifier
     {
+        public static readonly PrestigeClasses INSTANCE = new PrestigeClasses();
+
+        private PrestigeClasses() { }
+
         public const String ARCANE_TRICKSTER  = "9c935a076d4fe4d4999fd48d853e3cf3";
         public const String STALWART_DEFENDER = "d5917881586ff1d4d96d5b7cebda9464";
         public const String ELDRITCH_KNIGHT   = "de52b73972f0ed74c87f8f6a8e20b542";

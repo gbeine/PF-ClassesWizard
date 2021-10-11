@@ -2,8 +2,12 @@ using System;
 
 namespace PF_Classes.Identifier
 {
-    public class Spellbooks
+    public class Spellbooks : Identifier
     {
+        public static readonly Spellbooks INSTANCE = new Spellbooks();
+
+        private Spellbooks() { }
+
         public const String ALCHEMIST_SPELLBOOK = "027d37761f3804042afa96fe3e9086cc";
         public const String BARD_SPELLBOOK = "bc04fc157a8801d41b877ad0d9af03dd";
         public const String CLERIC_SPELLBOOK = "4673d19a0cf2fab4f885cc4d1353da33";

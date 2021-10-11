@@ -2,8 +2,12 @@ using System;
 
 namespace PF_Classes.Identifier
 {
-    public class Features
+    public class Features : Identifier
     {
+        public static readonly Features INSTANCE = new Features();
+
+        private Features() { }
+
         public const String WEAPON_PROFICIENCY_SIMPLE             = "e70ecf1ed95ca2f40b754f1adb22bbdd"; // Umgang mit einfachen Waffen
         public const String WEAPON_PROFICIENCY_WAR                = "203992ef5b35c864390b4e4a1e200629"; // Umgang mit Kriegswaffen
         public const String WEAPON_PROFICIENCY_DUELLING_SWORD     = "9c37279588fd9e34e9c4cb234857492c"; // Waffenumgang (Duellschwert)

@@ -2,8 +2,12 @@ using System;
 
 namespace PF_Classes.Identifier
 {
-    public class Spells
+    public class Spells : Identifier
     {
+        public static readonly Spells INSTANCE = new Spells();
+
+        private Spells() { }
+
         public const String CURE_LIGHT_WOUNDS_CAST    = "5590652e1c2225c4ca30c4a699ab3649"; // Leichte Wunden heilen
         public const String CURE_MODERATE_WOUNDS_CAST = "6b90c773a6543dc49b2505858ce33db5"; // Mittelschwere Wunden heilen
         public const String CURE_SERIOUS_WOUNDS_CAST  = "3361c5df793b4c8448756146a88026ad"; // Schwere Wunden heilen

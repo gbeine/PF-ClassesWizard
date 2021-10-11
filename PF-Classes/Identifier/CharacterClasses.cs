@@ -1,9 +1,14 @@
 using System;
+using Epic.OnlineServices.Stats;
 
 namespace PF_Classes.Identifier
 {
-    public class CharacterClasses
+    public class CharacterClasses : Identifier
     {
+        public static readonly CharacterClasses INSTANCE = new CharacterClasses();
+
+        private CharacterClasses() { }
+
         public const String ALCHEMIST  = "0937bec61c0dabc468428f496580c721";
         public const String BARBARIAN  = "f7d7eb166b3dd594fb330d085df41853";
         public const String BARD       = "772c83a25e2268e448e841dcd548235f";
