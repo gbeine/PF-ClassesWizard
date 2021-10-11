@@ -52,9 +52,9 @@ namespace PF_Classes.Classes.Charlatan
             charlatan_class.NotRecommendedAttributes = NotRecommendedAttributes();
             charlatan_class.AddComponent(
                 _prerequisitesFactory.createPrerequisiteAlignment(
-                    AlignmentMaskType.Chaotic |
                     AlignmentMaskType.NeutralGood |
-                    AlignmentMaskType.NeutralEvil |
+                    AlignmentMaskType.ChaoticGood |
+                    AlignmentMaskType.ChaoticNeutral |
                     AlignmentMaskType.TrueNeutral
                 )
             );
@@ -370,26 +370,26 @@ namespace PF_Classes.Classes.Charlatan
         {
             return _spellbookFactory.createSpellsTable("CharlatanSpellsPerDay", "d9adb154906244f39fd7439a5f4d6ac2",
                 _spellbookFactory.createSpellsLevelEntry(), // 0
-                _spellbookFactory.createSpellsLevelEntry(0, 1), //1
-                _spellbookFactory.createSpellsLevelEntry(0, 2), //2
-                _spellbookFactory.createSpellsLevelEntry(0, 2, 1), //3
-                _spellbookFactory.createSpellsLevelEntry(0, 3, 2), //4
-                _spellbookFactory.createSpellsLevelEntry(0, 3, 2, 1), //5
-                _spellbookFactory.createSpellsLevelEntry(0, 3, 3, 2), //6
-                _spellbookFactory.createSpellsLevelEntry(0, 4, 3, 2, 1), //7
-                _spellbookFactory.createSpellsLevelEntry(0, 4, 3, 3, 2), //8
-                _spellbookFactory.createSpellsLevelEntry(0, 4, 4, 3, 2, 1), //9
-                _spellbookFactory.createSpellsLevelEntry(0, 4, 4, 3, 3, 2), //10
-                _spellbookFactory.createSpellsLevelEntry(0, 4, 4, 4, 3, 2, 1), //11
-                _spellbookFactory.createSpellsLevelEntry(0, 4, 4, 4, 3, 3, 2), //12
-                _spellbookFactory.createSpellsLevelEntry(0, 4, 4, 4, 4, 3, 2, 1), //13
-                _spellbookFactory.createSpellsLevelEntry(0, 4, 4, 4, 4, 3, 3, 2), //14
-                _spellbookFactory.createSpellsLevelEntry(0, 4, 4, 4, 4, 4, 3, 2, 1), //15
-                _spellbookFactory.createSpellsLevelEntry(0, 4, 4, 4, 4, 4, 3, 3, 2), //16
-                _spellbookFactory.createSpellsLevelEntry(0, 4, 4, 4, 4, 4, 4, 3, 2, 1), //17
-                _spellbookFactory.createSpellsLevelEntry(0, 4, 4, 4, 4, 4, 4, 3, 3, 2), //18
-                _spellbookFactory.createSpellsLevelEntry(0, 4, 4, 4, 4, 4, 4, 4, 3, 3), //19
-                _spellbookFactory.createSpellsLevelEntry(0, 4, 4, 4, 4, 4, 4, 4, 4, 4) //20
+                _spellbookFactory.createSpellsLevelEntry(0, 3), //1
+                _spellbookFactory.createSpellsLevelEntry(0, 4), //2
+                _spellbookFactory.createSpellsLevelEntry(0, 5, 3), //3
+                _spellbookFactory.createSpellsLevelEntry(0, 6, 4), //4
+                _spellbookFactory.createSpellsLevelEntry(0, 6, 5, 3), //5
+                _spellbookFactory.createSpellsLevelEntry(0, 6, 6, 4), //6
+                _spellbookFactory.createSpellsLevelEntry(0, 6, 6, 5, 3), //7
+                _spellbookFactory.createSpellsLevelEntry(0, 6, 6, 6, 4), //8
+                _spellbookFactory.createSpellsLevelEntry(0, 6, 6, 6, 5, 3), //9
+                _spellbookFactory.createSpellsLevelEntry(0, 6, 6, 6, 6, 4), //10
+                _spellbookFactory.createSpellsLevelEntry(0, 6, 6, 6, 6, 5, 3), //11
+                _spellbookFactory.createSpellsLevelEntry(0, 6, 6, 6, 6, 6, 4), //12
+                _spellbookFactory.createSpellsLevelEntry(0, 6, 6, 6, 6, 6, 5, 3), //13
+                _spellbookFactory.createSpellsLevelEntry(0, 6, 6, 6, 6, 6, 6, 4), //14
+                _spellbookFactory.createSpellsLevelEntry(0, 6, 6, 6, 6, 6, 6, 5, 3), //15
+                _spellbookFactory.createSpellsLevelEntry(0, 6, 6, 6, 6, 6, 6, 6, 4), //16
+                _spellbookFactory.createSpellsLevelEntry(0, 6, 6, 6, 6, 6, 6, 6, 5, 3), //17
+                _spellbookFactory.createSpellsLevelEntry(0, 6, 6, 6, 6, 6, 6, 6, 6, 4), //18
+                _spellbookFactory.createSpellsLevelEntry(0, 6, 6, 6, 6, 6, 6, 6, 6, 5), //19
+                _spellbookFactory.createSpellsLevelEntry(0, 6, 6, 6, 6, 6, 6, 6, 6, 6) //20
             );
         }
 
@@ -403,12 +403,12 @@ namespace PF_Classes.Classes.Charlatan
                 _spellbookFactory.createSpellsLevelEntry(0, 6, 2), //4
                 _spellbookFactory.createSpellsLevelEntry(0, 6, 2, 2), //5
                 _spellbookFactory.createSpellsLevelEntry(0, 6, 2, 2), //6
-                _spellbookFactory.createSpellsLevelEntry(0, 7, 4, 2, 2), //7
-                _spellbookFactory.createSpellsLevelEntry(0, 7, 4, 2, 2), //8
+                _spellbookFactory.createSpellsLevelEntry(0, 6, 4, 2, 2), //7
+                _spellbookFactory.createSpellsLevelEntry(0, 6, 4, 2, 2), //8
                 _spellbookFactory.createSpellsLevelEntry(0, 7, 4, 4, 2, 2), //9
                 _spellbookFactory.createSpellsLevelEntry(0, 7, 4, 4, 2, 2), //10
-                _spellbookFactory.createSpellsLevelEntry(0, 8, 6, 4, 4, 2, 2), //11
-                _spellbookFactory.createSpellsLevelEntry(0, 8, 6, 4, 4, 2, 2), //12
+                _spellbookFactory.createSpellsLevelEntry(0, 7, 6, 4, 4, 2, 2), //11
+                _spellbookFactory.createSpellsLevelEntry(0, 7, 6, 4, 4, 2, 2), //12
                 _spellbookFactory.createSpellsLevelEntry(0, 8, 6, 6, 4, 4, 2, 2), //13
                 _spellbookFactory.createSpellsLevelEntry(0, 8, 6, 6, 4, 4, 2, 2), //14
                 _spellbookFactory.createSpellsLevelEntry(0, 8, 7, 6, 6, 4, 4, 2, 2), //15
