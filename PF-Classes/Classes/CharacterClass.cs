@@ -13,7 +13,7 @@ namespace PF_Classes.Classes
         protected static readonly CharacterClassesRepository _classesRepository = CharacterClassesRepository.INSTANCE;
         protected static readonly FeaturesRepository _featuresRepository = FeaturesRepository.INSTANCE;
         protected static readonly SpellRepository _spellRepository = SpellRepository.INSTANCE;
-        
+
         protected  static readonly CharacterClassFactory _classFactoryFactory = new CharacterClassFactory();
         protected  static readonly FeatureFactory _featureFactory = new FeatureFactory();
         protected  static readonly LevelEntryFactory _levelEntryFactory = new LevelEntryFactory();
@@ -22,18 +22,17 @@ namespace PF_Classes.Classes
         protected  static readonly SpellbookFactory _spellbookFactory = new SpellbookFactory();
         protected  static readonly PrerequisitesFactory _prerequisitesFactory = new PrerequisitesFactory();
 
-
-        protected BlueprintFeature Proficiencies() => _featureFactory.createEmptyFeature();
-        protected BlueprintFeature Cantrips(BlueprintCharacterClass characterClass) => _featureFactory.createEmptyFeature();
+        protected BlueprintFeature Proficiencies() => _featureFactory.CreateEmptyFeature();
+        protected BlueprintFeature Cantrips(BlueprintCharacterClass characterClass) => _featureFactory.CreateEmptyFeature();
         protected BlueprintSpellbook Spellbook(BlueprintCharacterClass characterClass) => _spellbookFactory.createEmptySpellbook();
-        protected BlueprintProgression Progession(BlueprintCharacterClass characterClass) => _progressionFactory.createEmptyProgression();
+        protected BlueprintProgression Progession(BlueprintCharacterClass characterClass) => _progressionFactory.CreateEmptyProgression();
 
         protected LevelEntry[] LevelEntries()
         {
             LevelEntry[] levelEntries = Array.Empty<LevelEntry>();
             for (int i = 1; i < 21; i++)
             {
-                levelEntries.Add(_levelEntryFactory.LevelEntry(i));
+                levelEntries.Add(_levelEntryFactory.CreateLevelEntry(i));
             }
             return levelEntries;
         }
@@ -43,7 +42,7 @@ namespace PF_Classes.Classes
         protected StatType[] ClassSkills() => Empty<StatType>();
         protected StatType[] RecommendedAttributes() => Empty<StatType>();
         protected StatType[] NotRecommendedAttributes() => Empty<StatType>();
-        
+
         private T[] Empty<T>()
         { 
             return Array.Empty<T>();

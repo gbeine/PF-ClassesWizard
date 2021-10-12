@@ -51,7 +51,7 @@ namespace PF_Classes.Classes.Charlatan
             charlatan_class.RecommendedAttributes = RecommendedAttributes();
             charlatan_class.NotRecommendedAttributes = NotRecommendedAttributes();
             charlatan_class.AddComponent(
-                _prerequisitesFactory.createPrerequisiteAlignment(
+                _prerequisitesFactory.CreatePrerequisiteAlignment(
                     AlignmentMaskType.NeutralGood |
                     AlignmentMaskType.ChaoticGood |
                     AlignmentMaskType.ChaoticNeutral |
@@ -64,12 +64,12 @@ namespace PF_Classes.Classes.Charlatan
 
         private BlueprintCharacterClass CharlatanCharacterClass()
         {
-            BlueprintCharacterClass charlatan_class = _classFactoryFactory.createClass(CHARLATAN_CLASS_NAME,
+            BlueprintCharacterClass charlatan_class = _classFactoryFactory.CreateClass(CHARLATAN_CLASS_NAME,
                 CHARLATAN_CLASS, CHARLATAN_CLASS_DISPLAY_NAME, CHARLATAN_CLASS_DESCRIPTION);
 
-            var kineticist_class =
+            BlueprintCharacterClass kineticist_class =
                 _classesRepository.GetCharacterClass(PF_Classes.Identifier.CharacterClasses.KINETICIST);
-            var rouge_class = _classesRepository.GetCharacterClass(PF_Classes.Identifier.CharacterClasses.ROUGE);
+            BlueprintCharacterClass rouge_class = _classesRepository.GetCharacterClass(PF_Classes.Identifier.CharacterClasses.ROUGE);
 
             charlatan_class.m_Icon = kineticist_class.Icon;
             charlatan_class.EquipmentEntities = kineticist_class.EquipmentEntities;
@@ -96,7 +96,7 @@ namespace PF_Classes.Classes.Charlatan
         {
             _logger.Log("Create proficiencies");
 
-            BlueprintFeature charlatan_proficiencies = _featureFactory.createFeatureFrom(
+            BlueprintFeature charlatan_proficiencies = _featureFactory.CreateFeatureFrom(
                 CHARLATAN_PROFICIENCIES_NAME,
                 CHARLATAN_PROFICIENCIES,
                 Identifier.Features.BARD_PROFICIENCIES,
@@ -104,12 +104,12 @@ namespace PF_Classes.Classes.Charlatan
                 CHARLATAN_PROFICIENCIES_DESCRIPTION);
 
             charlatan_proficiencies.AddComponent(
-                _featureFactory.createAddFact(
-                    _featuresRepository.GetFeature(Features.WEAPON_PROFICIENCY_DUELLING_SWORD)));
+                _featureFactory.CreateAddFact(
+                    _featuresRepository.GetFeature(Features.WEAPON_PROFICIENCY_DUELING_SWORD)));
             charlatan_proficiencies.AddComponent(
-                _featureFactory.createAddFact(_featuresRepository.GetFeature(Features.WEAPON_PROFICIENCY_ESTOC)));
+                _featureFactory.CreateAddFact(_featuresRepository.GetFeature(Features.WEAPON_PROFICIENCY_ESTOC)));
             charlatan_proficiencies.AddComponent(
-                _featureFactory.createAddWeaponProficiencies(
+                _featureFactory.CreateAddWeaponProficiencies(
                     WeaponCategory.Longbow, WeaponCategory.Starknife)
             );
 
@@ -120,12 +120,13 @@ namespace PF_Classes.Classes.Charlatan
         private new BlueprintFeature Cantrips(BlueprintCharacterClass charlatan_class)
         {
             _logger.Log("Create cantrips");
-            BlueprintFeature charlatan_cantrips = _featureFactory.createCantrips(
+
+            BlueprintFeature charlatan_cantrips = _featureFactory.CreateCantrips(
                 "CharlatanCantrips",
+                CHARLATAN_CANTRIPS,
                 "Cantrips",
                 "Charlatans have cantrips ;-)",
                 _featuresRepository.GetFeature(Features.ARCANE_SCHOOL_ILLUSION_BLINDING_RAY).Icon,
-                CHARLATAN_CANTRIPS,
                 charlatan_class,
                 StatType.Intelligence,
                 charlatan_class.Spellbook.SpellList.SpellsByLevel[0].Spells.ToArray()
@@ -138,9 +139,10 @@ namespace PF_Classes.Classes.Charlatan
         private new BlueprintSpellbook Spellbook(BlueprintCharacterClass charlatan_class)
         {
             _logger.Log("Create spellbook");
-            var wizard_class = _classesRepository.GetCharacterClass(Identifier.CharacterClasses.WIZARD);
-            var bard_class = _classesRepository.GetCharacterClass(Identifier.CharacterClasses.BARD);
-            var ranger_class = _classesRepository.GetCharacterClass(Identifier.CharacterClasses.RANGER);
+
+            BlueprintCharacterClass wizard_class = _classesRepository.GetCharacterClass(Identifier.CharacterClasses.WIZARD);
+            BlueprintCharacterClass bard_class = _classesRepository.GetCharacterClass(Identifier.CharacterClasses.BARD);
+            BlueprintCharacterClass ranger_class = _classesRepository.GetCharacterClass(Identifier.CharacterClasses.RANGER);
 
             BlueprintSpellList charlatanSpellList =
                 _spellbookFactory.createSpellList("CharlatanSpellList", "8b4fc86d687646648c551a740718118c", 10);
@@ -170,16 +172,16 @@ namespace PF_Classes.Classes.Charlatan
             charlatanSpellList.SpellsByLevel[9].Spells.Add(_spellRepository.GetSpell(Spells.SUMMON_MONSTER_IX_BASE));
 
             BlueprintSpellList spellList = new SpellListFilter(wizard_class.Spellbook.SpellList)
-                .addSpellsFromList(bard_class.Spellbook.SpellList)
-                .addSpellsFromList(ranger_class.Spellbook.SpellList)
-                .excludeSpellsFromList(p => (
+                .AddSpellsFromList(bard_class.Spellbook.SpellList)
+                .AddSpellsFromList(ranger_class.Spellbook.SpellList)
+                .ExcludeSpellsFromList(p => (
                     p.School == SpellSchool.Conjuration
                     || p.School == SpellSchool.Evocation
                     || p.School == SpellSchool.Necromancy))
-                .addSpellsFromList(charlatanSpellList)
+                .AddSpellsFromList(charlatanSpellList)
                 .SpellSpellList;
 
-            BlueprintSpellbook spellbook = _spellbookFactory.createSpellbook(
+            BlueprintSpellbook spellbook = _spellbookFactory.CreateSpellbook(
                 CHARLATAN_SPELLBOOK_NAME,
                 CHARLATAN_SPELLBOOK,
                 charlatan_class,
@@ -188,19 +190,19 @@ namespace PF_Classes.Classes.Charlatan
                 true,
                 false,
                 StatType.Intelligence,
+                CantripsType.Cantrips,
                 SpellsKnown(),
                 SpellsPerDay(),
-                CantripsType.Cantrips,
                 spellList
             );
-            
+
             _logger.Log("DONE: Create spellbook");
             return spellbook;
         }
 
         private new BlueprintProgression Progession(BlueprintCharacterClass charlatan_class)
         {
-            BlueprintProgression charlatan_progression = _progressionFactory.createProgression(
+            BlueprintProgression charlatan_progression = _progressionFactory.CreateProgression(
                 CHARLATAN_PROGRESSION_NAME,
                 CHARLATAN_PROGRESSION, charlatan_class.Name,
                 charlatan_class.Description, charlatan_class.Icon, FeatureGroup.None, charlatan_class);
@@ -239,7 +241,7 @@ namespace PF_Classes.Classes.Charlatan
         {
             return new LevelEntry[]
             {
-                _levelEntryFactory.LevelEntry(1,
+                _levelEntryFactory.CreateLevelEntry(1,
                     _featuresRepository.GetFeature(CHARLATAN_PROFICIENCIES),
                     _featuresRepository.GetFeature(Features.COMMON_DETECT_MAGIC),
                     _featuresRepository.GetFeature(Features.COMMON_SNEAK_ATTACK),
@@ -249,76 +251,76 @@ namespace PF_Classes.Classes.Charlatan
                     _featuresRepository.GetFeature(Features.BARD_BARDIC_KNOWLEDGE),
                     _featuresRepository.GetFeature(CHARLATAN_CANTRIPS)
                 ),
-                _levelEntryFactory.LevelEntry(2,
+                _levelEntryFactory.CreateLevelEntry(2,
                     _featuresRepository.GetFeature(Features.COMMON_EVASION),
                     _featuresRepository.GetFeature(Features.ROUGE_TALENT),
                     _featuresRepository.GetFeature(Features.WIZARD_BONUS)
                 ),
-                _levelEntryFactory.LevelEntry(3,
+                _levelEntryFactory.CreateLevelEntry(3,
                     _featuresRepository.GetFeature(Features.ARCANE_SCHOOL_ILLUSION_BLINDING_RAY),
                     _featuresRepository.GetFeature(Features.INQUISITOR_TEAMWORK)
                 ),
-                _levelEntryFactory.LevelEntry(4,
+                _levelEntryFactory.CreateLevelEntry(4,
                     _featuresRepository.GetFeature(Features.COMMON_SNEAK_ATTACK),
                     _featuresRepository.GetFeature(Features.ROUGE_TALENT)
                 ),
-                _levelEntryFactory.LevelEntry(5,
+                _levelEntryFactory.CreateLevelEntry(5,
                     _featuresRepository.GetFeature(Features.COMMON_UNCANNY_DODGE)
                 ),
-                _levelEntryFactory.LevelEntry(6,
+                _levelEntryFactory.CreateLevelEntry(6,
                     _featuresRepository.GetFeature(Features.ROUGE_TALENT),
                     _featuresRepository.GetFeature(Features.WIZARD_BONUS),
                     _featuresRepository.GetFeature(Features.INQUISITOR_TEAMWORK)
                 ),
-                _levelEntryFactory.LevelEntry(7,
+                _levelEntryFactory.CreateLevelEntry(7,
                     _featuresRepository.GetFeature(Features.COMMON_SNEAK_ATTACK)
                 ),
-                _levelEntryFactory.LevelEntry(8,
+                _levelEntryFactory.CreateLevelEntry(8,
                     _featuresRepository.GetFeature(Features.ARCANE_SCHOOL_ILLUSION_INVISIBILITY_FIELD),
                     _featuresRepository.GetFeature(Features.ROUGE_TALENT)
                 ),
-                _levelEntryFactory.LevelEntry(9,
+                _levelEntryFactory.CreateLevelEntry(9,
                     _featuresRepository.GetFeature(Features.INQUISITOR_TEAMWORK)
                 ),
-                _levelEntryFactory.LevelEntry(10,
+                _levelEntryFactory.CreateLevelEntry(10,
                     _featuresRepository.GetFeature(Features.COMMON_SNEAK_ATTACK),
                     _featuresRepository.GetFeature(Features.ROUGE_TALENT),
                     _featuresRepository.GetFeature(Features.WIZARD_BONUS),
                     _featuresRepository.GetFeature(Features.COMMON_IMPROVED_EVASION),
                     _featuresRepository.GetFeature(Features.COMMON_ADVANCED_TALENTS)
                 ),
-                _levelEntryFactory.LevelEntry(11,
+                _levelEntryFactory.CreateLevelEntry(11,
                     _featuresRepository.GetFeature(Features.BARD_JACK_OF_ALL_TRADES)
                 ),
-                _levelEntryFactory.LevelEntry(12,
+                _levelEntryFactory.CreateLevelEntry(12,
                     _featuresRepository.GetFeature(Features.ROUGE_TALENT),
                     _featuresRepository.GetFeature(Features.INQUISITOR_TEAMWORK)
                 ),
-                _levelEntryFactory.LevelEntry(13,
+                _levelEntryFactory.CreateLevelEntry(13,
                     _featuresRepository.GetFeature(Features.ROUGE_IMPROVED_UNCANNY_DODGE),
                     _featuresRepository.GetFeature(Features.COMMON_SNEAK_ATTACK)
                 ),
-                _levelEntryFactory.LevelEntry(14,
+                _levelEntryFactory.CreateLevelEntry(14,
                     _featuresRepository.GetFeature(Features.ROUGE_TALENT),
                     _featuresRepository.GetFeature(Features.WIZARD_BONUS)
                 ),
-                _levelEntryFactory.LevelEntry(15,
+                _levelEntryFactory.CreateLevelEntry(15,
                     _featuresRepository.GetFeature(Features.INQUISITOR_TEAMWORK)
                 ),
-                _levelEntryFactory.LevelEntry(16,
+                _levelEntryFactory.CreateLevelEntry(16,
                     _featuresRepository.GetFeature(Features.COMMON_SNEAK_ATTACK),
                     _featuresRepository.GetFeature(Features.ROUGE_TALENT)
                 ),
-                _levelEntryFactory.LevelEntry(17),
-                _levelEntryFactory.LevelEntry(18,
+                _levelEntryFactory.CreateLevelEntry(17),
+                _levelEntryFactory.CreateLevelEntry(18,
                     _featuresRepository.GetFeature(Features.ROUGE_TALENT),
                     _featuresRepository.GetFeature(Features.WIZARD_BONUS),
                     _featuresRepository.GetFeature(Features.INQUISITOR_TEAMWORK)
                 ),
-                _levelEntryFactory.LevelEntry(19,
+                _levelEntryFactory.CreateLevelEntry(19,
                     _featuresRepository.GetFeature(Features.COMMON_SNEAK_ATTACK)
                 ),
-                _levelEntryFactory.LevelEntry(20,
+                _levelEntryFactory.CreateLevelEntry(20,
                     _featuresRepository.GetFeature(Features.ROUGE_TALENT)
                 )
             };

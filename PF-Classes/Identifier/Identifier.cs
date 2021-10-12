@@ -1,5 +1,4 @@
 using System;
-using System.CodeDom;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
@@ -19,7 +18,7 @@ namespace PF_Classes.Identifier
                 .Where(
                     fi => fi.IsLiteral && !fi.IsInitOnly && fi.FieldType == typeof(String))
                 .ToList();
-            
+
             _identifier = _constants.ToDictionary(fi => fi.Name, fi => (String)fi.GetRawConstantValue());
         }
 
@@ -27,7 +26,7 @@ namespace PF_Classes.Identifier
         {
             return _identifier[intentifier];
         }
-        
+
         public IReadOnlyDictionary<String, String> AllIdentifiers
         {
             get { return _identifier; }
