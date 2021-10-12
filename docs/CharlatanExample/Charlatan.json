@@ -1,0 +1,289 @@
+{
+  "Guid": "4da4a7d55cee43608a64babeb8d3ca73",
+  "Name": "CharlatanClass",
+  "DisplayName": "Charlatan",
+  "Description": "The charlatan is a jolly fellow who gets through life with a few tricks and a bit of magic. Only very rarely does a charlatan have to take up arms, in most cases she manages to get out of trouble through illusion or persuasion.",
+  "Icon": "ref:KINETICIST",
+  "EquipmentEntities": "ref:KINETICIST",
+  "MaleEquipmentEntities": "ref:KINETICIST",
+  "FemaleEquipmentEntities": "ref:KINETICIST",
+  "PrimaryColor": 0,
+  "SecondaryColor": 19,
+  "SkillPoints": 5,
+  "HitDie": "D8",
+  "BaseAttackBonus": "BAB_MEDIUM",
+  "FortitudeSave": "SAVES_HIGH",
+  "WillSave": "SAVES_LOW",
+  "ReflexSave": "SAVES_HIGH",
+  "IsDivineCaster": false,
+  "IsArcaneCaster": true,
+  "ComponentsArray": "ref:ROUGE",
+  "StartingGold": 100,
+  "StartingItems": "ref:ROUGE",
+  "Alignment": [
+    "NeutralGood",
+    "ChaoticGood",
+    "ChaoticNeutral",
+    "TrueNeutral"
+  ],
+  "ClassSkills": [
+    "Thievery",
+    "Stealth",
+    "KnowledgeArcana",
+    "KnowledgeWorld",
+    "Perception",
+    "Persuasion",
+    "UseMagicDevice"
+  ],
+  "RecommendedAttributes": [
+    "Dexterity",
+    "Intelligence",
+    "Charisma"
+  ],
+  "NotRecommendedAttributes": [],
+  "Progression": {
+    "Guid": "3106acb568bb47a0b3d11adc6c378c14",
+    "Name": "CharlatanProgression",
+    "LevelEntries": {
+      "1": [
+        "COMMON_DETECT_MAGIC",
+        "COMMON_SNEAK_ATTACK",
+        "ROUGE_WEAPON_FINESSE",
+        "ROUGE_TRAPFINDING",
+        "INQUISITOR_TACTICAL_LEADER_LEADERS_WORDS",
+        "BARD_BARDIC_KNOWLEDGE"
+      ],
+      "2": [
+        "COMMON_EVASION",
+        "ROUGE_TALENT",
+        "WIZARD_BONUS"
+      ],
+      "3": [
+        "ARCANE_SCHOOL_ILLUSION_BLINDING_RAY",
+        "INQUISITOR_TEAMWORK"
+      ],
+      "4": [
+        "COMMON_SNEAK_ATTACK",
+        "ROUGE_TALENT"
+      ],
+      "5": [
+        "COMMON_UNCANNY_DODGE"
+      ],
+      "6": [
+        "ROUGE_TALENT",
+        "WIZARD_BONUS",
+        "INQUISITOR_TEAMWORK"
+      ],
+      "7": [
+        "COMMON_SNEAK_ATTACK"
+      ],
+      "8": [
+        "ARCANE_SCHOOL_ILLUSION_INVISIBILITY_FIELD",
+        "ROUGE_TALENT"
+      ],
+      "9": [
+        "INQUISITOR_TEAMWORK"
+      ],
+      "10": [
+        "COMMON_SNEAK_ATTACK",
+        "ROUGE_TALENT",
+        "WIZARD_BONUS",
+        "COMMON_IMPROVED_EVASION",
+        "COMMON_ADVANCED_TALENTS"
+      ],
+      "11": [
+        "BARD_JACK_OF_ALL_TRADES"
+      ],
+      "12": [
+        "ROUGE_TALENT",
+        "INQUISITOR_TEAMWORK"
+      ],
+      "13": [
+        "ROUGE_IMPROVED_UNCANNY_DODGE",
+        "COMMON_SNEAK_ATTACK"
+      ],
+      "14": [
+        "ROUGE_TALENT",
+        "WIZARD_BONUS"
+      ],
+      "15": [
+        "INQUISITOR_TEAMWORK"
+      ],
+      "16": [
+        "COMMON_SNEAK_ATTACK",
+        "ROUGE_TALENT"
+      ],
+      "17": [
+      ],
+      "18": [
+        "ROUGE_TALENT",
+        "WIZARD_BONUS",
+        "INQUISITOR_TEAMWORK"
+      ],
+      "19": [
+        "COMMON_SNEAK_ATTACK"
+      ],
+      "20": [
+        "ROUGE_TALENT"
+      ]
+    },
+    "UiGroups": [
+      [
+        "ROUGE_TALENT"
+      ],[
+        "ARCANE_SCHOOL_ILLUSION_BLINDING_RAY",
+        "ARCANE_SCHOOL_ILLUSION_INVISIBILITY_FIELD",
+        "COMMON_ADVANCED_TALENTS"
+      ],[
+        "INQUISITOR_TACTICAL_LEADER_LEADERS_WORDS",
+        "INQUISITOR_TEAMWORK"
+      ],[
+        "BARD_BARDIC_KNOWLEDGE",
+        "BARD_JACK_OF_ALL_TRADES"
+      ],[
+        "COMMON_EVASION",
+        "COMMON_UNCANNY_DODGE",
+        "COMMON_IMPROVED_EVASION",
+        "ROUGE_IMPROVED_UNCANNY_DODGE"
+      ]
+    ],
+    "UiDeterminatorsGroup": [
+      "ROUGE_TRAPFINDING",
+      "ROUGE_WEAPON_FINESSE",
+      "COMMON_DETECT_MAGIC"
+    ]
+  },
+  "Proficiencies": {
+    "Guid": "6d817419f36c4ba7833466e434a7fbd9",
+    "Name": "CharlatanProficiencies",
+    "DisplayName": "Charlatan Proficiencies",
+    "Description": "Charlatans are skilled in the use of all simple weapons, short swords, long swords, dueling swords, rapiers, and short bows. They are proficient with light armour and shields.",
+    "from": "BARD_PROFICIENCIES",
+    "Add": {
+      "Features": [ "WEAPON_PROFICIENCY_DUELING_SWORD", "WEAPON_PROFICIENCY_ESTOC"],
+      "WeaponProficiencies": [ "Longbow", "Starknife" ]
+    }
+  },
+  "Cantrips": {
+    "Guid": "2464f9cfc5a34b608b5a9edb9c5f6e7b",
+    "Name": "CharlatanCantrips",
+    "DisplayName": "Cantrips",
+    "Description": "Charlatans have cantrips ;-)",
+    "Icon": "ref:ARCANE_SCHOOL_ILLUSION_BLINDING_RAY"
+  },
+  "Spellbook": {
+    "Guid": "0fc2fdfb15ec4abd888ef5a7b7e59003",
+    "Name": "CharlatanSpellbook",
+    "IsArcane": true,
+    "IsSpontaneous": true,
+    "CanCopyScrolls": false,
+    "AllSpellsKnown": false,
+    "CastingAttribute": "Intelligence",
+    "Cantrips": "Cantrips",
+    "SpellList": {
+      "Guid": "8b4fc86d687646648c551a740718118c",
+      "Name": "CharlatanSpellList",
+      "SpellsByLevel": {
+        "0": [
+          "CURE_LIGHT_WOUNDS_CAST"
+        ],
+        "1": [
+          "CURE_LIGHT_WOUNDS_CAST",
+          "SUMMON_MONSTER_I_SINGLE"
+        ],
+        "2": [
+          "CURE_MODERATE_WOUNDS_CAST",
+          "SUMMON_MONSTER_II_BASE",
+          "MAGE_ARMOR",
+          "DELAY_POISON"
+        ],
+        "3": [
+          "CURE_SERIOUS_WOUNDS_CAST",
+          "SUMMON_MONSTER_III_BASE",
+          "RESTORATION_LESSER"
+        ],
+        "4": [
+          "CURE_CRITICAL_WOUNDS_CAST",
+          "SUMMON_MONSTER_IV_BASE",
+          "DELAY_POISON_COMMUNAL"
+        ],
+        "5": [
+          "CURE_LIGHT_WOUNDS_MASS",
+          "SUMMON_MONSTER_V_BASE",
+          "RESTORATION"
+        ],
+        "6": [
+          "CURE_MODERATE_WOUNDS_MASS",
+          "SUMMON_MONSTER_VI_BASE",
+          "NEUTRALIZE_POISON"
+        ],
+        "7": [
+          "CURE_SERIOUS_WOUNDS_MASS",
+          "SUMMON_MONSTER_VII_BASE",
+          "RESTORATION_GREATER"
+        ],
+        "8": [
+          "CURE_CRITICAL_WOUNDS_MASS",
+          "SUMMON_MONSTER_VIII_BASE"
+        ],
+        "9": [
+          "SUMMON_MONSTER_IX_BASE"
+        ]
+      }
+    },
+    "SpellsKnown": {
+      "Name": "CharlatanSpellsKnown",
+      "Guid": "69b34210916a46fc8dd031950aa5d9b7",
+      "Table": {
+        "0": [0, 0],
+        "1": [0, 6],
+        "2": [0, 6],
+        "3": [0, 6, 2],
+        "4": [0, 6, 2],
+        "5": [0, 6, 2, 2],
+        "6": [0, 6, 2, 2],
+        "7": [0, 6, 4, 2, 2],
+        "8": [0, 6, 4, 2, 2],
+        "9": [0, 7, 4, 4, 2, 2],
+        "10": [0, 7, 4, 4, 2, 2],
+        "11": [0, 7, 6, 4, 4, 2, 2],
+        "12": [0, 7, 6, 4, 4, 2, 2],
+        "13": [0, 8, 6, 6, 4, 4, 2, 2],
+        "14": [0, 8, 6, 6, 4, 4, 2, 2],
+        "15": [0, 8, 7, 6, 6, 4, 4, 2, 2],
+        "16": [0, 8, 7, 6, 6, 4, 4, 2, 2],
+        "17": [0, 8, 7, 7, 6, 6, 4, 4, 2, 2],
+        "18": [0, 8, 7, 7, 6, 6, 4, 4, 4, 2],
+        "19": [0, 8, 8, 7, 7, 6, 6, 4, 4, 4],
+        "20": [0, 8, 8, 7, 7, 6, 6, 4, 4, 4]
+}
+    },
+    "SpellsPerDay": {
+      "Name": "CharlatanSpellsPerDay",
+      "Guid": "d9adb154906244f39fd7439a5f4d6ac2",
+      "Table": {
+        "0": [],
+        "1": [0, 3],
+        "2": [0, 4],
+        "3": [0, 5, 3],
+        "4": [0, 6, 4],
+        "5": [0, 6, 5, 3],
+        "6": [0, 6, 6, 4],
+        "7": [0, 6, 6, 5, 3],
+        "8": [0, 6, 6, 6, 4],
+        "9": [0, 6, 6, 6, 5, 3],
+        "10": [0, 6, 6, 6, 6, 4],
+        "11": [0, 6, 6, 6, 6, 5, 3],
+        "12": [0, 6, 6, 6, 6, 6, 4],
+        "13": [0, 6, 6, 6, 6, 6, 5, 3],
+        "14": [0, 6, 6, 6, 6, 6, 6, 4],
+        "15": [0, 6, 6, 6, 6, 6, 6, 5, 3],
+        "16": [0, 6, 6, 6, 6, 6, 6, 6, 4],
+        "17": [0, 6, 6, 6, 6, 6, 6, 6, 5, 3],
+        "18": [0, 6, 6, 6, 6, 6, 6, 6, 6, 4],
+        "19": [0, 6, 6, 6, 6, 6, 6, 6, 6, 5],
+        "20": [0, 6, 6, 6, 6, 6, 6, 6, 6, 6]
+      }
+    }
+  }
+}

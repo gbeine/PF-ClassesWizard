@@ -1,0 +1,2291 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "$id": "http://example.com/example.json",
+  "type": "object",
+  "title": "The root schema",
+  "description": "The root schema comprises the entire JSON document.",
+  "default": {},
+  "required": [
+    "Guid",
+    "Name",
+    "DisplayName",
+    "Description",
+    "Icon",
+    "EquipmentEntities",
+    "MaleEquipmentEntities",
+    "FemaleEquipmentEntities",
+    "PrimaryColor",
+    "SecondaryColor",
+    "SkillPoints",
+    "HitDie",
+    "BaseAttackBonus",
+    "FortitudeSave",
+    "WillSave",
+    "ReflexSave",
+    "IsDivineCaster",
+    "IsArcaneCaster",
+    "ComponentsArray",
+    "StartingGold",
+    "StartingItems",
+    "Alignment",
+    "ClassSkills",
+    "RecommendedAttributes",
+    "NotRecommendedAttributes",
+    "Progression",
+    "Proficiencies",
+    "Cantrips",
+    "Spellbook"
+  ],
+  "properties": {
+    "Guid": {
+      "$id": "#/properties/Guid",
+      "type": "string",
+      "title": "The Guid schema",
+      "description": "An explanation about the purpose of this instance.",
+      "default": ""
+    },
+    "Name": {
+      "$id": "#/properties/Name",
+      "type": "string",
+      "title": "The Name schema",
+      "description": "An explanation about the purpose of this instance.",
+      "default": ""
+    },
+    "DisplayName": {
+      "$id": "#/properties/DisplayName",
+      "type": "string",
+      "title": "The DisplayName schema",
+      "description": "An explanation about the purpose of this instance.",
+      "default": ""
+    },
+    "Description": {
+      "$id": "#/properties/Description",
+      "type": "string",
+      "title": "The Description schema",
+      "description": "An explanation about the purpose of this instance.",
+      "default": ""
+    },
+    "Icon": {
+      "$id": "#/properties/Icon",
+      "type": "string",
+      "title": "The Icon schema",
+      "description": "An explanation about the purpose of this instance.",
+      "default": ""
+    },
+    "EquipmentEntities": {
+      "$id": "#/properties/EquipmentEntities",
+      "type": "string",
+      "title": "The EquipmentEntities schema",
+      "description": "An explanation about the purpose of this instance.",
+      "default": ""
+    },
+    "MaleEquipmentEntities": {
+      "$id": "#/properties/MaleEquipmentEntities",
+      "type": "string",
+      "title": "The MaleEquipmentEntities schema",
+      "description": "An explanation about the purpose of this instance.",
+      "default": ""
+    },
+    "FemaleEquipmentEntities": {
+      "$id": "#/properties/FemaleEquipmentEntities",
+      "type": "string",
+      "title": "The FemaleEquipmentEntities schema",
+      "description": "An explanation about the purpose of this instance.",
+      "default": ""
+    },
+    "PrimaryColor": {
+      "$id": "#/properties/PrimaryColor",
+      "type": "integer",
+      "title": "The PrimaryColor schema",
+      "description": "An explanation about the purpose of this instance.",
+      "default": 0
+    },
+    "SecondaryColor": {
+      "$id": "#/properties/SecondaryColor",
+      "type": "integer",
+      "title": "The SecondaryColor schema",
+      "description": "An explanation about the purpose of this instance.",
+      "default": 0
+    },
+    "SkillPoints": {
+      "$id": "#/properties/SkillPoints",
+      "type": "integer",
+      "title": "The SkillPoints schema",
+      "description": "An explanation about the purpose of this instance.",
+      "default": 0
+    },
+    "HitDie": {
+      "$id": "#/properties/HitDie",
+      "type": "string",
+      "title": "The HitDie schema",
+      "description": "An explanation about the purpose of this instance.",
+      "default": ""
+    },
+    "BaseAttackBonus": {
+      "$id": "#/properties/BaseAttackBonus",
+      "type": "string",
+      "title": "The BaseAttackBonus schema",
+      "description": "An explanation about the purpose of this instance.",
+      "default": ""
+    },
+    "FortitudeSave": {
+      "$id": "#/properties/FortitudeSave",
+      "type": "string",
+      "title": "The FortitudeSave schema",
+      "description": "An explanation about the purpose of this instance.",
+      "default": ""
+    },
+    "WillSave": {
+      "$id": "#/properties/WillSave",
+      "type": "string",
+      "title": "The WillSave schema",
+      "description": "An explanation about the purpose of this instance.",
+      "default": ""
+    },
+    "ReflexSave": {
+      "$id": "#/properties/ReflexSave",
+      "type": "string",
+      "title": "The ReflexSave schema",
+      "description": "An explanation about the purpose of this instance.",
+      "default": ""
+    },
+    "IsDivineCaster": {
+      "$id": "#/properties/IsDivineCaster",
+      "type": "boolean",
+      "title": "The IsDivineCaster schema",
+      "description": "An explanation about the purpose of this instance.",
+      "default": false
+    },
+    "IsArcaneCaster": {
+      "$id": "#/properties/IsArcaneCaster",
+      "type": "boolean",
+      "title": "The IsArcaneCaster schema",
+      "description": "An explanation about the purpose of this instance.",
+      "default": false
+    },
+    "ComponentsArray": {
+      "$id": "#/properties/ComponentsArray",
+      "type": "string",
+      "title": "The ComponentsArray schema",
+      "description": "An explanation about the purpose of this instance.",
+      "default": ""
+    },
+    "StartingGold": {
+      "$id": "#/properties/StartingGold",
+      "type": "integer",
+      "title": "The StartingGold schema",
+      "description": "An explanation about the purpose of this instance.",
+      "default": 0
+    },
+    "StartingItems": {
+      "$id": "#/properties/StartingItems",
+      "type": "string",
+      "title": "The StartingItems schema",
+      "description": "An explanation about the purpose of this instance.",
+      "default": ""
+    },
+    "Alignment": {
+      "$id": "#/properties/Alignment",
+      "type": "array",
+      "title": "The Alignment schema",
+      "description": "An explanation about the purpose of this instance.",
+      "default": [],
+      "additionalItems": true,
+      "items": {
+        "$id": "#/properties/Alignment/items",
+        "anyOf": [
+          {
+            "$id": "#/properties/Alignment/items/anyOf/0",
+            "type": "string",
+            "title": "The first anyOf schema",
+            "description": "An explanation about the purpose of this instance.",
+            "default": ""
+          }
+        ]
+      }
+    },
+    "ClassSkills": {
+      "$id": "#/properties/ClassSkills",
+      "type": "array",
+      "title": "The ClassSkills schema",
+      "description": "An explanation about the purpose of this instance.",
+      "default": [],
+      "additionalItems": true,
+      "items": {
+        "$id": "#/properties/ClassSkills/items",
+        "anyOf": [
+          {
+            "$id": "#/properties/ClassSkills/items/anyOf/0",
+            "type": "string",
+            "title": "The first anyOf schema",
+            "description": "An explanation about the purpose of this instance.",
+            "default": ""
+          }
+        ]
+      }
+    },
+    "RecommendedAttributes": {
+      "$id": "#/properties/RecommendedAttributes",
+      "type": "array",
+      "title": "The RecommendedAttributes schema",
+      "description": "An explanation about the purpose of this instance.",
+      "default": [],
+      "additionalItems": true,
+      "items": {
+        "$id": "#/properties/RecommendedAttributes/items",
+        "anyOf": [
+          {
+            "$id": "#/properties/RecommendedAttributes/items/anyOf/0",
+            "type": "string",
+            "title": "The first anyOf schema",
+            "description": "An explanation about the purpose of this instance.",
+            "default": ""
+          }
+        ]
+      }
+    },
+    "NotRecommendedAttributes": {
+      "$id": "#/properties/NotRecommendedAttributes",
+      "type": "array",
+      "title": "The NotRecommendedAttributes schema",
+      "description": "An explanation about the purpose of this instance.",
+      "default": [],
+      "additionalItems": true,
+      "items": {
+        "$id": "#/properties/NotRecommendedAttributes/items"
+      }
+    },
+    "Progression": {
+      "$id": "#/properties/Progression",
+      "type": "object",
+      "title": "The Progression schema",
+      "description": "An explanation about the purpose of this instance.",
+      "default": {},
+      "required": [
+        "Guid",
+        "Name",
+        "LevelEntries",
+        "UiGroups",
+        "UiDeterminatorsGroup"
+      ],
+      "properties": {
+        "Guid": {
+          "$id": "#/properties/Progression/properties/Guid",
+          "type": "string",
+          "title": "The Guid schema",
+          "description": "An explanation about the purpose of this instance.",
+          "default": ""
+        },
+        "Name": {
+          "$id": "#/properties/Progression/properties/Name",
+          "type": "string",
+          "title": "The Name schema",
+          "description": "An explanation about the purpose of this instance.",
+          "default": ""
+        },
+        "LevelEntries": {
+          "$id": "#/properties/Progression/properties/LevelEntries",
+          "type": "object",
+          "title": "The LevelEntries schema",
+          "description": "An explanation about the purpose of this instance.",
+          "default": {},
+          "required": [
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8",
+            "9",
+            "10",
+            "11",
+            "12",
+            "13",
+            "14",
+            "15",
+            "16",
+            "17",
+            "18",
+            "19",
+            "20"
+          ],
+          "properties": {
+            "1": {
+              "$id": "#/properties/Progression/properties/LevelEntries/properties/1",
+              "type": "array",
+              "title": "The 1 schema",
+              "description": "An explanation about the purpose of this instance.",
+              "default": [],
+              "additionalItems": true,
+              "items": {
+                "$id": "#/properties/Progression/properties/LevelEntries/properties/1/items",
+                "anyOf": [
+                  {
+                    "$id": "#/properties/Progression/properties/LevelEntries/properties/1/items/anyOf/0",
+                    "type": "string",
+                    "title": "The first anyOf schema",
+                    "description": "An explanation about the purpose of this instance.",
+                    "default": ""
+                  }
+                ]
+              }
+            },
+            "2": {
+              "$id": "#/properties/Progression/properties/LevelEntries/properties/2",
+              "type": "array",
+              "title": "The 2 schema",
+              "description": "An explanation about the purpose of this instance.",
+              "default": [],
+              "additionalItems": true,
+              "items": {
+                "$id": "#/properties/Progression/properties/LevelEntries/properties/2/items",
+                "anyOf": [
+                  {
+                    "$id": "#/properties/Progression/properties/LevelEntries/properties/2/items/anyOf/0",
+                    "type": "string",
+                    "title": "The first anyOf schema",
+                    "description": "An explanation about the purpose of this instance.",
+                    "default": ""
+                  }
+                ]
+              }
+            },
+            "3": {
+              "$id": "#/properties/Progression/properties/LevelEntries/properties/3",
+              "type": "array",
+              "title": "The 3 schema",
+              "description": "An explanation about the purpose of this instance.",
+              "default": [],
+              "additionalItems": true,
+              "items": {
+                "$id": "#/properties/Progression/properties/LevelEntries/properties/3/items",
+                "anyOf": [
+                  {
+                    "$id": "#/properties/Progression/properties/LevelEntries/properties/3/items/anyOf/0",
+                    "type": "string",
+                    "title": "The first anyOf schema",
+                    "description": "An explanation about the purpose of this instance.",
+                    "default": ""
+                  }
+                ]
+              }
+            },
+            "4": {
+              "$id": "#/properties/Progression/properties/LevelEntries/properties/4",
+              "type": "array",
+              "title": "The 4 schema",
+              "description": "An explanation about the purpose of this instance.",
+              "default": [],
+              "additionalItems": true,
+              "items": {
+                "$id": "#/properties/Progression/properties/LevelEntries/properties/4/items",
+                "anyOf": [
+                  {
+                    "$id": "#/properties/Progression/properties/LevelEntries/properties/4/items/anyOf/0",
+                    "type": "string",
+                    "title": "The first anyOf schema",
+                    "description": "An explanation about the purpose of this instance.",
+                    "default": ""
+                  }
+                ]
+              }
+            },
+            "5": {
+              "$id": "#/properties/Progression/properties/LevelEntries/properties/5",
+              "type": "array",
+              "title": "The 5 schema",
+              "description": "An explanation about the purpose of this instance.",
+              "default": [],
+              "additionalItems": true,
+              "items": {
+                "$id": "#/properties/Progression/properties/LevelEntries/properties/5/items",
+                "anyOf": [
+                  {
+                    "$id": "#/properties/Progression/properties/LevelEntries/properties/5/items/anyOf/0",
+                    "type": "string",
+                    "title": "The first anyOf schema",
+                    "description": "An explanation about the purpose of this instance.",
+                    "default": ""
+                  }
+                ]
+              }
+            },
+            "6": {
+              "$id": "#/properties/Progression/properties/LevelEntries/properties/6",
+              "type": "array",
+              "title": "The 6 schema",
+              "description": "An explanation about the purpose of this instance.",
+              "default": [],
+              "additionalItems": true,
+              "items": {
+                "$id": "#/properties/Progression/properties/LevelEntries/properties/6/items",
+                "anyOf": [
+                  {
+                    "$id": "#/properties/Progression/properties/LevelEntries/properties/6/items/anyOf/0",
+                    "type": "string",
+                    "title": "The first anyOf schema",
+                    "description": "An explanation about the purpose of this instance.",
+                    "default": ""
+                  }
+                ]
+              }
+            },
+            "7": {
+              "$id": "#/properties/Progression/properties/LevelEntries/properties/7",
+              "type": "array",
+              "title": "The 7 schema",
+              "description": "An explanation about the purpose of this instance.",
+              "default": [],
+              "additionalItems": true,
+              "items": {
+                "$id": "#/properties/Progression/properties/LevelEntries/properties/7/items",
+                "anyOf": [
+                  {
+                    "$id": "#/properties/Progression/properties/LevelEntries/properties/7/items/anyOf/0",
+                    "type": "string",
+                    "title": "The first anyOf schema",
+                    "description": "An explanation about the purpose of this instance.",
+                    "default": ""
+                  }
+                ]
+              }
+            },
+            "8": {
+              "$id": "#/properties/Progression/properties/LevelEntries/properties/8",
+              "type": "array",
+              "title": "The 8 schema",
+              "description": "An explanation about the purpose of this instance.",
+              "default": [],
+              "additionalItems": true,
+              "items": {
+                "$id": "#/properties/Progression/properties/LevelEntries/properties/8/items",
+                "anyOf": [
+                  {
+                    "$id": "#/properties/Progression/properties/LevelEntries/properties/8/items/anyOf/0",
+                    "type": "string",
+                    "title": "The first anyOf schema",
+                    "description": "An explanation about the purpose of this instance.",
+                    "default": ""
+                  }
+                ]
+              }
+            },
+            "9": {
+              "$id": "#/properties/Progression/properties/LevelEntries/properties/9",
+              "type": "array",
+              "title": "The 9 schema",
+              "description": "An explanation about the purpose of this instance.",
+              "default": [],
+              "additionalItems": true,
+              "items": {
+                "$id": "#/properties/Progression/properties/LevelEntries/properties/9/items",
+                "anyOf": [
+                  {
+                    "$id": "#/properties/Progression/properties/LevelEntries/properties/9/items/anyOf/0",
+                    "type": "string",
+                    "title": "The first anyOf schema",
+                    "description": "An explanation about the purpose of this instance.",
+                    "default": ""
+                  }
+                ]
+              }
+            },
+            "10": {
+              "$id": "#/properties/Progression/properties/LevelEntries/properties/10",
+              "type": "array",
+              "title": "The 10 schema",
+              "description": "An explanation about the purpose of this instance.",
+              "default": [],
+              "additionalItems": true,
+              "items": {
+                "$id": "#/properties/Progression/properties/LevelEntries/properties/10/items",
+                "anyOf": [
+                  {
+                    "$id": "#/properties/Progression/properties/LevelEntries/properties/10/items/anyOf/0",
+                    "type": "string",
+                    "title": "The first anyOf schema",
+                    "description": "An explanation about the purpose of this instance.",
+                    "default": ""
+                  }
+                ]
+              }
+            },
+            "11": {
+              "$id": "#/properties/Progression/properties/LevelEntries/properties/11",
+              "type": "array",
+              "title": "The 11 schema",
+              "description": "An explanation about the purpose of this instance.",
+              "default": [],
+              "additionalItems": true,
+              "items": {
+                "$id": "#/properties/Progression/properties/LevelEntries/properties/11/items",
+                "anyOf": [
+                  {
+                    "$id": "#/properties/Progression/properties/LevelEntries/properties/11/items/anyOf/0",
+                    "type": "string",
+                    "title": "The first anyOf schema",
+                    "description": "An explanation about the purpose of this instance.",
+                    "default": ""
+                  }
+                ]
+              }
+            },
+            "12": {
+              "$id": "#/properties/Progression/properties/LevelEntries/properties/12",
+              "type": "array",
+              "title": "The 12 schema",
+              "description": "An explanation about the purpose of this instance.",
+              "default": [],
+              "additionalItems": true,
+              "items": {
+                "$id": "#/properties/Progression/properties/LevelEntries/properties/12/items",
+                "anyOf": [
+                  {
+                    "$id": "#/properties/Progression/properties/LevelEntries/properties/12/items/anyOf/0",
+                    "type": "string",
+                    "title": "The first anyOf schema",
+                    "description": "An explanation about the purpose of this instance.",
+                    "default": ""
+                  }
+                ]
+              }
+            },
+            "13": {
+              "$id": "#/properties/Progression/properties/LevelEntries/properties/13",
+              "type": "array",
+              "title": "The 13 schema",
+              "description": "An explanation about the purpose of this instance.",
+              "default": [],
+              "additionalItems": true,
+              "items": {
+                "$id": "#/properties/Progression/properties/LevelEntries/properties/13/items",
+                "anyOf": [
+                  {
+                    "$id": "#/properties/Progression/properties/LevelEntries/properties/13/items/anyOf/0",
+                    "type": "string",
+                    "title": "The first anyOf schema",
+                    "description": "An explanation about the purpose of this instance.",
+                    "default": ""
+                  }
+                ]
+              }
+            },
+            "14": {
+              "$id": "#/properties/Progression/properties/LevelEntries/properties/14",
+              "type": "array",
+              "title": "The 14 schema",
+              "description": "An explanation about the purpose of this instance.",
+              "default": [],
+              "additionalItems": true,
+              "items": {
+                "$id": "#/properties/Progression/properties/LevelEntries/properties/14/items",
+                "anyOf": [
+                  {
+                    "$id": "#/properties/Progression/properties/LevelEntries/properties/14/items/anyOf/0",
+                    "type": "string",
+                    "title": "The first anyOf schema",
+                    "description": "An explanation about the purpose of this instance.",
+                    "default": ""
+                  }
+                ]
+              }
+            },
+            "15": {
+              "$id": "#/properties/Progression/properties/LevelEntries/properties/15",
+              "type": "array",
+              "title": "The 15 schema",
+              "description": "An explanation about the purpose of this instance.",
+              "default": [],
+              "additionalItems": true,
+              "items": {
+                "$id": "#/properties/Progression/properties/LevelEntries/properties/15/items",
+                "anyOf": [
+                  {
+                    "$id": "#/properties/Progression/properties/LevelEntries/properties/15/items/anyOf/0",
+                    "type": "string",
+                    "title": "The first anyOf schema",
+                    "description": "An explanation about the purpose of this instance.",
+                    "default": ""
+                  }
+                ]
+              }
+            },
+            "16": {
+              "$id": "#/properties/Progression/properties/LevelEntries/properties/16",
+              "type": "array",
+              "title": "The 16 schema",
+              "description": "An explanation about the purpose of this instance.",
+              "default": [],
+              "additionalItems": true,
+              "items": {
+                "$id": "#/properties/Progression/properties/LevelEntries/properties/16/items",
+                "anyOf": [
+                  {
+                    "$id": "#/properties/Progression/properties/LevelEntries/properties/16/items/anyOf/0",
+                    "type": "string",
+                    "title": "The first anyOf schema",
+                    "description": "An explanation about the purpose of this instance.",
+                    "default": ""
+                  }
+                ]
+              }
+            },
+            "17": {
+              "$id": "#/properties/Progression/properties/LevelEntries/properties/17",
+              "type": "array",
+              "title": "The 17 schema",
+              "description": "An explanation about the purpose of this instance.",
+              "default": [],
+              "additionalItems": true,
+              "items": {
+                "$id": "#/properties/Progression/properties/LevelEntries/properties/17/items"
+              }
+            },
+            "18": {
+              "$id": "#/properties/Progression/properties/LevelEntries/properties/18",
+              "type": "array",
+              "title": "The 18 schema",
+              "description": "An explanation about the purpose of this instance.",
+              "default": [],
+              "additionalItems": true,
+              "items": {
+                "$id": "#/properties/Progression/properties/LevelEntries/properties/18/items",
+                "anyOf": [
+                  {
+                    "$id": "#/properties/Progression/properties/LevelEntries/properties/18/items/anyOf/0",
+                    "type": "string",
+                    "title": "The first anyOf schema",
+                    "description": "An explanation about the purpose of this instance.",
+                    "default": ""
+                  }
+                ]
+              }
+            },
+            "19": {
+              "$id": "#/properties/Progression/properties/LevelEntries/properties/19",
+              "type": "array",
+              "title": "The 19 schema",
+              "description": "An explanation about the purpose of this instance.",
+              "default": [],
+              "additionalItems": true,
+              "items": {
+                "$id": "#/properties/Progression/properties/LevelEntries/properties/19/items",
+                "anyOf": [
+                  {
+                    "$id": "#/properties/Progression/properties/LevelEntries/properties/19/items/anyOf/0",
+                    "type": "string",
+                    "title": "The first anyOf schema",
+                    "description": "An explanation about the purpose of this instance.",
+                    "default": ""
+                  }
+                ]
+              }
+            },
+            "20": {
+              "$id": "#/properties/Progression/properties/LevelEntries/properties/20",
+              "type": "array",
+              "title": "The 20 schema",
+              "description": "An explanation about the purpose of this instance.",
+              "default": [],
+              "additionalItems": true,
+              "items": {
+                "$id": "#/properties/Progression/properties/LevelEntries/properties/20/items",
+                "anyOf": [
+                  {
+                    "$id": "#/properties/Progression/properties/LevelEntries/properties/20/items/anyOf/0",
+                    "type": "string",
+                    "title": "The first anyOf schema",
+                    "description": "An explanation about the purpose of this instance.",
+                    "default": ""
+                  }
+                ]
+              }
+            }
+          },
+          "additionalProperties": true
+        },
+        "UiGroups": {
+          "$id": "#/properties/Progression/properties/UiGroups",
+          "type": "array",
+          "title": "The UiGroups schema",
+          "description": "An explanation about the purpose of this instance.",
+          "default": [],
+          "additionalItems": true,
+          "items": {
+            "$id": "#/properties/Progression/properties/UiGroups/items",
+            "anyOf": [
+              {
+                "$id": "#/properties/Progression/properties/UiGroups/items/anyOf/0",
+                "type": "array",
+                "title": "The first anyOf schema",
+                "description": "An explanation about the purpose of this instance.",
+                "default": [],
+                "additionalItems": true,
+                "items": {
+                  "$id": "#/properties/Progression/properties/UiGroups/items/anyOf/0/items",
+                  "anyOf": [
+                    {
+                      "$id": "#/properties/Progression/properties/UiGroups/items/anyOf/0/items/anyOf/0",
+                      "type": "string",
+                      "title": "The first anyOf schema",
+                      "description": "An explanation about the purpose of this instance.",
+                      "default": ""
+                    }
+                  ]
+                }
+              },
+              {
+                "$id": "#/properties/Progression/properties/UiGroups/items/anyOf/1",
+                "type": "array",
+                "title": "The second anyOf schema",
+                "description": "An explanation about the purpose of this instance.",
+                "default": [],
+                "additionalItems": true,
+                "items": {
+                  "$id": "#/properties/Progression/properties/UiGroups/items/anyOf/1/items",
+                  "anyOf": [
+                    {
+                      "$id": "#/properties/Progression/properties/UiGroups/items/anyOf/1/items/anyOf/0",
+                      "type": "string",
+                      "title": "The first anyOf schema",
+                      "description": "An explanation about the purpose of this instance.",
+                      "default": ""
+                    }
+                  ]
+                }
+              },
+              {
+                "$id": "#/properties/Progression/properties/UiGroups/items/anyOf/2",
+                "type": "array",
+                "title": "The third anyOf schema",
+                "description": "An explanation about the purpose of this instance.",
+                "default": [],
+                "additionalItems": true,
+                "items": {
+                  "$id": "#/properties/Progression/properties/UiGroups/items/anyOf/2/items",
+                  "anyOf": [
+                    {
+                      "$id": "#/properties/Progression/properties/UiGroups/items/anyOf/2/items/anyOf/0",
+                      "type": "string",
+                      "title": "The first anyOf schema",
+                      "description": "An explanation about the purpose of this instance.",
+                      "default": ""
+                    }
+                  ]
+                }
+              },
+              {
+                "$id": "#/properties/Progression/properties/UiGroups/items/anyOf/3",
+                "type": "array",
+                "title": "The fourth anyOf schema",
+                "description": "An explanation about the purpose of this instance.",
+                "default": [],
+                "additionalItems": true,
+                "items": {
+                  "$id": "#/properties/Progression/properties/UiGroups/items/anyOf/3/items",
+                  "anyOf": [
+                    {
+                      "$id": "#/properties/Progression/properties/UiGroups/items/anyOf/3/items/anyOf/0",
+                      "type": "string",
+                      "title": "The first anyOf schema",
+                      "description": "An explanation about the purpose of this instance.",
+                      "default": ""
+                    }
+                  ]
+                }
+              },
+              {
+                "$id": "#/properties/Progression/properties/UiGroups/items/anyOf/4",
+                "type": "array",
+                "title": "The fifth anyOf schema",
+                "description": "An explanation about the purpose of this instance.",
+                "default": [],
+                "additionalItems": true,
+                "items": {
+                  "$id": "#/properties/Progression/properties/UiGroups/items/anyOf/4/items",
+                  "anyOf": [
+                    {
+                      "$id": "#/properties/Progression/properties/UiGroups/items/anyOf/4/items/anyOf/0",
+                      "type": "string",
+                      "title": "The first anyOf schema",
+                      "description": "An explanation about the purpose of this instance.",
+                      "default": ""
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        "UiDeterminatorsGroup": {
+          "$id": "#/properties/Progression/properties/UiDeterminatorsGroup",
+          "type": "array",
+          "title": "The UiDeterminatorsGroup schema",
+          "description": "An explanation about the purpose of this instance.",
+          "default": [],
+          "additionalItems": true,
+          "items": {
+            "$id": "#/properties/Progression/properties/UiDeterminatorsGroup/items",
+            "anyOf": [
+              {
+                "$id": "#/properties/Progression/properties/UiDeterminatorsGroup/items/anyOf/0",
+                "type": "string",
+                "title": "The first anyOf schema",
+                "description": "An explanation about the purpose of this instance.",
+                "default": ""
+              }
+            ]
+          }
+        }
+      },
+      "additionalProperties": true
+    },
+    "Proficiencies": {
+      "$id": "#/properties/Proficiencies",
+      "type": "object",
+      "title": "The Proficiencies schema",
+      "description": "An explanation about the purpose of this instance.",
+      "default": {},
+      "required": [
+        "Guid",
+        "Name",
+        "DisplayName",
+        "Description",
+        "from",
+        "Add"
+      ],
+      "properties": {
+        "Guid": {
+          "$id": "#/properties/Proficiencies/properties/Guid",
+          "type": "string",
+          "title": "The Guid schema",
+          "description": "An explanation about the purpose of this instance.",
+          "default": ""
+        },
+        "Name": {
+          "$id": "#/properties/Proficiencies/properties/Name",
+          "type": "string",
+          "title": "The Name schema",
+          "description": "An explanation about the purpose of this instance.",
+          "default": ""
+        },
+        "DisplayName": {
+          "$id": "#/properties/Proficiencies/properties/DisplayName",
+          "type": "string",
+          "title": "The DisplayName schema",
+          "description": "An explanation about the purpose of this instance.",
+          "default": ""
+        },
+        "Description": {
+          "$id": "#/properties/Proficiencies/properties/Description",
+          "type": "string",
+          "title": "The Description schema",
+          "description": "An explanation about the purpose of this instance.",
+          "default": ""
+        },
+        "from": {
+          "$id": "#/properties/Proficiencies/properties/from",
+          "type": "string",
+          "title": "The from schema",
+          "description": "An explanation about the purpose of this instance.",
+          "default": ""
+        },
+        "Add": {
+          "$id": "#/properties/Proficiencies/properties/Add",
+          "type": "object",
+          "title": "The Add schema",
+          "description": "An explanation about the purpose of this instance.",
+          "default": {},
+          "required": [
+            "Features",
+            "WeaponProficiencies"
+          ],
+          "properties": {
+            "Features": {
+              "$id": "#/properties/Proficiencies/properties/Add/properties/Features",
+              "type": "array",
+              "title": "The Features schema",
+              "description": "An explanation about the purpose of this instance.",
+              "default": [],
+              "additionalItems": true,
+              "items": {
+                "$id": "#/properties/Proficiencies/properties/Add/properties/Features/items",
+                "anyOf": [
+                  {
+                    "$id": "#/properties/Proficiencies/properties/Add/properties/Features/items/anyOf/0",
+                    "type": "string",
+                    "title": "The first anyOf schema",
+                    "description": "An explanation about the purpose of this instance.",
+                    "default": ""
+                  }
+                ]
+              }
+            },
+            "WeaponProficiencies": {
+              "$id": "#/properties/Proficiencies/properties/Add/properties/WeaponProficiencies",
+              "type": "array",
+              "title": "The WeaponProficiencies schema",
+              "description": "An explanation about the purpose of this instance.",
+              "default": [],
+              "additionalItems": true,
+              "items": {
+                "$id": "#/properties/Proficiencies/properties/Add/properties/WeaponProficiencies/items",
+                "anyOf": [
+                  {
+                    "$id": "#/properties/Proficiencies/properties/Add/properties/WeaponProficiencies/items/anyOf/0",
+                    "type": "string",
+                    "title": "The first anyOf schema",
+                    "description": "An explanation about the purpose of this instance.",
+                    "default": ""
+                  }
+                ]
+              }
+            }
+          },
+          "additionalProperties": true
+        }
+      },
+      "additionalProperties": true
+    },
+    "Cantrips": {
+      "$id": "#/properties/Cantrips",
+      "type": "object",
+      "title": "The Cantrips schema",
+      "description": "An explanation about the purpose of this instance.",
+      "default": {},
+      "required": [
+        "Guid",
+        "Name",
+        "DisplayName",
+        "Description",
+        "Icon"
+      ],
+      "properties": {
+        "Guid": {
+          "$id": "#/properties/Cantrips/properties/Guid",
+          "type": "string",
+          "title": "The Guid schema",
+          "description": "An explanation about the purpose of this instance.",
+          "default": ""
+        },
+        "Name": {
+          "$id": "#/properties/Cantrips/properties/Name",
+          "type": "string",
+          "title": "The Name schema",
+          "description": "An explanation about the purpose of this instance.",
+          "default": ""
+        },
+        "DisplayName": {
+          "$id": "#/properties/Cantrips/properties/DisplayName",
+          "type": "string",
+          "title": "The DisplayName schema",
+          "description": "An explanation about the purpose of this instance.",
+          "default": ""
+        },
+        "Description": {
+          "$id": "#/properties/Cantrips/properties/Description",
+          "type": "string",
+          "title": "The Description schema",
+          "description": "An explanation about the purpose of this instance.",
+          "default": ""
+        },
+        "Icon": {
+          "$id": "#/properties/Cantrips/properties/Icon",
+          "type": "string",
+          "title": "The Icon schema",
+          "description": "An explanation about the purpose of this instance.",
+          "default": ""
+        }
+      },
+      "additionalProperties": true
+    },
+    "Spellbook": {
+      "$id": "#/properties/Spellbook",
+      "type": "object",
+      "title": "The Spellbook schema",
+      "description": "An explanation about the purpose of this instance.",
+      "default": {},
+      "required": [
+        "Guid",
+        "Name",
+        "IsArcane",
+        "IsSpontaneous",
+        "CanCopyScrolls",
+        "AllSpellsKnown",
+        "CastingAttribute",
+        "Cantrips",
+        "SpellList",
+        "SpellsKnown",
+        "SpellsPerDay"
+      ],
+      "properties": {
+        "Guid": {
+          "$id": "#/properties/Spellbook/properties/Guid",
+          "type": "string",
+          "title": "The Guid schema",
+          "description": "An explanation about the purpose of this instance.",
+          "default": ""
+        },
+        "Name": {
+          "$id": "#/properties/Spellbook/properties/Name",
+          "type": "string",
+          "title": "The Name schema",
+          "description": "An explanation about the purpose of this instance.",
+          "default": ""
+        },
+        "IsArcane": {
+          "$id": "#/properties/Spellbook/properties/IsArcane",
+          "type": "boolean",
+          "title": "The IsArcane schema",
+          "description": "An explanation about the purpose of this instance.",
+          "default": false
+        },
+        "IsSpontaneous": {
+          "$id": "#/properties/Spellbook/properties/IsSpontaneous",
+          "type": "boolean",
+          "title": "The IsSpontaneous schema",
+          "description": "An explanation about the purpose of this instance.",
+          "default": false
+        },
+        "CanCopyScrolls": {
+          "$id": "#/properties/Spellbook/properties/CanCopyScrolls",
+          "type": "boolean",
+          "title": "The CanCopyScrolls schema",
+          "description": "An explanation about the purpose of this instance.",
+          "default": false
+        },
+        "AllSpellsKnown": {
+          "$id": "#/properties/Spellbook/properties/AllSpellsKnown",
+          "type": "boolean",
+          "title": "The AllSpellsKnown schema",
+          "description": "An explanation about the purpose of this instance.",
+          "default": false
+        },
+        "CastingAttribute": {
+          "$id": "#/properties/Spellbook/properties/CastingAttribute",
+          "type": "string",
+          "title": "The CastingAttribute schema",
+          "description": "An explanation about the purpose of this instance.",
+          "default": ""
+        },
+        "Cantrips": {
+          "$id": "#/properties/Spellbook/properties/Cantrips",
+          "type": "string",
+          "title": "The Cantrips schema",
+          "description": "An explanation about the purpose of this instance.",
+          "default": ""
+        },
+        "SpellList": {
+          "$id": "#/properties/Spellbook/properties/SpellList",
+          "type": "object",
+          "title": "The SpellList schema",
+          "description": "An explanation about the purpose of this instance.",
+          "default": {},
+          "required": [
+            "Guid",
+            "Name",
+            "SpellsByLevel"
+          ],
+          "properties": {
+            "Guid": {
+              "$id": "#/properties/Spellbook/properties/SpellList/properties/Guid",
+              "type": "string",
+              "title": "The Guid schema",
+              "description": "An explanation about the purpose of this instance.",
+              "default": ""
+            },
+            "Name": {
+              "$id": "#/properties/Spellbook/properties/SpellList/properties/Name",
+              "type": "string",
+              "title": "The Name schema",
+              "description": "An explanation about the purpose of this instance.",
+              "default": ""
+            },
+            "SpellsByLevel": {
+              "$id": "#/properties/Spellbook/properties/SpellList/properties/SpellsByLevel",
+              "type": "object",
+              "title": "The SpellsByLevel schema",
+              "description": "An explanation about the purpose of this instance.",
+              "default": {},
+              "required": [
+                "0",
+                "1",
+                "2",
+                "3",
+                "4",
+                "5",
+                "6",
+                "7",
+                "8",
+                "9"
+              ],
+              "properties": {
+                "0": {
+                  "$id": "#/properties/Spellbook/properties/SpellList/properties/SpellsByLevel/properties/0",
+                  "type": "array",
+                  "title": "The 0 schema",
+                  "description": "An explanation about the purpose of this instance.",
+                  "default": [],
+                  "additionalItems": true,
+                  "items": {
+                    "$id": "#/properties/Spellbook/properties/SpellList/properties/SpellsByLevel/properties/0/items",
+                    "anyOf": [
+                      {
+                        "$id": "#/properties/Spellbook/properties/SpellList/properties/SpellsByLevel/properties/0/items/anyOf/0",
+                        "type": "string",
+                        "title": "The first anyOf schema",
+                        "description": "An explanation about the purpose of this instance.",
+                        "default": ""
+                      }
+                    ]
+                  }
+                },
+                "1": {
+                  "$id": "#/properties/Spellbook/properties/SpellList/properties/SpellsByLevel/properties/1",
+                  "type": "array",
+                  "title": "The 1 schema",
+                  "description": "An explanation about the purpose of this instance.",
+                  "default": [],
+                  "additionalItems": true,
+                  "items": {
+                    "$id": "#/properties/Spellbook/properties/SpellList/properties/SpellsByLevel/properties/1/items",
+                    "anyOf": [
+                      {
+                        "$id": "#/properties/Spellbook/properties/SpellList/properties/SpellsByLevel/properties/1/items/anyOf/0",
+                        "type": "string",
+                        "title": "The first anyOf schema",
+                        "description": "An explanation about the purpose of this instance.",
+                        "default": ""
+                      }
+                    ]
+                  }
+                },
+                "2": {
+                  "$id": "#/properties/Spellbook/properties/SpellList/properties/SpellsByLevel/properties/2",
+                  "type": "array",
+                  "title": "The 2 schema",
+                  "description": "An explanation about the purpose of this instance.",
+                  "default": [],
+                  "additionalItems": true,
+                  "items": {
+                    "$id": "#/properties/Spellbook/properties/SpellList/properties/SpellsByLevel/properties/2/items",
+                    "anyOf": [
+                      {
+                        "$id": "#/properties/Spellbook/properties/SpellList/properties/SpellsByLevel/properties/2/items/anyOf/0",
+                        "type": "string",
+                        "title": "The first anyOf schema",
+                        "description": "An explanation about the purpose of this instance.",
+                        "default": ""
+                      }
+                    ]
+                  }
+                },
+                "3": {
+                  "$id": "#/properties/Spellbook/properties/SpellList/properties/SpellsByLevel/properties/3",
+                  "type": "array",
+                  "title": "The 3 schema",
+                  "description": "An explanation about the purpose of this instance.",
+                  "default": [],
+                  "additionalItems": true,
+                  "items": {
+                    "$id": "#/properties/Spellbook/properties/SpellList/properties/SpellsByLevel/properties/3/items",
+                    "anyOf": [
+                      {
+                        "$id": "#/properties/Spellbook/properties/SpellList/properties/SpellsByLevel/properties/3/items/anyOf/0",
+                        "type": "string",
+                        "title": "The first anyOf schema",
+                        "description": "An explanation about the purpose of this instance.",
+                        "default": ""
+                      }
+                    ]
+                  }
+                },
+                "4": {
+                  "$id": "#/properties/Spellbook/properties/SpellList/properties/SpellsByLevel/properties/4",
+                  "type": "array",
+                  "title": "The 4 schema",
+                  "description": "An explanation about the purpose of this instance.",
+                  "default": [],
+                  "additionalItems": true,
+                  "items": {
+                    "$id": "#/properties/Spellbook/properties/SpellList/properties/SpellsByLevel/properties/4/items",
+                    "anyOf": [
+                      {
+                        "$id": "#/properties/Spellbook/properties/SpellList/properties/SpellsByLevel/properties/4/items/anyOf/0",
+                        "type": "string",
+                        "title": "The first anyOf schema",
+                        "description": "An explanation about the purpose of this instance.",
+                        "default": ""
+                      }
+                    ]
+                  }
+                },
+                "5": {
+                  "$id": "#/properties/Spellbook/properties/SpellList/properties/SpellsByLevel/properties/5",
+                  "type": "array",
+                  "title": "The 5 schema",
+                  "description": "An explanation about the purpose of this instance.",
+                  "default": [],
+                  "additionalItems": true,
+                  "items": {
+                    "$id": "#/properties/Spellbook/properties/SpellList/properties/SpellsByLevel/properties/5/items",
+                    "anyOf": [
+                      {
+                        "$id": "#/properties/Spellbook/properties/SpellList/properties/SpellsByLevel/properties/5/items/anyOf/0",
+                        "type": "string",
+                        "title": "The first anyOf schema",
+                        "description": "An explanation about the purpose of this instance.",
+                        "default": ""
+                      }
+                    ]
+                  }
+                },
+                "6": {
+                  "$id": "#/properties/Spellbook/properties/SpellList/properties/SpellsByLevel/properties/6",
+                  "type": "array",
+                  "title": "The 6 schema",
+                  "description": "An explanation about the purpose of this instance.",
+                  "default": [],
+                  "additionalItems": true,
+                  "items": {
+                    "$id": "#/properties/Spellbook/properties/SpellList/properties/SpellsByLevel/properties/6/items",
+                    "anyOf": [
+                      {
+                        "$id": "#/properties/Spellbook/properties/SpellList/properties/SpellsByLevel/properties/6/items/anyOf/0",
+                        "type": "string",
+                        "title": "The first anyOf schema",
+                        "description": "An explanation about the purpose of this instance.",
+                        "default": ""
+                      }
+                    ]
+                  }
+                },
+                "7": {
+                  "$id": "#/properties/Spellbook/properties/SpellList/properties/SpellsByLevel/properties/7",
+                  "type": "array",
+                  "title": "The 7 schema",
+                  "description": "An explanation about the purpose of this instance.",
+                  "default": [],
+                  "additionalItems": true,
+                  "items": {
+                    "$id": "#/properties/Spellbook/properties/SpellList/properties/SpellsByLevel/properties/7/items",
+                    "anyOf": [
+                      {
+                        "$id": "#/properties/Spellbook/properties/SpellList/properties/SpellsByLevel/properties/7/items/anyOf/0",
+                        "type": "string",
+                        "title": "The first anyOf schema",
+                        "description": "An explanation about the purpose of this instance.",
+                        "default": ""
+                      }
+                    ]
+                  }
+                },
+                "8": {
+                  "$id": "#/properties/Spellbook/properties/SpellList/properties/SpellsByLevel/properties/8",
+                  "type": "array",
+                  "title": "The 8 schema",
+                  "description": "An explanation about the purpose of this instance.",
+                  "default": [],
+                  "additionalItems": true,
+                  "items": {
+                    "$id": "#/properties/Spellbook/properties/SpellList/properties/SpellsByLevel/properties/8/items",
+                    "anyOf": [
+                      {
+                        "$id": "#/properties/Spellbook/properties/SpellList/properties/SpellsByLevel/properties/8/items/anyOf/0",
+                        "type": "string",
+                        "title": "The first anyOf schema",
+                        "description": "An explanation about the purpose of this instance.",
+                        "default": ""
+                      }
+                    ]
+                  }
+                },
+                "9": {
+                  "$id": "#/properties/Spellbook/properties/SpellList/properties/SpellsByLevel/properties/9",
+                  "type": "array",
+                  "title": "The 9 schema",
+                  "description": "An explanation about the purpose of this instance.",
+                  "default": [],
+                  "additionalItems": true,
+                  "items": {
+                    "$id": "#/properties/Spellbook/properties/SpellList/properties/SpellsByLevel/properties/9/items",
+                    "anyOf": [
+                      {
+                        "$id": "#/properties/Spellbook/properties/SpellList/properties/SpellsByLevel/properties/9/items/anyOf/0",
+                        "type": "string",
+                        "title": "The first anyOf schema",
+                        "description": "An explanation about the purpose of this instance.",
+                        "default": ""
+                      }
+                    ]
+                  }
+                }
+              },
+              "additionalProperties": true
+            }
+          },
+          "additionalProperties": true
+        },
+        "SpellsKnown": {
+          "$id": "#/properties/Spellbook/properties/SpellsKnown",
+          "type": "object",
+          "title": "The SpellsKnown schema",
+          "description": "An explanation about the purpose of this instance.",
+          "default": {},
+          "required": [
+            "Name",
+            "Guid",
+            "Table"
+          ],
+          "properties": {
+            "Name": {
+              "$id": "#/properties/Spellbook/properties/SpellsKnown/properties/Name",
+              "type": "string",
+              "title": "The Name schema",
+              "description": "An explanation about the purpose of this instance.",
+              "default": ""
+            },
+            "Guid": {
+              "$id": "#/properties/Spellbook/properties/SpellsKnown/properties/Guid",
+              "type": "string",
+              "title": "The Guid schema",
+              "description": "An explanation about the purpose of this instance.",
+              "default": ""
+            },
+            "Table": {
+              "$id": "#/properties/Spellbook/properties/SpellsKnown/properties/Table",
+              "type": "object",
+              "title": "The Table schema",
+              "description": "An explanation about the purpose of this instance.",
+              "default": {},
+              "required": [
+                "0",
+                "1",
+                "2",
+                "3",
+                "4",
+                "5",
+                "6",
+                "7",
+                "8",
+                "9",
+                "10",
+                "11",
+                "12",
+                "13",
+                "14",
+                "15",
+                "16",
+                "17",
+                "18",
+                "19",
+                "20"
+              ],
+              "properties": {
+                "0": {
+                  "$id": "#/properties/Spellbook/properties/SpellsKnown/properties/Table/properties/0",
+                  "type": "array",
+                  "title": "The 0 schema",
+                  "description": "An explanation about the purpose of this instance.",
+                  "default": [],
+                  "additionalItems": true,
+                  "items": {
+                    "$id": "#/properties/Spellbook/properties/SpellsKnown/properties/Table/properties/0/items",
+                    "anyOf": [
+                      {
+                        "$id": "#/properties/Spellbook/properties/SpellsKnown/properties/Table/properties/0/items/anyOf/0",
+                        "type": "integer",
+                        "title": "The first anyOf schema",
+                        "description": "An explanation about the purpose of this instance.",
+                        "default": 0
+                      }
+                    ]
+                  }
+                },
+                "1": {
+                  "$id": "#/properties/Spellbook/properties/SpellsKnown/properties/Table/properties/1",
+                  "type": "array",
+                  "title": "The 1 schema",
+                  "description": "An explanation about the purpose of this instance.",
+                  "default": [],
+                  "additionalItems": true,
+                  "items": {
+                    "$id": "#/properties/Spellbook/properties/SpellsKnown/properties/Table/properties/1/items",
+                    "anyOf": [
+                      {
+                        "$id": "#/properties/Spellbook/properties/SpellsKnown/properties/Table/properties/1/items/anyOf/0",
+                        "type": "integer",
+                        "title": "The first anyOf schema",
+                        "description": "An explanation about the purpose of this instance.",
+                        "default": 0
+                      }
+                    ]
+                  }
+                },
+                "2": {
+                  "$id": "#/properties/Spellbook/properties/SpellsKnown/properties/Table/properties/2",
+                  "type": "array",
+                  "title": "The 2 schema",
+                  "description": "An explanation about the purpose of this instance.",
+                  "default": [],
+                  "additionalItems": true,
+                  "items": {
+                    "$id": "#/properties/Spellbook/properties/SpellsKnown/properties/Table/properties/2/items",
+                    "anyOf": [
+                      {
+                        "$id": "#/properties/Spellbook/properties/SpellsKnown/properties/Table/properties/2/items/anyOf/0",
+                        "type": "integer",
+                        "title": "The first anyOf schema",
+                        "description": "An explanation about the purpose of this instance.",
+                        "default": 0
+                      }
+                    ]
+                  }
+                },
+                "3": {
+                  "$id": "#/properties/Spellbook/properties/SpellsKnown/properties/Table/properties/3",
+                  "type": "array",
+                  "title": "The 3 schema",
+                  "description": "An explanation about the purpose of this instance.",
+                  "default": [],
+                  "additionalItems": true,
+                  "items": {
+                    "$id": "#/properties/Spellbook/properties/SpellsKnown/properties/Table/properties/3/items",
+                    "anyOf": [
+                      {
+                        "$id": "#/properties/Spellbook/properties/SpellsKnown/properties/Table/properties/3/items/anyOf/0",
+                        "type": "integer",
+                        "title": "The first anyOf schema",
+                        "description": "An explanation about the purpose of this instance.",
+                        "default": 0
+                      }
+                    ]
+                  }
+                },
+                "4": {
+                  "$id": "#/properties/Spellbook/properties/SpellsKnown/properties/Table/properties/4",
+                  "type": "array",
+                  "title": "The 4 schema",
+                  "description": "An explanation about the purpose of this instance.",
+                  "default": [],
+                  "additionalItems": true,
+                  "items": {
+                    "$id": "#/properties/Spellbook/properties/SpellsKnown/properties/Table/properties/4/items",
+                    "anyOf": [
+                      {
+                        "$id": "#/properties/Spellbook/properties/SpellsKnown/properties/Table/properties/4/items/anyOf/0",
+                        "type": "integer",
+                        "title": "The first anyOf schema",
+                        "description": "An explanation about the purpose of this instance.",
+                        "default": 0
+                      }
+                    ]
+                  }
+                },
+                "5": {
+                  "$id": "#/properties/Spellbook/properties/SpellsKnown/properties/Table/properties/5",
+                  "type": "array",
+                  "title": "The 5 schema",
+                  "description": "An explanation about the purpose of this instance.",
+                  "default": [],
+                  "additionalItems": true,
+                  "items": {
+                    "$id": "#/properties/Spellbook/properties/SpellsKnown/properties/Table/properties/5/items",
+                    "anyOf": [
+                      {
+                        "$id": "#/properties/Spellbook/properties/SpellsKnown/properties/Table/properties/5/items/anyOf/0",
+                        "type": "integer",
+                        "title": "The first anyOf schema",
+                        "description": "An explanation about the purpose of this instance.",
+                        "default": 0
+                      }
+                    ]
+                  }
+                },
+                "6": {
+                  "$id": "#/properties/Spellbook/properties/SpellsKnown/properties/Table/properties/6",
+                  "type": "array",
+                  "title": "The 6 schema",
+                  "description": "An explanation about the purpose of this instance.",
+                  "default": [],
+                  "additionalItems": true,
+                  "items": {
+                    "$id": "#/properties/Spellbook/properties/SpellsKnown/properties/Table/properties/6/items",
+                    "anyOf": [
+                      {
+                        "$id": "#/properties/Spellbook/properties/SpellsKnown/properties/Table/properties/6/items/anyOf/0",
+                        "type": "integer",
+                        "title": "The first anyOf schema",
+                        "description": "An explanation about the purpose of this instance.",
+                        "default": 0
+                      }
+                    ]
+                  }
+                },
+                "7": {
+                  "$id": "#/properties/Spellbook/properties/SpellsKnown/properties/Table/properties/7",
+                  "type": "array",
+                  "title": "The 7 schema",
+                  "description": "An explanation about the purpose of this instance.",
+                  "default": [],
+                  "additionalItems": true,
+                  "items": {
+                    "$id": "#/properties/Spellbook/properties/SpellsKnown/properties/Table/properties/7/items",
+                    "anyOf": [
+                      {
+                        "$id": "#/properties/Spellbook/properties/SpellsKnown/properties/Table/properties/7/items/anyOf/0",
+                        "type": "integer",
+                        "title": "The first anyOf schema",
+                        "description": "An explanation about the purpose of this instance.",
+                        "default": 0
+                      }
+                    ]
+                  }
+                },
+                "8": {
+                  "$id": "#/properties/Spellbook/properties/SpellsKnown/properties/Table/properties/8",
+                  "type": "array",
+                  "title": "The 8 schema",
+                  "description": "An explanation about the purpose of this instance.",
+                  "default": [],
+                  "additionalItems": true,
+                  "items": {
+                    "$id": "#/properties/Spellbook/properties/SpellsKnown/properties/Table/properties/8/items",
+                    "anyOf": [
+                      {
+                        "$id": "#/properties/Spellbook/properties/SpellsKnown/properties/Table/properties/8/items/anyOf/0",
+                        "type": "integer",
+                        "title": "The first anyOf schema",
+                        "description": "An explanation about the purpose of this instance.",
+                        "default": 0
+                      }
+                    ]
+                  }
+                },
+                "9": {
+                  "$id": "#/properties/Spellbook/properties/SpellsKnown/properties/Table/properties/9",
+                  "type": "array",
+                  "title": "The 9 schema",
+                  "description": "An explanation about the purpose of this instance.",
+                  "default": [],
+                  "additionalItems": true,
+                  "items": {
+                    "$id": "#/properties/Spellbook/properties/SpellsKnown/properties/Table/properties/9/items",
+                    "anyOf": [
+                      {
+                        "$id": "#/properties/Spellbook/properties/SpellsKnown/properties/Table/properties/9/items/anyOf/0",
+                        "type": "integer",
+                        "title": "The first anyOf schema",
+                        "description": "An explanation about the purpose of this instance.",
+                        "default": 0
+                      }
+                    ]
+                  }
+                },
+                "10": {
+                  "$id": "#/properties/Spellbook/properties/SpellsKnown/properties/Table/properties/10",
+                  "type": "array",
+                  "title": "The 10 schema",
+                  "description": "An explanation about the purpose of this instance.",
+                  "default": [],
+                  "additionalItems": true,
+                  "items": {
+                    "$id": "#/properties/Spellbook/properties/SpellsKnown/properties/Table/properties/10/items",
+                    "anyOf": [
+                      {
+                        "$id": "#/properties/Spellbook/properties/SpellsKnown/properties/Table/properties/10/items/anyOf/0",
+                        "type": "integer",
+                        "title": "The first anyOf schema",
+                        "description": "An explanation about the purpose of this instance.",
+                        "default": 0
+                      }
+                    ]
+                  }
+                },
+                "11": {
+                  "$id": "#/properties/Spellbook/properties/SpellsKnown/properties/Table/properties/11",
+                  "type": "array",
+                  "title": "The 11 schema",
+                  "description": "An explanation about the purpose of this instance.",
+                  "default": [],
+                  "additionalItems": true,
+                  "items": {
+                    "$id": "#/properties/Spellbook/properties/SpellsKnown/properties/Table/properties/11/items",
+                    "anyOf": [
+                      {
+                        "$id": "#/properties/Spellbook/properties/SpellsKnown/properties/Table/properties/11/items/anyOf/0",
+                        "type": "integer",
+                        "title": "The first anyOf schema",
+                        "description": "An explanation about the purpose of this instance.",
+                        "default": 0
+                      }
+                    ]
+                  }
+                },
+                "12": {
+                  "$id": "#/properties/Spellbook/properties/SpellsKnown/properties/Table/properties/12",
+                  "type": "array",
+                  "title": "The 12 schema",
+                  "description": "An explanation about the purpose of this instance.",
+                  "default": [],
+                  "additionalItems": true,
+                  "items": {
+                    "$id": "#/properties/Spellbook/properties/SpellsKnown/properties/Table/properties/12/items",
+                    "anyOf": [
+                      {
+                        "$id": "#/properties/Spellbook/properties/SpellsKnown/properties/Table/properties/12/items/anyOf/0",
+                        "type": "integer",
+                        "title": "The first anyOf schema",
+                        "description": "An explanation about the purpose of this instance.",
+                        "default": 0
+                      }
+                    ]
+                  }
+                },
+                "13": {
+                  "$id": "#/properties/Spellbook/properties/SpellsKnown/properties/Table/properties/13",
+                  "type": "array",
+                  "title": "The 13 schema",
+                  "description": "An explanation about the purpose of this instance.",
+                  "default": [],
+                  "additionalItems": true,
+                  "items": {
+                    "$id": "#/properties/Spellbook/properties/SpellsKnown/properties/Table/properties/13/items",
+                    "anyOf": [
+                      {
+                        "$id": "#/properties/Spellbook/properties/SpellsKnown/properties/Table/properties/13/items/anyOf/0",
+                        "type": "integer",
+                        "title": "The first anyOf schema",
+                        "description": "An explanation about the purpose of this instance.",
+                        "default": 0
+                      }
+                    ]
+                  }
+                },
+                "14": {
+                  "$id": "#/properties/Spellbook/properties/SpellsKnown/properties/Table/properties/14",
+                  "type": "array",
+                  "title": "The 14 schema",
+                  "description": "An explanation about the purpose of this instance.",
+                  "default": [],
+                  "additionalItems": true,
+                  "items": {
+                    "$id": "#/properties/Spellbook/properties/SpellsKnown/properties/Table/properties/14/items",
+                    "anyOf": [
+                      {
+                        "$id": "#/properties/Spellbook/properties/SpellsKnown/properties/Table/properties/14/items/anyOf/0",
+                        "type": "integer",
+                        "title": "The first anyOf schema",
+                        "description": "An explanation about the purpose of this instance.",
+                        "default": 0
+                      }
+                    ]
+                  }
+                },
+                "15": {
+                  "$id": "#/properties/Spellbook/properties/SpellsKnown/properties/Table/properties/15",
+                  "type": "array",
+                  "title": "The 15 schema",
+                  "description": "An explanation about the purpose of this instance.",
+                  "default": [],
+                  "additionalItems": true,
+                  "items": {
+                    "$id": "#/properties/Spellbook/properties/SpellsKnown/properties/Table/properties/15/items",
+                    "anyOf": [
+                      {
+                        "$id": "#/properties/Spellbook/properties/SpellsKnown/properties/Table/properties/15/items/anyOf/0",
+                        "type": "integer",
+                        "title": "The first anyOf schema",
+                        "description": "An explanation about the purpose of this instance.",
+                        "default": 0
+                      }
+                    ]
+                  }
+                },
+                "16": {
+                  "$id": "#/properties/Spellbook/properties/SpellsKnown/properties/Table/properties/16",
+                  "type": "array",
+                  "title": "The 16 schema",
+                  "description": "An explanation about the purpose of this instance.",
+                  "default": [],
+                  "additionalItems": true,
+                  "items": {
+                    "$id": "#/properties/Spellbook/properties/SpellsKnown/properties/Table/properties/16/items",
+                    "anyOf": [
+                      {
+                        "$id": "#/properties/Spellbook/properties/SpellsKnown/properties/Table/properties/16/items/anyOf/0",
+                        "type": "integer",
+                        "title": "The first anyOf schema",
+                        "description": "An explanation about the purpose of this instance.",
+                        "default": 0
+                      }
+                    ]
+                  }
+                },
+                "17": {
+                  "$id": "#/properties/Spellbook/properties/SpellsKnown/properties/Table/properties/17",
+                  "type": "array",
+                  "title": "The 17 schema",
+                  "description": "An explanation about the purpose of this instance.",
+                  "default": [],
+                  "additionalItems": true,
+                  "items": {
+                    "$id": "#/properties/Spellbook/properties/SpellsKnown/properties/Table/properties/17/items",
+                    "anyOf": [
+                      {
+                        "$id": "#/properties/Spellbook/properties/SpellsKnown/properties/Table/properties/17/items/anyOf/0",
+                        "type": "integer",
+                        "title": "The first anyOf schema",
+                        "description": "An explanation about the purpose of this instance.",
+                        "default": 0
+                      }
+                    ]
+                  }
+                },
+                "18": {
+                  "$id": "#/properties/Spellbook/properties/SpellsKnown/properties/Table/properties/18",
+                  "type": "array",
+                  "title": "The 18 schema",
+                  "description": "An explanation about the purpose of this instance.",
+                  "default": [],
+                  "additionalItems": true,
+                  "items": {
+                    "$id": "#/properties/Spellbook/properties/SpellsKnown/properties/Table/properties/18/items",
+                    "anyOf": [
+                      {
+                        "$id": "#/properties/Spellbook/properties/SpellsKnown/properties/Table/properties/18/items/anyOf/0",
+                        "type": "integer",
+                        "title": "The first anyOf schema",
+                        "description": "An explanation about the purpose of this instance.",
+                        "default": 0
+                      }
+                    ]
+                  }
+                },
+                "19": {
+                  "$id": "#/properties/Spellbook/properties/SpellsKnown/properties/Table/properties/19",
+                  "type": "array",
+                  "title": "The 19 schema",
+                  "description": "An explanation about the purpose of this instance.",
+                  "default": [],
+                  "additionalItems": true,
+                  "items": {
+                    "$id": "#/properties/Spellbook/properties/SpellsKnown/properties/Table/properties/19/items",
+                    "anyOf": [
+                      {
+                        "$id": "#/properties/Spellbook/properties/SpellsKnown/properties/Table/properties/19/items/anyOf/0",
+                        "type": "integer",
+                        "title": "The first anyOf schema",
+                        "description": "An explanation about the purpose of this instance.",
+                        "default": 0
+                      }
+                    ]
+                  }
+                },
+                "20": {
+                  "$id": "#/properties/Spellbook/properties/SpellsKnown/properties/Table/properties/20",
+                  "type": "array",
+                  "title": "The 20 schema",
+                  "description": "An explanation about the purpose of this instance.",
+                  "default": [],
+                  "additionalItems": true,
+                  "items": {
+                    "$id": "#/properties/Spellbook/properties/SpellsKnown/properties/Table/properties/20/items",
+                    "anyOf": [
+                      {
+                        "$id": "#/properties/Spellbook/properties/SpellsKnown/properties/Table/properties/20/items/anyOf/0",
+                        "type": "integer",
+                        "title": "The first anyOf schema",
+                        "description": "An explanation about the purpose of this instance.",
+                        "default": 0
+                      }
+                    ]
+                  }
+                }
+              },
+              "additionalProperties": true
+            }
+          },
+          "additionalProperties": true
+        },
+        "SpellsPerDay": {
+          "$id": "#/properties/Spellbook/properties/SpellsPerDay",
+          "type": "object",
+          "title": "The SpellsPerDay schema",
+          "description": "An explanation about the purpose of this instance.",
+          "default": {},
+          "required": [
+            "Name",
+            "Guid",
+            "Table"
+          ],
+          "properties": {
+            "Name": {
+              "$id": "#/properties/Spellbook/properties/SpellsPerDay/properties/Name",
+              "type": "string",
+              "title": "The Name schema",
+              "description": "An explanation about the purpose of this instance.",
+              "default": ""
+            },
+            "Guid": {
+              "$id": "#/properties/Spellbook/properties/SpellsPerDay/properties/Guid",
+              "type": "string",
+              "title": "The Guid schema",
+              "description": "An explanation about the purpose of this instance.",
+              "default": ""
+            },
+            "Table": {
+              "$id": "#/properties/Spellbook/properties/SpellsPerDay/properties/Table",
+              "type": "object",
+              "title": "The Table schema",
+              "description": "An explanation about the purpose of this instance.",
+              "default": {},
+              "required": [
+                "0",
+                "1",
+                "2",
+                "3",
+                "4",
+                "5",
+                "6",
+                "7",
+                "8",
+                "9",
+                "10",
+                "11",
+                "12",
+                "13",
+                "14",
+                "15",
+                "16",
+                "17",
+                "18",
+                "19",
+                "20"
+              ],
+              "properties": {
+                "0": {
+                  "$id": "#/properties/Spellbook/properties/SpellsPerDay/properties/Table/properties/0",
+                  "type": "array",
+                  "title": "The 0 schema",
+                  "description": "An explanation about the purpose of this instance.",
+                  "default": [],
+                  "additionalItems": true,
+                  "items": {
+                    "$id": "#/properties/Spellbook/properties/SpellsPerDay/properties/Table/properties/0/items"
+                  }
+                },
+                "1": {
+                  "$id": "#/properties/Spellbook/properties/SpellsPerDay/properties/Table/properties/1",
+                  "type": "array",
+                  "title": "The 1 schema",
+                  "description": "An explanation about the purpose of this instance.",
+                  "default": [],
+                  "additionalItems": true,
+                  "items": {
+                    "$id": "#/properties/Spellbook/properties/SpellsPerDay/properties/Table/properties/1/items",
+                    "anyOf": [
+                      {
+                        "$id": "#/properties/Spellbook/properties/SpellsPerDay/properties/Table/properties/1/items/anyOf/0",
+                        "type": "integer",
+                        "title": "The first anyOf schema",
+                        "description": "An explanation about the purpose of this instance.",
+                        "default": 0
+                      }
+                    ]
+                  }
+                },
+                "2": {
+                  "$id": "#/properties/Spellbook/properties/SpellsPerDay/properties/Table/properties/2",
+                  "type": "array",
+                  "title": "The 2 schema",
+                  "description": "An explanation about the purpose of this instance.",
+                  "default": [],
+                  "additionalItems": true,
+                  "items": {
+                    "$id": "#/properties/Spellbook/properties/SpellsPerDay/properties/Table/properties/2/items",
+                    "anyOf": [
+                      {
+                        "$id": "#/properties/Spellbook/properties/SpellsPerDay/properties/Table/properties/2/items/anyOf/0",
+                        "type": "integer",
+                        "title": "The first anyOf schema",
+                        "description": "An explanation about the purpose of this instance.",
+                        "default": 0
+                      }
+                    ]
+                  }
+                },
+                "3": {
+                  "$id": "#/properties/Spellbook/properties/SpellsPerDay/properties/Table/properties/3",
+                  "type": "array",
+                  "title": "The 3 schema",
+                  "description": "An explanation about the purpose of this instance.",
+                  "default": [],
+                  "additionalItems": true,
+                  "items": {
+                    "$id": "#/properties/Spellbook/properties/SpellsPerDay/properties/Table/properties/3/items",
+                    "anyOf": [
+                      {
+                        "$id": "#/properties/Spellbook/properties/SpellsPerDay/properties/Table/properties/3/items/anyOf/0",
+                        "type": "integer",
+                        "title": "The first anyOf schema",
+                        "description": "An explanation about the purpose of this instance.",
+                        "default": 0
+                      }
+                    ]
+                  }
+                },
+                "4": {
+                  "$id": "#/properties/Spellbook/properties/SpellsPerDay/properties/Table/properties/4",
+                  "type": "array",
+                  "title": "The 4 schema",
+                  "description": "An explanation about the purpose of this instance.",
+                  "default": [],
+                  "additionalItems": true,
+                  "items": {
+                    "$id": "#/properties/Spellbook/properties/SpellsPerDay/properties/Table/properties/4/items",
+                    "anyOf": [
+                      {
+                        "$id": "#/properties/Spellbook/properties/SpellsPerDay/properties/Table/properties/4/items/anyOf/0",
+                        "type": "integer",
+                        "title": "The first anyOf schema",
+                        "description": "An explanation about the purpose of this instance.",
+                        "default": 0
+                      }
+                    ]
+                  }
+                },
+                "5": {
+                  "$id": "#/properties/Spellbook/properties/SpellsPerDay/properties/Table/properties/5",
+                  "type": "array",
+                  "title": "The 5 schema",
+                  "description": "An explanation about the purpose of this instance.",
+                  "default": [],
+                  "additionalItems": true,
+                  "items": {
+                    "$id": "#/properties/Spellbook/properties/SpellsPerDay/properties/Table/properties/5/items",
+                    "anyOf": [
+                      {
+                        "$id": "#/properties/Spellbook/properties/SpellsPerDay/properties/Table/properties/5/items/anyOf/0",
+                        "type": "integer",
+                        "title": "The first anyOf schema",
+                        "description": "An explanation about the purpose of this instance.",
+                        "default": 0
+                      }
+                    ]
+                  }
+                },
+                "6": {
+                  "$id": "#/properties/Spellbook/properties/SpellsPerDay/properties/Table/properties/6",
+                  "type": "array",
+                  "title": "The 6 schema",
+                  "description": "An explanation about the purpose of this instance.",
+                  "default": [],
+                  "additionalItems": true,
+                  "items": {
+                    "$id": "#/properties/Spellbook/properties/SpellsPerDay/properties/Table/properties/6/items",
+                    "anyOf": [
+                      {
+                        "$id": "#/properties/Spellbook/properties/SpellsPerDay/properties/Table/properties/6/items/anyOf/0",
+                        "type": "integer",
+                        "title": "The first anyOf schema",
+                        "description": "An explanation about the purpose of this instance.",
+                        "default": 0
+                      }
+                    ]
+                  }
+                },
+                "7": {
+                  "$id": "#/properties/Spellbook/properties/SpellsPerDay/properties/Table/properties/7",
+                  "type": "array",
+                  "title": "The 7 schema",
+                  "description": "An explanation about the purpose of this instance.",
+                  "default": [],
+                  "additionalItems": true,
+                  "items": {
+                    "$id": "#/properties/Spellbook/properties/SpellsPerDay/properties/Table/properties/7/items",
+                    "anyOf": [
+                      {
+                        "$id": "#/properties/Spellbook/properties/SpellsPerDay/properties/Table/properties/7/items/anyOf/0",
+                        "type": "integer",
+                        "title": "The first anyOf schema",
+                        "description": "An explanation about the purpose of this instance.",
+                        "default": 0
+                      }
+                    ]
+                  }
+                },
+                "8": {
+                  "$id": "#/properties/Spellbook/properties/SpellsPerDay/properties/Table/properties/8",
+                  "type": "array",
+                  "title": "The 8 schema",
+                  "description": "An explanation about the purpose of this instance.",
+                  "default": [],
+                  "additionalItems": true,
+                  "items": {
+                    "$id": "#/properties/Spellbook/properties/SpellsPerDay/properties/Table/properties/8/items",
+                    "anyOf": [
+                      {
+                        "$id": "#/properties/Spellbook/properties/SpellsPerDay/properties/Table/properties/8/items/anyOf/0",
+                        "type": "integer",
+                        "title": "The first anyOf schema",
+                        "description": "An explanation about the purpose of this instance.",
+                        "default": 0
+                      }
+                    ]
+                  }
+                },
+                "9": {
+                  "$id": "#/properties/Spellbook/properties/SpellsPerDay/properties/Table/properties/9",
+                  "type": "array",
+                  "title": "The 9 schema",
+                  "description": "An explanation about the purpose of this instance.",
+                  "default": [],
+                  "additionalItems": true,
+                  "items": {
+                    "$id": "#/properties/Spellbook/properties/SpellsPerDay/properties/Table/properties/9/items",
+                    "anyOf": [
+                      {
+                        "$id": "#/properties/Spellbook/properties/SpellsPerDay/properties/Table/properties/9/items/anyOf/0",
+                        "type": "integer",
+                        "title": "The first anyOf schema",
+                        "description": "An explanation about the purpose of this instance.",
+                        "default": 0
+                      }
+                    ]
+                  }
+                },
+                "10": {
+                  "$id": "#/properties/Spellbook/properties/SpellsPerDay/properties/Table/properties/10",
+                  "type": "array",
+                  "title": "The 10 schema",
+                  "description": "An explanation about the purpose of this instance.",
+                  "default": [],
+                  "additionalItems": true,
+                  "items": {
+                    "$id": "#/properties/Spellbook/properties/SpellsPerDay/properties/Table/properties/10/items",
+                    "anyOf": [
+                      {
+                        "$id": "#/properties/Spellbook/properties/SpellsPerDay/properties/Table/properties/10/items/anyOf/0",
+                        "type": "integer",
+                        "title": "The first anyOf schema",
+                        "description": "An explanation about the purpose of this instance.",
+                        "default": 0
+                      }
+                    ]
+                  }
+                },
+                "11": {
+                  "$id": "#/properties/Spellbook/properties/SpellsPerDay/properties/Table/properties/11",
+                  "type": "array",
+                  "title": "The 11 schema",
+                  "description": "An explanation about the purpose of this instance.",
+                  "default": [],
+                  "additionalItems": true,
+                  "items": {
+                    "$id": "#/properties/Spellbook/properties/SpellsPerDay/properties/Table/properties/11/items",
+                    "anyOf": [
+                      {
+                        "$id": "#/properties/Spellbook/properties/SpellsPerDay/properties/Table/properties/11/items/anyOf/0",
+                        "type": "integer",
+                        "title": "The first anyOf schema",
+                        "description": "An explanation about the purpose of this instance.",
+                        "default": 0
+                      }
+                    ]
+                  }
+                },
+                "12": {
+                  "$id": "#/properties/Spellbook/properties/SpellsPerDay/properties/Table/properties/12",
+                  "type": "array",
+                  "title": "The 12 schema",
+                  "description": "An explanation about the purpose of this instance.",
+                  "default": [],
+                  "additionalItems": true,
+                  "items": {
+                    "$id": "#/properties/Spellbook/properties/SpellsPerDay/properties/Table/properties/12/items",
+                    "anyOf": [
+                      {
+                        "$id": "#/properties/Spellbook/properties/SpellsPerDay/properties/Table/properties/12/items/anyOf/0",
+                        "type": "integer",
+                        "title": "The first anyOf schema",
+                        "description": "An explanation about the purpose of this instance.",
+                        "default": 0
+                      }
+                    ]
+                  }
+                },
+                "13": {
+                  "$id": "#/properties/Spellbook/properties/SpellsPerDay/properties/Table/properties/13",
+                  "type": "array",
+                  "title": "The 13 schema",
+                  "description": "An explanation about the purpose of this instance.",
+                  "default": [],
+                  "additionalItems": true,
+                  "items": {
+                    "$id": "#/properties/Spellbook/properties/SpellsPerDay/properties/Table/properties/13/items",
+                    "anyOf": [
+                      {
+                        "$id": "#/properties/Spellbook/properties/SpellsPerDay/properties/Table/properties/13/items/anyOf/0",
+                        "type": "integer",
+                        "title": "The first anyOf schema",
+                        "description": "An explanation about the purpose of this instance.",
+                        "default": 0
+                      }
+                    ]
+                  }
+                },
+                "14": {
+                  "$id": "#/properties/Spellbook/properties/SpellsPerDay/properties/Table/properties/14",
+                  "type": "array",
+                  "title": "The 14 schema",
+                  "description": "An explanation about the purpose of this instance.",
+                  "default": [],
+                  "additionalItems": true,
+                  "items": {
+                    "$id": "#/properties/Spellbook/properties/SpellsPerDay/properties/Table/properties/14/items",
+                    "anyOf": [
+                      {
+                        "$id": "#/properties/Spellbook/properties/SpellsPerDay/properties/Table/properties/14/items/anyOf/0",
+                        "type": "integer",
+                        "title": "The first anyOf schema",
+                        "description": "An explanation about the purpose of this instance.",
+                        "default": 0
+                      }
+                    ]
+                  }
+                },
+                "15": {
+                  "$id": "#/properties/Spellbook/properties/SpellsPerDay/properties/Table/properties/15",
+                  "type": "array",
+                  "title": "The 15 schema",
+                  "description": "An explanation about the purpose of this instance.",
+                  "default": [],
+                  "additionalItems": true,
+                  "items": {
+                    "$id": "#/properties/Spellbook/properties/SpellsPerDay/properties/Table/properties/15/items",
+                    "anyOf": [
+                      {
+                        "$id": "#/properties/Spellbook/properties/SpellsPerDay/properties/Table/properties/15/items/anyOf/0",
+                        "type": "integer",
+                        "title": "The first anyOf schema",
+                        "description": "An explanation about the purpose of this instance.",
+                        "default": 0
+                      }
+                    ]
+                  }
+                },
+                "16": {
+                  "$id": "#/properties/Spellbook/properties/SpellsPerDay/properties/Table/properties/16",
+                  "type": "array",
+                  "title": "The 16 schema",
+                  "description": "An explanation about the purpose of this instance.",
+                  "default": [],
+                  "additionalItems": true,
+                  "items": {
+                    "$id": "#/properties/Spellbook/properties/SpellsPerDay/properties/Table/properties/16/items",
+                    "anyOf": [
+                      {
+                        "$id": "#/properties/Spellbook/properties/SpellsPerDay/properties/Table/properties/16/items/anyOf/0",
+                        "type": "integer",
+                        "title": "The first anyOf schema",
+                        "description": "An explanation about the purpose of this instance.",
+                        "default": 0
+                      }
+                    ]
+                  }
+                },
+                "17": {
+                  "$id": "#/properties/Spellbook/properties/SpellsPerDay/properties/Table/properties/17",
+                  "type": "array",
+                  "title": "The 17 schema",
+                  "description": "An explanation about the purpose of this instance.",
+                  "default": [],
+                  "additionalItems": true,
+                  "items": {
+                    "$id": "#/properties/Spellbook/properties/SpellsPerDay/properties/Table/properties/17/items",
+                    "anyOf": [
+                      {
+                        "$id": "#/properties/Spellbook/properties/SpellsPerDay/properties/Table/properties/17/items/anyOf/0",
+                        "type": "integer",
+                        "title": "The first anyOf schema",
+                        "description": "An explanation about the purpose of this instance.",
+                        "default": 0
+                      }
+                    ]
+                  }
+                },
+                "18": {
+                  "$id": "#/properties/Spellbook/properties/SpellsPerDay/properties/Table/properties/18",
+                  "type": "array",
+                  "title": "The 18 schema",
+                  "description": "An explanation about the purpose of this instance.",
+                  "default": [],
+                  "additionalItems": true,
+                  "items": {
+                    "$id": "#/properties/Spellbook/properties/SpellsPerDay/properties/Table/properties/18/items",
+                    "anyOf": [
+                      {
+                        "$id": "#/properties/Spellbook/properties/SpellsPerDay/properties/Table/properties/18/items/anyOf/0",
+                        "type": "integer",
+                        "title": "The first anyOf schema",
+                        "description": "An explanation about the purpose of this instance.",
+                        "default": 0
+                      }
+                    ]
+                  }
+                },
+                "19": {
+                  "$id": "#/properties/Spellbook/properties/SpellsPerDay/properties/Table/properties/19",
+                  "type": "array",
+                  "title": "The 19 schema",
+                  "description": "An explanation about the purpose of this instance.",
+                  "default": [],
+                  "additionalItems": true,
+                  "items": {
+                    "$id": "#/properties/Spellbook/properties/SpellsPerDay/properties/Table/properties/19/items",
+                    "anyOf": [
+                      {
+                        "$id": "#/properties/Spellbook/properties/SpellsPerDay/properties/Table/properties/19/items/anyOf/0",
+                        "type": "integer",
+                        "title": "The first anyOf schema",
+                        "description": "An explanation about the purpose of this instance.",
+                        "default": 0
+                      }
+                    ]
+                  }
+                },
+                "20": {
+                  "$id": "#/properties/Spellbook/properties/SpellsPerDay/properties/Table/properties/20",
+                  "type": "array",
+                  "title": "The 20 schema",
+                  "description": "An explanation about the purpose of this instance.",
+                  "default": [],
+                  "additionalItems": true,
+                  "items": {
+                    "$id": "#/properties/Spellbook/properties/SpellsPerDay/properties/Table/properties/20/items",
+                    "anyOf": [
+                      {
+                        "$id": "#/properties/Spellbook/properties/SpellsPerDay/properties/Table/properties/20/items/anyOf/0",
+                        "type": "integer",
+                        "title": "The first anyOf schema",
+                        "description": "An explanation about the purpose of this instance.",
+                        "default": 0
+                      }
+                    ]
+                  }
+                }
+              },
+              "additionalProperties": true
+            }
+          },
+          "additionalProperties": true
+        }
+      },
+      "additionalProperties": true
+    }
+  },
+  "additionalProperties": true
+}
