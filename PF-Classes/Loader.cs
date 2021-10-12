@@ -1,4 +1,6 @@
 ﻿using System;
+using System.IO;
+using System.Reflection;
 using Kingmaker.Blueprints.Classes;
 using PF_Core;
 using PF_Core.Repositories;
@@ -21,11 +23,17 @@ namespace PF_Classes
                 _logger.Log("Loading classes...");
                 try
                 {
-                    CharacterClassLoader characterClassLoader = new CharacterClassLoader("Charlatan.json");
-                    if (characterClassLoader.load())
+                    String m_exePath = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
+                    string[] files = Directory.GetFiles($"{m_exePath}/Classes", "*.json");
+                    foreach (var file in files)
                     {
-                        BlueprintCharacterClass characterClass = characterClassLoader.CharacterClass;
-                        CharacterClassesRepository.INSTANCE.RegisterCharacterClass(characterClass);
+                        _logger.Log($"Loading from file {file}");
+                        CharacterClassLoader characterClassLoader = new CharacterClassLoader(file);
+                        if (characterClassLoader.load())
+                        {
+                            BlueprintCharacterClass characterClass = characterClassLoader.CharacterClass;
+                            CharacterClassesRepository.INSTANCE.RegisterCharacterClass(characterClass);
+                        }
                     }
                 }
                 catch (Exception e)

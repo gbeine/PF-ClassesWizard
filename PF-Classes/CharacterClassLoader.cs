@@ -27,10 +27,8 @@ namespace PF_Classes
         {
             _logger.Log("Loading character class");
 
-            String m_exePath = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
-            
             _logger.Debug($"Loading character class file {_filename}");
-            _jsonString = File.ReadAllText(m_exePath+"/"+_filename);
+            _jsonString = File.ReadAllText(_filename);
             _jObject = JObject.Parse(_jsonString);
 
             _logger.Debug("Parsing character class");
