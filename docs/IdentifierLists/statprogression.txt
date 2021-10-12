@@ -1,0 +1,11 @@
+public const String BABFull = "b3057560ffff3514299e8b93e7648a9d"; // 
+public const String BABLow = "0538081888b2d8c41893d25d098dee99"; // 
+public const String BABMedium = "4c936de4249b61e419a3fb775b9f2581"; // 
+public const String BaseCRTable = "c0bed557c59c0394498253d90489bc27"; // 
+public const String CRTable = "19b09eaa18b203645b6f1d5f2edcb1e4"; // 
+public const String DCtoCRTable = "674a4e0eb86cc89478119de258f602a5"; // 
+public const String SavesHigh = "ff4662bde9e75f145853417313842751"; // 
+public const String SavesLow = "dc0c7c1aba755c54f96c089cdf7d14a3"; // 
+public const String SavesPrestigeHigh = "1f309006cd2855e4e91a6c3707f3f700"; // 
+public const String SavesPrestigeLow = "dc5257e1100ad0d48b8f3b9798421c72"; // 
+public const String XPTable = "87c24ce6bcf1a994296f3c582c1a632b"; // 

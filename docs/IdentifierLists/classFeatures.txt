@@ -1,0 +1,1951 @@
+class AlchemistClass
+level 1
+public const String AlchemistProficiencies = "a1a8971f48a829d4683097f8b14e41c8"; // Alchemisten-Kenntnisse
+public const String AlchemistBombsFeature = "c59b2f256f5a70a4d896568658315b7d"; // Bombe
+public const String MutagenFeature = "cee8f65448ce71c4b8b8ca13751dd8ea"; // Mutagen
+public const String ThrowAnything = "65c538dcfd91930489ad3ab18ad9204b"; // Improvisierter Fernkampf
+level 2
+public const String DiscoverySelection = "cd86c437488386f438dcc9ae727ea2a6"; // Entdeckung
+public const String PoisonResistance = "c9022272c87bd66429176ce5c597989c"; // Giftresistenz
+level 3
+public const String AlchemistBombsFeature = "c59b2f256f5a70a4d896568658315b7d"; // Bombe
+level 4
+public const String DiscoverySelection = "cd86c437488386f438dcc9ae727ea2a6"; // Entdeckung
+level 5
+public const String AlchemistBombsFeature = "c59b2f256f5a70a4d896568658315b7d"; // Bombe
+public const String PoisonResistance = "c9022272c87bd66429176ce5c597989c"; // Giftresistenz
+level 6
+public const String DiscoverySelection = "cd86c437488386f438dcc9ae727ea2a6"; // Entdeckung
+level 7
+public const String AlchemistBombsFeature = "c59b2f256f5a70a4d896568658315b7d"; // Bombe
+level 8
+public const String DiscoverySelection = "cd86c437488386f438dcc9ae727ea2a6"; // Entdeckung
+public const String PoisonResistance = "c9022272c87bd66429176ce5c597989c"; // Giftresistenz
+level 9
+public const String AlchemistBombsFeature = "c59b2f256f5a70a4d896568658315b7d"; // Bombe
+level 10
+public const String DiscoverySelection = "cd86c437488386f438dcc9ae727ea2a6"; // Entdeckung
+public const String PoisonImmunity = "202af59b918143a4ab7c33d72c8eb6d5"; // Giftimmunität
+level 11
+public const String AlchemistBombsFeature = "c59b2f256f5a70a4d896568658315b7d"; // Bombe
+level 12
+public const String DiscoverySelection = "cd86c437488386f438dcc9ae727ea2a6"; // Entdeckung
+level 13
+public const String AlchemistBombsFeature = "c59b2f256f5a70a4d896568658315b7d"; // Bombe
+level 14
+public const String DiscoverySelection = "cd86c437488386f438dcc9ae727ea2a6"; // Entdeckung
+public const String PersistantMutagen = "75ba281feb2b96547a3bfb12ecaff052"; // Beständiges Mutagen
+level 15
+public const String AlchemistBombsFeature = "c59b2f256f5a70a4d896568658315b7d"; // Bombe
+level 16
+public const String DiscoverySelection = "cd86c437488386f438dcc9ae727ea2a6"; // Entdeckung
+level 17
+public const String AlchemistBombsFeature = "c59b2f256f5a70a4d896568658315b7d"; // Bombe
+level 18
+public const String DiscoverySelection = "cd86c437488386f438dcc9ae727ea2a6"; // Entdeckung
+level 19
+public const String AlchemistBombsFeature = "c59b2f256f5a70a4d896568658315b7d"; // Bombe
+level 20
+public const String GrandDiscoverySelection = "2729af328ab46274394cedc3582d6e98"; // Große Entdeckung
+public const String DiscoverySelection = "cd86c437488386f438dcc9ae727ea2a6"; // Entdeckung
+public const String DiscoverySelection = "cd86c437488386f438dcc9ae727ea2a6"; // Entdeckung
+arch GrenadierArchetype
+level 1
+public const String MartialWeaponProficiency = "203992ef5b35c864390b4e4a1e200629"; // Umgang mit Kriegswaffen
+level 2
+public const String PreciseBomb = "5c396342f614dd644a48c3af08d79701"; // Präzisionsbombe
+public const String GrenadierAlchemicalWeaponFeature1 = "73adc9753dd361549a0598ea781255fb"; // Alchemistische Waffe
+level 6
+public const String GrenadierDirectedBlastFeature = "e39991a116cbbf74c9c75926b25988eb"; // Kegelförmige Explosion
+public const String GrenadierAlchemicalWeaponFeature2 = "ab3dd75baf960264cbbb73ea27b09f89"; // Alchemistische Waffe
+level 10
+public const String GrenadierStaggeringBlast = "60c711f083204f945ae556d7616c38a3"; // Wankendmachende Explosion
+level 15
+public const String GrenadierAlchemicalWeaponFeature3 = "507aac54bf13bae4396dd54fb4d0b722"; // Alchemistische Waffe
+arch VivisectionistArchetype
+level 1
+public const String SneakAttack = "9b9eac6709e1c084cb18c3a366e0ec87"; // Hinterhältiger Angriff
+level 3
+public const String SneakAttack = "9b9eac6709e1c084cb18c3a366e0ec87"; // Hinterhältiger Angriff
+level 5
+public const String SneakAttack = "9b9eac6709e1c084cb18c3a366e0ec87"; // Hinterhältiger Angriff
+level 7
+public const String SneakAttack = "9b9eac6709e1c084cb18c3a366e0ec87"; // Hinterhältiger Angriff
+level 9
+public const String SneakAttack = "9b9eac6709e1c084cb18c3a366e0ec87"; // Hinterhältiger Angriff
+level 11
+public const String SneakAttack = "9b9eac6709e1c084cb18c3a366e0ec87"; // Hinterhältiger Angriff
+level 13
+public const String SneakAttack = "9b9eac6709e1c084cb18c3a366e0ec87"; // Hinterhältiger Angriff
+level 15
+public const String SneakAttack = "9b9eac6709e1c084cb18c3a366e0ec87"; // Hinterhältiger Angriff
+level 17
+public const String SneakAttack = "9b9eac6709e1c084cb18c3a366e0ec87"; // Hinterhältiger Angriff
+level 19
+public const String SneakAttack = "9b9eac6709e1c084cb18c3a366e0ec87"; // Hinterhältiger Angriff
+level 10
+public const String AdvanceTalents = "a33b99f95322d6741af83e9381b2391c"; // Verbesserte Tricks
+level 2
+public const String VivsectionistDiscoverySelection = "67f499218a0e22944abab6fe1c9eaeee"; // Medizinische Entdeckung
+level 4
+public const String VivsectionistDiscoverySelection = "67f499218a0e22944abab6fe1c9eaeee"; // Medizinische Entdeckung
+level 6
+public const String VivsectionistDiscoverySelection = "67f499218a0e22944abab6fe1c9eaeee"; // Medizinische Entdeckung
+level 8
+public const String VivsectionistDiscoverySelection = "67f499218a0e22944abab6fe1c9eaeee"; // Medizinische Entdeckung
+level 10
+public const String VivsectionistDiscoverySelection = "67f499218a0e22944abab6fe1c9eaeee"; // Medizinische Entdeckung
+level 12
+public const String VivsectionistDiscoverySelection = "67f499218a0e22944abab6fe1c9eaeee"; // Medizinische Entdeckung
+level 14
+public const String VivsectionistDiscoverySelection = "67f499218a0e22944abab6fe1c9eaeee"; // Medizinische Entdeckung
+level 16
+public const String VivsectionistDiscoverySelection = "67f499218a0e22944abab6fe1c9eaeee"; // Medizinische Entdeckung
+level 18
+public const String VivsectionistDiscoverySelection = "67f499218a0e22944abab6fe1c9eaeee"; // Medizinische Entdeckung
+level 20
+public const String VivsectionistDiscoverySelection = "67f499218a0e22944abab6fe1c9eaeee"; // Medizinische Entdeckung
+arch ChirurgeonArchetype
+level 2
+public const String InfusedCurative = "adc8774dd97dd4d40b83909dc0efa4c3"; // Haltbares Heilmittel
+level 5
+public const String SkillFocusLoreReligion = "c541f80af8d0af4498e1abb6025780c7"; // Fertigkeitsfokus – Wissen (Religion)
+level 10
+public const String PowerOverDeath = "ee4bad9521a00a94fbf60317631aaa92"; // Macht über den Tod
+class ArcaneTricksterClass
+level 1
+public const String ArcaneTricksterSpellbookSelection = "ae04b7cdeb88b024b9fd3882cc7d3d76"; // Arkane Zauber
+public const String RangedLegerdemainFeature = "d99bab42783d29f48870274fb1e85bc4"; // Weitreichende Fingerfertigkeit
+level 2
+public const String SneakAttack = "9b9eac6709e1c084cb18c3a366e0ec87"; // Hinterhältiger Angriff
+level 3
+public const String ImpromptuSneakAttackFeature = "8ec618121de114845981933a3d5c4b02"; // Improvisierter Hinterhältiger Angriff
+level 4
+public const String SneakAttack = "9b9eac6709e1c084cb18c3a366e0ec87"; // Hinterhältiger Angriff
+level 5
+public const String ImpromptuSneakAttackAdditionalUse = "d48de79ddcbc08f42a2b3afef9ae150f"; // Improvisierter Hinterhältiger Angriff
+level 6
+public const String SneakAttack = "9b9eac6709e1c084cb18c3a366e0ec87"; // Hinterhältiger Angriff
+level 7
+public const String ImpromptuSneakAttackAdditionalUse = "d48de79ddcbc08f42a2b3afef9ae150f"; // Improvisierter Hinterhältiger Angriff
+level 8
+public const String SneakAttack = "9b9eac6709e1c084cb18c3a366e0ec87"; // Hinterhältiger Angriff
+level 9
+public const String ImpromptuSneakAttackAdditionalUse = "d48de79ddcbc08f42a2b3afef9ae150f"; // Improvisierter Hinterhältiger Angriff
+public const String InvisibleThiefFeature = "9a70f4efef9c2964c82cecefdd34292b"; // Unsichtbarer Dieb
+level 10
+public const String SneakAttack = "9b9eac6709e1c084cb18c3a366e0ec87"; // Hinterhältiger Angriff
+public const String SurpriseSpells = "de5cb97a702699841abd3fc66c69fbcf"; // Überraschungszauber
+class Barbarian
+level 1
+public const String FastMovement = "d294a5dddd0120046aae7d4eb6cbc4fc"; // Schnelle Bewegung
+public const String RageFeature = "2479395977cfeeb46b482bc3385f4647"; // Kampfrausch
+public const String BarbarianProficiencies = "acc15a2d19f13864e8cce3ba133a1979"; // Barbaren-Kenntnisse
+level 2
+public const String RagePowerSelection = "28710502f46848d48b3f0d6132817c4e"; // Kampfrauschkraft
+public const String UncannyDodge = "3c08d842e802c3e4eb19d15496145709"; // Reflexbewegung
+level 3
+public const String DangerSenseBarbarian = "fdd591c1fbf1c0b41a359d59756f2888"; // Gefahrengespür
+level 4
+public const String RagePowerSelection = "28710502f46848d48b3f0d6132817c4e"; // Kampfrauschkraft
+level 5
+public const String ImprovedUncannyDodge = "485a18c05792521459c7d06c63128c79"; // Verbesserte Reflexbewegung
+level 6
+public const String RagePowerSelection = "28710502f46848d48b3f0d6132817c4e"; // Kampfrauschkraft
+public const String DangerSenseBarbarian = "fdd591c1fbf1c0b41a359d59756f2888"; // Gefahrengespür
+level 7
+public const String DamageReduction = "cffb5cddefab30140ac133699d52a8f8"; // Schadensreduzierung
+level 8
+public const String RagePowerSelection = "28710502f46848d48b3f0d6132817c4e"; // Kampfrauschkraft
+level 9
+public const String DangerSenseBarbarian = "fdd591c1fbf1c0b41a359d59756f2888"; // Gefahrengespür
+level 10
+public const String RagePowerSelection = "28710502f46848d48b3f0d6132817c4e"; // Kampfrauschkraft
+public const String DamageReduction = "cffb5cddefab30140ac133699d52a8f8"; // Schadensreduzierung
+level 11
+public const String GreaterRageFeature = "ce49c579fe0bcc647a32c96929fae982"; // Stärkerer Kampfrausch
+level 12
+public const String RagePowerSelection = "28710502f46848d48b3f0d6132817c4e"; // Kampfrauschkraft
+public const String DangerSenseBarbarian = "fdd591c1fbf1c0b41a359d59756f2888"; // Gefahrengespür
+level 13
+public const String DamageReduction = "cffb5cddefab30140ac133699d52a8f8"; // Schadensreduzierung
+level 14
+public const String RagePowerSelection = "28710502f46848d48b3f0d6132817c4e"; // Kampfrauschkraft
+public const String IndomitableWill = "e9ae7276574c170468937b617d993357"; // Unbeugsamer Wille
+level 15
+public const String DangerSenseBarbarian = "fdd591c1fbf1c0b41a359d59756f2888"; // Gefahrengespür
+level 16
+public const String RagePowerSelection = "28710502f46848d48b3f0d6132817c4e"; // Kampfrauschkraft
+public const String DamageReduction = "cffb5cddefab30140ac133699d52a8f8"; // Schadensreduzierung
+level 17
+public const String TirelessRage = "ca9343d75a83a2745a22fa11c383153a"; // Unermüdlicher Kampfrausch
+level 18
+public const String RagePowerSelection = "28710502f46848d48b3f0d6132817c4e"; // Kampfrauschkraft
+public const String DangerSenseBarbarian = "fdd591c1fbf1c0b41a359d59756f2888"; // Gefahrengespür
+level 19
+public const String DamageReduction = "cffb5cddefab30140ac133699d52a8f8"; // Schadensreduzierung
+level 20
+public const String RagePowerSelection = "28710502f46848d48b3f0d6132817c4e"; // Kampfrauschkraft
+public const String MightyRage = "06a7e5b60020ad947aed107d82d1f897"; // Mächtiger Kampfrausch
+arch ArmoredHulkArchetype
+level 1
+public const String ArmoredHulkIndomitableStance = "74c59090138e28f4687c8a3400030763"; // Unbeugsame Haltung
+public const String HeavyArmorProficiency = "1b0f68188dcc435429fb87a022239681"; // Umgang mit Rüstungen (Schwere Rüstung)
+level 2
+public const String ArmoredHulkArmoredSwiftness = "f95f4f3a10917114c82bcbebc4d0fd36"; // Gepanzerte Schnelligkeit
+level 5
+public const String ArmoredHulkImprovedArmoredSwiftness = "0db9a2b013e8fc6409611c2a16ae56bc"; // Verbesserte Gepanzerte Schnelligkeit
+level 3
+public const String ArmoredHulkResilienceOfSteel = "ac8f1fcec10a9584c9e40a5cd8100830"; // Stählerne Widerstandskraft
+level 6
+public const String ArmoredHulkResilienceOfSteel = "ac8f1fcec10a9584c9e40a5cd8100830"; // Stählerne Widerstandskraft
+level 9
+public const String ArmoredHulkResilienceOfSteel = "ac8f1fcec10a9584c9e40a5cd8100830"; // Stählerne Widerstandskraft
+level 12
+public const String ArmoredHulkResilienceOfSteel = "ac8f1fcec10a9584c9e40a5cd8100830"; // Stählerne Widerstandskraft
+level 15
+public const String ArmoredHulkResilienceOfSteel = "ac8f1fcec10a9584c9e40a5cd8100830"; // Stählerne Widerstandskraft
+level 18
+public const String ArmoredHulkResilienceOfSteel = "ac8f1fcec10a9584c9e40a5cd8100830"; // Stählerne Widerstandskraft
+arch MadDogArchetype
+level 1
+public const String AnimalCompanionSelectionMadDog = "738b59d0b58187f4d846b0caaf0f80d7"; // Tiergefährte
+level 2
+public const String MadDogPackTacticsMaster = "7c8f1d83b18fa9a4491596d3e65f965c"; // Rudeltaktiken
+level 4
+public const String RageFeature = "2479395977cfeeb46b482bc3385f4647"; // Kampfrausch
+level 5
+public const String MadDogFerociousFetch = "700aa068f7c0a2b41a8ef8a0fccbfffd"; // Wildes Zerren
+level 14
+public const String MadDogThroatCutter = "e16cbd68cb990824e811bfcd3b361c22"; // Kehlenhieb
+level 10
+public const String MadDogDamageReductionMaster = "a0d4a3295224b8f4387464a4447c31d5"; // Schadensreduzierung
+level 13
+public const String MadDogDamageReductionMaster = "a0d4a3295224b8f4387464a4447c31d5"; // Schadensreduzierung
+level 16
+public const String MadDogDamageReductionMaster = "a0d4a3295224b8f4387464a4447c31d5"; // Schadensreduzierung
+level 19
+public const String MadDogDamageReductionMaster = "a0d4a3295224b8f4387464a4447c31d5"; // Schadensreduzierung
+level 1
+level 2
+level 3
+level 4
+level 5
+level 6
+level 7
+level 8
+level 9
+level 10
+level 11
+level 12
+level 13
+level 14
+level 15
+level 16
+level 17
+level 18
+level 19
+level 20
+arch InvulnerableRagerArchetype
+level 2
+public const String InvulnerableRagerDamageReduction = "e71bd204a2579b1438ebdfbf75aeefae"; // Schadensreduzierung
+level 4
+public const String InvulnerableRagerDamageReduction = "e71bd204a2579b1438ebdfbf75aeefae"; // Schadensreduzierung
+level 6
+public const String InvulnerableRagerDamageReduction = "e71bd204a2579b1438ebdfbf75aeefae"; // Schadensreduzierung
+public const String InvulnerableRagerExtremeEndurance = "427b4a34432389042861b8db4cbe3d99"; // Besondere Ausdauer
+level 8
+public const String InvulnerableRagerDamageReduction = "e71bd204a2579b1438ebdfbf75aeefae"; // Schadensreduzierung
+level 10
+public const String InvulnerableRagerDamageReduction = "e71bd204a2579b1438ebdfbf75aeefae"; // Schadensreduzierung
+level 12
+public const String InvulnerableRagerDamageReduction = "e71bd204a2579b1438ebdfbf75aeefae"; // Schadensreduzierung
+public const String InvulnerableRagerExtremeEndurance = "427b4a34432389042861b8db4cbe3d99"; // Besondere Ausdauer
+level 14
+public const String InvulnerableRagerDamageReduction = "e71bd204a2579b1438ebdfbf75aeefae"; // Schadensreduzierung
+level 16
+public const String InvulnerableRagerDamageReduction = "e71bd204a2579b1438ebdfbf75aeefae"; // Schadensreduzierung
+level 18
+public const String InvulnerableRagerDamageReduction = "e71bd204a2579b1438ebdfbf75aeefae"; // Schadensreduzierung
+public const String InvulnerableRagerExtremeEndurance = "427b4a34432389042861b8db4cbe3d99"; // Besondere Ausdauer
+level 20
+public const String InvulnerableRagerDamageReduction = "e71bd204a2579b1438ebdfbf75aeefae"; // Schadensreduzierung
+level 3
+public const String InvulnerableRagerExtremeEndurance = "427b4a34432389042861b8db4cbe3d99"; // Besondere Ausdauer
+level 9
+public const String InvulnerableRagerExtremeEndurance = "427b4a34432389042861b8db4cbe3d99"; // Besondere Ausdauer
+level 15
+public const String InvulnerableRagerExtremeEndurance = "427b4a34432389042861b8db4cbe3d99"; // Besondere Ausdauer
+class BardClass
+level 1
+public const String BardProficiencies = "fa3d3b2211a51994785d85e753f612d3"; // Barden-Kenntnisse
+public const String BardCantripsFeature = "4f422e8490ec7d94592a8069cce47f98"; // Zaubertricks
+public const String BardicPerformanceResourceFact = "b92bfc201c6a79e49afd0b5cfbfc269f"; // Bardenauftritt
+public const String InspireCourageFeature = "acb4df34b25ca9043a6aba1a4c92bc69"; // Lied des Mutes
+public const String BardicKnowledge = "65cff8410a336654486c98fd3bacd8c5"; // Bardenwissen
+public const String TouchCalculateFeature = "62ef1cdb90f1d654d996556669caf7fa"; // 
+public const String RayCalculateFeature = "d3e6275cfa6e7a04b9213b7b292a011c"; // 
+public const String DetectMagic = "ee0b69e90bac14446a4cf9a050f87f2e"; // Magie orten
+level 2
+public const String BardTalentSelection = "94e2cd84bf3a8e04f8609fe502892f4f"; // Bardentalent
+public const String BardWellVersed = "8f4060852a4c8604290037365155662f"; // Bewandert
+level 3
+public const String InspireCompetenceFeature = "6d3fcfab6d935754c918eb0e004b5ef7"; // Lied des Erfolges
+level 4
+level 5
+public const String InspireCourageFeature = "acb4df34b25ca9043a6aba1a4c92bc69"; // Lied des Mutes
+level 6
+public const String BardTalentSelection = "94e2cd84bf3a8e04f8609fe502892f4f"; // Bardentalent
+public const String FascinateFeature = "ddaec3a5845bc7d4191792529b687d65"; // Faszinieren
+level 7
+public const String InspireCompetenceFeature = "6d3fcfab6d935754c918eb0e004b5ef7"; // Lied des Erfolges
+public const String BardMovePerformance = "36931765983e96d4bb07ce7844cd897e"; // Bardenauftritt (Bewegungsaktion)
+level 8
+public const String DirgeOfDoomFeature = "1d48ab2bded57a74dad8af3da07d313a"; // Mächtiges Klagelied
+level 9
+public const String InspireGreatnessFeature = "9ae0f32c72f8df84dab023d1b34641dc"; // Lied der Größe
+level 10
+public const String BardJackOfAllTrades = "21fbafd5dc42d4d488c4d6caed46bc99"; // Tausendsassa
+public const String BardTalentSelection = "94e2cd84bf3a8e04f8609fe502892f4f"; // Bardentalent
+level 11
+public const String InspireCourageFeature = "acb4df34b25ca9043a6aba1a4c92bc69"; // Lied des Mutes
+public const String InspireCompetenceFeature = "6d3fcfab6d935754c918eb0e004b5ef7"; // Lied des Erfolges
+level 12
+public const String SoothingPerformanceFeature = "546698146e02d1e4ea00581a3ea7fe58"; // Erfrischender Auftritt
+level 13
+public const String BardSwiftPerformance = "fd4ec50bc895a614194df6b9232004b9"; // Bardenauftritt (Schnelle Aktion)
+level 14
+public const String FrighteningTuneFeature = "cfd8940869a304f4aa9077415f93febe"; // Lied der Furcht
+public const String BardTalentSelection = "94e2cd84bf3a8e04f8609fe502892f4f"; // Bardentalent
+level 15
+public const String InspireCompetenceFeature = "6d3fcfab6d935754c918eb0e004b5ef7"; // Lied des Erfolges
+public const String InspireHeroicsFeature = "199d6fa0de149d044a8ab622a542cc79"; // Lied des Heldenmuts
+level 16
+level 17
+public const String InspireCourageFeature = "acb4df34b25ca9043a6aba1a4c92bc69"; // Lied des Mutes
+level 18
+public const String BardTalentSelection = "94e2cd84bf3a8e04f8609fe502892f4f"; // Bardentalent
+level 19
+public const String InspireCompetenceFeature = "6d3fcfab6d935754c918eb0e004b5ef7"; // Lied des Erfolges
+level 20
+public const String DeadlyPerformanceFeature = "a6e13797b0a20d2458a086a8a511fd8c"; // Tödliche Melodie
+arch ArchaeologistArchetype
+level 1
+public const String ArchaeologistLuckFeature = "03bf87dd753cd4f48a47eaf0ea6da9fe"; // Archäologenglück
+level 5
+public const String ArchaeologistLuckFeature = "03bf87dd753cd4f48a47eaf0ea6da9fe"; // Archäologenglück
+level 11
+public const String ArchaeologistLuckFeature = "03bf87dd753cd4f48a47eaf0ea6da9fe"; // Archäologenglück
+level 17
+public const String ArchaeologistLuckFeature = "03bf87dd753cd4f48a47eaf0ea6da9fe"; // Archäologenglück
+level 2
+public const String ArchaeologistCleverExplorer = "1322e50d2b36aba45ab5405db43c53a3"; // Kluger Entdecker
+level 6
+public const String ArchaeologistConfidentExplorerFeature = "56f4e48126b78ab40970783a3cebed65"; // Selbstbewusster Entdecker
+level 2
+public const String UncannyDodge = "3c08d842e802c3e4eb19d15496145709"; // Reflexbewegung
+level 6
+public const String Evasion = "576933720c440aa4d8d42b0c54b77e80"; // Entrinnen
+level 3
+public const String ArchaelogistDangerSense = "f3ce82243623f414a94fd83cb22d5528"; // Gefahrengespür
+level 6
+public const String ArchaelogistDangerSense = "f3ce82243623f414a94fd83cb22d5528"; // Gefahrengespür
+level 9
+public const String ArchaelogistDangerSense = "f3ce82243623f414a94fd83cb22d5528"; // Gefahrengespür
+level 12
+public const String ArchaelogistDangerSense = "f3ce82243623f414a94fd83cb22d5528"; // Gefahrengespür
+level 15
+public const String ArchaelogistDangerSense = "f3ce82243623f414a94fd83cb22d5528"; // Gefahrengespür
+level 18
+public const String ArchaelogistDangerSense = "f3ce82243623f414a94fd83cb22d5528"; // Gefahrengespür
+level 10
+public const String AdvanceTalents = "a33b99f95322d6741af83e9381b2391c"; // Verbesserte Tricks
+arch ThundercallerArchetype
+level 1
+public const String ThundercallerBoundToTheLand = "a48849d395a870d49814540b12169fea"; // Landgebunden
+level 3
+public const String ThunderCall = "5ebb5d1f76b602d44818a21e9b6e31b8"; // Donnerruf
+level 7
+public const String ThunderCall = "5ebb5d1f76b602d44818a21e9b6e31b8"; // Donnerruf
+level 11
+public const String ThunderCall = "5ebb5d1f76b602d44818a21e9b6e31b8"; // Donnerruf
+level 15
+public const String ThunderCall = "5ebb5d1f76b602d44818a21e9b6e31b8"; // Donnerruf
+level 19
+public const String ThunderCall = "5ebb5d1f76b602d44818a21e9b6e31b8"; // Donnerruf
+level 6
+public const String InciteRageFeature = "35ac4bd7990fa0842bfc22e80665c2f9"; // Wut entfachen – Gegner
+level 8
+public const String StormCallFeature = "161db4d6c4a1f4640ab52c762e15c1af"; // Sturmruf
+level 14
+public const String GreaterStormCallFeature = "fa200fb1f13c140439428ea1853ac574"; // Mächtiger Sturmruf
+arch FlameDancerArchetype
+level 3
+public const String FlameDancerPerformanceFeature = "3c10a0069e7f110499d2e810f4861a6e"; // Feuertanz
+level 6
+public const String FlameDancerPerformanceFeature = "3c10a0069e7f110499d2e810f4861a6e"; // Feuertanz
+level 11
+public const String FlameDancerPerformanceFeature = "3c10a0069e7f110499d2e810f4861a6e"; // Feuertanz
+level 8
+public const String FlameDancerFanTheFlames = "a317c030f0b3f304f84f2a52e7258e6a"; // Flammen anfachen
+class ClericClass
+level 1
+public const String ClericProficiencies = "8c971173613282844888dc20d572cfc9"; // Kleriker-Kenntnisse
+public const String DeitySelection = "59e7a76987fe3b547b9cce045f4db3e4"; // Wahl einer Gottheit
+public const String ChannelEnergySelection = "d332c1748445e8f4f9e92763123e31bd"; // Energie fokussieren
+public const String DomainsSelection = "48525e5da45c9c243a343fc6545dbdb9"; // Domänen-Auswahl
+public const String SecondDomainsSelection = "43281c3d7fe18cc4d91928395837cd1e"; // Domänen-Auswahl
+public const String ClericOrisonsFeature = "e62f392949c24eb4b8fb2bc9db4345e3"; // Gebete
+public const String RayCalculateFeature = "d3e6275cfa6e7a04b9213b7b292a011c"; // 
+public const String TouchCalculateFeature = "62ef1cdb90f1d654d996556669caf7fa"; // 
+public const String FullCasterFeature = "9fc9813f569e2e5448ddc435abf774b3"; // Vollwertiger Zauberwirker
+public const String DetectMagic = "ee0b69e90bac14446a4cf9a050f87f2e"; // Magie orten
+level 2
+level 3
+level 4
+level 5
+level 6
+level 7
+level 8
+level 9
+level 10
+level 11
+level 12
+level 13
+level 14
+level 15
+level 16
+level 17
+level 18
+level 19
+level 20
+arch CrusaderArchetype
+level 1
+public const String CrusaderBonusFeat1 = "c5357c05cf4f8414ebd0a33e534aec50"; // Kreuzfahrer-Bonustalent
+level 5
+public const String CrusaderBonusFeat1 = "c5357c05cf4f8414ebd0a33e534aec50"; // Kreuzfahrer-Bonustalent
+level 10
+public const String CrusaderBonusFeat10 = "50dc57d2662ccbd479b6bc8ab44edc44"; // Kreuzfahrer-Bonustalent
+level 15
+public const String CrusaderBonusFeat10 = "50dc57d2662ccbd479b6bc8ab44edc44"; // Kreuzfahrer-Bonustalent
+level 20
+public const String CrusaderBonusFeat20 = "2049abc955bf6fe41a76f2cb6ba8214a"; // Kreuzfahrer-Bonustalent
+arch HeraldCallerArchetype
+level 1
+public const String HeraldCallerDedicatedSummoner = "60f6b157ec98b844f8100c5939d7dab4"; // Fokussierter Beschwörer
+public const String HeraldCallerSpontaneousSummon = "f6c112a579a81c0439c597f9ee222243"; // Spontane Herbeizauberungen
+level 4
+public const String HeraldCallerAugmentSummoning = "1ad9828c09fd28c4293c7b12845e6d20"; // Mächtige Gesandte
+level 8
+public const String HeraldCallerSuperiorSummoning = "d20d1b2a865e2eb40a18e3d93cbeeb60"; // Zahlreiche Herolde
+arch EcclesitheurgeArchetype
+level 1
+public const String EcclesitheurgeBlessingFeature = "770888bf36d8dcd418961ae6ede16f8b"; // Segnung des Gläubigen
+public const String EcclesitheurgeProficiencies = "c8410e3322d8e4443aeb924061513951"; // Wunderwirker-Kenntnisse
+public const String EcclesitheurgeRestriction = "82fa26ea2b628e44a8fc35c248831890"; // 
+public const String EcclesitheurgeDomainMastery = "22a522d4ef636974f985a1f089a5ea23"; // Domänenmeisterschaft
+level 3
+public const String EcclesitheurgeBondFeature = "aa34ca4f3cd5e5d49b2475fcfdf56b24"; // Gebundenes Heiliges Symbol
+class DragonDiscipleClass
+level 1
+public const String BloodOfDragonsSelection = "da48f9d7f697ae44ca891bfc50727988"; // Drachenblütig
+public const String DragonDiscipleNaturalArmor = "aa4f9fd22a07ddb49982500deaed88f9"; // Natürlicher Rüstungsbonus (+1)
+level 2
+public const String DragonDiscipleSpellbookSelection = "8c1ba14c0b6dcdb439c56341385ee474"; // Arkane Zauber
+public const String BloodlineDraconicFeatSelection = "f4b011d090e8ae543b1441bd594c7bf7"; // Blutlinientalent-Auswahl
+public const String DragonDiscipleStrength = "270259f59c6ae6040babd5797feef2e2"; // Attributserhöhung – Stärke (+2)
+public const String DragonDiscipleBiteFeatureFirst = "7e7e4cd3d93984b439799048e6657237"; // Drachenbiss
+level 3
+public const String DragonDiscipleBreathFeature = "0aadb51129cb0c147b5d2464c0db10b3"; // Odemwaffe
+level 4
+public const String DragonDiscipleStrength = "270259f59c6ae6040babd5797feef2e2"; // Attributserhöhung – Stärke (+2)
+public const String DragonDiscipleNaturalArmor = "aa4f9fd22a07ddb49982500deaed88f9"; // Natürlicher Rüstungsbonus (+1)
+level 5
+public const String BloodlineDraconicFeatSelection = "f4b011d090e8ae543b1441bd594c7bf7"; // Blutlinientalent-Auswahl
+public const String DragonDiscipleBlindSense = "bb19b581f5a47b44abfe00164f1fcade"; // Blindgespür
+level 6
+public const String DragonDiscipleBiteFeatureSecond = "01971351119121d429ecf62c2ab94de3"; // Drachenbiss
+public const String DragonDiscipleConstitution = "95de611796547be489e527fae84abbd6"; // Attributserhöhung – Konstitution (+2)
+level 7
+public const String DragonDiscipleNaturalArmor = "aa4f9fd22a07ddb49982500deaed88f9"; // Natürlicher Rüstungsbonus (+1)
+public const String DragonDiscipleFormFeatureFirst = "0ee31c9fc504b51489d12d43168b5009"; // Drachenbiss
+level 8
+public const String BloodlineDraconicFeatSelection = "f4b011d090e8ae543b1441bd594c7bf7"; // Blutlinientalent-Auswahl
+public const String DragonDiscipleIntelligence = "6ad7e3699a6a9ad47a25b3464a305627"; // Attributserhöhung – Intelligenz (+2)
+level 9
+public const String DragonDiscipleFormFeatureWings = "aa36f82ab9a046c4a853dccf0cdbaf53"; // Drachenbiss
+level 10
+public const String DragonDiscipleBlindSense = "bb19b581f5a47b44abfe00164f1fcade"; // Blindgespür
+public const String DragonDiscipleFormFeatureUltimate = "717699191d106eb46a7d820a872ed24d"; // Drachenbiss
+class DruidClass
+level 1
+public const String NatureSense = "3a859e435fdd6d343b80d4970a7664c1"; // Naturgespür
+public const String DruidProficiencies = "0ef3fcce071b4b24a8c52dd0f55fd216"; // Druiden-Kenntnisse
+public const String DruidBondSelection = "3830f3630a33eba49b60f511b4c8f2a8"; // Bund mit der Natur
+public const String DruidOrisonsFeature = "f2ed91cc202bd344691eef91eb6d5d1a"; // Gebete
+public const String FullCasterFeature = "9fc9813f569e2e5448ddc435abf774b3"; // Vollwertiger Zauberwirker
+public const String DruidAlignmentRestriction = "d00ff3791359311449c481126fbf71ce"; // Gesinnungsbeschränkung
+public const String DruidSpontaneousSummon = "b296531ffe013c8499ad712f8ae97f6b"; // Spontane Herbeizauberung
+public const String StormBuff = "0aeba56961779e54a8a0f6dedef081ee"; // 
+public const String RayCalculateFeature = "d3e6275cfa6e7a04b9213b7b292a011c"; // 
+public const String TouchCalculateFeature = "62ef1cdb90f1d654d996556669caf7fa"; // 
+public const String DetectMagic = "ee0b69e90bac14446a4cf9a050f87f2e"; // Magie orten
+level 2
+level 3
+level 4
+public const String ResistNaturesLure = "ad6a5b0e1a65c3540986cf9a7b006388"; // Lockruf der Natur widerstehen
+public const String WildShapeIWolfFeature = "19bb148cb92db224abb431642d10efeb"; // Tiergestalt (Wolf)
+level 5
+level 6
+public const String WildShapeIILeopardFeature = "c4d651bc0d4eabd41b08ee81bfe701d8"; // Tiergestalt (Leopard)
+public const String WildShapeExtraUse = "f78260b9a089ccc44b55f0fed08b1752"; // 
+public const String WildShapeElementalSmallFeature = "bddd46a6f6a3e6e4b99008dcf5271c3b"; // Tiergestalt (Kleines Elementar)
+level 7
+level 8
+public const String WildShapeIVBearFeature = "1368c7ce69702444893af5ffd3226e19"; // Tiergestalt (Bär)
+public const String WildShapeExtraUse = "f78260b9a089ccc44b55f0fed08b1752"; // 
+public const String WildShapeElementalFeatureAddMedium = "6e4b88e2a044c67469c038ac2f09d061"; // Tiergestalt (Mittelgroßes Elementar)
+level 9
+public const String VenomImmunity = "5078622eb5cecaf4683fa16a9b948c2c"; // Immunität gegen Gifte
+level 10
+public const String WildShapeExtraUse = "f78260b9a089ccc44b55f0fed08b1752"; // 
+public const String WildShapeIIISmilodonFeature = "253c0c0d00e50a24797445f20af52dc8"; // Tiergestalt (Smilodon)
+public const String WildShapeElementalFeatureAddLarge = "e66154511a6f9fc49a9de644bd8922db"; // Tiergestalt (Großes Elementar)
+public const String WildShapeIVShamblingMoundFeature = "0f31b23c2ab39354bbde4e33e8151495"; // Tiergestalt (Modernder Schlurfer)
+level 11
+level 12
+public const String WildShapeExtraUse = "f78260b9a089ccc44b55f0fed08b1752"; // 
+public const String WildShapeElementaHugeFeature = "fe58dd496a36e274b86958f4677071b2"; // Tiergestalt (Riesiges Elementar)
+level 13
+level 14
+public const String WildShapeExtraUse = "f78260b9a089ccc44b55f0fed08b1752"; // 
+level 15
+level 16
+public const String WildShapeExtraUse = "f78260b9a089ccc44b55f0fed08b1752"; // 
+level 17
+level 18
+public const String WildShapeExtraUse = "f78260b9a089ccc44b55f0fed08b1752"; // 
+level 19
+level 20
+arch BlightDruid
+level 1
+public const String BlightDruidBond = "096fc02f6cc817a43991c4b437e12b8e"; // Plagenbund
+level 5
+public const String BlightMiasmaFeature = "1917f240517cbf84e9ff9ba6adaf40c8"; // Miasma
+level 9
+public const String BlightBlooded = "0c079071d76d2bd42889a95d6db22b5f"; // Fäulnisblutig
+level 13
+public const String BlightPlaguebearer = "1f01189eb78e334469017066675d21f0"; // Seuchenträger
+arch DefenderOfTheTrueWorld
+level 1
+public const String EnemyOfTheFey = "b08a858f2e4887f45aca4c09893a0adc"; // Feind der Feen
+level 3
+public const String FeyStalkerMasterFeature = "02357ba2802b8654bb3e824bae68f5c0"; // Feenjäger
+level 4
+public const String FeyBane = "7d62b8531749ea74292b0d39b4b7fc19"; // Feenfluch
+level 8
+public const String FeyStalkerMasterFeature = "02357ba2802b8654bb3e824bae68f5c0"; // Feenjäger
+level 9
+public const String BeguilingImmunity = "c532e8f7a393d0c4580f017d225d4fe2"; // Immunität gegen Betörung
+level 13
+public const String FeyStalkerMasterFeature = "02357ba2802b8654bb3e824bae68f5c0"; // Feenjäger
+level 18
+public const String FeyStalkerMasterFeature = "02357ba2802b8654bb3e824bae68f5c0"; // Feenjäger
+arch FeyspeakerArchetype
+level 1
+public const String FeyspeakerOrisonsFeature = "27b2bc1b3589cc54491b78966e8013e6"; // 
+level 4
+public const String FeyspeakerMagicSelection = "237efc6a131c8174bbd466ed239f21fc"; // Feenmagie
+level 6
+public const String FeyspeakerMagicSelection = "237efc6a131c8174bbd466ed239f21fc"; // Feenmagie
+public const String WildShapeIWolfFeature = "19bb148cb92db224abb431642d10efeb"; // Tiergestalt (Wolf)
+level 8
+public const String FeyspeakerMagicSelection = "237efc6a131c8174bbd466ed239f21fc"; // Feenmagie
+public const String WildShapeIILeopardFeature = "c4d651bc0d4eabd41b08ee81bfe701d8"; // Tiergestalt (Leopard)
+level 10
+public const String FeyspeakerMagicSelection = "237efc6a131c8174bbd466ed239f21fc"; // Feenmagie
+public const String WildShapeIVBearFeature = "1368c7ce69702444893af5ffd3226e19"; // Tiergestalt (Bär)
+level 12
+public const String FeyspeakerMagicSelection = "237efc6a131c8174bbd466ed239f21fc"; // Feenmagie
+public const String WildShapeIIISmilodonFeature = "253c0c0d00e50a24797445f20af52dc8"; // Tiergestalt (Smilodon)
+level 14
+public const String FeyspeakerMagicSelection = "237efc6a131c8174bbd466ed239f21fc"; // Feenmagie
+level 16
+public const String FeyspeakerMagicSelection = "237efc6a131c8174bbd466ed239f21fc"; // Feenmagie
+level 18
+public const String FeyspeakerMagicSelection = "237efc6a131c8174bbd466ed239f21fc"; // Feenmagie
+class DuelistClass
+level 1
+public const String CannyDefense = "9a0a447e161207d46829ce2bd8b3cc6f"; // Gewitzte Verteidigung
+public const String PreciseStrikeAbility = "4247758d93b218a43aed6aecc1f50fbb"; // Genauer Stich
+level 2
+public const String ImprovedReaction = "d1b7dd3736ca41446aaff9f253768d1d"; // Verbesserte Reaktion
+public const String DuelistParryFeature = "47e9ac1bf9c376e44b64cb5844a5e6a6"; // Parade
+level 3
+public const String EnhancedMobility = "3202d0c7f84303c43935df57a1f804af"; // Verbesserte Beweglichkeit
+level 4
+public const String CombatReflexes = "0f8939ae6f220984e8fb568abbdfba95"; // Kampfreflexe
+public const String DuelistGrace = "03d207de4011f4f4fb871d2dcce8fd56"; // Anmut
+level 5
+public const String DuelistRiposte = "9680cce5b61e36e4499971ca3f794607"; // Riposte
+level 6
+public const String AcrobaticMovement = "483667247e2441740ad0cff6a67b50e3"; // Akrobatische Bewegung
+level 7
+public const String ElaborateDefense = "648a0c95ede2e7147a9b319eac86844e"; // Ausgefeilte Parade
+level 8
+public const String ImprovedReaction = "d1b7dd3736ca41446aaff9f253768d1d"; // Verbesserte Reaktion
+level 9
+public const String DuelistDeflectArrows = "c44158612f496fc4b863a0a7691401e3"; // Geschosse abwehren
+public const String NoRetreat = "049212ca3b36eeb4c94debb4ef40eaba"; // Kein Rückzug
+level 10
+public const String DuelistCripplingCriticalFeature = "214562b6bb8e34a4b82628ed7c2468c7"; // Verkrüppelnder Kritischer Treffer
+class EldritchKnightClass
+level 1
+public const String EldritchKnightDiverseTraining = "983e8ad193160b44da80b38af4927e75"; // Vielseitige Ausbildung
+public const String EldritchKnightFeatSelection = "da03141df23f3fe45b0c7c323a8e5a0e"; // Bonus-Kampftalent
+level 2
+public const String EldritchKnightSpellbookSelection = "dc3ab8d0484467a4787979d93114ebc3"; // Arkane Zauber
+level 3
+level 4
+level 5
+public const String EldritchKnightFeatSelection = "da03141df23f3fe45b0c7c323a8e5a0e"; // Bonus-Kampftalent
+level 6
+level 7
+level 8
+level 9
+public const String EldritchKnightFeatSelection = "da03141df23f3fe45b0c7c323a8e5a0e"; // Bonus-Kampftalent
+level 10
+public const String EldritchKnightSpellCriticalFeature = "5f044633fb279a34da7312fa3837b62b"; // Kritischer Zauber
+class FighterClass
+level 1
+public const String FighterFeatSelection = "41c8486641f7d6d4283ca9dae4147a9f"; // Bonus-Kampftalent
+public const String FighterProficiencies = "a23591cc77086494ba20880f87e73970"; // Kämpfer-Kenntnisse
+level 2
+public const String FighterFeatSelection = "41c8486641f7d6d4283ca9dae4147a9f"; // Bonus-Kampftalent
+public const String Bravery = "f6388946f9f472f4585591b80e9f2452"; // Tapferkeit
+level 3
+public const String ArmorTraining = "3c380607706f209499d951b29d3c44f3"; // Rüstungstraining
+level 4
+public const String FighterFeatSelection = "41c8486641f7d6d4283ca9dae4147a9f"; // Bonus-Kampftalent
+level 5
+public const String WeaponTrainingSelection = "b8cecf4e5e464ad41b79d5b42b76b399"; // Waffentraining
+level 6
+public const String FighterFeatSelection = "41c8486641f7d6d4283ca9dae4147a9f"; // Bonus-Kampftalent
+public const String Bravery = "f6388946f9f472f4585591b80e9f2452"; // Tapferkeit
+level 7
+public const String ArmorTraining = "3c380607706f209499d951b29d3c44f3"; // Rüstungstraining
+level 8
+public const String FighterFeatSelection = "41c8486641f7d6d4283ca9dae4147a9f"; // Bonus-Kampftalent
+level 9
+public const String WeaponTrainingSelection = "b8cecf4e5e464ad41b79d5b42b76b399"; // Waffentraining
+public const String WeaponTrainingRankUpSelection = "5f3cc7b9a46b880448275763fe70c0b0"; // Waffentraining
+level 10
+public const String FighterFeatSelection = "41c8486641f7d6d4283ca9dae4147a9f"; // Bonus-Kampftalent
+public const String Bravery = "f6388946f9f472f4585591b80e9f2452"; // Tapferkeit
+level 11
+public const String ArmorTraining = "3c380607706f209499d951b29d3c44f3"; // Rüstungstraining
+level 12
+public const String FighterFeatSelection = "41c8486641f7d6d4283ca9dae4147a9f"; // Bonus-Kampftalent
+level 13
+public const String WeaponTrainingSelection = "b8cecf4e5e464ad41b79d5b42b76b399"; // Waffentraining
+public const String WeaponTrainingRankUpSelection = "5f3cc7b9a46b880448275763fe70c0b0"; // Waffentraining
+level 14
+public const String FighterFeatSelection = "41c8486641f7d6d4283ca9dae4147a9f"; // Bonus-Kampftalent
+public const String Bravery = "f6388946f9f472f4585591b80e9f2452"; // Tapferkeit
+level 15
+public const String ArmorTraining = "3c380607706f209499d951b29d3c44f3"; // Rüstungstraining
+level 16
+public const String FighterFeatSelection = "41c8486641f7d6d4283ca9dae4147a9f"; // Bonus-Kampftalent
+level 17
+public const String WeaponTrainingSelection = "b8cecf4e5e464ad41b79d5b42b76b399"; // Waffentraining
+public const String WeaponTrainingRankUpSelection = "5f3cc7b9a46b880448275763fe70c0b0"; // Waffentraining
+level 18
+public const String FighterFeatSelection = "41c8486641f7d6d4283ca9dae4147a9f"; // Bonus-Kampftalent
+public const String Bravery = "f6388946f9f472f4585591b80e9f2452"; // Tapferkeit
+level 19
+public const String ArmorMastery = "ae177f17cfb45264291d4d7c2cb64671"; // Rüstungsmeisterschaft
+level 20
+public const String WeaponMasterySelection = "55f516d7d1fc5294aba352a5a1c92786"; // Waffenmeisterschaft
+public const String FighterFeatSelection = "41c8486641f7d6d4283ca9dae4147a9f"; // Bonus-Kampftalent
+arch SwordlordArchetype
+level 1
+public const String DuelingSwordProficiency = "9c37279588fd9e34e9c4cb234857492c"; // Waffenumgang (Duellschwert)
+level 3
+public const String SwordlordDefensiveParryFeature = "faa56353e193e5940a305c60b4412ea5"; // Wehrhafte Parade
+level 7
+public const String SwordlordDefensiveParryFeature = "faa56353e193e5940a305c60b4412ea5"; // Wehrhafte Parade
+level 11
+public const String SwordlordDefensiveParryFeature = "faa56353e193e5940a305c60b4412ea5"; // Wehrhafte Parade
+level 15
+public const String SwordlordDefensiveParryFeature = "faa56353e193e5940a305c60b4412ea5"; // Wehrhafte Parade
+level 19
+public const String SwordlordDefensiveParryFeature = "faa56353e193e5940a305c60b4412ea5"; // Wehrhafte Parade
+level 6
+public const String SwordlordDisarmingStrike = "c7ea46f5e1822994ba069c11819844ae"; // Entwaffnender Schlag
+level 8
+public const String SwordlordSteelNetFeature = "b4202533d1748f84484658491d2ff766"; // Stahlnetz
+level 10
+public const String SwordlordCounterattack = "ff125ecc8b2c1894b879b7bcf34e1b17"; // Gegenangriff
+arch TowerShieldSpecialistArchetype
+level 2
+public const String BurstBarrier = "6c97b3fd5d354454c9f69fea5348a7e8"; // Explosionsschutz
+level 6
+public const String BurstBarrier = "6c97b3fd5d354454c9f69fea5348a7e8"; // Explosionsschutz
+level 10
+public const String BurstBarrier = "6c97b3fd5d354454c9f69fea5348a7e8"; // Explosionsschutz
+level 14
+public const String BurstBarrier = "6c97b3fd5d354454c9f69fea5348a7e8"; // Explosionsschutz
+level 18
+public const String BurstBarrier = "6c97b3fd5d354454c9f69fea5348a7e8"; // Explosionsschutz
+level 3
+public const String TowerShieldTraining = "d2dbc71b45efa8749bd9c1924534b2bb"; // Turmschildtraining
+level 7
+public const String TowerShieldTraining = "d2dbc71b45efa8749bd9c1924534b2bb"; // Turmschildtraining
+level 11
+public const String TowerShieldTraining = "d2dbc71b45efa8749bd9c1924534b2bb"; // Turmschildtraining
+level 15
+public const String TowerShieldTraining = "d2dbc71b45efa8749bd9c1924534b2bb"; // Turmschildtraining
+level 19
+public const String TowerShieldTraining = "d2dbc71b45efa8749bd9c1924534b2bb"; // Turmschildtraining
+level 5
+public const String TowerShieldNegatePenalty = "4808f1ac7432cbf488cf9213610acda0"; // Turmschildexperte
+level 9
+public const String TowerShieldSpecialistTouchShield = "68666566c506d344bad1e30bc3194fed"; // Turmschildverteidigung
+level 13
+public const String TowerShieldTotalCover = "4068bdf2373538e4fbd1c70438102f2e"; // Vollständige Deckung
+level 16
+public const String TowerShieldEvasion = "bc678dd87b293ed4a99d0d75c1974f64"; // Turmschildentrinnen
+level 20
+public const String TowerShieldImprovedEvasion = "a2daced5523237e4ab92309a03250cc0"; // Verbessertes Turmschildentrinnen
+arch TwoHandedFighterArchetype
+level 2
+public const String TwoHandedFighterStrongGrip = "ab9d45de98fe56441a4c012f70dad6ee"; // Starker Griff
+level 6
+public const String TwoHandedFighterStrongGrip = "ab9d45de98fe56441a4c012f70dad6ee"; // Starker Griff
+level 10
+public const String TwoHandedFighterStrongGrip = "ab9d45de98fe56441a4c012f70dad6ee"; // Starker Griff
+level 14
+public const String TwoHandedFighterStrongGrip = "ab9d45de98fe56441a4c012f70dad6ee"; // Starker Griff
+level 18
+public const String TwoHandedFighterStrongGrip = "ab9d45de98fe56441a4c012f70dad6ee"; // Starker Griff
+level 5
+public const String TwoHandedFighterWeaponTraining = "88da2a5dfc505054f933bb81014e864f"; // Zweihandwaffentraining
+level 9
+public const String TwoHandedFighterWeaponTraining = "88da2a5dfc505054f933bb81014e864f"; // Zweihandwaffentraining
+level 13
+public const String TwoHandedFighterWeaponTraining = "88da2a5dfc505054f933bb81014e864f"; // Zweihandwaffentraining
+level 17
+public const String TwoHandedFighterWeaponTraining = "88da2a5dfc505054f933bb81014e864f"; // Zweihandwaffentraining
+level 3
+public const String TwoHandedFighterOverhandChop = "ad4d4db6bb9c75a4a9bc59174b948769"; // Gewaltiger Hieb
+level 7
+public const String TwoHandedFighterBackswing = "1bbda0dab2f8dc540a647bdc5f0e59ce"; // Rückschwung
+level 11
+public const String TwoHandedFighterPiledriverFeature = "4723b31d7defd3d4e85395e2a3353b01"; // Ramme
+level 15
+public const String TwoHandedFighterGreaterPowerAttack = "1b058a5ce1de415449a0f105c55b5f8b"; // Mächtiger Heftiger Angriff
+level 19
+public const String TwoHandedFighterDevastatingBlowFeature = "687aa977ef0d3f849af8bee2f40930df"; // Verheerender Schlag
+class InquisitorClass
+level 1
+public const String InquisitorProficiencies = "e59db96fa83cefd4a9a8f211500d9522"; // Inquisitor-Kenntnisse
+public const String DeitySelection = "59e7a76987fe3b547b9cce045f4db3e4"; // Wahl einer Gottheit
+public const String InquisitorOrisonsFeature = "4f898e6a004b2a84686c1fbd0ffe950e"; // Gebete
+public const String SternGaze = "a6d917fd5c9bee0449bd01c92e3b0308"; // Durchdringender Blick
+public const String DomainsSelection = "48525e5da45c9c243a343fc6545dbdb9"; // Domänen-Auswahl
+public const String JudgmentFeature = "981def910b98200499c0c8f85a78bde8"; // Richtspruch
+public const String RayCalculateFeature = "d3e6275cfa6e7a04b9213b7b292a011c"; // 
+public const String TouchCalculateFeature = "62ef1cdb90f1d654d996556669caf7fa"; // 
+public const String DetectMagic = "ee0b69e90bac14446a4cf9a050f87f2e"; // Magie orten
+level 2
+public const String CunningInitiative = "6be8b4031d8b9fc4f879b72b5428f1e0"; // Gewiefte Initiative
+level 3
+public const String SoloTactics = "5602845cd22683840a6f28ec46331051"; // Einzelkämpfertaktik
+public const String TeamworkFeat = "d87e2f6a9278ac04caeb0f93eff95fcb"; // Gemeinschaftstalent
+level 4
+public const String JudgmentAdditionalUse = "ee50875819478774b8968701893b52f5"; // Richtspruch
+level 5
+public const String InquisitorBaneNormalFeatureAdd = "7ddf7fbeecbe78342b83171d888028cf"; // Verderben
+level 6
+public const String TeamworkFeat = "d87e2f6a9278ac04caeb0f93eff95fcb"; // Gemeinschaftstalent
+level 7
+public const String JudgmentAdditionalUse = "ee50875819478774b8968701893b52f5"; // Richtspruch
+level 8
+public const String SecondJudgment = "33bf0404b70d65f42acac989ec5295b2"; // Zweiter Richtspruch
+level 9
+public const String TeamworkFeat = "d87e2f6a9278ac04caeb0f93eff95fcb"; // Gemeinschaftstalent
+level 10
+public const String JudgmentAdditionalUse = "ee50875819478774b8968701893b52f5"; // Richtspruch
+level 11
+public const String Stalwart = "ec9dbc9a5fa26e446a54fe5df6779088"; // Standhaft
+level 12
+public const String InquisitorBaneGreaterFeature = "6e694114b2f9e0e40a6da5d13736ff33"; // Mächtiges Verderben
+public const String TeamworkFeat = "d87e2f6a9278ac04caeb0f93eff95fcb"; // Gemeinschaftstalent
+level 13
+public const String JudgmentAdditionalUse = "ee50875819478774b8968701893b52f5"; // Richtspruch
+level 14
+public const String ExploitWeakness = "374a73288a36e2d4f9e54c75d2e6e573"; // Schwachstelle ausnutzen
+level 15
+public const String TeamworkFeat = "d87e2f6a9278ac04caeb0f93eff95fcb"; // Gemeinschaftstalent
+level 16
+public const String JudgmentAdditionalUse = "ee50875819478774b8968701893b52f5"; // Richtspruch
+public const String ThirdJudgment = "490c7e92b22cc8a4bb4885a027b355db"; // Dritter Richtspruch
+level 17
+level 18
+public const String TeamworkFeat = "d87e2f6a9278ac04caeb0f93eff95fcb"; // Gemeinschaftstalent
+level 19
+public const String JudgmentAdditionalUse = "ee50875819478774b8968701893b52f5"; // Richtspruch
+level 20
+public const String TrueJudgmentFeature = "f069b6557a2013544ac3636219186632"; // Wahrer Richtspruch
+arch MonsterTacticianArchetype
+level 1
+public const String MonsterTacticianSummonBasicSummon = "60c8882ac8b79f64d8f26dbc21113f69"; // Monster herbeizaubern
+public const String MonsterTacticianSummonFeature1 = "a424832e480a81d4094378b9f92aa279"; // Monster herbeizaubern I
+level 3
+public const String MonsterTacticianSummonFeature2 = "3b59258ba88000c4080681a1b3b21a02"; // Monster herbeizaubern II
+level 5
+public const String MonsterTacticianSummonFeature3 = "7cbeff1ae7fa5b7489a299702a717b9f"; // Monster herbeizaubern III
+level 7
+public const String MonsterTacticianSummonFeature4 = "747c41d4bf7e31543ba56d9c9a152fea"; // Monster herbeizaubern IV
+level 9
+public const String MonsterTacticianSummonFeature5 = "4b90455e9f0b4b7468a21e5fed3becab"; // Monster herbeizaubern V
+level 11
+public const String MonsterTacticianSummonFeature6 = "080db79d52227a24d95e503d479abd90"; // Monster herbeizaubern VI
+level 13
+public const String MonsterTacticianSummonFeature7 = "fb61ce4319101b945b1041c01f078275"; // Monster herbeizaubern VII
+level 15
+public const String MonsterTacticianSummonFeature8 = "46613bd8e84708a49ab33e0155cec453"; // Monster herbeizaubern VIII
+level 17
+public const String MonsterTacticianSummonAddition9 = "f63d23b4e41b3264fa6aa2be8079d28d"; // Monster herbeizaubern IX
+level 5
+public const String MonsterTacticsFeature = "c3abcce19f9f80640a867c9e75f880b2"; // Beschwörertaktiken
+arch TacticalLeaderArchetype
+level 1
+public const String TacticalLeaderDiplomacy = "1aa5b1074a6e3834dbc11b58332a6e99"; // Überzeugender Anführer
+level 3
+public const String TacticalLeaderFeatShareFeature = "93e78cad499b1b54c859a970cbe4f585"; // Schneller Taktiker
+level 12
+public const String TacticalLeaderFeatShareSwift = "4ca47c023f1c158428bd55deb44c735f"; // Schneller Taktiker
+level 14
+public const String TacticalLeaderBattleAcumenFeature = "959a8bdc83b0a3948a3902f9882c522a"; // Kriegerisches Können
+arch SacredHuntsmasterArchetype
+level 1
+public const String AnimalCompanionSelectionSacredHuntsmaster = "2995b36659b9ad3408fd26f137ee2c67"; // Tiergefährte
+level 3
+public const String SacredHuntsmasterTactics = "e1f437048db80164792155102375b62c"; // Jägertaktiken
+level 5
+public const String FavoriteEnemySelection = "16cc2c937ea8d714193017780e7d4fc6"; // Erzfeind
+level 10
+public const String FavoriteEnemySelection = "16cc2c937ea8d714193017780e7d4fc6"; // Erzfeind
+public const String FavoriteEnemyRankUp = "c1be13839472aad46b152cf10cf46179"; // Erzfeind
+level 15
+public const String FavoriteEnemySelection = "16cc2c937ea8d714193017780e7d4fc6"; // Erzfeind
+public const String FavoriteEnemyRankUp = "c1be13839472aad46b152cf10cf46179"; // Erzfeind
+level 20
+public const String FavoriteEnemySelection = "16cc2c937ea8d714193017780e7d4fc6"; // Erzfeind
+public const String FavoriteEnemyRankUp = "c1be13839472aad46b152cf10cf46179"; // Erzfeind
+class KineticistClass
+level 1
+public const String BurnFeature = "57e3577a0eb53294e9d7cc649d5239a3"; // Zehrung
+public const String KineticistProficiencies = "31ad04e4c767f5d4b96c13a71fd7ff15"; // Kinetisches Geschoss
+public const String GatherPowerAbilitiesFeature = "71f526b1d4b50b94582b0b9cbe12b0e0"; // Energie sammeln
+public const String ElementalFocusSelection = "1f3a15a3ae8a5524ab8b97f469bf4e3d"; // Elementarfokus
+public const String InfusionSelection = "58d6f8e9eea63f6418b107ce64f315ea"; // Infusion
+public const String KineticBlastProgression = "30a5b8cf728bd4a4d8d90fc4953e322e"; // Kinetisches Geschoss
+public const String ElementalOverflowProgression = "86beb0391653faf43aec60d5ec05b538"; // Elementare Aufladung
+public const String InfusionSpecializationProgression = "1f86ce843fbd2d548a8d88ea1b652452"; // Infusionsspezialist
+level 2
+public const String WildTalentSelection = "5c883ae0cd6d7d5448b7a420f51f8459"; // Wilde Gaben
+level 3
+public const String InfusionSelection = "58d6f8e9eea63f6418b107ce64f315ea"; // Infusion
+level 4
+public const String WildTalentSelection = "5c883ae0cd6d7d5448b7a420f51f8459"; // Wilde Gaben
+level 5
+public const String MetakinesisEmpowerFeature = "70322f5a2a294e54a9552f77ee85b0a7"; // Metakinese – Verstärkt
+public const String InfusionSelection = "58d6f8e9eea63f6418b107ce64f315ea"; // Infusion
+level 6
+public const String WildTalentSelection = "5c883ae0cd6d7d5448b7a420f51f8459"; // Wilde Gaben
+level 7
+public const String SecondatyElementalFocusSelection = "4204bc10b3d5db440b1f52f0c375848b"; // Erweiterter Elementarfokus
+level 8
+public const String WildTalentSelection = "5c883ae0cd6d7d5448b7a420f51f8459"; // Wilde Gaben
+level 9
+public const String InfusionSelection = "58d6f8e9eea63f6418b107ce64f315ea"; // Infusion
+public const String MetakinesisMaximizedFeature = "0306bc7c6930a5c4b879c7dea78208c2"; // Metakinese – Maximiert
+level 10
+public const String WildTalentSelection = "5c883ae0cd6d7d5448b7a420f51f8459"; // Wilde Gaben
+level 11
+public const String InfusionSelection = "58d6f8e9eea63f6418b107ce64f315ea"; // Infusion
+public const String Supercharge = "5a13756fb4be25f46951bc3f16448276"; // Überlasten
+level 12
+public const String WildTalentSelection = "5c883ae0cd6d7d5448b7a420f51f8459"; // Wilde Gaben
+level 13
+public const String InfusionSelection = "58d6f8e9eea63f6418b107ce64f315ea"; // Infusion
+public const String MetakinesisQuickenFeature = "4bb9d2328a3fdca419243d6116b337ac"; // Metakinese – Beschleunigen
+level 14
+public const String WildTalentSelection = "5c883ae0cd6d7d5448b7a420f51f8459"; // Wilde Gaben
+level 15
+public const String ThirdElementalFocusSelection = "e2c1718828fc843479f18ab4d75ded86"; // Erweiterter Elementarfokus
+level 16
+public const String WildTalentSelection = "5c883ae0cd6d7d5448b7a420f51f8459"; // Wilde Gaben
+public const String CompositeBlastSpecialisation = "df8897708983d4846871ca72c4cbfc52"; // Kinetischer Geschossspezialist
+level 17
+public const String InfusionSelection = "58d6f8e9eea63f6418b107ce64f315ea"; // Infusion
+level 18
+public const String WildTalentSelection = "5c883ae0cd6d7d5448b7a420f51f8459"; // Wilde Gaben
+level 19
+public const String InfusionSelection = "58d6f8e9eea63f6418b107ce64f315ea"; // Infusion
+public const String MetakinesisMaster = "8c33002186eb2fd45a140eed1301e207"; // Metakinetische Meisterschaft
+level 20
+public const String WildTalentSelection = "5c883ae0cd6d7d5448b7a420f51f8459"; // Wilde Gaben
+arch DarkElementalistArchetype
+level 1
+public const String DarkElementalistDarkStudies = "abec06c7bf762274ca6f7e6013746595"; // Dunkle Studien
+public const String DarkElementalistBurnFeature = "42c5a9a8661db2f47aedf87fb8b27aaf"; // Seelenmacht
+public const String DarkElementalistElementalOverflowProgression = "a5da720ab9f2fcd43807226a5146e4c6"; // Elementare Aufladung
+arch PsychokineticistArchetype
+level 1
+public const String PsychokineticistBurnFeature = "2fa48527ba627254ba9bf4556330a4d4"; // Zehrung
+public const String MentalOverflowProgression = "42b8ce9dfb087c74db531bad426ad2f3"; // 
+public const String PsychokineticistEmotionalIntensity = "5cf933b9ae8cfad4e98cc85d0df57a41"; // Intensive Emotionen
+public const String PsychokineticistMindBurn = "f53404854de9fd04a9ff1959385edb71"; // Mentale Zehrung
+arch KineticKnightArchetype
+level 1
+public const String KineticBladeInfusion = "9ff81732daddb174aa8138ad1297c787"; // Kinetische Klinge
+public const String KineticKnightElementalFocusSelection = "b1f296f0bd16bc242ae35d0638df82eb"; // Elementarfokus
+public const String KineticKnightElementalBlade = "22a6db57adc348b458cb224f3047b3b2"; // Elementarklinge
+public const String KineticWarriorFeature = "ff14cb2bfab1c0547be66d8aaa7e4ada"; // Kinetischer Krieger
+public const String ELementalBastionFeature = "82fbdd5eb5ac73b498c572cc71bda48f"; // Elementarbastion
+level 9
+public const String BladeWhirlwindInfusion = "80fdf049d396c33408a805d9e21a42e1"; // Klingenwirbel
+level 3
+public const String KnightsResolve = "e65a711b3fd6e604b8edd03c08902f7e"; // Entschlossenheit des Ritters
+class MagusClass
+level 1
+public const String ArcanePoolFeature = "3ce9bb90749c21249adc639031d5eed1"; // Arkaner Vorrat
+public const String SpellCombatFeature = "2464ba53317c7fc4d88f383fac2b45f9"; // Kampfzauberei
+public const String MagusProficiencies = "8f8c2640ffad89349883fc2e5ff2091e"; // Kampfmagus-Kenntnisse
+public const String MagusCantripsFeature = "fa5799fb32844e94e88d4cb3430610ff"; // Zaubertricks
+public const String TouchCalculateFeature = "62ef1cdb90f1d654d996556669caf7fa"; // 
+public const String RayCalculateFeature = "d3e6275cfa6e7a04b9213b7b292a011c"; // 
+public const String DetectMagic = "ee0b69e90bac14446a4cf9a050f87f2e"; // Magie orten
+level 2
+public const String SpellStrikeFeature = "be50f4e97fff8a24ba92561f1694a945"; // Zauberschlag
+level 3
+public const String MagusArcanaSelection = "e9dc4dfc73eaaf94aae27e0ed6cc9ada"; // Kampfmagusarkanum
+level 4
+public const String MagusSpellRecallFeature = "61fc0521e9992624e9c518060bf89c0f"; // Zauberrückruf
+level 5
+public const String MagusFeatSelection = "66befe7b24c42dd458952e3c47c93563"; // Kampfmagus-Bonustalent
+public const String ArcaneWeaponPlus2 = "36b609a6946733c42930c55ac540416b"; // Arkane Waffe (+2)
+level 6
+public const String MagusArcanaSelection = "e9dc4dfc73eaaf94aae27e0ed6cc9ada"; // Kampfmagusarkanum
+level 7
+public const String ArcaneMediumArmor = "b24897e082896654c8dd64c8fb677363"; // Arkane mittelschwere Rüstung
+level 8
+public const String ImprovedSpellCombat = "836879fcd5b29754eb664a090bd6c22f"; // Verbesserte Kampfzauberei
+level 9
+public const String ArcaneWeaponPlus3 = "70be888059f99a245a79d6d61b90edc5"; // Arkane Waffe (+3)
+public const String MagusArcanaSelection = "e9dc4dfc73eaaf94aae27e0ed6cc9ada"; // Kampfmagusarkanum
+level 10
+public const String FighterTraining = "2b636b9e8dd7df94cbd372c52237eebf"; // Kämpferausbildung
+level 11
+public const String MagusFeatSelection = "66befe7b24c42dd458952e3c47c93563"; // Kampfmagus-Bonustalent
+public const String MagusImprovedSpellRecallFeature = "0ef6ec1c2fdfc204fbd3bff9f1609490"; // Verbesserter Zauberrückruf
+level 12
+public const String MagusArcanaSelection = "e9dc4dfc73eaaf94aae27e0ed6cc9ada"; // Kampfmagusarkanum
+level 13
+public const String ArcaneWeaponPlus4 = "1804187264121cd439d70a96234d4ddb"; // Arkane Waffe (+4)
+public const String ArcaneHeavyArmor = "447ca91389e5c9246acb2c640d63f4da"; // Arkane schwere Rüstung
+level 14
+public const String GreaterSpellCombat = "379887a82a7248946bbf6d0158663b5e"; // Mächtige Kampfzauberei
+level 15
+public const String MagusArcanaSelection = "e9dc4dfc73eaaf94aae27e0ed6cc9ada"; // Kampfmagusarkanum
+level 16
+public const String Counterstrike = "cd96b7275c206da4899c69ae127ffda6"; // Gegenschlag
+level 17
+public const String MagusFeatSelection = "66befe7b24c42dd458952e3c47c93563"; // Kampfmagus-Bonustalent
+public const String ArcaneWeaponPlus5 = "3cbe3e308342b3247ba2f4fbaf5e6307"; // Arkane Waffe (+5)
+level 18
+public const String MagusArcanaSelection = "e9dc4dfc73eaaf94aae27e0ed6cc9ada"; // Kampfmagusarkanum
+level 19
+public const String GreaterSpellAccess = "de18c849c41dbfa44801d812376c707d"; // Mächtiger Zugang zu Zaubern
+level 20
+public const String TrueMagusFeature = "789c7539ba659174db702e18d7c2d330"; // Wahrer Kampfmagus
+arch EldritchScionArchetype
+level 1
+public const String SorcererBloodlineSelection = "24bef8d1bee12274686f6da6ccbc8914"; // Blutlinie
+public const String EldritchPoolFeature = "95e04a9e86aa9e64dad7122625b79c62"; // Blutlinienvorrat
+public const String EldritchScionCantripsFeature = "d093b8dec70b5d144acb593a3029d830"; // Zaubertricks
+level 14
+public const String ImprovedSpellCombat = "836879fcd5b29754eb664a090bd6c22f"; // Verbesserte Kampfzauberei
+level 18
+public const String GreaterSpellCombat = "379887a82a7248946bbf6d0158663b5e"; // Mächtige Kampfzauberei
+level 3
+public const String EldritchMagusArcanaSelection = "d4b54d9db4932454ab2899f931c2042c"; // Kampfmagusarkanum
+level 6
+public const String EldritchMagusArcanaSelection = "d4b54d9db4932454ab2899f931c2042c"; // Kampfmagusarkanum
+level 9
+public const String EldritchMagusArcanaSelection = "d4b54d9db4932454ab2899f931c2042c"; // Kampfmagusarkanum
+level 12
+public const String EldritchMagusArcanaSelection = "d4b54d9db4932454ab2899f931c2042c"; // Kampfmagusarkanum
+level 15
+public const String EldritchMagusArcanaSelection = "d4b54d9db4932454ab2899f931c2042c"; // Kampfmagusarkanum
+level 18
+public const String EldritchMagusArcanaSelection = "d4b54d9db4932454ab2899f931c2042c"; // Kampfmagusarkanum
+level 5
+public const String ArcaneWeaponPlus2 = "36b609a6946733c42930c55ac540416b"; // Arkane Waffe (+2)
+level 9
+public const String ArcaneWeaponPlus3 = "70be888059f99a245a79d6d61b90edc5"; // Arkane Waffe (+3)
+level 13
+public const String ArcaneWeaponPlus4 = "1804187264121cd439d70a96234d4ddb"; // Arkane Waffe (+4)
+level 17
+public const String ArcaneWeaponPlus5 = "3cbe3e308342b3247ba2f4fbaf5e6307"; // Arkane Waffe (+5)
+arch SwordSaintArchetype
+level 1
+public const String SwordSaintChosenWeaponSelection = "3130e3083845b7b4fa2ac5b6f1a1ae6e"; // Auserwählte Waffe
+public const String SwordSaintCannyDefense = "f58e19256746efa419e640175d4e21ad"; // Gewitzte Verteidigung
+level 4
+public const String SwordSaintPerfectStrikeFeature = "9ff65b68c09567e48af9b33848b23323"; // Perfekter Hieb
+level 7
+public const String SwordSaintFighterTraining = "9ab2ec65977cc524a99600babc7fe3b6"; // Kämpferausbildung
+public const String SwordSaintLightningDraw = "4f1ac71e8ed95ae4c8612b53166106ef"; // Blitzschnelle Waffenbereitschaft
+level 9
+public const String SwordSaintCriticalPerfection = "36837f00fc2f5d043847e37ba6af187c"; // Kritische Perfektion
+level 11
+public const String SwordSaintSuperiorReflexes = "b89373001e05f1f4aa9b9bb4f420c40f"; // Überlegene Reflexe
+level 13
+public const String SwordSaintInstantFocus = "5fcdb5b9dd41724439c6c4e4b6d27e81"; // Tödlicher Fokus
+level 19
+public const String SwordSaintPerfectReflexes = "547df7e090287f447a7c0a4f6a7dad3e"; // Perfekte Reflexe
+level 20
+public const String SwordSaintWeaponMastery = "5b31af13868166d4c9bb452f19277f19"; // Waffenmeisterschaft
+arch EldritchArcherArchetype
+level 1
+public const String EldritchArcherRangedSpellCombat = "8b68a5b8223beed40b137885116c408f"; // Kampfzauberei im Fernkampf
+level 2
+public const String EldritchArcherRangedSpellStrike = "6aa84ca8918ac604685a3d39a13faecc"; // Zauberschlag im Fernkampf
+class EldritchScionClass
+level 1
+public const String EldritchPoolFeature = "95e04a9e86aa9e64dad7122625b79c62"; // Blutlinienvorrat
+public const String SpellCombatFeature = "2464ba53317c7fc4d88f383fac2b45f9"; // Kampfzauberei
+public const String MagusProficiencies = "8f8c2640ffad89349883fc2e5ff2091e"; // Kampfmagus-Kenntnisse
+public const String EldritchScionCantripsFeature = "d093b8dec70b5d144acb593a3029d830"; // Zaubertricks
+level 2
+public const String SpellStrikeFeature = "be50f4e97fff8a24ba92561f1694a945"; // Zauberschlag
+level 3
+public const String EldritchMagusArcanaSelection = "d4b54d9db4932454ab2899f931c2042c"; // Kampfmagusarkanum
+level 4
+level 5
+public const String MagusFeatSelection = "66befe7b24c42dd458952e3c47c93563"; // Kampfmagus-Bonustalent
+public const String EldritchWeaponPlus2 = "8d7e93b703135e647b158e3dfab9a2c7"; // Arkane Waffe (+2)
+level 6
+public const String EldritchMagusArcanaSelection = "d4b54d9db4932454ab2899f931c2042c"; // Kampfmagusarkanum
+level 7
+public const String ArcaneMediumArmor = "8498cdb82f5eb6d4f91e72b1a18944ff"; // Arkane mittelschwere Rüstung
+level 8
+level 9
+public const String EldritchWeaponPlus3 = "010ec746da5d9374aa7dfb8a1dd817db"; // Arkane Waffe (+3)
+public const String EldritchMagusArcanaSelection = "d4b54d9db4932454ab2899f931c2042c"; // Kampfmagusarkanum
+level 10
+public const String EldritchScionFighterTraining = "eadc14e84c7e3c34684252b5c6459a45"; // Kämpferausbildung
+level 11
+public const String MagusFeatSelection = "66befe7b24c42dd458952e3c47c93563"; // Kampfmagus-Bonustalent
+level 12
+public const String EldritchMagusArcanaSelection = "d4b54d9db4932454ab2899f931c2042c"; // Kampfmagusarkanum
+level 13
+public const String EldritchWeaponPlus4 = "dde9f0600ef3ead4ea5bf5a983e9f765"; // Arkane Waffe (+4)
+public const String ArcaneHeavyArmor = "c7afb6c47798b7a4abf21f343f07f8d5"; // Arkane schwere Rüstung
+level 14
+public const String ImprovedSpellCombat = "836879fcd5b29754eb664a090bd6c22f"; // Verbesserte Kampfzauberei
+level 15
+public const String EldritchMagusArcanaSelection = "d4b54d9db4932454ab2899f931c2042c"; // Kampfmagusarkanum
+level 16
+level 17
+public const String MagusFeatSelection = "66befe7b24c42dd458952e3c47c93563"; // Kampfmagus-Bonustalent
+public const String EldritchWeaponPlus5 = "93b9c7f77097d074198f746baf744c80"; // Arkane Waffe (+5)
+level 18
+public const String EldritchMagusArcanaSelection = "d4b54d9db4932454ab2899f931c2042c"; // Kampfmagusarkanum
+public const String GreaterSpellCombat = "379887a82a7248946bbf6d0158663b5e"; // Mächtige Kampfzauberei
+level 19
+level 20
+public const String TrueMagusFeature = "789c7539ba659174db702e18d7c2d330"; // Wahrer Kampfmagus
+class MonkClass
+level 1
+public const String MonkFlurryOfBlowstUnlock = "fd99770e6bd240a4aab70f7af103e56a"; // Schlaghagel
+public const String ImprovedUnarmedStrike = "7812ad3672a4b9a4fb894ea402095167"; // Verbesserter Waffenloser Schlag
+public const String MonkACBonusUnlock = "2615c5f87b3d72b42ac0e73b56d895e0"; // RK-Bonus
+public const String StunningFist = "a29a582c3daa4c24bb0e991c596ccb28"; // Betäubender Schlag
+public const String MonkUnarmedStrike = "c3fbeb2ffebaaa64aa38ce7a0bb18fb0"; // Waffenloser Schlag
+public const String MonkBonusFeatSelectionLevel1 = "ac3b7f5c11bce4e44aeb332f66b75bab"; // Mönch-Bonustalent
+public const String MonkWeaponProficiency = "c7d6f5244c617734a8a76b6785a752b4"; // Mönch-Kenntnisse
+public const String RayCalculateFeature = "d3e6275cfa6e7a04b9213b7b292a011c"; // 
+public const String TouchCalculateFeature = "62ef1cdb90f1d654d996556669caf7fa"; // 
+level 2
+public const String Evasion = "576933720c440aa4d8d42b0c54b77e80"; // Entrinnen
+public const String MonkBonusFeatSelectionLevel1 = "ac3b7f5c11bce4e44aeb332f66b75bab"; // Mönch-Bonustalent
+level 3
+public const String KiPowerFeature = "e9590244effb4be4f830b1e3fffced13"; // Ki-Vorrat
+public const String MonkFastMovementUnlock = "73ab5b41fa465ee429ad6658368c6629"; // Schnelle Bewegung
+public const String KiStrikeMagic = "1188005ee3160f84f8bed8b19a7d46cf"; // Ki-Schlag – Magie
+level 4
+public const String StillMind = "b8933d223d87087418a627e61ea42ae6"; // Ruhiger Geist
+public const String MonkUnarmedStrikeLevel4 = "8267a0695a4df3f4ca508499e6164b98"; // 
+public const String MonkKiPowerSelection = "3049386713ff04245a38b32483362551"; // Ki-Kraft:
+public const String StunningFistFatigueFeature = "819645da2e446f84d9b168ed1676ec29"; // Betäubender Schlag: Erschöpfung
+level 5
+public const String PurityOfBody = "9b02f77c96d6bba4daf9043eff876c76"; // Reinheit des Körpers
+public const String MonkStyleStrike = "7bc6a93f6e48eff49be5b0cde83c9450"; // Kampfstilschlag
+level 6
+public const String MonkBonusFeatSelectionLevel6 = "b993f42cb119b4f40ac423ae76394374"; // Mönch-Bonustalent
+public const String MonkKiPowerSelection = "3049386713ff04245a38b32483362551"; // Ki-Kraft:
+level 7
+public const String KiStrikeColdIronSilver = "7b657938fde78b14cae10fc0d3dcb991"; // Ki-Schlag – Kaltes Eisen und Silber
+level 8
+public const String MonkUnarmedStrikeLevel8 = "f790a36b5d6f85a45a41244f50b947ca"; // 
+public const String MonkKiPowerSelection = "3049386713ff04245a38b32483362551"; // Ki-Kraft:
+public const String StunningFistSickenedFeature = "d256ab3837538cc489d4b571e3a813eb"; // Betäubender Schlag: Erkrankung
+level 9
+public const String ImprovedEvasion = "ce96af454a6137d47b9c6a1e02e66803"; // Verbessertes Entrinnen
+public const String MonkStyleStrike = "7bc6a93f6e48eff49be5b0cde83c9450"; // Kampfstilschlag
+level 10
+public const String KiStrikeLawful = "34439e527a8f5fb4588024e71960dd42"; // Ki-Schlag – Rechtschaffen
+public const String MonkBonusFeatSelectionLevel10 = "1051170c612d5b844bfaa817d6f4cfff"; // Mönch-Bonustalent
+public const String MonkKiPowerSelection = "3049386713ff04245a38b32483362551"; // Ki-Kraft:
+level 11
+public const String MonkFlurryOfBlowstLevel11Unlock = "a34b8a9fcc9024b42bacfd5e6b614bfa"; // 
+level 12
+public const String MonkUnarmedStrikeLevel12 = "b3889f445dbe42948b8bb1ba02e6d949"; // 
+public const String MonkKiPowerSelection = "3049386713ff04245a38b32483362551"; // Ki-Kraft:
+level 13
+public const String MonkStyleStrike = "7bc6a93f6e48eff49be5b0cde83c9450"; // Kampfstilschlag
+level 14
+public const String MonkKiPowerSelection = "3049386713ff04245a38b32483362551"; // Ki-Kraft:
+public const String MonkBonusFeatSelectionLevel10 = "1051170c612d5b844bfaa817d6f4cfff"; // Mönch-Bonustalent
+level 15
+level 16
+public const String KiStrikeAdamantine = "ddc10a3463bd4d54dbcbe993655cf64e"; // Ki-Schlag – Adamant
+public const String MonkUnarmedStrikeLevel16 = "078636a2ce835e44394bb49a930da230"; // 
+public const String MonkKiPowerSelection = "3049386713ff04245a38b32483362551"; // Ki-Kraft:
+level 17
+public const String MonkStyleStrike = "7bc6a93f6e48eff49be5b0cde83c9450"; // Kampfstilschlag
+level 18
+public const String MonkKiPowerSelection = "3049386713ff04245a38b32483362551"; // Ki-Kraft:
+public const String MonkBonusFeatSelectionLevel10 = "1051170c612d5b844bfaa817d6f4cfff"; // Mönch-Bonustalent
+level 19
+level 20
+public const String MonkUnarmedStrikeLevel20 = "df38e56fa8b3f0f469d55f9aa26b3f5c"; // 
+public const String MonkKiPowerSelection = "3049386713ff04245a38b32483362551"; // Ki-Kraft:
+public const String KiPerfectSelfFeature = "3854f693180168a4980646aee9494c72"; // Ki-Kraft: Perfektes Selbst
+arch ScaledFistArchetype
+level 1
+public const String ScaledFistACBonusUnlock = "2a8922e28b3eba54fa7a244f7b05bd9e"; // RK-Bonus
+public const String ScaledFistBonusFeatSelectionLevel1 = "8705b13f703cbdc43ad1d9150f8cacca"; // Schuppenfaust-Bonustalent
+level 2
+public const String ScaledFistBonusFeatSelectionLevel1 = "8705b13f703cbdc43ad1d9150f8cacca"; // Schuppenfaust-Bonustalent
+level 6
+public const String ScaledFistBonusFeatSelectionLevel6 = "92f7b37ef1cf5484db02a924592ceb74"; // Schuppenfaust-Bonustalent
+level 10
+public const String ScaledFistBonusFeatSelectionLevel10 = "c569fc66f22825445a7b7f3b5d6d208f"; // Schuppenfaust-Bonustalent
+level 14
+public const String ScaledFistBonusFeatSelectionLevel10 = "c569fc66f22825445a7b7f3b5d6d208f"; // Schuppenfaust-Bonustalent
+level 18
+public const String ScaledFistBonusFeatSelectionLevel10 = "c569fc66f22825445a7b7f3b5d6d208f"; // Schuppenfaust-Bonustalent
+level 3
+public const String ScaledFistDragonSelection = "f9042eed12dac2745a2eb7a9a936906b"; // Drakonisches Erbe
+public const String ScaledFistDraconicMettle = "6bcef8b77901a8f4eb6015f0a3f2dc63"; // Drachenwiderstand
+public const String ScaledFistPowerFeature = "ae98ab7bda409ef4bb39149a212d6732"; // Ki-Vorrat
+level 4
+public const String ScaledFistKiPowerSelection = "4694f6ac27eaed34abb7d09ab67b4541"; // Ki-Kraft:
+public const String ScaledFistStunningFistFatigueFeature = "abcf396b95e3dbc4686c8547783a719c"; // Betäubender Schlag: Erschöpfung
+level 6
+public const String ScaledFistKiPowerSelection = "4694f6ac27eaed34abb7d09ab67b4541"; // Ki-Kraft:
+level 8
+public const String ScaledFistKiPowerSelection = "4694f6ac27eaed34abb7d09ab67b4541"; // Ki-Kraft:
+public const String StunningFistSickenedFeature = "d256ab3837538cc489d4b571e3a813eb"; // Betäubender Schlag: Erkrankung
+level 10
+public const String ScaledFistKiPowerSelection = "4694f6ac27eaed34abb7d09ab67b4541"; // Ki-Kraft:
+level 14
+public const String ScaledFistKiPowerSelection = "4694f6ac27eaed34abb7d09ab67b4541"; // Ki-Kraft:
+level 16
+public const String ScaledFistKiPowerSelection = "4694f6ac27eaed34abb7d09ab67b4541"; // Ki-Kraft:
+level 18
+public const String ScaledFistKiPowerSelection = "4694f6ac27eaed34abb7d09ab67b4541"; // Ki-Kraft:
+level 20
+public const String ScaledFistKiPowerSelection = "4694f6ac27eaed34abb7d09ab67b4541"; // Ki-Kraft:
+arch SenseiArchetype
+level 1
+public const String SenseiAdvice = "aed2367e51118bf4c846dc118d72e153"; // Ratschlag
+public const String SenseiInspireCourageFeature = "0db24d413471405469d1f3137944f1f7"; // Lied des Mutes
+level 2
+public const String SenseiInsightfulStrike = "f4a3f9ede5a57c142b30a9dfbb8efa90"; // Erkenntnisreicher Schlag
+level 3
+public const String SenseiInspireCompetenceFeature = "c58dd36e625a7f840b6351cab2969785"; // Lied des Erfolges
+level 7
+public const String SenseiInspireCompetenceFeature = "c58dd36e625a7f840b6351cab2969785"; // Lied des Erfolges
+level 11
+public const String SenseiInspireCompetenceFeature = "c58dd36e625a7f840b6351cab2969785"; // Lied des Erfolges
+level 15
+public const String SenseiInspireCompetenceFeature = "c58dd36e625a7f840b6351cab2969785"; // Lied des Erfolges
+level 19
+public const String SenseiInspireCompetenceFeature = "c58dd36e625a7f840b6351cab2969785"; // Lied des Erfolges
+level 5
+public const String SenseiInspireCourageFeature = "0db24d413471405469d1f3137944f1f7"; // Lied des Mutes
+level 11
+public const String SenseiInspireCourageFeature = "0db24d413471405469d1f3137944f1f7"; // Lied des Mutes
+level 17
+public const String SenseiInspireCourageFeature = "0db24d413471405469d1f3137944f1f7"; // Lied des Mutes
+level 6
+public const String SenseiMysticPowersFeature = "d5f7bcde6e7e5ed498f430ebf5c29837"; // Mystische Kräfte
+level 9
+public const String SenseiInspireGreatnessFeature = "a80268e2d2c68d141aa32c0e7f67de7b"; // Lied der Größe
+level 10
+public const String SenseiMysticPowersMass = "a316044187ec61344ba33535f42f6a4d"; // Mystische Kräfte
+level 10
+public const String SenseiMysticWisdom = "4356b5d6d34489747bba68d43924a857"; // Mystische Weisheit
+level 14
+public const String SenseiMysticWisdomMass = "1c02ec3a153954b459becc0d40d3cf60"; // Mystische Weisheit
+arch TraditionalMonk
+level 6
+public const String KiWholenessOfBodyFeature = "e9c8117e70e168345b3f4c01538936e5"; // Ki-Kraft: Unversehrtheit des Körpers
+level 8
+public const String KiAbudantStepFeature = "008466f45b3e2e64793b30f3d16e41c0"; // Ki-Kraft: Weiter Schritt
+level 10
+public const String KiDiamondBodyFeature = "a8819b70975701b4e874b2f9862aac24"; // Ki-Kraft: Diamantkörper
+level 12
+public const String KiDiamondSoulFeature = "01182bcee8cb41640b7fa1b1ad772421"; // Ki-Kraft: Diamantseele
+level 14
+public const String KiQuiveringPalmFeature = "25d1247bb1a66b74081095085e169eb1"; // Ki-Kraft: Vibrierende Handfläche
+class AberrationClass
+level 1
+public const String AberrationType = "3bec99efd9a363242a6c8d9957b75e91"; // 
+public const String BasicFeatSelection = "247a4068296e8be42890143f451b4b45"; // Talent
+public const String BasicFeatSelection = "247a4068296e8be42890143f451b4b45"; // Talent
+public const String BasicFeatSelection = "247a4068296e8be42890143f451b4b45"; // Talent
+public const String BasicFeatSelection = "247a4068296e8be42890143f451b4b45"; // Talent
+public const String BasicFeatSelection = "247a4068296e8be42890143f451b4b45"; // Talent
+arch EngelidisArchetype
+class AnimalClass
+level 1
+public const String AnimalType = "a95311b3dc996964cbaa30ff9965aaf6"; // 
+arch AnimalCompanionArchetype
+level 3
+public const String AnimalCompanionStrengthDexterityConstitution = "0c80276018694f24fbaf59ec7b841f2b"; // Körperliche Stärke
+public const String AnimalCompanionAttacksEnhancement = "71d6955fe81a9a34b97390fef1104362"; // Erweiterte Angriffe
+public const String AnimalCompanionEvasion = "815bec596247f9947abca891ef7f2ca8"; // Entrinnen
+public const String ShareFavoredEnemyPet = "cd7b831693c0f3947b019321c0510915"; // 
+level 4
+public const String AnimalCompanionNaturalArmor = "0d20d88abb7c33a47902bd99019f2ed1"; // Zähe Haut
+level 5
+public const String AnimalCompanionStrengthDexterityConstitution = "0c80276018694f24fbaf59ec7b841f2b"; // Körperliche Stärke
+level 6
+public const String AnimalCompanionAttacksEnhancement = "71d6955fe81a9a34b97390fef1104362"; // Erweiterte Angriffe
+public const String AnimalCompanionNaturalArmor = "0d20d88abb7c33a47902bd99019f2ed1"; // Zähe Haut
+public const String AnimalCompanionDevotion = "226f939b7dfd47b4697ec52f79799012"; // Hingabe
+level 7
+public const String AnimalCompanionStrengthDexterityConstitution = "0c80276018694f24fbaf59ec7b841f2b"; // Körperliche Stärke
+level 8
+public const String AnimalCompanionNaturalArmor = "0d20d88abb7c33a47902bd99019f2ed1"; // Zähe Haut
+level 9
+public const String AnimalCompanionStrengthDexterityConstitution = "0c80276018694f24fbaf59ec7b841f2b"; // Körperliche Stärke
+public const String AnimalCompanionAttacksEnhancement = "71d6955fe81a9a34b97390fef1104362"; // Erweiterte Angriffe
+level 10
+public const String AnimalCompanionNaturalArmor = "0d20d88abb7c33a47902bd99019f2ed1"; // Zähe Haut
+level 11
+public const String AnimalCompanionStrengthDexterityConstitution = "0c80276018694f24fbaf59ec7b841f2b"; // Körperliche Stärke
+level 12
+public const String AnimalCompanionNaturalArmor = "0d20d88abb7c33a47902bd99019f2ed1"; // Zähe Haut
+public const String AnimalCompanionImprovedEvasion = "bcb37922402e40d4684e7fb7e001d110"; // Verbessertes Entrinnen
+public const String AnimalCompanionAttacksEnhancement = "71d6955fe81a9a34b97390fef1104362"; // Erweiterte Angriffe
+level 13
+public const String AnimalCompanionStrengthDexterityConstitution = "0c80276018694f24fbaf59ec7b841f2b"; // Körperliche Stärke
+level 14
+public const String AnimalCompanionNaturalArmor = "0d20d88abb7c33a47902bd99019f2ed1"; // Zähe Haut
+level 15
+public const String AnimalCompanionStrengthDexterityConstitution = "0c80276018694f24fbaf59ec7b841f2b"; // Körperliche Stärke
+public const String AnimalCompanionAttacksEnhancement = "71d6955fe81a9a34b97390fef1104362"; // Erweiterte Angriffe
+level 16
+public const String AnimalCompanionNaturalArmor = "0d20d88abb7c33a47902bd99019f2ed1"; // Zähe Haut
+class ConstructClass
+level 1
+public const String ConstructType = "fd389783027d63343b4a5634bd81645f"; // 
+public const String BasicFeatSelection = "247a4068296e8be42890143f451b4b45"; // Talent
+public const String BasicFeatSelection = "247a4068296e8be42890143f451b4b45"; // Talent
+public const String BasicFeatSelection = "247a4068296e8be42890143f451b4b45"; // Talent
+public const String BasicFeatSelection = "247a4068296e8be42890143f451b4b45"; // Talent
+public const String BasicFeatSelection = "247a4068296e8be42890143f451b4b45"; // Talent
+class DragonClass
+level 1
+public const String DragonType = "455ac88e22f55804ab87c2467deff1d6"; // 
+public const String BasicFeatSelection = "247a4068296e8be42890143f451b4b45"; // Talent
+public const String BasicFeatSelection = "247a4068296e8be42890143f451b4b45"; // Talent
+public const String BasicFeatSelection = "247a4068296e8be42890143f451b4b45"; // Talent
+public const String BasicFeatSelection = "247a4068296e8be42890143f451b4b45"; // Talent
+public const String BasicFeatSelection = "247a4068296e8be42890143f451b4b45"; // Talent
+class FeyClass
+level 1
+public const String FeyType = "018af8005220ac94a9a4f47b3e9c2b4e"; // 
+public const String BasicFeatSelection = "247a4068296e8be42890143f451b4b45"; // Talent
+public const String BasicFeatSelection = "247a4068296e8be42890143f451b4b45"; // Talent
+public const String BasicFeatSelection = "247a4068296e8be42890143f451b4b45"; // Talent
+public const String BasicFeatSelection = "247a4068296e8be42890143f451b4b45"; // Talent
+public const String BasicFeatSelection = "247a4068296e8be42890143f451b4b45"; // Talent
+class NymphClass
+level 1
+public const String FeyType = "018af8005220ac94a9a4f47b3e9c2b4e"; // 
+public const String BasicFeatSelection = "247a4068296e8be42890143f451b4b45"; // Talent
+public const String BasicFeatSelection = "247a4068296e8be42890143f451b4b45"; // Talent
+public const String BasicFeatSelection = "247a4068296e8be42890143f451b4b45"; // Talent
+public const String BasicFeatSelection = "247a4068296e8be42890143f451b4b45"; // Talent
+public const String BasicFeatSelection = "247a4068296e8be42890143f451b4b45"; // Talent
+class HumanoidClass
+level 1
+class MagicalBeastClass
+level 1
+public const String MagicalBeastType = "625827490ea69d84d8e599a33929fdc6"; // 
+public const String BasicFeatSelection = "247a4068296e8be42890143f451b4b45"; // Talent
+public const String BasicFeatSelection = "247a4068296e8be42890143f451b4b45"; // Talent
+public const String BasicFeatSelection = "247a4068296e8be42890143f451b4b45"; // Talent
+public const String BasicFeatSelection = "247a4068296e8be42890143f451b4b45"; // Talent
+public const String BasicFeatSelection = "247a4068296e8be42890143f451b4b45"; // Talent
+class MonstrousHumanoidClass
+level 1
+public const String MonstrousHumanoidType = "57614b50e8d86b24395931fffc5e409b"; // 
+class OutsiderClass
+level 1
+public const String OutsiderType = "9054d3988d491d944ac144e27b6bc318"; // 
+public const String BasicFeatSelection = "247a4068296e8be42890143f451b4b45"; // Talent
+public const String BasicFeatSelection = "247a4068296e8be42890143f451b4b45"; // Talent
+public const String BasicFeatSelection = "247a4068296e8be42890143f451b4b45"; // Talent
+public const String BasicFeatSelection = "247a4068296e8be42890143f451b4b45"; // Talent
+public const String BasicFeatSelection = "247a4068296e8be42890143f451b4b45"; // Talent
+class PlantClass
+level 1
+public const String PlantType = "706e61781d692a042b35941f14bc41c5"; // 
+class UndeadClass
+level 1
+public const String UndeadType = "734a29b693e9ec346ba2951b27987e33"; // 
+class VerminClass
+level 1
+public const String VerminType = "09478937695300944a179530664e42ec"; // 
+class MysticTheurgeClass
+level 1
+public const String MysticTheurgeDivineSpellbookSelection = "7cd057944ce7896479717778330a4933"; // Göttliche Zauberkunst
+public const String MysticTheurgeArcaneSpellbookSelection = "97f510c6483523c49bc779e93e4c4568"; // Arkane Zauber
+public const String MysticTheurgeCombinedSpells1 = "80ea00ac94323cd43b6e743f2fa168c8"; // Magiefusion (Stufe 1)
+level 2
+level 3
+public const String MysticTheurgeCombinedSpells2 = "2c793e9d0dccc564f9746c73fdac41d4"; // Magiefusion (Stufe 2)
+level 4
+level 5
+public const String MysticTheurgeCombinedSpells3 = "f34592b15e73c1445a204f07c5771abb"; // Magiefusion (Stufe 3)
+level 6
+level 7
+public const String MysticTheurgeCombinedSpells4 = "5c4e2ae002b0e834cbf267639ce06c3b"; // Magiefusion (Stufe 4)
+level 8
+level 9
+public const String MysticTheurgeCombinedSpells5 = "f5c7f64de0a57f645975fac2e5244851"; // Magiefusion (Stufe 5)
+level 10
+class WarriorClass
+level 1
+public const String FighterProficiencies = "a23591cc77086494ba20880f87e73970"; // Kämpfer-Kenntnisse
+level 2
+level 3
+level 4
+level 5
+level 6
+level 7
+level 8
+level 9
+level 10
+level 11
+level 12
+level 13
+level 14
+level 15
+level 16
+level 17
+level 18
+level 19
+level 20
+class PaladinClass
+level 1
+public const String PaladinProficiencies = "b10ff88c03308b649b50c31611c2fefb"; // Paladin-Kenntnisse
+public const String PaladinDeitySelection = "a7c8b73528d34c2479b4bd638503da1d"; // Wahl einer Gottheit
+public const String SmiteEvilFeature = "3a6db57fce75b0244a6a5819528ddf26"; // Böses niederstrecken
+public const String PaladinAlignmentRestriction = "f8c91c0135d5fc3458fcc131c4b77e96"; // Gesinnungsbeschränkung
+public const String RayCalculateFeature = "d3e6275cfa6e7a04b9213b7b292a011c"; // 
+public const String TouchCalculateFeature = "62ef1cdb90f1d654d996556669caf7fa"; // 
+level 2
+public const String DivineGrace = "8a5b5e272e5c34e41aa8b4facbb746d3"; // Göttliche Würde
+public const String LayOnHandsFeature = "858a3689c285c844d9e6ce278e686491"; // Handauflegen
+level 3
+public const String AuraOfCourageFeature = "e45ab30f49215054e83b4ea12165409f"; // Aura der Tapferkeit
+public const String DivineHealth = "41d1d0de15e672349bf4262a5acf06ce"; // Göttliche Gesundheit
+public const String SelectionMercy = "02b187038a8dce545bb34bbfb346428d"; // Gnade
+level 4
+public const String SmiteEvilAdditionalUse = "0f5c99ffb9c084545bbbe960b825d137"; // Böses niederstrecken – Zusätzlicher Einsatz
+public const String ChannelEnergyPaladinFeature = "cb6d55dda5ab906459d18a435994a760"; // Positive Energie fokussieren
+level 5
+public const String WeaponBondFeature = "1c7cdc1605554954f838d85bbdd22d90"; // Göttliche Waffenverbindung (+1)
+level 6
+public const String SelectionMercy = "02b187038a8dce545bb34bbfb346428d"; // Gnade
+level 7
+public const String SmiteEvilAdditionalUse = "0f5c99ffb9c084545bbbe960b825d137"; // Böses niederstrecken – Zusätzlicher Einsatz
+level 8
+public const String AuraOfResolveFeature = "a28693b24cc412c478b8b85877f2dad2"; // Aura der Entschlossenheit
+public const String WeaponBondPlus2 = "c8db0772b7059ec4eabe55b7e0e79824"; // Göttliche Waffenverbindung (+2)
+level 9
+public const String WeaponBondAdditionalUse = "5a64de5435667da4eae2e4c95ec87917"; // Göttliche Waffenverbindung – Zusätzlicher Einsatz
+public const String SelectionMercy = "02b187038a8dce545bb34bbfb346428d"; // Gnade
+level 10
+public const String SmiteEvilAdditionalUse = "0f5c99ffb9c084545bbbe960b825d137"; // Böses niederstrecken – Zusätzlicher Einsatz
+level 11
+public const String AuraOfJusticeFeature = "9f13fdd044ccb8a439f27417481cb00e"; // Mal der Gerechtigkeit
+public const String WeaponBondPlus3 = "d2f45a2034d4f7643ba1a450bc5c4c06"; // Göttliche Waffenverbindung (+3)
+level 12
+public const String SelectionMercy = "02b187038a8dce545bb34bbfb346428d"; // Gnade
+level 13
+public const String SmiteEvilAdditionalUse = "0f5c99ffb9c084545bbbe960b825d137"; // Böses niederstrecken – Zusätzlicher Einsatz
+public const String WeaponBondAdditionalUse = "5a64de5435667da4eae2e4c95ec87917"; // Göttliche Waffenverbindung – Zusätzlicher Einsatz
+level 14
+public const String AuraOfFaithFeature = "0437f4af5ad49b544bccf48aa7a51319"; // Aura des Glaubens
+public const String WeaponBondPlus4 = "6d73f49b602e29a43a6faa2ea1e4a425"; // Göttliche Waffenverbindung (+4)
+level 15
+public const String SelectionMercy = "02b187038a8dce545bb34bbfb346428d"; // Gnade
+level 16
+public const String SmiteEvilAdditionalUse = "0f5c99ffb9c084545bbbe960b825d137"; // Böses niederstrecken – Zusätzlicher Einsatz
+level 17
+public const String AuraOfRighteousnessFeature = "6bd4a71232014254e80726f3a3756962"; // Aura der Rechtschaffenheit
+public const String WeaponBondPlus5 = "f17c3ba33bb44d44782cb3851d823011"; // Göttliche Waffenverbindung (+5)
+public const String WeaponBondAdditionalUse = "5a64de5435667da4eae2e4c95ec87917"; // Göttliche Waffenverbindung – Zusätzlicher Einsatz
+level 18
+public const String SelectionMercy = "02b187038a8dce545bb34bbfb346428d"; // Gnade
+level 19
+public const String SmiteEvilAdditionalUse = "0f5c99ffb9c084545bbbe960b825d137"; // Böses niederstrecken – Zusätzlicher Einsatz
+level 20
+public const String HolyChampion = "eff3b63f744868845a2f511e9929f0de"; // Heiliger Streiter
+public const String WeaponBondPlus6 = "b936ee90c070edb46bd76025dc1c5936"; // Göttliche Waffenverbindung (+6)
+arch DivineHunterArchetype
+level 1
+public const String DivineHunterProficiencies = "9fceea5f433969e44bb124ab3a95bb58"; // Göttlicher-Jäger-Kenntnisse
+public const String PreciseShot = "8f3d1e6b4be006f4d896081f2f889665"; // Präzisionsschuss
+level 3
+public const String SharedPrecisionFeature = "3fc1ad7b5f67543488d6c84fc6bc48c9"; // Gemeinsame Präzision
+level 5
+public const String DivineHunterBondFeature = "275d3dd6cad51cf4db9b0bceebff02f2"; // Göttlicher-Jäger-Verbindung
+level 6
+public const String DivineHunterDistantMercyFeature = "12678d8f1c24b7b4fbeeee096e7873e5"; // Ferne Gnade
+level 8
+public const String AuraOfClearSightFeature = "c00342384c641be409907c2bf39d68f1"; // Aura der klaren Sicht
+public const String DivineHunterBondPlus2 = "c5b169a910918e540a5494a1f24bd6ee"; // Göttlicher-Jäger-Verbindung
+level 11
+public const String DivineHuntersBlessingFeature = "ae98475b3f5d3aa4bb830d352655a8ed"; // Segen des Jägers
+level 14
+public const String RighteousHunterFeature = "a848c3b021fec214b97c720eb986800f"; // Rechtschaffener Jäger
+arch HospitalerArchetype
+level 4
+public const String ChannelEnergyHospitalerFeature = "a9ab1bbc79ecb174d9a04699986ce8d5"; // Positive Energie fokussieren
+level 11
+public const String AuraOfHealingFeature = "d19ef94d056fd1a45bb08017b10a5e93"; // Aura des Lebens
+arch DivineGuardianArchetype
+level 2
+public const String DivineGuardianHandsFeature = "ba9fa17a17e5a494a93cd181b5615198"; // Schützende Hände
+public const String DivineGuardianTrothFeature = "d8979d762de7da14ca64f8cedd5c1220"; // Göttlicher Schutz
+level 3
+public const String DivineGuardianCourageousDefense = "b15e384109d1af147a31f6119f92c876"; // Tapferer Beschützer
+level 7
+public const String DivineGuardianBonusFeat = "5a4560c300c368b4289ae2b4e4da58cf"; // Göttlicher-Hüter-Bonustalent
+level 10
+public const String DivineGuardianBonusFeat = "5a4560c300c368b4289ae2b4e4da58cf"; // Göttlicher-Hüter-Bonustalent
+level 13
+public const String DivineGuardianBonusFeat = "5a4560c300c368b4289ae2b4e4da58cf"; // Göttlicher-Hüter-Bonustalent
+class RangerClass
+level 1
+public const String RangerProficiencies = "c5e479367d07d62428f2fe92f39c0341"; // Waldläufer-Kenntnisse
+public const String FavoriteEnemySelection = "16cc2c937ea8d714193017780e7d4fc6"; // Erzfeind
+public const String RayCalculateFeature = "d3e6275cfa6e7a04b9213b7b292a011c"; // 
+public const String TouchCalculateFeature = "62ef1cdb90f1d654d996556669caf7fa"; // 
+level 2
+public const String RangerStyleSelection2 = "c6d0da9124735a44f93ac31df803b9a9"; // Kampfstiltalent
+level 3
+public const String FavoriteTerrainSelection = "a6ea422d7308c0d428a541562faedefd"; // Bevorzugtes Gelände
+public const String Endurance = "54ee847996c25cd4ba8773d7b8555174"; // Ausdauer
+level 4
+public const String HuntersBondSelection = "b705c5184a96a84428eeb35ae2517a14"; // Bund des Jägers
+level 5
+public const String FavoriteEnemySelection = "16cc2c937ea8d714193017780e7d4fc6"; // Erzfeind
+public const String FavoriteEnemyRankUp = "c1be13839472aad46b152cf10cf46179"; // Erzfeind
+level 6
+public const String RangerStyleSelection6 = "61f82ba786fe05643beb3cd3910233a8"; // Kampfstiltalent
+level 7
+level 8
+public const String FavoriteTerrainSelection = "a6ea422d7308c0d428a541562faedefd"; // Bevorzugtes Gelände
+level 9
+public const String Evasion = "576933720c440aa4d8d42b0c54b77e80"; // Entrinnen
+level 10
+public const String RangerStyleSelection10 = "78177315fc63b474ea3cbb8df38fafcd"; // Kampfstiltalent
+public const String FavoriteEnemySelection = "16cc2c937ea8d714193017780e7d4fc6"; // Erzfeind
+public const String FavoriteEnemyRankUp = "c1be13839472aad46b152cf10cf46179"; // Erzfeind
+level 11
+public const String Quarry = "385260ca07d5f1b4e907ba22a02944fc"; // Beute
+level 12
+public const String Camouflage = "ff1b5aa8dcc7d7d4d9aa85e1cb3f9e88"; // Tarnung
+level 13
+public const String FavoriteTerrainSelection = "a6ea422d7308c0d428a541562faedefd"; // Bevorzugtes Gelände
+level 14
+public const String RangerStyleSelection10 = "78177315fc63b474ea3cbb8df38fafcd"; // Kampfstiltalent
+level 15
+public const String FavoriteEnemySelection = "16cc2c937ea8d714193017780e7d4fc6"; // Erzfeind
+public const String FavoriteEnemyRankUp = "c1be13839472aad46b152cf10cf46179"; // Erzfeind
+level 16
+public const String ImprovedEvasion = "ce96af454a6137d47b9c6a1e02e66803"; // Verbessertes Entrinnen
+level 17
+level 18
+public const String FavoriteTerrainSelection = "a6ea422d7308c0d428a541562faedefd"; // Bevorzugtes Gelände
+public const String RangerStyleSelection10 = "78177315fc63b474ea3cbb8df38fafcd"; // Kampfstiltalent
+level 19
+public const String ImprovedQuarry = "25e009b7e53f86141adee3a1213af5af"; // Verbesserte Beute
+level 20
+public const String MasterHunter = "9d53ef63441b5d84297587d75f72fc17"; // Meisterjäger
+public const String FavoriteEnemySelection = "16cc2c937ea8d714193017780e7d4fc6"; // Erzfeind
+public const String FavoriteEnemyRankUp = "c1be13839472aad46b152cf10cf46179"; // Erzfeind
+arch FreebooterArchetype
+level 1
+public const String FreebootersBaneFeature = "485fa71b077a0304f86915a7718678ad"; // Freibeuters Fluch
+level 4
+public const String FreebootersBondFeature = "13954cd0f95cb4f4eaa9e9cdabbc2bbb"; // Freibeuters Bund
+arch FlamewardenArchetype
+level 4
+public const String FlamewardenWeaponFeature = "0718a2218ce5b3745bee20d8a7846946"; // Flammenhauch
+public const String FlamewardenSpellcasting1 = "2cb57c0d74d143f4da1ef6704012b0f4"; // Zauberwirken
+level 7
+public const String FlamewardenSpellcasting2 = "275d72a20f615b54eb89460cd3aa8e1b"; // Zauberwirken
+level 9
+public const String FlamewardenEmbersFeature = "1a0aad85379212f46bd921dcdcb8cfaa"; // Geschürte Glut
+level 10
+public const String FlamewardenSpellcasting3 = "0dc70999341cdd644be0b972dd83900b"; // Zauberwirken
+level 12
+public const String FlamewardenBurningRenewalFeature = "7cf2a6bf35c422e4ea219fcc2eb564f5"; // Brennende Erneuerung
+level 13
+public const String FlamewardenSpellcasting4 = "891441bcd187d4d43abc46d3202e07a0"; // Zauberwirken
+level 16
+public const String FlamewardenPhoenixBlast = "9a1fc45d57567e946a20926f891453ed"; // Phönix-Explosion
+level 20
+public const String FlamewardenPhoenixRising = "92d8b962250e3a5448c9e1063dc85283"; // Phönix aus der Asche
+arch StormwalkerArchetype
+level 2
+public const String RangerStyleArcherySelection2 = "3cf94df3f1cf9a443a880bc1ae9be3c6"; // Bogenschütze
+level 4
+public const String StormwalkerWeaponFeature = "8686a5e28ae18f7429f37ee6792a63ee"; // Windläufer
+level 6
+public const String RangerStyleArcherySelection6 = "6c799d09d5b93f344b9ade0e0c765c2d"; // Bogenschütze
+level 10
+public const String RangerStyleArcherySelection10 = "7ef950ca681955d47bc4efbe77073e2c"; // Bogenschütze
+level 11
+public const String StormwalkerFlashStepFeature = "b3a66c6df05fb974f9286d05d66da481"; // Blitzschritt
+level 14
+public const String RangerStyleArcherySelection10 = "7ef950ca681955d47bc4efbe77073e2c"; // Bogenschütze
+level 16
+public const String StormwalkerImmunity = "433ae9a7e655a934b8b5c62896c163f4"; // Eins mit dem Sturm
+level 18
+public const String RangerStyleArcherySelection10 = "7ef950ca681955d47bc4efbe77073e2c"; // Bogenschütze
+level 19
+public const String StormwalkerFlashShotFeature = "e6a6c05e8e7827e42862478d37fb8fef"; // Blitzschuss
+class RogueClass
+level 1
+public const String SneakAttack = "9b9eac6709e1c084cb18c3a366e0ec87"; // Hinterhältiger Angriff
+public const String RogueProficiencies = "33e2a7e4ad9daa54eaf808e1483bb43c"; // Schurken-Kenntnisse
+public const String WeaponFinesse = "90e54424d682d104ab36436bd527af09"; // Waffenfinesse
+public const String Trapfinding = "dbb6b3bffe6db3547b31c3711653838e"; // Fallen finden
+level 2
+public const String Evasion = "576933720c440aa4d8d42b0c54b77e80"; // Entrinnen
+public const String RogueTalentSelection = "c074a5d615200494b8f2a9c845799d93"; // Schurkentrick
+level 3
+public const String SneakAttack = "9b9eac6709e1c084cb18c3a366e0ec87"; // Hinterhältiger Angriff
+public const String FinesseTrainingSelection = "b78d146cea711a84598f0acef69462ea"; // Waffenfinessetraining
+public const String DangerSenseRogue = "0bcbe9e450b0e7b428f08f66c53c5136"; // Gefahrengespür
+level 4
+public const String RogueTalentSelection = "c074a5d615200494b8f2a9c845799d93"; // Schurkentrick
+public const String DebilitatingInjury = "def114eb566dfca448e998969bf51586"; // Schwächende Verletzung
+public const String UncannyDodge = "3c08d842e802c3e4eb19d15496145709"; // Reflexbewegung
+level 5
+public const String SneakAttack = "9b9eac6709e1c084cb18c3a366e0ec87"; // Hinterhältiger Angriff
+level 6
+public const String RogueTalentSelection = "c074a5d615200494b8f2a9c845799d93"; // Schurkentrick
+public const String DangerSenseRogue = "0bcbe9e450b0e7b428f08f66c53c5136"; // Gefahrengespür
+level 7
+public const String SneakAttack = "9b9eac6709e1c084cb18c3a366e0ec87"; // Hinterhältiger Angriff
+level 8
+public const String RogueTalentSelection = "c074a5d615200494b8f2a9c845799d93"; // Schurkentrick
+public const String ImprovedUncannyDodge = "485a18c05792521459c7d06c63128c79"; // Verbesserte Reflexbewegung
+level 9
+public const String SneakAttack = "9b9eac6709e1c084cb18c3a366e0ec87"; // Hinterhältiger Angriff
+public const String DangerSenseRogue = "0bcbe9e450b0e7b428f08f66c53c5136"; // Gefahrengespür
+level 10
+public const String RogueTalentSelection = "c074a5d615200494b8f2a9c845799d93"; // Schurkentrick
+public const String AdvanceTalents = "a33b99f95322d6741af83e9381b2391c"; // Verbesserte Tricks
+level 11
+public const String SneakAttack = "9b9eac6709e1c084cb18c3a366e0ec87"; // Hinterhältiger Angriff
+public const String FinesseTrainingSelection = "b78d146cea711a84598f0acef69462ea"; // Waffenfinessetraining
+level 12
+public const String RogueTalentSelection = "c074a5d615200494b8f2a9c845799d93"; // Schurkentrick
+public const String DangerSenseRogue = "0bcbe9e450b0e7b428f08f66c53c5136"; // Gefahrengespür
+level 13
+public const String SneakAttack = "9b9eac6709e1c084cb18c3a366e0ec87"; // Hinterhältiger Angriff
+level 14
+public const String RogueTalentSelection = "c074a5d615200494b8f2a9c845799d93"; // Schurkentrick
+level 15
+public const String SneakAttack = "9b9eac6709e1c084cb18c3a366e0ec87"; // Hinterhältiger Angriff
+public const String DangerSenseRogue = "0bcbe9e450b0e7b428f08f66c53c5136"; // Gefahrengespür
+level 16
+public const String RogueTalentSelection = "c074a5d615200494b8f2a9c845799d93"; // Schurkentrick
+level 17
+public const String SneakAttack = "9b9eac6709e1c084cb18c3a366e0ec87"; // Hinterhältiger Angriff
+level 18
+public const String RogueTalentSelection = "c074a5d615200494b8f2a9c845799d93"; // Schurkentrick
+public const String DangerSenseRogue = "0bcbe9e450b0e7b428f08f66c53c5136"; // Gefahrengespür
+level 19
+public const String SneakAttack = "9b9eac6709e1c084cb18c3a366e0ec87"; // Hinterhältiger Angriff
+public const String FinesseTrainingSelection = "b78d146cea711a84598f0acef69462ea"; // Waffenfinessetraining
+level 20
+public const String RogueTalentSelection = "c074a5d615200494b8f2a9c845799d93"; // Schurkentrick
+public const String MasterStrike = "72dcf1fb106d5054a81fd804fdc168d3"; // Meisterhafter Angriff
+arch EldritchScoundrelArchetype
+level 1
+public const String EldritchScoundrelCantripFeature = "0e451b208e7b855468986e03fcd4f990"; // Zaubertricks
+public const String EldritchScoundrelProficiencies = "240dd3a98d72c7c4bb1d369d3e40292a"; // Mystischer Gauner
+public const String RayCalculateFeature = "d3e6275cfa6e7a04b9213b7b292a011c"; // 
+public const String TouchCalculateFeature = "62ef1cdb90f1d654d996556669caf7fa"; // 
+public const String DetectMagic = "ee0b69e90bac14446a4cf9a050f87f2e"; // Magie orten
+arch KnifeMasterArchetype
+level 1
+public const String KnifeMasterSneakStab = "df4f34f7cac73ab40986bc33f87b1a3c"; // Hinterhältiger Stich
+level 3
+public const String KnifeMasterBladeSense = "112bf4c6943097942b24eadfa750215f"; // Klingengespür
+level 6
+public const String KnifeMasterBladeSense = "112bf4c6943097942b24eadfa750215f"; // Klingengespür
+level 9
+public const String KnifeMasterBladeSense = "112bf4c6943097942b24eadfa750215f"; // Klingengespür
+level 12
+public const String KnifeMasterBladeSense = "112bf4c6943097942b24eadfa750215f"; // Klingengespür
+level 15
+public const String KnifeMasterBladeSense = "112bf4c6943097942b24eadfa750215f"; // Klingengespür
+level 18
+public const String KnifeMasterBladeSense = "112bf4c6943097942b24eadfa750215f"; // Klingengespür
+arch ThugArchetype
+level 1
+public const String ThugFrightening = "5476fa6ac147a584aa886f1c232b8a87"; // Furchteinflößend
+level 3
+public const String ThugBrutalBeatingFeature = "74179cb9dbaba2b47b25535fe12fea1d"; // Zusammenschlagen
+class SlayerClass
+level 1
+public const String SlayerProficiencies = "41cd5ff7ad1bc5848906e050b06d02dc"; // Attentäter-Kenntnisse
+public const String SlayerStudyTargetFeature = "09bdd9445ac38044389476689ae8d5a1"; // Feind studieren
+level 2
+public const String SlayerTalentSelection2 = "04430ad24988baa4daa0bcd4f1c7d118"; // Attentätertricks
+level 3
+public const String SneakAttack = "9b9eac6709e1c084cb18c3a366e0ec87"; // Hinterhältiger Angriff
+level 4
+public const String SlayerTalentSelection2 = "04430ad24988baa4daa0bcd4f1c7d118"; // Attentätertricks
+level 5
+public const String SlayerStudyTargetFeature = "09bdd9445ac38044389476689ae8d5a1"; // Feind studieren
+level 6
+public const String SneakAttack = "9b9eac6709e1c084cb18c3a366e0ec87"; // Hinterhältiger Angriff
+public const String SlayerTalentSelection6 = "43d1b15873e926848be2abf0ea3ad9a8"; // Attentätertricks
+level 7
+public const String SlayerSwiftStudyTargetFeature = "40d4f55a5ac0e4f469d67d36c0dfc40b"; // Feind studieren (schnell)
+level 8
+public const String SlayerTalentSelection6 = "43d1b15873e926848be2abf0ea3ad9a8"; // Attentätertricks
+level 9
+public const String SneakAttack = "9b9eac6709e1c084cb18c3a366e0ec87"; // Hinterhältiger Angriff
+level 10
+public const String SlayerTalentSelection10 = "913b9cf25c9536949b43a2651b7ffb66"; // Attentätertricks
+public const String SlayerStudyTargetFeature = "09bdd9445ac38044389476689ae8d5a1"; // Feind studieren
+public const String AdvanceTalents = "a33b99f95322d6741af83e9381b2391c"; // Verbesserte Tricks
+level 11
+level 12
+public const String SneakAttack = "9b9eac6709e1c084cb18c3a366e0ec87"; // Hinterhältiger Angriff
+public const String SlayerTalentSelection10 = "913b9cf25c9536949b43a2651b7ffb66"; // Attentätertricks
+level 13
+public const String SlayersAdvanceFeature = "758e04f4568ec3f4c8d1fd83aed06fb9"; // Schneller Schritt
+level 14
+public const String SlayerTalentSelection10 = "913b9cf25c9536949b43a2651b7ffb66"; // Attentätertricks
+public const String Quarry = "385260ca07d5f1b4e907ba22a02944fc"; // Beute
+level 15
+public const String SneakAttack = "9b9eac6709e1c084cb18c3a366e0ec87"; // Hinterhältiger Angriff
+public const String SlayerStudyTargetFeature = "09bdd9445ac38044389476689ae8d5a1"; // Feind studieren
+level 16
+public const String SlayerTalentSelection10 = "913b9cf25c9536949b43a2651b7ffb66"; // Attentätertricks
+level 17
+public const String SlayersAdvanceIncreaseResourceFeature = "f4df3231977753d4ebd2ceb2ef5901ed"; // Schneller Schritt
+level 18
+public const String SneakAttack = "9b9eac6709e1c084cb18c3a366e0ec87"; // Hinterhältiger Angriff
+public const String SlayerTalentSelection10 = "913b9cf25c9536949b43a2651b7ffb66"; // Attentätertricks
+level 19
+public const String ImprovedQuarry = "25e009b7e53f86141adee3a1213af5af"; // Verbesserte Beute
+level 20
+public const String SlayerTalentSelection10 = "913b9cf25c9536949b43a2651b7ffb66"; // Attentätertricks
+public const String SlayerStudyTargetFeature = "09bdd9445ac38044389476689ae8d5a1"; // Feind studieren
+public const String MasterSlayerFeature = "a26c0279a423fc94cabeea898f4d9f8a"; // Meisterattentäter
+arch VanguardArchetype
+level 2
+public const String VanguardTacticianFeature = "a14ff5eeeec5f434eb5c7fb8201afefb"; // Taktischer Vorhutkämpfer
+public const String TeamworkFeat = "90b882830b3988446ae681c6596460cc"; // Gemeinschaftstalent
+level 4
+public const String VanguardBond = "4b4d4cae104579a4186070f3f62210fd"; // Bund mit den Gefährten
+level 7
+public const String UncannyDodge = "3c08d842e802c3e4eb19d15496145709"; // Reflexbewegung
+arch DelivererArchetype
+level 1
+public const String DeitySelection = "59e7a76987fe3b547b9cce045f4db3e4"; // Wahl einer Gottheit
+level 2
+public const String DeterminedZeal = "a59b08fdf85465a48b036fd9ef4bcc71"; // Inbrünstige Entschlossenheit
+level 10
+public const String DivineAnathema = "1777a6ff0ae558749b76766a7a575802"; // Göttlicher Bann
+arch SpawnSlayerArchetype
+level 5
+public const String StudiedSpawnLargeSizeBonus = "c2e2b3b4bd9601c43b8891957e830534"; // Studierte Brut – Groß
+level 10
+public const String StudiedSpawnHugeSizeBonus = "bd9f8b8e2217ab74ab5d6a81eec34691"; // Studierte Brut – Riesig
+level 15
+public const String StudiedSpawnGargantuanSizeBonus = "04c9063177cce8044bb7997252a6d29f"; // Studierte Brut – Gigantisch
+level 20
+public const String StudiedSpawnColossalSizeBonus = "596bf484e187cfd4b9f0a22d1727dbf3"; // Studierte Brut – Kolossal
+level 7
+public const String SpawnSlayerGainLeverage = "c14f5310a3a8fd84f868c65135708a31"; // Größenausgleich
+class SorcererClass
+level 1
+public const String SorcererProficiencies = "25c97697236ccf2479d0c6a4185eae7f"; // Hexenmeister-Kenntnisse
+public const String SorcererCantripsFeature = "c58b36ec3f759c84089c67611d1bcc21"; // Zaubertricks
+public const String SorcererBloodlineSelection = "24bef8d1bee12274686f6da6ccbc8914"; // Blutlinie
+public const String SorcererBonusFeat = "d6dd06f454b34014ab0903cb1ed2ade3"; // Hexenmeister-Bonustalent
+public const String FullCasterFeature = "9fc9813f569e2e5448ddc435abf774b3"; // Vollwertiger Zauberwirker
+public const String RayCalculateFeature = "d3e6275cfa6e7a04b9213b7b292a011c"; // 
+public const String TouchCalculateFeature = "62ef1cdb90f1d654d996556669caf7fa"; // 
+public const String DetectMagic = "ee0b69e90bac14446a4cf9a050f87f2e"; // Magie orten
+level 2
+level 3
+level 4
+level 5
+level 6
+level 7
+public const String SorcererFeatSelection = "3a60f0c0442acfb419b0c03b584e1394"; // Blutlinientalent-Auswahl
+level 8
+level 9
+level 10
+level 11
+level 12
+level 13
+public const String SorcererFeatSelection = "3a60f0c0442acfb419b0c03b584e1394"; // Blutlinientalent-Auswahl
+level 14
+level 15
+level 16
+level 17
+level 18
+level 19
+public const String SorcererFeatSelection = "3a60f0c0442acfb419b0c03b584e1394"; // Blutlinientalent-Auswahl
+level 20
+arch EmpyrealSorcererArchetype
+level 1
+public const String EmpyrealBloodlineProgression = "8a95d80a3162d274896d50c2f18bb6b1"; // Blutlinie des Himmels
+public const String EmpyrealSorcererCantripsFeature = "6acb21fbc1bb76c4c9d65ba94c9f15ac"; // Zaubertricks
+arch SylvanSorcererArchetype
+level 1
+public const String SylvanBloodlineProgression = "a46d4bd93601427409d034a997673ece"; // Blut des Waldes
+public const String AnimalCompanionSelectionSylvanSorcerer = "a540d7dfe1e2a174a94198aba037274c"; // Tiergefährte
+level 2
+level 3
+level 4
+level 5
+level 6
+level 7
+level 8
+level 9
+level 10
+level 11
+level 12
+level 13
+level 14
+level 15
+level 16
+level 17
+level 18
+level 19
+level 20
+arch SageSorcererArchetype
+level 1
+public const String SageBloodlineProgression = "7d990675841a7354c957689a6707c6c2"; // Weiser Hexenmeister
+public const String SageSorcererCantripsFeature = "50d700ea98467834c9fc622efa03d598"; // Zaubertricks
+class StalwartDefenderClass
+level 1
+public const String StalwartDefenderACBonus = "60b4e1f781e9aac439b8d2ad4c635524"; // RK-Bonus
+public const String DefensiveStanceFeature = "2a6a2f8e492ab174eb3f01acf5b7c90a"; // Verteidigungshaltung
+level 2
+public const String StalwartDefenderDefensivePowerSelection = "2cd91c501bda80b47ac2df0d51b02973"; // Defensivkräfte
+level 3
+public const String UncannyDodge = "3c08d842e802c3e4eb19d15496145709"; // Reflexbewegung
+level 4
+public const String StalwartDefenderACBonus = "60b4e1f781e9aac439b8d2ad4c635524"; // RK-Bonus
+public const String StalwartDefenderDefensivePowerSelection = "2cd91c501bda80b47ac2df0d51b02973"; // Defensivkräfte
+level 5
+public const String StalwartDefenderDamageReduction = "4d4f48f401d5d8b408c2e7a973fba9ea"; // Schadensreduzierung
+level 6
+public const String StalwartDefenderDefensivePowerSelection = "2cd91c501bda80b47ac2df0d51b02973"; // Defensivkräfte
+level 7
+public const String ImprovedUncannyDodge = "485a18c05792521459c7d06c63128c79"; // Verbesserte Reflexbewegung
+public const String StalwartDefenderACBonus = "60b4e1f781e9aac439b8d2ad4c635524"; // RK-Bonus
+public const String StalwartDefenderDamageReduction = "4d4f48f401d5d8b408c2e7a973fba9ea"; // Schadensreduzierung
+level 8
+public const String StalwartDefenderDefensivePowerSelection = "2cd91c501bda80b47ac2df0d51b02973"; // Defensivkräfte
+level 9
+public const String ImprovedUncannyDodge = "485a18c05792521459c7d06c63128c79"; // Verbesserte Reflexbewegung
+level 10
+public const String StalwartDefenderACBonus = "60b4e1f781e9aac439b8d2ad4c635524"; // RK-Bonus
+public const String StalwartDefenderDefensivePowerSelection = "2cd91c501bda80b47ac2df0d51b02973"; // Defensivkräfte
+public const String StalwartDefenderDamageReduction = "4d4f48f401d5d8b408c2e7a973fba9ea"; // Schadensreduzierung
+class SwordlordClass
+level 1
+public const String DeftStrike = "b63a316cb172c7b4e906a318a0621c2c"; // Geschickter Schlag
+level 2
+public const String DisplayWeaponProwess = "ac8d4d2e375a8c841a19ed46696e5af2"; // Waffenkönnen präsentieren
+level 3
+public const String SwordlordDefensiveParryFeature = "c3a3a5e26059cb4419d243f3acf05f5b"; // Wehrhafte Parade
+level 4
+public const String AdaptiveTactics = "e01152417a8ac2248b4f69711b819441"; // Anpassungsfähige Taktiken
+level 5
+public const String ShatterConfidence = "51f5a63f1a0cb9047acdad77fc437312"; // Selbstvertrauen zerschmettern
+level 6
+public const String SavingSlash = "eee7abd42ef7bac4ea117b2f41f85ec3"; // Rettungshieb
+level 7
+public const String SwordlordDefensiveParryFeature = "c3a3a5e26059cb4419d243f3acf05f5b"; // Wehrhafte Parade
+public const String DextrousDuelist = "b701196306bb4674bb902c9f1160180f"; // Geschickter Duellant
+level 8
+public const String AdaptiveTactics = "e01152417a8ac2248b4f69711b819441"; // Anpassungsfähige Taktiken
+level 9
+public const String SavingSlashGreater = "732ad7ec6b1cd1f4885370924d492e87"; // Mächtiger Rettungshieb
+level 10
+public const String ConfoundingDuelist = "8c52fa6538e9ea6478981dbf42c2782d"; // Verblüffender Duellant
+class WizardClass
+level 1
+public const String WizardFeatSelection = "8c3102c2ff3b69444b139a98521a4899"; // Magier-Bonustalent
+public const String TouchCalculateFeature = "62ef1cdb90f1d654d996556669caf7fa"; // 
+public const String WizardCantripsFeature = "44d19b62d00179e4bad7afae7684f2e2"; // Zaubertricks
+public const String RayCalculateFeature = "d3e6275cfa6e7a04b9213b7b292a011c"; // 
+public const String TouchCalculateFeature = "62ef1cdb90f1d654d996556669caf7fa"; // 
+public const String SpecialistSchoolSelection = "5f838049069f1ac4d804ce0862ab5110"; // Spezialisierte Schule
+public const String WizardProficiencies = "a98d7cc4e30fe6c4bb3a2c2f69acc3fe"; // Magier-Kenntnisse
+public const String FullCasterFeature = "9fc9813f569e2e5448ddc435abf774b3"; // Vollwertiger Zauberwirker
+public const String ArcaneBondSelection = "03a1781486ba98043afddaabf6b7d8ff"; // Arkane Verbindung
+public const String DetectMagic = "ee0b69e90bac14446a4cf9a050f87f2e"; // Magie orten
+level 2
+level 3
+level 4
+level 5
+public const String WizardFeatSelection = "8c3102c2ff3b69444b139a98521a4899"; // Magier-Bonustalent
+level 6
+level 7
+level 8
+level 9
+level 10
+public const String WizardFeatSelection = "8c3102c2ff3b69444b139a98521a4899"; // Magier-Bonustalent
+level 11
+level 12
+level 13
+level 14
+level 15
+public const String WizardFeatSelection = "8c3102c2ff3b69444b139a98521a4899"; // Magier-Bonustalent
+level 16
+level 17
+level 18
+level 19
+level 20
+public const String WizardFeatSelection = "8c3102c2ff3b69444b139a98521a4899"; // Magier-Bonustalent
+arch ArcaneBomberArchetype
+level 1
+public const String OppositionSchoolSelection = "6c29030e9fea36949877c43a6f94ff31"; // Gegensätzliche Schule
+public const String OppositionSchoolSelection = "6c29030e9fea36949877c43a6f94ff31"; // Gegensätzliche Schule
+public const String OppositionSchoolSelection = "6c29030e9fea36949877c43a6f94ff31"; // Gegensätzliche Schule
+public const String OppositionSchoolSelection = "6c29030e9fea36949877c43a6f94ff31"; // Gegensätzliche Schule
+public const String ArcaneBombSelection = "0c7a9899e27cae6449ee1fb3049f128d"; // Arkane Bomben
+public const String SpellblastBombsFeature = "142e7d12c27ea084fb9b7c24631f10f2"; // Zauberexplosionsbombe
+arch ThassilonianSpecialistArchetype
+level 1
+public const String ThassilonianSchoolSelection = "f431178ec0e2b4946a34ab504bb46285"; // Thassilonspezialist
+arch ScrollmasterArchetype
+level 1
+public const String ScrollFocus = "51245c2b92a5b4247acf754156798fea"; // Spruchrollenfokus
+level 5
+public const String ScrollSpecialization = "3964f0389e60da944aaa2ffd227ae531"; // Spruchrollenspezialisierung
+level 10
+public const String ScrollMastery = "f42f41dd022e73d4a95019bc03230014"; // Spruchrollenmeisterschaft
+class CorruptedArcher
+level 1
+public const String CorruptionFeatureI = "913b28579b049364d84228012b01ef31"; // 
+public const String CorruptedArcherAbilitiesFeature = "b4c7712700f86d74cb3fb610fb345509"; // 
+level 4
+public const String CorruptionFeatureII = "a3949cdf86f84b9499a337de16a9d684"; // 
+public const String CorruptedArcherAbilitiesFeature = "b4c7712700f86d74cb3fb610fb345509"; // 
+level 8
+public const String CorruptionFeatureIII = "683c43feb32ecf641affc7ffd031c3e8"; // 
+public const String CorruptedArcherAbilitiesFeature = "b4c7712700f86d74cb3fb610fb345509"; // 
+level 12
+public const String CorruptedArcherAbilitiesFeature = "b4c7712700f86d74cb3fb610fb345509"; // 
+level 16
+public const String CorruptedArcherAbilitiesFeature = "b4c7712700f86d74cb3fb610fb345509"; // 
+level 20
+public const String CorruptedArcherAbilitiesFeature = "b4c7712700f86d74cb3fb610fb345509"; // 
+level 24
+public const String CorruptedArcherAbilitiesFeature = "b4c7712700f86d74cb3fb610fb345509"; // 
+level 28
+public const String CorruptedArcherAbilitiesFeature = "b4c7712700f86d74cb3fb610fb345509"; // 
+level 32
+public const String CorruptedArcherAbilitiesFeature = "b4c7712700f86d74cb3fb610fb345509"; // 
+class CorruptedCaster
+level 1
+public const String CorruptionFeatureI = "913b28579b049364d84228012b01ef31"; // 
+public const String CorruptedCasterAbilitiesFeature = "62e29f3ad878e4e41850619e6b5592b7"; // 
+public const String CorruptedCasterLevelFeature = "cbaf13af053c7da44ac09214f136c700"; // 
+level 4
+public const String CorruptionFeatureII = "a3949cdf86f84b9499a337de16a9d684"; // 
+public const String CorruptedCasterAbilitiesFeature = "62e29f3ad878e4e41850619e6b5592b7"; // 
+public const String CorruptedCasterEmpowerFeature = "d4494aade72eb7a4bb6f9e1b3fd6f7e7"; // 
+level 8
+public const String CorruptionFeatureIII = "683c43feb32ecf641affc7ffd031c3e8"; // 
+public const String CorruptedCasterAbilitiesFeature = "62e29f3ad878e4e41850619e6b5592b7"; // 
+public const String CorruptedCasterMaximisedFeature = "5d39a9f8f05339f4197d829496a28c1c"; // 
+level 12
+public const String CorruptedCasterAbilitiesFeature = "62e29f3ad878e4e41850619e6b5592b7"; // 
+level 16
+public const String CorruptedCasterAbilitiesFeature = "62e29f3ad878e4e41850619e6b5592b7"; // 
+level 20
+public const String CorruptedCasterAbilitiesFeature = "62e29f3ad878e4e41850619e6b5592b7"; // 
+level 24
+public const String CorruptedCasterAbilitiesFeature = "62e29f3ad878e4e41850619e6b5592b7"; // 
+level 28
+public const String CorruptedCasterAbilitiesFeature = "62e29f3ad878e4e41850619e6b5592b7"; // 
+level 32
+public const String CorruptedCasterAbilitiesFeature = "62e29f3ad878e4e41850619e6b5592b7"; // 
+class CorruptedFighter
+level 1
+public const String CorruptionFeatureI = "913b28579b049364d84228012b01ef31"; // 
+public const String CorruptedFighterAbilitiesFeature = "78f4dec75fc28054b8af25924bb4e31f"; // 
+public const String CorruptedFighterArmorProgression = "7b95ab874e9eba8408f1549e9385bff9"; // 
+level 4
+public const String CorruptionFeatureII = "a3949cdf86f84b9499a337de16a9d684"; // 
+public const String CorruptedFighterAbilitiesFeature = "78f4dec75fc28054b8af25924bb4e31f"; // 
+level 8
+public const String CorruptionFeatureIII = "683c43feb32ecf641affc7ffd031c3e8"; // 
+public const String CorruptedFighterAbilitiesFeature = "78f4dec75fc28054b8af25924bb4e31f"; // 
+level 12
+public const String CorruptedFighterAbilitiesFeature = "78f4dec75fc28054b8af25924bb4e31f"; // 
+level 16
+public const String CorruptedFighterAbilitiesFeature = "78f4dec75fc28054b8af25924bb4e31f"; // 
+level 20
+public const String CorruptedFighterAbilitiesFeature = "78f4dec75fc28054b8af25924bb4e31f"; // 
+level 24
+public const String CorruptedFighterAbilitiesFeature = "78f4dec75fc28054b8af25924bb4e31f"; // 
+level 28
+public const String CorruptedFighterAbilitiesFeature = "78f4dec75fc28054b8af25924bb4e31f"; // 
+level 32
+public const String CorruptedFighterAbilitiesFeature = "78f4dec75fc28054b8af25924bb4e31f"; // 
