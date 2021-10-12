@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <OutputType>Exe</OutputType>
+        <TargetFrameworks>net47</TargetFrameworks>
+        <RootNamespace>PF_Classes_Tools</RootNamespace>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\PF-Classes\PF-Classes.csproj" />
+    </ItemGroup>
+
+</Project>

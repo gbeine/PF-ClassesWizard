@@ -16,6 +16,8 @@ namespace PF_ClassesWizard.Patches
         {
             _logger.Log("Patching library");
 
+            Dumper.Dump(__instance);
+
             Library library = new Library(__instance);
             Loader.init();
 

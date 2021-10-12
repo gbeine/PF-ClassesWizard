@@ -20,7 +20,7 @@ namespace PF_Classes.Identifier
         public const String MONK       = "e8f21e5b58e0569468e420ebea456124";
         public const String PALADIN    = "bfa11238e7ae3544bbeb4d0b92e897ec";
         public const String RANGER     = "cda0615668a6df14eb36ba19ee881af6";
-        public const String ROUGE      = "299aa766dee3cbf4790da4efb8c72484";
+        public const String ROGUE      = "299aa766dee3cbf4790da4efb8c72484";
         public const String SLAYER     = "c75e0971973957d4dbad24bc7957e4fb";
         public const String SORCERER   = "b3a505fb61437dc4097f43c3f8f9a4cf";
         public const String WIZARD     = "ba34257984f4c41408ce1dc2004e342e";

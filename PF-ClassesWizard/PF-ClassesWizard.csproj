@@ -80,4 +80,13 @@
     <ProjectReference Include="..\PF-Core\PF-Core.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="Info.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Charlatan.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>

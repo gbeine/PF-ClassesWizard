@@ -69,7 +69,7 @@ namespace PF_Classes.Classes.Charlatan
 
             BlueprintCharacterClass kineticist_class =
                 _classesRepository.GetCharacterClass(PF_Classes.Identifier.CharacterClasses.KINETICIST);
-            BlueprintCharacterClass rouge_class = _classesRepository.GetCharacterClass(PF_Classes.Identifier.CharacterClasses.ROUGE);
+            BlueprintCharacterClass rouge_class = _classesRepository.GetCharacterClass(PF_Classes.Identifier.CharacterClasses.ROGUE);
 
             charlatan_class.m_Icon = kineticist_class.Icon;
             charlatan_class.EquipmentEntities = kineticist_class.EquipmentEntities;
@@ -245,47 +245,47 @@ namespace PF_Classes.Classes.Charlatan
                     _featuresRepository.GetFeature(CHARLATAN_PROFICIENCIES),
                     _featuresRepository.GetFeature(Features.COMMON_DETECT_MAGIC),
                     _featuresRepository.GetFeature(Features.COMMON_SNEAK_ATTACK),
-                    _featuresRepository.GetFeature(Features.ROUGE_WEAPON_FINESSE),
-                    _featuresRepository.GetFeature(Features.ROUGE_TRAPFINDING),
-                    _featuresRepository.GetFeature(Features.INQUISITOR_TACTICAL_LEADER_LEADERS_WORDS),
+                    _featuresRepository.GetFeature(Features.ROGUE_WEAPON_FINESSE),
+                    _featuresRepository.GetFeature(Features.ROGUE_TRAPFINDING),
+                    _featuresRepository.GetFeature(Features.INQUISITOR_TACTICAL_LEADER_DIPLOMACY),
                     _featuresRepository.GetFeature(Features.BARD_BARDIC_KNOWLEDGE),
                     _featuresRepository.GetFeature(CHARLATAN_CANTRIPS)
                 ),
                 _levelEntryFactory.CreateLevelEntry(2,
                     _featuresRepository.GetFeature(Features.COMMON_EVASION),
-                    _featuresRepository.GetFeature(Features.ROUGE_TALENT),
-                    _featuresRepository.GetFeature(Features.WIZARD_BONUS)
+                    _featuresRepository.GetFeature(Features.ROGUE_TALENT_SELECTION),
+                    _featuresRepository.GetFeature(Features.WIZARD_FEAT_SELECTION)
                 ),
                 _levelEntryFactory.CreateLevelEntry(3,
                     _featuresRepository.GetFeature(Features.ARCANE_SCHOOL_ILLUSION_BLINDING_RAY),
-                    _featuresRepository.GetFeature(Features.INQUISITOR_TEAMWORK)
+                    _featuresRepository.GetFeature(Features.INQUISITOR_TEAMWORK_FEAT)
                 ),
                 _levelEntryFactory.CreateLevelEntry(4,
                     _featuresRepository.GetFeature(Features.COMMON_SNEAK_ATTACK),
-                    _featuresRepository.GetFeature(Features.ROUGE_TALENT)
+                    _featuresRepository.GetFeature(Features.ROGUE_TALENT_SELECTION)
                 ),
                 _levelEntryFactory.CreateLevelEntry(5,
                     _featuresRepository.GetFeature(Features.COMMON_UNCANNY_DODGE)
                 ),
                 _levelEntryFactory.CreateLevelEntry(6,
-                    _featuresRepository.GetFeature(Features.ROUGE_TALENT),
-                    _featuresRepository.GetFeature(Features.WIZARD_BONUS),
-                    _featuresRepository.GetFeature(Features.INQUISITOR_TEAMWORK)
+                    _featuresRepository.GetFeature(Features.ROGUE_TALENT_SELECTION),
+                    _featuresRepository.GetFeature(Features.WIZARD_FEAT_SELECTION),
+                    _featuresRepository.GetFeature(Features.INQUISITOR_TEAMWORK_FEAT)
                 ),
                 _levelEntryFactory.CreateLevelEntry(7,
                     _featuresRepository.GetFeature(Features.COMMON_SNEAK_ATTACK)
                 ),
                 _levelEntryFactory.CreateLevelEntry(8,
                     _featuresRepository.GetFeature(Features.ARCANE_SCHOOL_ILLUSION_INVISIBILITY_FIELD),
-                    _featuresRepository.GetFeature(Features.ROUGE_TALENT)
+                    _featuresRepository.GetFeature(Features.ROGUE_TALENT_SELECTION)
                 ),
                 _levelEntryFactory.CreateLevelEntry(9,
-                    _featuresRepository.GetFeature(Features.INQUISITOR_TEAMWORK)
+                    _featuresRepository.GetFeature(Features.INQUISITOR_TEAMWORK_FEAT)
                 ),
                 _levelEntryFactory.CreateLevelEntry(10,
                     _featuresRepository.GetFeature(Features.COMMON_SNEAK_ATTACK),
-                    _featuresRepository.GetFeature(Features.ROUGE_TALENT),
-                    _featuresRepository.GetFeature(Features.WIZARD_BONUS),
+                    _featuresRepository.GetFeature(Features.ROGUE_TALENT_SELECTION),
+                    _featuresRepository.GetFeature(Features.WIZARD_FEAT_SELECTION),
                     _featuresRepository.GetFeature(Features.COMMON_IMPROVED_EVASION),
                     _featuresRepository.GetFeature(Features.COMMON_ADVANCED_TALENTS)
                 ),
@@ -293,35 +293,35 @@ namespace PF_Classes.Classes.Charlatan
                     _featuresRepository.GetFeature(Features.BARD_JACK_OF_ALL_TRADES)
                 ),
                 _levelEntryFactory.CreateLevelEntry(12,
-                    _featuresRepository.GetFeature(Features.ROUGE_TALENT),
-                    _featuresRepository.GetFeature(Features.INQUISITOR_TEAMWORK)
+                    _featuresRepository.GetFeature(Features.ROGUE_TALENT_SELECTION),
+                    _featuresRepository.GetFeature(Features.INQUISITOR_TEAMWORK_FEAT)
                 ),
                 _levelEntryFactory.CreateLevelEntry(13,
-                    _featuresRepository.GetFeature(Features.ROUGE_IMPROVED_UNCANNY_DODGE),
+                    _featuresRepository.GetFeature(Features.ROGUE_IMPROVED_UNCANNY_DODGE),
                     _featuresRepository.GetFeature(Features.COMMON_SNEAK_ATTACK)
                 ),
                 _levelEntryFactory.CreateLevelEntry(14,
-                    _featuresRepository.GetFeature(Features.ROUGE_TALENT),
-                    _featuresRepository.GetFeature(Features.WIZARD_BONUS)
+                    _featuresRepository.GetFeature(Features.ROGUE_TALENT_SELECTION),
+                    _featuresRepository.GetFeature(Features.WIZARD_FEAT_SELECTION)
                 ),
                 _levelEntryFactory.CreateLevelEntry(15,
-                    _featuresRepository.GetFeature(Features.INQUISITOR_TEAMWORK)
+                    _featuresRepository.GetFeature(Features.INQUISITOR_TEAMWORK_FEAT)
                 ),
                 _levelEntryFactory.CreateLevelEntry(16,
                     _featuresRepository.GetFeature(Features.COMMON_SNEAK_ATTACK),
-                    _featuresRepository.GetFeature(Features.ROUGE_TALENT)
+                    _featuresRepository.GetFeature(Features.ROGUE_TALENT_SELECTION)
                 ),
                 _levelEntryFactory.CreateLevelEntry(17),
                 _levelEntryFactory.CreateLevelEntry(18,
-                    _featuresRepository.GetFeature(Features.ROUGE_TALENT),
-                    _featuresRepository.GetFeature(Features.WIZARD_BONUS),
-                    _featuresRepository.GetFeature(Features.INQUISITOR_TEAMWORK)
+                    _featuresRepository.GetFeature(Features.ROGUE_TALENT_SELECTION),
+                    _featuresRepository.GetFeature(Features.WIZARD_FEAT_SELECTION),
+                    _featuresRepository.GetFeature(Features.INQUISITOR_TEAMWORK_FEAT)
                 ),
                 _levelEntryFactory.CreateLevelEntry(19,
                     _featuresRepository.GetFeature(Features.COMMON_SNEAK_ATTACK)
                 ),
                 _levelEntryFactory.CreateLevelEntry(20,
-                    _featuresRepository.GetFeature(Features.ROUGE_TALENT)
+                    _featuresRepository.GetFeature(Features.ROGUE_TALENT_SELECTION)
                 )
             };
         }
@@ -330,8 +330,8 @@ namespace PF_Classes.Classes.Charlatan
         {
             return new BlueprintFeatureBase[]
             {
-                _featuresRepository.GetFeature(Features.ROUGE_TRAPFINDING),
-                _featuresRepository.GetFeature(Features.ROUGE_WEAPON_FINESSE),
+                _featuresRepository.GetFeature(Features.ROGUE_TRAPFINDING),
+                _featuresRepository.GetFeature(Features.ROGUE_WEAPON_FINESSE),
                 _featuresRepository.GetFeature(Features.COMMON_DETECT_MAGIC),
                 _featuresRepository.GetFeature(CHARLATAN_CANTRIPS),
                 _featuresRepository.GetFeature(CHARLATAN_PROFICIENCIES)
@@ -343,7 +343,7 @@ namespace PF_Classes.Classes.Charlatan
             return new UIGroup[]
             {
                 _uiGroupFactory.CreateUIGroup(
-                    _featuresRepository.GetFeature(Features.ROUGE_TALENT)
+                    _featuresRepository.GetFeature(Features.ROGUE_TALENT_SELECTION)
                 ),
                 _uiGroupFactory.CreateUIGroup(
                     _featuresRepository.GetFeature(Features.ARCANE_SCHOOL_ILLUSION_BLINDING_RAY),
@@ -351,8 +351,8 @@ namespace PF_Classes.Classes.Charlatan
                     _featuresRepository.GetFeature(Features.COMMON_ADVANCED_TALENTS)
                 ),
                 _uiGroupFactory.CreateUIGroup(
-                    _featuresRepository.GetFeature(Features.INQUISITOR_TACTICAL_LEADER_LEADERS_WORDS),
-                    _featuresRepository.GetFeature(Features.INQUISITOR_TEAMWORK)
+                    _featuresRepository.GetFeature(Features.INQUISITOR_TACTICAL_LEADER_DIPLOMACY),
+                    _featuresRepository.GetFeature(Features.INQUISITOR_TEAMWORK_FEAT)
                 ),
                 _uiGroupFactory.CreateUIGroup(
                     _featuresRepository.GetFeature(Features.BARD_BARDIC_KNOWLEDGE),
@@ -362,7 +362,7 @@ namespace PF_Classes.Classes.Charlatan
                     _featuresRepository.GetFeature(Features.COMMON_EVASION),
                     _featuresRepository.GetFeature(Features.COMMON_UNCANNY_DODGE),
                     _featuresRepository.GetFeature(Features.COMMON_IMPROVED_EVASION),
-                    _featuresRepository.GetFeature(Features.ROUGE_IMPROVED_UNCANNY_DODGE)
+                    _featuresRepository.GetFeature(Features.ROGUE_IMPROVED_UNCANNY_DODGE)
                 )
 
             };
