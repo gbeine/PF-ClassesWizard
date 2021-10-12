@@ -11,6 +11,7 @@ namespace PF_Core.Repositories
 
         private static readonly Logger _logger = Logger.INSTANCE;
         private static readonly Library _library = Library.INSTANCE;
+
         private static readonly CharacterClassesRepository __instance = new CharacterClassesRepository();
 
         private CharacterClassesRepository() { }
@@ -19,7 +20,7 @@ namespace PF_Core.Repositories
         {
             get { return __instance;  }
         }
-        
+
         public List<BlueprintCharacterClass> AllCharacterClasses
         {
             get { return _library.GetCharacterClasses(); }
@@ -48,6 +49,5 @@ namespace PF_Core.Repositories
             _library.RegisterCharacterClass(blueprintCharacterClass);
             _logger.Debug($"DONE: Add CharacterClass {blueprintCharacterClass.Name}");
         }
-
     }
 }

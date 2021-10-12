@@ -8,6 +8,7 @@ namespace PF_Core.Filter
     public class SpellListFilter
     {
         private static readonly Logger _logger = Logger.INSTANCE;
+
         private BlueprintSpellList spellList;
 
         public SpellListFilter(BlueprintSpellList blueprintSpellList)
@@ -19,8 +20,8 @@ namespace PF_Core.Filter
         {
             get { return this.spellList;  }
         }
-        
-        public SpellListFilter excludeSpellsFromList(Predicate<BlueprintAbility> predicate)
+
+        public SpellListFilter ExcludeSpellsFromList(Predicate<BlueprintAbility> predicate)
         {
             _logger.Log("Excluding spells from list");
             foreach (var spellLevelList in spellList.SpellsByLevel)
@@ -40,7 +41,7 @@ namespace PF_Core.Filter
             return this;
         }
 
-        public SpellListFilter addSpellsFromList(BlueprintSpellList blueprintSpellList)
+        public SpellListFilter AddSpellsFromList(BlueprintSpellList blueprintSpellList)
         {
             _logger.Log($"Add spell from {blueprintSpellList.name}");
             foreach (var spellLevelListToAdd in blueprintSpellList.SpellsByLevel)
@@ -51,7 +52,7 @@ namespace PF_Core.Filter
                     var spells = spellList.SpellsByLevel[spellLevelListToAdd.SpellLevel].Spells;
                     foreach (var spellToAdd in spellLevelListToAdd.Spells)
                     {
-                        if (!spells.Contains(spellToAdd) && !doesContainSpell(spellToAdd))
+                        if (!spells.Contains(spellToAdd) && !DoesContainSpell(spellToAdd))
                         {
                             _logger.Log($"Add spell {spellToAdd.Name} id {spellToAdd.AssetGuid}");
                             spells.Add(spellToAdd);
@@ -68,7 +69,7 @@ namespace PF_Core.Filter
             return this;
         }
 
-        private bool doesContainSpell(BlueprintAbility spell)
+        private bool DoesContainSpell(BlueprintAbility spell)
         {
             bool contains = false;
 

@@ -14,39 +14,39 @@ namespace PF_Core.Factories
         private static readonly Logger _logger = Logger.INSTANCE;
         private static readonly Library _library = Library.INSTANCE;
 
-        public BlueprintProgression createProgression(String name, String guid, String displayName, String description,
-            Sprite icon,
-            FeatureGroup group, params BlueprintComponent[] components) =>
-            createProgression(name, guid, displayName, description, icon, group, Array.Empty<BlueprintCharacterClass>(),
+        public BlueprintProgression CreateProgression(String name, String guid, BlueprintCharacterClass characterClass, params BlueprintComponent[] components) =>
+            CreateProgression(name, guid, characterClass.Name, characterClass.Description, characterClass.Icon, FeatureGroup.None, characterClass, components);
+
+        public BlueprintProgression CreateProgression(String name, String guid, String displayName, String description,
+            Sprite icon, FeatureGroup group, params BlueprintComponent[] components) =>
+            CreateProgression(name, guid, displayName, description, icon, group, Array.Empty<BlueprintCharacterClass>(),
                 Array.Empty<BlueprintArchetype>(), components);
 
-        public BlueprintProgression createProgression(String name, String guid, String displayName, String description,
-            Sprite icon,
-            FeatureGroup group, BlueprintCharacterClass characterClass, params BlueprintComponent[] components) =>
-            createProgression(name, guid, displayName, description, icon, group, new BlueprintCharacterClass[] { characterClass },
+        public BlueprintProgression CreateProgression(String name, String guid, String displayName, String description,
+            Sprite icon, FeatureGroup group, BlueprintCharacterClass characterClass, params BlueprintComponent[] components) =>
+            CreateProgression(name, guid, displayName, description, icon, group, new BlueprintCharacterClass[] { characterClass },
                 Array.Empty<BlueprintArchetype>(), components);
 
-        public BlueprintProgression createProgression(String name, String guid, String displayName, String description,
-            Sprite icon,
-            FeatureGroup group, BlueprintCharacterClass[] classes, params BlueprintComponent[] components) =>
-            createProgression(name, guid, displayName, description, icon, group, classes,
+        public BlueprintProgression CreateProgression(String name, String guid, String displayName, String description,
+            Sprite icon, FeatureGroup group, BlueprintCharacterClass[] classes, params BlueprintComponent[] components) =>
+            CreateProgression(name, guid, displayName, description, icon, group, classes,
                 Array.Empty<BlueprintArchetype>(), components);
 
-        public BlueprintProgression createProgression(String name, String guid, String displayName, String description,
-            Sprite icon,
-            FeatureGroup group, BlueprintArchetype archetype, params BlueprintComponent[] components) =>
-            createProgression(name, guid, displayName, description, icon, group, Array.Empty<BlueprintCharacterClass>(),
+        public BlueprintProgression CreateProgression(String name, String guid, String displayName, String description,
+            Sprite icon, FeatureGroup group, BlueprintArchetype archetype, params BlueprintComponent[] components) =>
+            CreateProgression(name, guid, displayName, description, icon, group, Array.Empty<BlueprintCharacterClass>(),
                 new BlueprintArchetype[] { archetype }, components);
 
-        public BlueprintProgression createProgression(String name, String guid, String displayName, String description,
-            Sprite icon,
-            FeatureGroup group, BlueprintArchetype[] archetypes, params BlueprintComponent[] components) =>
-            createProgression(name, guid, displayName, description, icon, group, Array.Empty<BlueprintCharacterClass>(),
+        public BlueprintProgression CreateProgression(String name, String guid, String displayName, String description,
+            Sprite icon, FeatureGroup group, BlueprintArchetype[] archetypes, params BlueprintComponent[] components) =>
+            CreateProgression(name, guid, displayName, description, icon, group, Array.Empty<BlueprintCharacterClass>(),
                 archetypes, components);
-        
-        private BlueprintProgression createProgression(String name, String guid, String displayName, String description, Sprite icon,
+
+        private BlueprintProgression CreateProgression(String name, String guid, String displayName, String description, Sprite icon,
             FeatureGroup group, BlueprintCharacterClass[] classes, BlueprintArchetype[] archetypes, params BlueprintComponent[] components)
         {
+            _logger.Debug($"Create progession {name} with id {guid}");
+            
             BlueprintProgression progression = _library.Create<BlueprintProgression>();
             blueprintProgression_set_AssetId(progression, guid);
             progression.name = name;
@@ -60,11 +60,14 @@ namespace PF_Core.Factories
             
             _library.Add(progression);
 
+            _logger.Debug($"DONE: Create progession {name} with id {guid}");
             return progression;
         }
 
-        public BlueprintProgression createEmptyProgression()
+        public BlueprintProgression CreateEmptyProgression()
         {
+            _logger.Debug("Create emptu=y progession");
+
             return _library.Create<BlueprintProgression>();
         }
     }

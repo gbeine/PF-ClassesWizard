@@ -12,10 +12,12 @@ namespace PF_Core.Factories
 
         public UIGroup CreateUIGroup(IEnumerable<BlueprintFeatureBase> features)
         {
+            _logger.Debug($"Create UI group");
+
             var uiGroup = new UIGroup();
             uiGroup.Features.AddRange(features);
+
             return uiGroup;
         }
-
     }
 }

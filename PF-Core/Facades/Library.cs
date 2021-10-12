@@ -13,6 +13,7 @@ namespace PF_Core.Facades
     public class Library
     {
         private static Library __instance;
+
         private LibraryScriptableObject _library;
 
         public Library(LibraryScriptableObject lsoLibraryScriptableObject)
@@ -25,7 +26,7 @@ namespace PF_Core.Facades
         {
             get { return __instance; }
         }
-        
+
         internal List<BlueprintCharacterClass> GetCharacterClasses()
         {
             // For some reason, Eldritch Scion is a class and an archetype.
@@ -40,23 +41,25 @@ namespace PF_Core.Facades
         internal List<BlueprintArchetype> GetArchtetypes() => _library.GetAll<BlueprintArchetype>();
         internal List<BlueprintFeature> GetFeatures() => _library.GetAll<BlueprintFeature>(); 
         internal List<BlueprintAbility> GetAbilities() => _library.GetAll<BlueprintAbility>(); 
+        internal List<BlueprintStatProgression> GetStatProgressions() => _library.GetAll<BlueprintStatProgression>(); 
 
         internal BlueprintCharacterClass GetCharacterClass(String assetId) => Get<BlueprintCharacterClass>(assetId);
         internal BlueprintArchetype GetArchetype(String assetId) => Get<BlueprintArchetype>(assetId);
         internal BlueprintFeature GetFeature(String assetId) => Get<BlueprintFeature>(assetId);
         internal BlueprintSpellbook GetSpellbook(String assetId) => Get<BlueprintSpellbook>(assetId);
         internal BlueprintAbility GetAbility(String assetId) => Get<BlueprintAbility>(assetId);
+        internal BlueprintStatProgression GetStatProgression(String assetId) => Get<BlueprintStatProgression>(assetId);
 
         internal T Get<T>(String assetId) where T : BlueprintScriptableObject
         {
             return _library.Get<T>(assetId);
         }
-        
+
         internal T Create<T>() where T : ScriptableObject
         { 
             return ScriptableObject.CreateInstance<T>();
         }
-        
+
         internal void Add(BlueprintScriptableObject blueprintScriptableObject)
         {
             if (!_library.Exists<BlueprintScriptableObject>(blueprintScriptableObject.AssetGuid))
@@ -67,7 +70,7 @@ namespace PF_Core.Facades
 
         public void RegisterCharacterClass(BlueprintCharacterClass blueprintCharacterClass)
         {
-            var classes = _library.Root.Progression.CharacterClasses.ToList();
+            List<BlueprintCharacterClass> classes = _library.Root.Progression.CharacterClasses.ToList();
             classes.Add(blueprintCharacterClass);
             classes.Sort((x, y) =>
             {

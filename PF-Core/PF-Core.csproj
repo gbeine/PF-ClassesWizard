@@ -21,6 +21,10 @@
       <HintPath>$(KingmakerLibDir)\Managed\UnityModManager\0Harmony12.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="UnityModManager">
+      <HintPath>$(KingmakerLibDir)\Managed\UnityModManager\UnityModManager.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="Assembly-CSharp">
       <HintPath>$(KingmakerLibDir)\Managed\Assembly-CSharp.dll</HintPath>
       <Private>False</Private>
@@ -67,10 +71,6 @@
     </Reference>
     <Reference Include="UnityEngine.UI">
       <HintPath>$(KingmakerLibDir)\Managed\UnityEngine.UI.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="UnityModManager">
-      <HintPath>$(KingmakerLibDir)\Managed\UnityModManager\UnityModManager.dll</HintPath>
       <Private>False</Private>
     </Reference>
   </ItemGroup>

@@ -8,10 +8,13 @@ using Newtonsoft.Json;
 
 namespace PF_Core
 {
+    // from Eldritch Arcana mod
     public class SaveCompatibility
     {
         private static readonly Logger _logger = Logger.INSTANCE;
+
         private static readonly SaveCompatibility __instance = new SaveCompatibility();
+
         private static readonly Dictionary<Type, List<FieldInfo>> _statefulComponentFields = new Dictionary<Type, List<FieldInfo>>();
         private static readonly StringBuilder _statefulComponentMessage = new StringBuilder();
 
@@ -21,7 +24,7 @@ namespace PF_Core
         {
             get { return __instance;  }
         }
-        
+
         internal void CheckComponent(BlueprintScriptableObject blueprintScriptableObject, BlueprintComponent blueprintComponent)
         {
             var type = blueprintComponent.GetType();
@@ -29,8 +32,10 @@ namespace PF_Core
             {
                 _statefulComponentMessage.AppendLine($"Warning: in object {blueprintScriptableObject.name}, stateful {type.Name} should be named.");
             }
-        } 
+        }
+
         private bool IsStatefulComponent(Type type) => GetStatefulComponentFields(type).Count > 0;
+
         private List<FieldInfo> GetStatefulComponentFields(Type type)
         {
             List<FieldInfo> fields;
@@ -43,9 +48,9 @@ namespace PF_Core
                     f => f.CustomAttributes.Any(a => a.AttributeType == typeof(JsonPropertyAttribute) ||
                                                      a.AttributeType == typeof(SerializableAttribute))));
             }
+
             _statefulComponentFields.Add(type, fields);
             return fields;
         }
-
     }
 }

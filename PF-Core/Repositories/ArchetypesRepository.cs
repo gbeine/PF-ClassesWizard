@@ -9,25 +9,25 @@ namespace PF_Core.Repositories
     {
         private static readonly Logger _logger = Logger.INSTANCE;
         private static readonly Library _library = Library.INSTANCE;
-        private static readonly ArchetypesRepository __instance = new ArchetypesRepository();
         
+        private static readonly ArchetypesRepository __instance = new ArchetypesRepository();
+
         private ArchetypesRepository() { }
 
         public static ArchetypesRepository INSTANCE
         {
             get { return __instance;  }
         }
-        
+
         public List<BlueprintArchetype> AllArchetypes
         {
             get { return _library.GetArchtetypes(); }
         }
-        
+
         public BlueprintArchetype GetArchetype(String assetId)
         {
             _logger.Debug($"Search for Archetype {assetId}");
             return _library.GetArchetype(assetId);
         }
-
     }
 }

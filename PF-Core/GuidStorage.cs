@@ -16,7 +16,7 @@ namespace PF_Core
         {
             get { return __instance;  }
         }
-        
+
         public void addEntry(string name, string guid)
         {
             string original_guid;

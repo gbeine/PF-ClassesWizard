@@ -33,7 +33,7 @@ namespace PF_Core.Extensions
                     bso => (T) bso)
                 .ToList();
         }
-        
+
         public static void AddAsset(this LibraryScriptableObject library, BlueprintScriptableObject blueprint)
         {
             _logger.Debug($"Adding {blueprint} with id {blueprint.AssetGuid}");
@@ -55,11 +55,10 @@ namespace PF_Core.Extensions
 
             library.GetAllBlueprints().Add(blueprint);
             library.BlueprintsByAssetId[blueprint.AssetGuid] = blueprint;
-            
+
             _guidStorage.addEntry(blueprint.name, blueprint.AssetGuid);
 
             _logger.Debug($"DONE: Adding {blueprint} with id {blueprint.AssetGuid}");
         }
-
     }
 }

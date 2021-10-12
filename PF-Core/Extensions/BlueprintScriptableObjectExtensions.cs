@@ -34,7 +34,7 @@ namespace PF_Core.Extensions
 
             blueprintScriptableObject.ComponentsArray = components;
         }
-        
+
         public static void AddComponent(this BlueprintScriptableObject obj, BlueprintComponent component)
         {
             obj.SetComponents(obj.ComponentsArray.AddToArray(component));

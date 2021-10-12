@@ -1,5 +1,6 @@
 using System;
 using Kingmaker.Blueprints.Classes;
+using Kingmaker.Blueprints.Classes.Spells;
 using Kingmaker.Blueprints.Facts;
 using Kingmaker.Blueprints.Items.Armors;
 using Kingmaker.Designers.Mechanics.Facts;
@@ -18,8 +19,8 @@ namespace PF_Core.Factories
 
         private static readonly Logger _logger = Logger.INSTANCE;
         private static readonly Library _library = Library.INSTANCE;
-        
-        public BlueprintFeature createFeature(String name, String guid)
+
+        public BlueprintFeature CreateFeature(String name, String guid)
         {
             _logger.Debug($"Create feature {name} with id {guid}");
 
@@ -33,76 +34,96 @@ namespace PF_Core.Factories
             return feature;
         }
 
-        public BlueprintFeature createFeatureFrom(String name, String guid, String fromAssetId)
+        public BlueprintFeature CreateFeatureFrom(String name, String guid, String fromAssetId)
         {
             _logger.Debug($"Create feature {name} with id {guid} based on {fromAssetId}");
 
             BlueprintFeature original = _library.GetFeature(fromAssetId);
-            BlueprintFeature clone = UnityEngine.Object.Instantiate(original);
-            blueprintFeature_set_AssetId(clone, guid);
-            clone.name = name;
+            BlueprintFeature feature = UnityEngine.Object.Instantiate(original);
+            blueprintFeature_set_AssetId(feature, guid);
+            feature.name = name;
 
-            _library.Add(clone);
+            _library.Add(feature);
 
             _logger.Debug($"DONE: Create feature {name} with id {guid} based on {fromAssetId}");
-            return clone;
-        }
-
-        public BlueprintFeature createFeatureFrom(String name, String guid, String fromAssetId, String displayName, String description)
-        {
-            BlueprintFeature feature = createFeatureFrom(name, guid, fromAssetId);
-            feature.SetNameDescription(displayName, description);
             return feature;
         }
 
-        public AddProficiencies createAddWeaponProficiencies(params WeaponCategory[] weapons)
+        public BlueprintFeature CreateFeatureFrom(String name, String guid, String fromAssetId, String displayName, String description)
         {
-            var addProficiencies = _library.Create<Kingmaker.UnitLogic.FactLogic.AddProficiencies>();
+            _logger.Debug($"Create feature {name} with id {guid} based on {fromAssetId}");
+
+            BlueprintFeature feature = CreateFeatureFrom(name, guid, fromAssetId);
+            feature.SetNameDescription(displayName, description);
+
+            _logger.Debug($"DONE: Create feature {name} with id {guid} based on {fromAssetId}");
+            return feature;
+        }
+
+        public AddProficiencies CreateAddWeaponProficiencies(params WeaponCategory[] weapons)
+        {
+            _logger.Debug($"Create add weapon proficiencies {weapons.Length}");
+
+            AddProficiencies addProficiencies = _library.Create<Kingmaker.UnitLogic.FactLogic.AddProficiencies>();
             addProficiencies.WeaponProficiencies = weapons;
             addProficiencies.ArmorProficiencies = new ArmorProficiencyGroup[0];
+
+            _logger.Debug($"DONE: Create add weapon proficiencies {weapons.Length}");
             return addProficiencies;
         }
 
-        public AddFacts createAddFact(BlueprintUnitFact fact) =>
-            createAddFact(fact.name, new BlueprintUnitFact[] {fact});
-        
-        public AddFacts createAddFact(String name, params BlueprintUnitFact[] facts)
+        public AddFacts CreateAddFact(BlueprintUnitFact fact) =>
+            CreateAddFact(fact.name, new BlueprintUnitFact[] {fact});
+
+        public AddFacts CreateAddFact(String name, params BlueprintUnitFact[] facts)
         {
+            _logger.Debug($"Create add facts {name}");
+
             AddFacts result = _library.Create<AddFacts>();
             result.name = $"AddFacts${name}";
             result.Facts = facts;
+
+            _logger.Debug($"DONE:Create add facts {name}");
             return result;
         }
-        
-        public BlueprintFeature createCantrips(String name, String displayName, string description,
-            UnityEngine.Sprite icon, string guid, BlueprintCharacterClass character_class,
-            StatType stat, BlueprintAbility[] spells)
-        {
-            var learnSpells = _library.Create<LearnSpells>();
-            learnSpells.CharacterClass = character_class;
-            learnSpells.Spells = spells;
 
-            var bind_spells = _library.Create<BindAbilitiesToClass>();
-            bind_spells.Abilites = spells;
+        public BlueprintFeature CreateCantrips(String name, String guid, String displayName, String description,
+            UnityEngine.Sprite icon, BlueprintCharacterClass characterClass, BlueprintSpellbook spellbook) =>
+            CreateCantrips(name, guid, displayName, description, icon, characterClass,
+                spellbook.CastingAttribute, spellbook.SpellList.SpellsByLevel[0].Spells.ToArray());
+
+        public BlueprintFeature CreateCantrips(String name, String guid, String displayName, String description,
+            UnityEngine.Sprite icon, BlueprintCharacterClass characterClass,
+            StatType stat, BlueprintAbility[] spellList)
+        {
+            _logger.Debug($"Create cantrips {name} with id {guid}");
+
+            LearnSpells learnSpells = _library.Create<LearnSpells>();
+            learnSpells.CharacterClass = characterClass;
+            learnSpells.Spells = spellList;
+
+            BindAbilitiesToClass bind_spells = _library.Create<BindAbilitiesToClass>();
+            bind_spells.Abilites = spellList;
             bind_spells.Stat = stat;
-            bind_spells.CharacterClass = character_class;
+            bind_spells.CharacterClass = characterClass;
             bind_spells.Archetypes = Array.Empty<BlueprintArchetype>();
             bind_spells.AdditionalClasses = Array.Empty<BlueprintCharacterClass>();
             bind_spells.LevelStep = 1;
             bind_spells.Cantrip = true;
 
-            var spls = _library.Create<AddFacts>();
-            spls.Facts = spells;
+            AddFacts spells = _library.Create<AddFacts>();
+            spells.Facts = spellList;
 
-            var feature = createFeature(name, guid);
-            feature.SetNameDescriptionIcon(displayName, description, icon);
-            feature.Groups = new FeatureGroup[] {FeatureGroup.None};
-            feature.SetComponents(spls, learnSpells, bind_spells);
+            BlueprintFeature cantrips = CreateFeature(name, guid);
+            cantrips.SetNameDescriptionIcon(displayName, description, icon);
+            cantrips.Groups = new FeatureGroup[] {FeatureGroup.None};
+            cantrips.SetComponents(spells, learnSpells, bind_spells);
 
-            return feature;
+            _logger.Debug($"DONE: Create cantrips {name} with id {guid}");
+            return cantrips;
         }
 
-        public BlueprintFeature createEmptyFeature()
+        public BlueprintFeature CreateEmptyFeature()
         {
             return _library.Create<BlueprintFeature>();
         }

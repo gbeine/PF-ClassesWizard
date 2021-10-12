@@ -8,16 +8,16 @@ namespace PF_Core.Factories
     {
         private static readonly Logger _logger = Logger.INSTANCE;
 
-        public LevelEntry LevelEntry(int level) =>
-            LevelEntry(level, Array.Empty<BlueprintFeature>() );
-        
-        public LevelEntry LevelEntry(int level, BlueprintFeatureBase feature) =>
-            LevelEntry(level, new BlueprintFeatureBase[] { feature });
-        
-        public LevelEntry LevelEntry(int level, params BlueprintFeatureBase[] features) =>
-            LevelEntry(level, (IEnumerable<BlueprintFeatureBase>)features);
+        public LevelEntry CreateLevelEntry(int level) =>
+            CreateLevelEntry(level, Array.Empty<BlueprintFeature>() );
 
-        public LevelEntry LevelEntry(int level, IEnumerable<BlueprintFeatureBase> features)
+        public LevelEntry CreateLevelEntry(int level, BlueprintFeatureBase feature) =>
+            CreateLevelEntry(level, new BlueprintFeatureBase[] { feature });
+
+        public LevelEntry CreateLevelEntry(int level, params BlueprintFeatureBase[] features) =>
+            CreateLevelEntry(level, (IEnumerable<BlueprintFeatureBase>)features);
+
+        public LevelEntry CreateLevelEntry(int level, IEnumerable<BlueprintFeatureBase> features)
         {
             LevelEntry entry = new LevelEntry() { Level = level };
             entry.Features.AddRange(features);

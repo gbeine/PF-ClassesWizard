@@ -17,6 +17,5 @@ namespace PF_Core.Facades
         {
             return new FastGetter(Harmony12.FastAccess.CreateGetterHandler(Harmony12.AccessTools.Field(type, name)));
         }
-
     }
 }
