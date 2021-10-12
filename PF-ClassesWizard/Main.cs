@@ -15,7 +15,7 @@ namespace PF_ClassesWizard
         {
             _logger.init(modEntry);
             _logger.Log("Loading Classes Wizard");
-            
+
             try
             {
                 _harmony = Harmony12.HarmonyInstance.Create(modEntry.Info.Id);
@@ -37,6 +37,5 @@ namespace PF_ClassesWizard
             enabled = value;
             return true;
         }
-
     }
 }
