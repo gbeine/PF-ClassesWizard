@@ -1,4 +1,6 @@
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using Kingmaker.Blueprints.Classes;
 using Kingmaker.Blueprints.Classes.Spells;
 using Kingmaker.Blueprints.Facts;
@@ -34,6 +36,17 @@ namespace PF_Core.Factories
             return feature;
         }
 
+        public BlueprintFeature CreateFeature(String name, String guid, String displayName, String description)
+        {
+            _logger.Debug($"Create feature {name} with id {guid}");
+
+            BlueprintFeature feature = CreateFeature(name, guid);
+            feature.SetNameDescription(displayName, description);
+
+            _logger.Debug($"DONE: Create feature {name} with id {guid}");
+            return feature;
+        }
+
         public BlueprintFeature CreateFeatureFrom(String name, String guid, String fromAssetId)
         {
             _logger.Debug($"Create feature {name} with id {guid} based on {fromAssetId}");
@@ -60,15 +73,20 @@ namespace PF_Core.Factories
             return feature;
         }
 
-        public AddProficiencies CreateAddWeaponProficiencies(params WeaponCategory[] weapons)
+        public AddProficiencies CreateAddWeaponProficiencies(IEnumerable<WeaponCategory> weapons) =>
+            CreateAddWeaponArmorProficiencies(weapons, Array.Empty<ArmorProficiencyGroup>().ToList());
+        public AddProficiencies CreateAddArmorProficiencies(IEnumerable<ArmorProficiencyGroup> armor) =>
+            CreateAddWeaponArmorProficiencies(Array.Empty<WeaponCategory>().ToList(), armor);
+
+        public AddProficiencies CreateAddWeaponArmorProficiencies(IEnumerable<WeaponCategory> weapons, IEnumerable<ArmorProficiencyGroup> armor)
         {
-            _logger.Debug($"Create add weapon proficiencies {weapons.Length}");
+            _logger.Debug($"Create add weapon {weapons.LongCount()} and amor {armor.LongCount()} proficiencies");
 
-            AddProficiencies addProficiencies = _library.Create<Kingmaker.UnitLogic.FactLogic.AddProficiencies>();
-            addProficiencies.WeaponProficiencies = weapons;
-            addProficiencies.ArmorProficiencies = new ArmorProficiencyGroup[0];
+            AddProficiencies addProficiencies = _library.Create<AddProficiencies>();
+            addProficiencies.WeaponProficiencies = weapons.ToArray();
+            addProficiencies.ArmorProficiencies = armor.ToArray();
 
-            _logger.Debug($"DONE: Create add weapon proficiencies {weapons.Length}");
+            _logger.Debug("DONE: Create add weapon and amor proficiencies");
             return addProficiencies;
         }
 

@@ -107,11 +107,11 @@ namespace PF_Classes.Classes.Charlatan
                 _featureFactory.CreateAddFact(
                     _featuresRepository.GetFeature(Features.WEAPON_PROFICIENCY_DUELING_SWORD)));
             charlatan_proficiencies.AddComponent(
-                _featureFactory.CreateAddFact(_featuresRepository.GetFeature(Features.WEAPON_PROFICIENCY_ESTOC)));
+                _featureFactory.CreateAddFact(
+                    _featuresRepository.GetFeature(Features.WEAPON_PROFICIENCY_ESTOC)));
             charlatan_proficiencies.AddComponent(
                 _featureFactory.CreateAddWeaponProficiencies(
-                    WeaponCategory.Longbow, WeaponCategory.Starknife)
-            );
+                    new WeaponCategory[] { WeaponCategory.Longbow, WeaponCategory.Starknife }));
 
             _logger.Log("DONE: Create proficiencies");
             return charlatan_proficiencies;
