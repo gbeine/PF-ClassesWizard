@@ -1,6 +1,7 @@
 ﻿using System;
-using PF_Classes.Classes.Charlatan;
+using Kingmaker.Blueprints.Classes;
 using PF_Core;
+using PF_Core.Repositories;
 
 namespace PF_Classes
 {
@@ -20,8 +21,12 @@ namespace PF_Classes
                 _logger.Log("Loading classes...");
                 try
                 {
-                    Charlatan c = new Charlatan();
-
+                    CharacterClassLoader characterClassLoader = new CharacterClassLoader("Charlatan.json");
+                    if (characterClassLoader.load())
+                    {
+                        BlueprintCharacterClass characterClass = characterClassLoader.CharacterClass;
+                        CharacterClassesRepository.INSTANCE.RegisterCharacterClass(characterClass);
+                    }
                 }
                 catch (Exception e)
                 {
