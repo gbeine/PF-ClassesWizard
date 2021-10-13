@@ -106,6 +106,107 @@ This UiGroups definition will show the ROGUE_TALENT_SELECTION as one row and in 
 ]
 ```
 
+### Spellbook JSON Structure
+
+| Key                      | Required | Example                            | Description |
+|------------------------- |----------|------------------------------------|-------------|
+| Guid                     | true     | "0fc2fdfb15ec4abd888ef5a7b7e59003" | A 32 spellbook GUID |
+| Name                     | true     | "CharlatanSpellbook"               | The name of the spellbook class, used internally |
+| CastingAttribute         | true     | "Intelligence"                     | The attribute used by the character to cast spells from this book. The values has to be from the attributes identifiers listed below, usually Intelligence or Charisma |
+| IsArcane                 | false    | true                               | Default: false; Determine something |
+| IsSpontaneous            | false    | true                               | Default: false; Determine if the character can cast spontaneoulsy |
+| CanCopyScrolls           | false    | true                               | Default: false; Determine if the character can copy scrolls |
+| AllSpellsKnown           | false    | true                               | Default: false; Determine if the character has access to all spells in the spellbook. Do not use with a SpellsKnown table |
+| Cantrips                 | false    | "Orisions"                         | Default: "Cantrips"; The type of cantrips in this book, one of "Orisions" or "Cantrips" |
+| SpellList                | true     | See below                          | See below |
+| SpellsPerDay             | true     | See below                          | See below |
+| SpellsKnown              | false    | See below                          | See below; use only if AllSpellsKnown is false |
+
+SpellsByLevels contains the list of possible spells to learn per level.
+Please note: identifiers are mandatory and reference to the spell levels.
+Identifiers need to start with 0 (the cantrips level) and end with the highest level possible in this book.
+If there should be no cantrips, define level 0 as an empty array like `"0": [ ]`.
+SpellList has a Guid and a Name like all other definitions.
+
+```
+"SpellList": {
+  "Guid": "8b4fc86d687646648c551a740718118c",
+  "Name": "CharlatanSpellList",
+  "SpellsByLevel": {
+    "0": [
+      "Daze"
+    ],
+    "1": [
+      "CURE_LIGHT_WOUNDS_CAST",
+      "SUMMON_MONSTER_I_SINGLE"
+    ],
+    "2": [
+      "CURE_MODERATE_WOUNDS_CAST",
+      "SUMMON_MONSTER_II_BASE",
+      "MAGE_ARMOR",
+      "DELAY_POISON"
+    ],
+    ...
+    "9": [
+      "SUMMON_MONSTER_IX_BASE"
+    ]
+  }
+}
+```
+
+SpellsPerDay determines how many spells of this book a character is able to cast per day.
+Each line in the Table shows how many spells of a certain spell level the character is able to cast per day.
+Identifiers are mandatory and reference to the character levels.
+The entry for level 0 is mandatory.
+The first entry in each line is for spell level 0, the second for spell level one and so on.
+SpellsPerDay has a Guid and a Name like all other definitions.
+
+```
+"SpellsPerDay": {
+  "Name": "CharlatanSpellsPerDay",
+  "Guid": "d9adb154906244f39fd7439a5f4d6ac2",
+  "Table": {
+    "0": [],
+    "1": [0, 3],
+    "2": [0, 4],
+    "3": [0, 5, 3],
+    ...
+    "16": [0, 6, 6, 6, 6, 6, 6, 6, 4],
+    "17": [0, 6, 6, 6, 6, 6, 6, 6, 5, 3],
+    "18": [0, 6, 6, 6, 6, 6, 6, 6, 6, 4],
+    "19": [0, 6, 6, 6, 6, 6, 6, 6, 6, 5],
+    "20": [0, 6, 6, 6, 6, 6, 6, 6, 6, 6]
+  }
+}
+```
+
+SpellsKnown enables you character to learn spells for different spell level depending on the class level.
+Do no use SpellsKnown while AllSpellsKnown is set to true!
+Each line in the Table shows how many spells of a certain spell level the character is able to know at a certain class level.
+Identifiers are mandatory and reference to the character levels.
+The entry for level 0 is mandatory.
+The first entry in each line is for spell level 0, the second for spell level one and so on.
+SpellsKnown has a Guid and a Name like all other definitions.
+
+```
+"SpellsKnown": {
+  "Name": "CharlatanSpellsKnown",
+  "Guid": "69b34210916a46fc8dd031950aa5d9b7",
+  "Table": {
+    "0": [0, 0],
+    "1": [0, 6],
+    "2": [0, 6],
+    ...
+    "15": [0, 8, 7, 6, 6, 4, 4, 2, 2],
+    "16": [0, 8, 7, 6, 6, 4, 4, 2, 2],
+    "17": [0, 8, 7, 7, 6, 6, 4, 4, 2, 2],
+    "18": [0, 8, 7, 7, 6, 6, 4, 4, 4, 2],
+    "19": [0, 8, 8, 7, 7, 6, 6, 4, 4, 4],
+    "20": [0, 8, 8, 7, 7, 6, 6, 4, 4, 4]
+  }
+}
+```
+
 ### Cantrips JSON Structure
 
 Cantrips depends on a spellbook.
