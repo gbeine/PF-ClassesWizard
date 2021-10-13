@@ -146,30 +146,30 @@ namespace PF_Classes.Classes.Charlatan
 
             BlueprintSpellList charlatanSpellList =
                 _spellbookFactory.createSpellList("CharlatanSpellList", "8b4fc86d687646648c551a740718118c", 10);
-            charlatanSpellList.SpellsByLevel[1].Spells.Add(_spellRepository.GetSpell(Spells.CURE_LIGHT_WOUNDS_CAST));
-            charlatanSpellList.SpellsByLevel[1].Spells.Add(_spellRepository.GetSpell(Spells.SUMMON_MONSTER_I_SINGLE));
-            charlatanSpellList.SpellsByLevel[2].Spells.Add(_spellRepository.GetSpell(Spells.CURE_MODERATE_WOUNDS_CAST));
-            charlatanSpellList.SpellsByLevel[2].Spells.Add(_spellRepository.GetSpell(Spells.SUMMON_MONSTER_II_BASE));
-            charlatanSpellList.SpellsByLevel[2].Spells.Add(_spellRepository.GetSpell(Spells.MAGE_ARMOR));
-            charlatanSpellList.SpellsByLevel[2].Spells.Add(_spellRepository.GetSpell(Spells.DELAY_POISON));
-            charlatanSpellList.SpellsByLevel[3].Spells.Add(_spellRepository.GetSpell(Spells.CURE_SERIOUS_WOUNDS_CAST));
-            charlatanSpellList.SpellsByLevel[3].Spells.Add(_spellRepository.GetSpell(Spells.SUMMON_MONSTER_III_BASE));
-            charlatanSpellList.SpellsByLevel[3].Spells.Add(_spellRepository.GetSpell(Spells.RESTORATION_LESSER));
-            charlatanSpellList.SpellsByLevel[4].Spells.Add(_spellRepository.GetSpell(Spells.CURE_CRITICAL_WOUNDS_CAST));
-            charlatanSpellList.SpellsByLevel[4].Spells.Add(_spellRepository.GetSpell(Spells.SUMMON_MONSTER_IV_BASE));
-            charlatanSpellList.SpellsByLevel[4].Spells.Add(_spellRepository.GetSpell(Spells.DELAY_POISON_COMMUNAL));
-            charlatanSpellList.SpellsByLevel[5].Spells.Add(_spellRepository.GetSpell(Spells.CURE_LIGHT_WOUNDS_MASS));
-            charlatanSpellList.SpellsByLevel[5].Spells.Add(_spellRepository.GetSpell(Spells.SUMMON_MONSTER_V_BASE));
-            charlatanSpellList.SpellsByLevel[5].Spells.Add(_spellRepository.GetSpell(Spells.RESTORATION));
-            charlatanSpellList.SpellsByLevel[6].Spells.Add(_spellRepository.GetSpell(Spells.CURE_MODERATE_WOUNDS_MASS));
-            charlatanSpellList.SpellsByLevel[6].Spells.Add(_spellRepository.GetSpell(Spells.SUMMON_MONSTER_VI_BASE));
-            charlatanSpellList.SpellsByLevel[6].Spells.Add(_spellRepository.GetSpell(Spells.NEUTRALIZE_POISON));
-            charlatanSpellList.SpellsByLevel[7].Spells.Add(_spellRepository.GetSpell(Spells.CURE_SERIOUS_WOUNDS_MASS));
-            charlatanSpellList.SpellsByLevel[7].Spells.Add(_spellRepository.GetSpell(Spells.SUMMON_MONSTER_VII_BASE));
-            charlatanSpellList.SpellsByLevel[5].Spells.Add(_spellRepository.GetSpell(Spells.RESTORATION_GREATER));
-            charlatanSpellList.SpellsByLevel[8].Spells.Add(_spellRepository.GetSpell(Spells.CURE_CRITICAL_WOUNDS_MASS));
-            charlatanSpellList.SpellsByLevel[8].Spells.Add(_spellRepository.GetSpell(Spells.SUMMON_MONSTER_VIII_BASE));
-            charlatanSpellList.SpellsByLevel[9].Spells.Add(_spellRepository.GetSpell(Spells.SUMMON_MONSTER_IX_BASE));
+            charlatanSpellList.SpellsByLevel[1].Spells.Add(_spellRepository.GetSpell(Spells.CONJURATION_CURE_LIGHT_WOUNDS_CAST));
+            charlatanSpellList.SpellsByLevel[1].Spells.Add(_spellRepository.GetSpell(Spells.CONJURATION_SUMMON_MONSTER_I_SINGLE));
+            charlatanSpellList.SpellsByLevel[2].Spells.Add(_spellRepository.GetSpell(Spells.CONJURATION_CURE_MODERATE_WOUNDS_CAST));
+            charlatanSpellList.SpellsByLevel[2].Spells.Add(_spellRepository.GetSpell(Spells.CONJURATION_SUMMON_MONSTER_II_BASE));
+            charlatanSpellList.SpellsByLevel[2].Spells.Add(_spellRepository.GetSpell(Spells.CONJURATION_MAGE_ARMOR));
+            charlatanSpellList.SpellsByLevel[2].Spells.Add(_spellRepository.GetSpell(Spells.CONJURATION_DELAY_POISON));
+            charlatanSpellList.SpellsByLevel[3].Spells.Add(_spellRepository.GetSpell(Spells.CONJURATION_CURE_SERIOUS_WOUNDS_CAST));
+            charlatanSpellList.SpellsByLevel[3].Spells.Add(_spellRepository.GetSpell(Spells.CONJURATION_SUMMON_MONSTER_III_BASE));
+            charlatanSpellList.SpellsByLevel[3].Spells.Add(_spellRepository.GetSpell(Spells.CONJURATION_RESTORATION_LESSER));
+            charlatanSpellList.SpellsByLevel[4].Spells.Add(_spellRepository.GetSpell(Spells.CONJURATION_CURE_CRITICAL_WOUNDS_CAST));
+            charlatanSpellList.SpellsByLevel[4].Spells.Add(_spellRepository.GetSpell(Spells.CONJURATION_SUMMON_MONSTER_IV_BASE));
+            charlatanSpellList.SpellsByLevel[4].Spells.Add(_spellRepository.GetSpell(Spells.CONJURATION_DELAY_POISON_COMMUNAL));
+            charlatanSpellList.SpellsByLevel[5].Spells.Add(_spellRepository.GetSpell(Spells.CONJURATION_CURE_LIGHT_WOUNDS_MASS));
+            charlatanSpellList.SpellsByLevel[5].Spells.Add(_spellRepository.GetSpell(Spells.CONJURATION_SUMMON_MONSTER_V_BASE));
+            charlatanSpellList.SpellsByLevel[5].Spells.Add(_spellRepository.GetSpell(Spells.CONJURATION_RESTORATION));
+            charlatanSpellList.SpellsByLevel[6].Spells.Add(_spellRepository.GetSpell(Spells.CONJURATION_CURE_MODERATE_WOUNDS_MASS));
+            charlatanSpellList.SpellsByLevel[6].Spells.Add(_spellRepository.GetSpell(Spells.CONJURATION_SUMMON_MONSTER_VI_BASE));
+            charlatanSpellList.SpellsByLevel[6].Spells.Add(_spellRepository.GetSpell(Spells.CONJURATION_NEUTRALIZE_POISON));
+            charlatanSpellList.SpellsByLevel[7].Spells.Add(_spellRepository.GetSpell(Spells.CONJURATION_CURE_SERIOUS_WOUNDS_MASS));
+            charlatanSpellList.SpellsByLevel[7].Spells.Add(_spellRepository.GetSpell(Spells.CONJURATION_SUMMON_MONSTER_VII_BASE));
+            charlatanSpellList.SpellsByLevel[5].Spells.Add(_spellRepository.GetSpell(Spells.CONJURATION_RESTORATION_GREATER));
+            charlatanSpellList.SpellsByLevel[8].Spells.Add(_spellRepository.GetSpell(Spells.CONJURATION_CURE_CRITICAL_WOUNDS_MASS));
+            charlatanSpellList.SpellsByLevel[8].Spells.Add(_spellRepository.GetSpell(Spells.CONJURATION_SUMMON_MONSTER_VIII_BASE));
+            charlatanSpellList.SpellsByLevel[9].Spells.Add(_spellRepository.GetSpell(Spells.CONJURATION_SUMMON_MONSTER_IX_BASE));
 
             BlueprintSpellList spellList = new SpellListFilter(wizard_class.Spellbook.SpellList)
                 .AddSpellsFromList(bard_class.Spellbook.SpellList)

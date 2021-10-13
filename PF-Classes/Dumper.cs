@@ -28,28 +28,72 @@ namespace PF_Classes
                     _logger.Log($"Level {sll.SpellLevel}");
                     foreach (var spell in sll.Spells)
                     {
-                        _logger.Log($"public static const String {spell.name} = \"{spell.AssetGuid}\"; // {spell.Name}");
+                        _logger.Log($"public const String {spell.School} {spell.name} = \"{spell.AssetGuid}\"; // {spell.Name}");
                     }
                 }
             }
         }
 
-        internal static void Dump(BlueprintCharacterClass blueprintCharacterClass)
+        internal static void DumpComponentsRogue(LibraryScriptableObject library)
         {
-            _logger.Log(blueprintCharacterClass.Name);
-            Dump(blueprintCharacterClass.Progression.LevelEntries);
+            BlueprintCharacterClass c = library.Get<BlueprintCharacterClass>(CharacterClasses.ROGUE);
+            _logger.Log(c.Name);
+            Dump(c.ComponentsArray);
         }
 
-        internal static void Dump(BlueprintArchetype blueprintArchetype)
+        internal static void DumpComponentsKineticist(LibraryScriptableObject library)
         {
-            _logger.Log(blueprintArchetype.Name);
-            Dump(blueprintArchetype.AddFeatures);
+            BlueprintCharacterClass c = library.Get<BlueprintCharacterClass>(CharacterClasses.KINETICIST);
+            _logger.Log(c.Name);
+            Dump(c.ComponentsArray);
         }
 
-        internal static void Dump(BlueprintSpellsTable blueprintSpellsTable)
+        internal static void DumpSpellbooksWizard(LibraryScriptableObject library)
         {
-            _logger.Log(blueprintSpellsTable);
-            Dump(blueprintSpellsTable.Levels);
+            BlueprintCharacterClass c = library.Get<BlueprintCharacterClass>(CharacterClasses.WIZARD);
+            _logger.Log(c.Name);
+            Dump(c.Spellbook);
+            _logger.Log($"SpellsKnown {c.Spellbook.SpellsKnown}");
+            _logger.Log($"SpellsPerDay {c.Spellbook.SpellsPerDay}");
+            Dump(c.Spellbook.SpellsPerDay.Levels);
+            Dump(c.Spellbook.ComponentsArray);
+        }
+
+        internal static void DumpSpellbooksCleric(LibraryScriptableObject library)
+        {
+            BlueprintCharacterClass c = library.Get<BlueprintCharacterClass>(CharacterClasses.CLERIC);
+            _logger.Log(c.Name);
+            Dump(c.Spellbook);
+            _logger.Log($"SpellsKnown {c.Spellbook.SpellsKnown}");
+            _logger.Log($"SpellsPerDay {c.Spellbook.SpellsPerDay}");
+            Dump(c.Spellbook.SpellsPerDay.Levels);
+        }
+        internal static void DumpSpellbooksRanger(LibraryScriptableObject library)
+        {
+            BlueprintCharacterClass c = library.Get<BlueprintCharacterClass>(CharacterClasses.RANGER);
+            _logger.Log(c.Name);
+            Dump(c.Spellbook);
+            _logger.Log($"SpellsKnown {c.Spellbook.SpellsKnown}");
+            _logger.Log($"SpellsPerDay {c.Spellbook.SpellsPerDay}");
+            Dump(c.Spellbook.SpellsPerDay.Levels);
+        }
+
+        internal static void Dump(BlueprintSpellbook blueprintSpellbook)
+        {
+            _logger.Log($"IsArcane: {blueprintSpellbook.IsArcane}");
+            _logger.Log($"Spontaneous: {blueprintSpellbook.Spontaneous}");
+            _logger.Log($"AllSpellsKnown: {blueprintSpellbook.AllSpellsKnown}");
+            _logger.Log($"CanCopyScrolls: {blueprintSpellbook.CanCopyScrolls}");
+            _logger.Log($"Cantrips: {blueprintSpellbook.CantripsType}");
+            _logger.Log($"Components: {blueprintSpellbook.ComponentsArray.Length}");
+        }
+
+        private static void Dump(BlueprintComponent[] blueprintComponents)
+        {
+            foreach (var c in blueprintComponents)
+            {
+                _logger.Log($"C: {c.name}");
+            }
         }
 
         private static void Dump(SpellsLevelEntry[] spellsLevelEntries)
