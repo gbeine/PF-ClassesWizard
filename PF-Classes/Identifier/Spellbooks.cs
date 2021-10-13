@@ -20,7 +20,7 @@ namespace PF_Classes.Identifier
         public const String MAGUS_MAGUS_ELDRITCH_SCION_SPELLBOOK                   = "e2763fbfdb91920458c4686c3e7ed085"; // Kampfmagus
         public const String PALADIN_SPELLBOOK                                      = "bce4989b070ce924b986bf346f59e885"; // Paladin
         public const String RANGER_SPELLBOOK                                       = "762858a4a28eaaf43aa00f50441d7027"; // Waldläufer
-        public const String ROUGE_ELDRITCH_SCOUNDREL_SPELLBOOK                     = "4f96fb20f06b7494a8b2bd731a70af6c"; // Schurke
+        public const String ROGUE_ELDRITCH_SCOUNDREL_SPELLBOOK                     = "4f96fb20f06b7494a8b2bd731a70af6c"; // Schurke
         public const String SORCERER_SPELLBOOK                                     = "b3db3766a4b605040b366265e2af0e50"; // Hexenmeister
         public const String SORCERER_EMPYREAL_SORCERER_SPELLBOOK                   = "cb9d75e5cb08572439a6b5cd562297a5"; // Hexenmeister
         public const String SORCERER_SAGE_SORCERER_SPELLBOOK                       = "cc2052732997b654e93eac268a39a0a9"; // Hexenmeister

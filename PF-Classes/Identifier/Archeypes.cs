@@ -44,9 +44,9 @@ namespace PF_Classes.Identifier
         public const String RANGER_FREEBOOTER                = "4fd9705f1aebf614f9500bb0e7341179";
         public const String RANGER_FLAMEWARDEN               = "300917c3479d27d47b4b4b52b1762e8d";
         public const String RANGER_STORMWALKER               = "a330c05e484d98748a462acd43654a3a";
-        public const String ROUGE_ELDRITCH_SCOUNDREL         = "57f93dd8423c97c49989501281296c4a";
-        public const String ROUGE_KNIFE_MASTER               = "9e94d1847e6f331478e5a714659220ce";
-        public const String ROUGE_THUG                       = "b5f0b25e1519d27479018353b51fd349";
+        public const String ROGUE_ELDRITCH_SCOUNDREL         = "57f93dd8423c97c49989501281296c4a";
+        public const String ROGUE_KNIFE_MASTER               = "9e94d1847e6f331478e5a714659220ce";
+        public const String ROGUE_THUG                       = "b5f0b25e1519d27479018353b51fd349";
         public const String SLAYER_VANGUARD                  = "67bbc0dcd471ea0428a362f6e94f3a51";
         public const String SLAYER_DELIVERER                 = "738c5666f8ef46c45942df9100a0d254";
         public const String SLAYER_SPAWN_SLAYER              = "f6e304de008939d46960a2ebb075e150";
