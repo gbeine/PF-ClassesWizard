@@ -33,9 +33,12 @@ namespace PF_Classes.JsonTypes
             Cantrips = jCantrips != null
                 ? jCantrips.Value<String>()
                 : "Cantrips";
+            JToken jSpellsKnown = jObject.SelectToken("SpellsKnown");
+            SpellsKnown = jSpellsKnown != null
+                ? new SpellsTable(jSpellsKnown.Value<JObject>())
+                : null;
 
             SpellList = new SpellList(jObject.SelectToken("SpellList", true).Value<JObject>());
-            SpellsKnown = new SpellsTable(jObject.SelectToken("SpellsKnown", true).Value<JObject>());
             SpellsPerDay = new SpellsTable(jObject.SelectToken("SpellsPerDay", true).Value<JObject>());
         }
         public string Guid { get; set; }
