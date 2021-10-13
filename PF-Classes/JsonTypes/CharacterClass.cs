@@ -9,39 +9,79 @@ namespace PF_Classes.JsonTypes
     {
         public CharacterClass(JObject jObject)
         {
-            Guid = jObject.SelectToken("Guid").Value<String>();
-            Name = jObject.SelectToken("Name").Value<String>();
-            DisplayName = jObject.SelectToken("DisplayName").Value<String>();
-            Description = jObject.SelectToken("Description").Value<String>();
-            Icon = jObject.SelectToken("Icon").Value<String>();
-            EquipmentEntities = jObject.SelectToken("EquipmentEntities").Value<String>();
-            MaleEquipmentEntities = jObject.SelectToken("MaleEquipmentEntities").Value<String>();
-            FemaleEquipmentEntities = jObject.SelectToken("FemaleEquipmentEntities").Value<String>();
-            PrimaryColor = jObject.SelectToken("PrimaryColor").Value<int>();
-            SecondaryColor = jObject.SelectToken("SecondaryColor").Value<int>();
-            SkillPoints = jObject.SelectToken("SkillPoints").Value<int>();
-            HitDie = jObject.SelectToken("HitDie").Value<String>();
-            BaseAttackBonus = jObject.SelectToken("BaseAttackBonus").Value<String>();
-            FortitudeSave = jObject.SelectToken("FortitudeSave").Value<String>();
-            WillSave = jObject.SelectToken("WillSave").Value<String>();
-            ReflexSave = jObject.SelectToken("ReflexSave").Value<String>();
-            IsDivineCaster = jObject.SelectToken("IsDivineCaster").Value<bool>();
-            IsArcaneCaster = jObject.SelectToken("IsArcaneCaster").Value<bool>();
-            ComponentsArray = jObject.SelectToken("ComponentsArray").Value<String>();
-            StartingGold = jObject.SelectToken("StartingGold").Value<int>();
-            StartingItems = jObject.SelectToken("StartingItems").Value<String>();
+            Guid = jObject.SelectToken("Guid", true).Value<String>();
+            Name = jObject.SelectToken("Name", true).Value<String>();
+            DisplayName = jObject.SelectToken("DisplayName", true).Value<String>();
+            Icon = jObject.SelectToken("Icon", true).Value<String>();
+            EquipmentEntities = jObject.SelectToken("EquipmentEntities", true).Value<String>();
+            PrimaryColor = jObject.SelectToken("PrimaryColor", true).Value<int>();
+            SecondaryColor = jObject.SelectToken("SecondaryColor", true).Value<int>();
+            SkillPoints = jObject.SelectToken("SkillPoints", true).Value<int>();
+            Progression = new Progression(jObject.SelectToken("Progression", true).Value<JObject>());
 
-            Progression = new Progression(jObject.SelectToken("Progression").Value<JObject>());
+            JToken jDescription = jObject.SelectToken("Description");
+            Description = jDescription != null
+                ? jDescription.Value<String>()
+                : DisplayName;
+            JToken jMaleEquipmentEntities = jObject.SelectToken("MaleEquipmentEntities");
+            MaleEquipmentEntities = jMaleEquipmentEntities != null
+                ? jMaleEquipmentEntities.Value<String>()
+                : EquipmentEntities;
+            JToken jFemaleEquipmentEntities = jObject.SelectToken("FemaleEquipmentEntities");
+            FemaleEquipmentEntities  = jFemaleEquipmentEntities != null
+                ? jFemaleEquipmentEntities.Value<String>()
+                : EquipmentEntities;
 
-            JToken alignment = jObject.SelectToken("Alignment"); 
-            Alignment = alignment != null ? alignment.Values<String>().ToList() : Array.Empty<String>().ToList();
-            JToken classSkills = jObject.SelectToken("ClassSkills"); 
-            ClassSkills = classSkills != null ? classSkills.Values<String>().ToList() : Array.Empty<String>().ToList();
-            JToken recommendedAttributes = jObject.SelectToken("RecommendedAttributes"); 
-            RecommendedAttributes = recommendedAttributes != null ? recommendedAttributes.Values<String>().ToList() : Array.Empty<String>().ToList();
-            JToken notRecommendedAttributes = jObject.SelectToken("NotRecommendedAttributes"); 
-            NotRecommendedAttributes = notRecommendedAttributes != null ? notRecommendedAttributes.Values<String>().ToList() : Array.Empty<String>().ToList();
-            
+            JToken jHitDie = jObject.SelectToken("HitDie");
+            HitDie = jHitDie != null
+                ? jHitDie.Value<String>()
+                : "D6";
+            JToken jBaseAttackBonus = jObject.SelectToken("BaseAttackBonus");
+            BaseAttackBonus = jBaseAttackBonus != null
+                ? jBaseAttackBonus.Value<String>()
+                : "BAB_LOW";
+            JToken jFortitudeSave = jObject.SelectToken("FortitudeSave");
+            FortitudeSave = jFortitudeSave != null
+                ? jFortitudeSave.Value<String>()
+                : "SAVES_LOW";
+            JToken jWillSave = jObject.SelectToken("WillSave");
+            WillSave = jWillSave != null
+                ? jWillSave.Value<String>()
+                : "SAVES_LOW";
+            JToken jReflexSave = jObject.SelectToken("ReflexSave");
+            ReflexSave = jReflexSave != null
+                ? jReflexSave.Value<String>()
+                : "SAVES_LOW";
+            JToken jIsDivineCaster = jObject.SelectToken("IsDivineCaster");
+            IsDivineCaster = jIsDivineCaster != null
+                ? jIsDivineCaster.Value<bool>()
+                : false;
+            JToken jIsArcaneCaster = jObject.SelectToken("IsArcaneCaster");
+            IsArcaneCaster = jIsArcaneCaster != null
+                ? jIsArcaneCaster.Value<bool>()
+                : false;
+            JToken jStartingGold = jObject.SelectToken("StartingGold");
+            StartingGold = jStartingGold != null
+                    ? jStartingGold.Value<int>()
+                    : 500;
+
+            JToken jComponentsArray = jObject.SelectToken("ComponentsArray");
+            ComponentsArray = jComponentsArray != null
+                ? jComponentsArray.Value<String>()
+                : null;
+            JToken jStartingItems = jObject.SelectToken("StartingItems");
+            StartingItems = jStartingItems != null
+                ? jStartingItems.Value<String>()
+                : null;
+
+            JToken jAlignment = jObject.SelectToken("Alignment");
+            Alignment = jAlignment != null ? jAlignment.Values<String>().ToList() : Array.Empty<String>().ToList();
+            JToken jClassSkills = jObject.SelectToken("ClassSkills");
+            ClassSkills = jClassSkills != null ? jClassSkills.Values<String>().ToList() : Array.Empty<String>().ToList();
+            JToken jRecommendedAttributes = jObject.SelectToken("RecommendedAttributes");
+            RecommendedAttributes = jRecommendedAttributes != null ? jRecommendedAttributes.Values<String>().ToList() : Array.Empty<String>().ToList();
+            JToken jNotRecommendedAttributes = jObject.SelectToken("NotRecommendedAttributes");
+            NotRecommendedAttributes = jNotRecommendedAttributes != null ? jNotRecommendedAttributes.Values<String>().ToList() : Array.Empty<String>().ToList();
 
             JToken jProficiencies = jObject.SelectToken("Proficiencies");
             if (jProficiencies != null)
@@ -57,7 +97,7 @@ namespace PF_Classes.JsonTypes
                 {
                     Cantrips = new Cantrips(jCantrips.Value<JObject>());
                 }
-                Spellbook = new Spellbook(jSpellbook.Value<JObject>()); 
+                Spellbook = new Spellbook(jSpellbook.Value<JObject>());
             }
         }
         public string Guid { get; set; }

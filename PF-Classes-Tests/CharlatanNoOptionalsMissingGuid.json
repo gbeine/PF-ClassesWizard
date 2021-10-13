@@ -1,0 +1,46 @@
+{
+  "Name": "CharlatanClass",
+  "DisplayName": "Charlatan",
+  "Icon": "ref:KINETICIST",
+  "EquipmentEntities": "ref:KINETICIST",
+  "PrimaryColor": 0,
+  "SecondaryColor": 19,
+  "SkillPoints": 5,
+  "Progression": {
+    "Guid": "3106acb568bb47a0b3d11adc6c378c14",
+    "Name": "CharlatanProgression",
+    "LevelEntries": {
+      "1": [
+        "COMMON_DETECT_MAGIC",
+        "COMMON_TOUCH_CALCULATE_FEATURE",
+        "COMMON_RAY_CALCULATE_FEATURE",
+        "COMMON_SNEAK_ATTACK",
+        "ROGUE_WEAPON_FINESSE",
+        "ROGUE_TRAPFINDING",
+        "INQUISITOR_TACTICAL_LEADER_DIPLOMACY",
+        "BARD_BARDIC_KNOWLEDGE"
+      ],
+      "2": [
+        "COMMON_EVASION",
+        "ROGUE_TALENT_SELECTION",
+        "WIZARD_FEAT_SELECTION"
+      ],
+      "20": [
+        "ROGUE_TALENT_SELECTION"
+      ]
+    },
+    "UiGroups": [
+      [
+        "ROGUE_TALENT_SELECTION"
+      ],[
+        "COMMON_EVASION",
+        "WIZARD_FEAT_SELECTION",
+      ]
+    ],
+    "UiDeterminatorsGroup": [
+      "ROGUE_TRAPFINDING",
+      "ROGUE_WEAPON_FINESSE",
+      "COMMON_DETECT_MAGIC"
+    ]
+  }
+}
