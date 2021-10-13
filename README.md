@@ -2,6 +2,8 @@
 
 This is a rewrite of the [Eldritch Arcana](https://github.com/jennyem/pathfinder-mods) mod by [jennyem](https://github.com/jennyem/).
 
+You may follow the mod on [Nexus Mods](https://www.nexusmods.com/pathfinderkingmaker/mods/248)
+
 It allows you to create new character classes as JSON files and load them automatically without any coding.
 
 See docs/examples for the Charlatan class.
