@@ -16,7 +16,7 @@ namespace PF_Classes.JsonType
             SpellList spellList = new SpellList(jObject);
             Assert.AreEqual("8b4fc86d687646648c551a740718118c",spellList.Guid);
             Assert.AreEqual("CharlatanSpellList",spellList.Name);
-            Assert.AreEqual(5,spellList.Level);
+            Assert.AreEqual(4,spellList.Level);
             Assert.AreEqual(5,spellList.SpellsByLevel.Capacity);
             Assert.AreEqual(5,spellList.SpellsByLevel.Count);
             Assert.AreEqual(1,spellList.SpellsByLevel[0].Count);

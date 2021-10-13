@@ -15,7 +15,9 @@ namespace PF_Classes.JsonTypes
             // level 0 is for cantrips
             // levels here are spell levels
             JObject jSpellsByLevel = jObject.SelectToken("SpellsByLevel", true).Value<JObject>();
-            Level = jSpellsByLevel.Count - 1;
+            Level = jSpellsByLevel.Count > 0
+                ? jSpellsByLevel.Count - 1
+                : 0;
             SpellsByLevel = new List<List<string>>(jSpellsByLevel.Count);
             for (int i = 0; i < jSpellsByLevel.Count; i++)
             {
