@@ -9,26 +9,24 @@ namespace PF_Classes.JsonTypes
     {
         public SpellList(JObject jObject)
         {
-            Guid = jObject.SelectToken("Guid").Value<String>();
-            Name = jObject.SelectToken("Name").Value<String>();
-            
+            Guid = jObject.SelectToken("Guid", true).Value<String>();
+            Name = jObject.SelectToken("Name", true).Value<String>();
+
             // level 0 is for cantrips
             // levels here are spell levels
-            JObject jSpellsByLevel = jObject.SelectToken("SpellsByLevel").Value<JObject>();
-            SpellsByLevel = new List<List<string>>(jSpellsByLevel.Count);
-            for (int i = 0; i < jSpellsByLevel.Count; i++)
+            JObject jSpellsByLevel = jObject.SelectToken("SpellsByLevel", true).Value<JObject>();
+            Level = jSpellsByLevel.Count;
+            SpellsByLevel = new List<List<string>>(Level);
+            for (int i = 0; i < Level; i++)
             {
-                JArray jSpells = jSpellsByLevel.SelectToken(i.ToString()).Value<JArray>();
+                JArray jSpells = jSpellsByLevel.SelectToken(i.ToString(), true).Value<JArray>();
                 SpellsByLevel.Add(jSpells.Values<String>().ToList());
             }
         }
 
         public string Guid { get; set; }
         public string Name { get; set; }
-        public int Level
-        {
-            get { return SpellsByLevel.Capacity; }
-        }
+        public int Level { get; set; }
         public List<List<String>> SpellsByLevel { get; set; }
 
     }

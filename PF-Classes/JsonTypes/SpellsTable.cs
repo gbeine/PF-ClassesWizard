@@ -9,16 +9,16 @@ namespace PF_Classes.JsonTypes
     {
         public SpellsTable(JObject jObject)
         {
-            Guid = jObject.SelectToken("Guid").Value<String>();
-            Name = jObject.SelectToken("Name").Value<String>();
+            Guid = jObject.SelectToken("Guid", true).Value<String>();
+            Name = jObject.SelectToken("Name", true).Value<String>();
 
             // first int in each line is for cantrips
             // levels here are character levels
-            JObject jTable = jObject.SelectToken("Table").Value<JObject>();
+            JObject jTable = jObject.SelectToken("Table", true).Value<JObject>();
             Table = new List<List<int>>(21);
             for (int i = 0; i < 21; i++)
             {
-                JArray jLevelEntry = jTable.SelectToken(i.ToString()).Value<JArray>();
+                JArray jLevelEntry = jTable.SelectToken(i.ToString(), true).Value<JArray>();
                 Table.Add(jLevelEntry.Values<int>().ToList());
             }
         }
