@@ -7,11 +7,15 @@ namespace PF_Classes.JsonTypes
     {
         public Cantrips(JObject jObject)
         {
-            Guid = jObject.SelectToken("Guid").Value<String>();
-            Name = jObject.SelectToken("Name").Value<String>();
-            DisplayName = jObject.SelectToken("DisplayName").Value<String>();
-            Description = jObject.SelectToken("Description").Value<String>();
-            Icon = jObject.SelectToken("Icon").Value<String>();
+            Guid = jObject.SelectToken("Guid", true).Value<String>();
+            Name = jObject.SelectToken("Name", true).Value<String>();
+            DisplayName = jObject.SelectToken("DisplayName", true).Value<String>();
+            Icon = jObject.SelectToken("Icon", true).Value<String>();
+
+            JToken jDescription = jObject.SelectToken("Description");
+            Description = jDescription != null
+                ? jDescription.Value<String>()
+                : DisplayName;
         }
         public string Guid { get; set; }
         public string Name { get; set; }

@@ -2,8 +2,13 @@
 
     <PropertyGroup>
         <TargetFrameworks>net47</TargetFrameworks>
-        <RootNamespace>PF_Classes_Tests</RootNamespace>
+        <RootNamespace>PF_Classes</RootNamespace>
         <IsPackable>false</IsPackable>
+    </PropertyGroup>
+
+    <PropertyGroup>
+        <KingmakerInstallDir>$(KINGMAKER_DIR)</KingmakerInstallDir>
+        <KingmakerLibDir>$(KingmakerInstallDir)/Kingmaker.app/Contents/Resources/Data</KingmakerLibDir>
     </PropertyGroup>
 
     <ItemGroup>
@@ -11,10 +16,81 @@
         <PackageReference Include="NUnit" Version="3.13.1" />
         <PackageReference Include="NUnit3TestAdapter" Version="3.17.0" />
         <PackageReference Include="coverlet.collector" Version="3.0.2" />
+        <Reference Include="Microsoft.CSharp" />
+        <Reference Include="System" />
+        <Reference Include="System.Core" />
+        <Reference Include="System.Xml.Linq" />
+        <Reference Include="System.Data.DataSetExtensions" />
+        <Reference Include="System.Data" />
+        <Reference Include="System.Xml" />
+        <Reference Include="0Harmony12">
+            <HintPath>$(KingmakerLibDir)\Managed\UnityModManager\0Harmony12.dll</HintPath>
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="UnityModManager">
+            <HintPath>$(KingmakerLibDir)\Managed\UnityModManager\UnityModManager.dll</HintPath>
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="Assembly-CSharp">
+            <HintPath>$(KingmakerLibDir)\Managed\Assembly-CSharp.dll</HintPath>
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="Assembly-CSharp-firstpass">
+            <HintPath>$(KingmakerLibDir)\Managed\Assembly-CSharp-firstpass.dll</HintPath>
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="Newtonsoft.Json">
+            <HintPath>$(KingmakerLibDir)\Managed\Newtonsoft.Json.dll</HintPath>
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="UnityEngine">
+            <HintPath>$(KingmakerLibDir)\Managed\UnityEngine.dll</HintPath>
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="UnityEngine.AnimationModule">
+            <HintPath>$(KingmakerLibDir)\Managed\UnityEngine.AnimationModule.dll</HintPath>
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="UnityEngine.CoreModule">
+            <HintPath>$(KingmakerLibDir)\Managed\UnityEngine.CoreModule.dll</HintPath>
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="UnityEngine.ImageConversionModule">
+            <HintPath>$(KingmakerLibDir)\Managed\UnityEngine.ImageConversionModule.dll</HintPath>
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="UnityEngine.IMGUIModule">
+            <HintPath>$(KingmakerLibDir)\Managed\UnityEngine.IMGUIModule.dll</HintPath>
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="UnityEngine.JSONSerializeModule">
+            <HintPath>$(KingmakerLibDir)\Managed\UnityEngine.JSONSerializeModule.dll</HintPath>
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="UnityEngine.ParticleSystemModule">
+            <HintPath>$(KingmakerLibDir)\Managed\UnityEngine.ParticleSystemModule.dll</HintPath>
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="UnityEngine.TextRenderingModule">
+            <HintPath>$(KingmakerLibDir)\Managed\UnityEngine.TextRenderingModule.dll</HintPath>
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="UnityEngine.UI">
+            <HintPath>$(KingmakerLibDir)\Managed\UnityEngine.UI.dll</HintPath>
+            <Private>False</Private>
+        </Reference>
     </ItemGroup>
 
     <ItemGroup>
       <ProjectReference Include="..\PF-Classes\PF-Classes.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Compile Remove="bin\**" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <EmbeddedResource Remove="bin\**" />
     </ItemGroup>
 
 </Project>

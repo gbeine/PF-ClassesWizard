@@ -160,7 +160,7 @@
     "Name": "CharlatanProficiencies",
     "DisplayName": "Charlatan Proficiencies",
     "Description": "Charlatans are skilled in the use of all simple weapons, short swords, long swords, dueling swords, rapiers, and short bows. They are proficient with light armour and shields.",
-    "From": "BARD_PROFICIENCIES",
+    "from": "BARD_PROFICIENCIES",
     "Add": {
       "Features": [ "WEAPON_PROFICIENCY_DUELING_SWORD", "WEAPON_PROFICIENCY_ESTOC"],
       "WeaponProficiencies": [ "Longbow", "Starknife" ]

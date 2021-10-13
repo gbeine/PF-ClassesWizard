@@ -9,25 +9,34 @@ namespace PF_Classes.JsonTypes
     {
         public Progression(JObject jObject)
         {
-            Guid = jObject.SelectToken("Guid").Value<String>();
-            Name = jObject.SelectToken("Name").Value<String>();
+            Guid = jObject.SelectToken("Guid", true).Value<String>();
+            Name = jObject.SelectToken("Name", true).Value<String>();
 
-            JArray jUiDeterminatorsGroup = jObject.SelectToken("UiDeterminatorsGroup").Value<JArray>();
-            UiDeterminatorsGroup = jUiDeterminatorsGroup.Values<String>().ToList();
-            
-            JArray jUiGroups = jObject.SelectToken("UiGroups").Value<JArray>();
+            JToken jUiDeterminatorsGroup = jObject.SelectToken("UiDeterminatorsGroup");
+            UiDeterminatorsGroup = jUiDeterminatorsGroup != null
+                ? jUiDeterminatorsGroup.Value<JArray>().Values<String>().ToList()
+                : Array.Empty<String>().ToList();
+
+
             UiGroups = new List<List<string>>();
-            foreach (var jUiGroup in jUiGroups)
+            JToken jUiGroups = jObject.SelectToken("UiGroups");
+            if (jUiGroups != null)
             {
-                UiGroups.Add(jUiGroup.Values<String>().ToList());
+                foreach (var jUiGroup in jUiGroups.Value<JArray>())
+                {
+                    UiGroups.Add(jUiGroup.Values<String>().ToList());
+                }
             }
-            
-            JObject jLevelEntries = jObject.SelectToken("LevelEntries").Value<JObject>();
-            LevelEntries = new List<List<string>>();
+
+            JObject jLevelEntries = jObject.SelectToken("LevelEntries", true).Value<JObject>();
+            LevelEntries = new List<List<string>>(20);
             for (int i = 1; i < 21; i++)
             {
-                JArray jLevel = jLevelEntries.SelectToken(i.ToString()).Value<JArray>();
-                LevelEntries.Add(jLevel.Values<String>().ToList());
+                JToken jLevel = jLevelEntries.SelectToken(i.ToString());
+                List<String> levelEntries = jLevel != null
+                    ? jLevel.Value<JArray>().Values<String>().ToList()
+                    : Array.Empty<String>().ToList();
+                LevelEntries.Add(levelEntries);
             }
         }
         public string Guid { get; set; }

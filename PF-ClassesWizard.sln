@@ -8,6 +8,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PF-Classes", "PF-Classes\PF
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PF-Classes-Tests", "PF-Classes-Tests\PF-Classes-Tests.csproj", "{9C142C90-E11A-4D46-BDC1-410EECEBE9DD}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PF-Classes-Tools", "PF-Classes-Tools\PF-Classes-Tools.csproj", "{29749BAC-15CF-4B66-98AE-4855D1291898}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -30,5 +32,9 @@ Global
 		{9C142C90-E11A-4D46-BDC1-410EECEBE9DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9C142C90-E11A-4D46-BDC1-410EECEBE9DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9C142C90-E11A-4D46-BDC1-410EECEBE9DD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{29749BAC-15CF-4B66-98AE-4855D1291898}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{29749BAC-15CF-4B66-98AE-4855D1291898}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{29749BAC-15CF-4B66-98AE-4855D1291898}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{29749BAC-15CF-4B66-98AE-4855D1291898}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
