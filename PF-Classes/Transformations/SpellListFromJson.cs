@@ -24,7 +24,8 @@ namespace PF_Classes.Transformations
             BlueprintSpellList spellList = _spellbookFactory.createSpellList(
                 spellListData.Name, spellListData.Guid, spellListData.Level);
 
-            for (int i = 1; i < spellListData.Level; i++)
+            // cantrips are at level 0, therefore we need to go from 0 to the last level
+            for (int i = 0; i <= spellListData.Level; i++)
             {
                 foreach (var spellId in spellListData.SpellsByLevel[i])
                 {
@@ -32,11 +33,11 @@ namespace PF_Classes.Transformations
                     spellList.SpellsByLevel[i].Spells.Add(spell);
                 }
             }
-            
+
             _logger.Log("DONE: Creating spell list");
             return spellList;
         }
-        
+
         private static BlueprintAbility getSpell(String value) =>
             _spellRepository.GetSpell(Spells.INSTANCE.GetGuidFor(value));
     }

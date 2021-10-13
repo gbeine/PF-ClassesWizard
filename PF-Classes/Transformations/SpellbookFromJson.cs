@@ -11,7 +11,7 @@ namespace PF_Classes.Transformations
     public class SpellbookFromJson
     {
         private static readonly Logger _logger = Logger.INSTANCE;
-        
+
         private static readonly SpellbookFactory _spellbookFactory = new SpellbookFactory();
 
         public static BlueprintSpellbook GetSpellbook(Spellbook spellbookData, BlueprintCharacterClass characterClass)
@@ -29,14 +29,14 @@ namespace PF_Classes.Transformations
                 spellbookData.SpellsPerDay.Name, spellbookData.SpellsPerDay.Guid, spellbookData.SpellsPerDay.Table);
 
             BlueprintSpellList spellList = SpellListFromJson.GetSpellList(spellbookData.SpellList);
-            
+
             BlueprintSpellbook spellbook = _spellbookFactory.CreateSpellbook(
                 spellbookData.Name, spellbookData.Guid, characterClass,
                 spellbookData.IsArcane, spellbookData.IsSpontaneous, spellbookData.CanCopyScrolls, spellbookData.AllSpellsKnown,
                 EnumParser.parseStatType(spellbookData.CastingAttribute),
                 EnumParser.parseCantripsType(spellbookData.Cantrips),
                 spellsKnown, spellsPerDay, spellList);
-            
+
             _logger.Log("DONE: Creating spellbook");
             return spellbook;
         }

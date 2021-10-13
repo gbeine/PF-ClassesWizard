@@ -5,6 +5,7 @@ using Kingmaker.EntitySystem.Stats;
 using PF_Classes.Identifier;
 using PF_Classes.JsonTypes;
 using PF_Core;
+using PF_Core.Extensions;
 using PF_Core.Factories;
 using PF_Core.Repositories;
 
@@ -25,11 +26,11 @@ namespace PF_Classes.Transformations
             BlueprintFeature cantrips = _featureFactory.CreateCantrips(
                 cantripsData.Name, cantripsData.Guid, cantripsData.DisplayName, cantripsData.Description,
                 getIconFeature(cantripsData.Icon).Icon, characterClass, spellbook);
-            
+
             _logger.Log("DONE: Creating cantrips");
             return cantrips;
         }
-        
+
         private static BlueprintFeature getIconFeature(String value) =>
             _featuresRepository.GetFeature(
                 Features.INSTANCE.GetGuidFor(

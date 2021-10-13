@@ -30,14 +30,13 @@ namespace PF_Classes.Transformations
                     proficienciesData.Name, proficienciesData.Guid,
                     Features.INSTANCE.GetGuidFor(proficienciesData.From),
                     proficienciesData.DisplayName, proficienciesData.Description);
-
             }
             else
             {
                 proficiencies = _featureFactory.CreateFeature(
                     proficienciesData.Name, proficienciesData.Guid,
                     proficienciesData.DisplayName, proficienciesData.Description);
-                
+
             }
 
             foreach (var feature in proficienciesData.AddFeatures)
@@ -57,7 +56,7 @@ namespace PF_Classes.Transformations
             _logger.Log("DONE: Create proficiencies");
             return proficiencies;
         }
-        
+
         private static BlueprintFeature getFeature(String value) =>
             _featuresRepository.GetFeature(Features.INSTANCE.GetGuidFor(value));
     }

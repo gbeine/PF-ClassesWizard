@@ -98,7 +98,8 @@ namespace PF_Core.Factories
             BlueprintSpellList spellList = _library.Create<BlueprintSpellList>();
             blueprintSpellList_set_AssetId(spellList, guid);
             spellList.name = name;
-            spellList.SpellsByLevel = new SpellLevelList[level];
+            // +1 here because 0 are cantrips, levels go from one to the value of level
+            spellList.SpellsByLevel = new SpellLevelList[level+1];
 
             for (int i = 0; i < spellList.SpellsByLevel.Length; i++)
             {
