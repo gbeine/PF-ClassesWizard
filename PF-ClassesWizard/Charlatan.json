@@ -18,7 +18,7 @@
   "IsDivineCaster": false,
   "IsArcaneCaster": true,
   "ComponentsArray": "ref:ROGUE",
-  "StartingGold": 100,
+  "StartingGold": 500,
   "StartingItems": "ref:ROGUE",
   "Alignment": [
     "NeutralGood",

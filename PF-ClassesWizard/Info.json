@@ -2,7 +2,7 @@
   "Id": "PF-ClassesWizard",
   "DisplayName": "Classes Wizard",
   "Author": "gbeine",
-  "Version": "0.0.2",
+  "Version": "0.0.3",
   "AssemblyName": "PF-ClassesWizard.dll",
   "EntryMethod": "PF_ClassesWizard.Main.Load",
   "HomePage": "https://github.com/gbeine/PF-ClassesWizard"
