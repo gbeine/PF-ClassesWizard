@@ -151,7 +151,7 @@ namespace PF_Classes.Identifier
         public const String ENCHANTMENT_CASTIGATE                           = "ce4c4e52c53473549ae033e2bb44b51a"; // Tadel
         public const String ENCHANTMENT_CASTIGATE_MASS                      = "41236cf0e476d7043bc16a33a9f449bd"; // Massen-Tadel
         public const String ENCHANTMENT_CHALLENGE_EVIL                      = "57aae1aa36b8022479e1cd39f3a85ef9"; // Böses herausfordern
-        public const String ENCHANTMENT_CLOAKOF_DREAMS                      = "7f71a70d822af94458dc1a235507e972"; // Traumumhang
+        public const String ENCHANTMENT_CLOAK_OF_DREAMS                     = "7f71a70d822af94458dc1a235507e972"; // Traumumhang
         public const String ENCHANTMENT_CONFUSION_SPELL                     = "cf6c901fb7acc904e85c63b342e9c949"; // Verwirrung
         public const String ENCHANTMENT_CONSTRICTING_COILS                  = "3fce8e988a51a2a4ea366324d6153001"; // Würgende Windungen
         public const String ENCHANTMENT_CRUSHING_DESPAIR                    = "4baf4109145de4345861fe0f2209d903"; // Tiefe Verzweiflung
