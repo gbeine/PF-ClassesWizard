@@ -21,7 +21,7 @@ namespace PF_Classes.Transformations
 
         private static readonly CharacterClassesRepository _characterClassesRepository = CharacterClassesRepository.INSTANCE;
         private static readonly StatProgressionRepository _statProgressionRepository = StatProgressionRepository.INSTANCE;
-        
+
         private static readonly CharacterClassFactory _classFactoryFactory = new CharacterClassFactory();
         private static readonly PrerequisitesFactory _prerequisitesFactory = new PrerequisitesFactory();
 
@@ -48,9 +48,7 @@ namespace PF_Classes.Transformations
             characterClass.ReflexSave = getStatProgression(characterClassData.ReflexSave);
             characterClass.IsDivineCaster = characterClassData.IsDivineCaster;
             characterClass.IsArcaneCaster = characterClassData.IsArcaneCaster;
-            characterClass.ComponentsArray = getCharacterClass(characterClassData.ComponentsArray).ComponentsArray;
             characterClass.StartingGold = characterClassData.StartingGold;
-            characterClass.StartingItems = getCharacterClass(characterClassData.StartingItems).StartingItems;
 
             characterClass.ClassSkills =
                 characterClassData.ClassSkills
@@ -61,6 +59,15 @@ namespace PF_Classes.Transformations
             characterClass.NotRecommendedAttributes =
                 characterClassData.NotRecommendedAttributes
                     .Select(skill => EnumParser.parseStatType(skill)).ToArray();
+
+            if (characterClassData.ComponentsArray != null)
+            {
+                characterClass.ComponentsArray = getCharacterClass(characterClassData.ComponentsArray).ComponentsArray;
+            }
+            if (characterClassData.StartingItems != null)
+            {
+                characterClass.StartingItems = getCharacterClass(characterClassData.StartingItems).StartingItems;
+            }
 
             List<String> alignmentList = characterClassData.Alignment;
             if (alignmentList != null)
@@ -94,7 +101,7 @@ namespace PF_Classes.Transformations
 
             BlueprintProgression progression = ProgressionFromJson.GetProgression(characterClassData.Progression, characterClass, startFeatures);
             characterClass.Progression = progression;
-            
+
             return characterClass;
         }
 
