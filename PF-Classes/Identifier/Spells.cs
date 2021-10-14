@@ -47,6 +47,7 @@ namespace PF_Classes.Identifier
         public const String ABJURATION_UNHOLY_AURA                          = "47f9cb1c367a5e4489cfa32fce290f86"; // Unheilige Aura
         public const String ABJURATION_VEIL_OF_HEAVEN                       = "72d9f5adda6387a40a63c49d7781bbbf"; // Himmelsschleier
         public const String ABJURATION_VEIL_OF_POSITIVE_ENERGY              = "6bb0533cd457d1f4eaccc73ab7680fb2"; // Schleier aus Positiver Energie
+
         public const String CONJURATION_ACID_ARROW                          = "9a46dfd390f943647ab4395fc997936d"; // Säurepfeil
         public const String CONJURATION_ACID_FOG                            = "dbf99b00cd35d0a4491c6cc9e771b487"; // Säurenebel
         public const String CONJURATION_ACID_PIT                            = "1407fb5054d087d47a4c40134c809f12"; // Säuregrube
@@ -131,6 +132,7 @@ namespace PF_Classes.Identifier
         public const String CONJURATION_TOUCH_OF_SLIME_CAST                 = "84ccca10da2a4484c89a837fbea2a829"; // Schleimige Hand
         public const String CONJURATION_TSUNAMI                             = "d8144161e352ca846a73cf90e85bf9ac"; // Tsunami
         public const String CONJURATION_VINETRAP                            = "6d1d48a939ce475409f06e1b376bc386"; // Rankenwuchs
+
         public const String DIVINATION_FIND_TRAPS                           = "4709274b2080b6444a3c11c6ebbe2404"; // Fallen finden
         public const String DIVINATION_FORESIGHT                            = "1f01a098d737ec6419aedc4e7ad61fdd"; // Sechster Sinn
         public const String DIVINATION_GUIDANCE                             = "c3a8f31778c3980498d8f00c980be5f5"; // Göttliche Führung
@@ -140,6 +142,7 @@ namespace PF_Classes.Identifier
         public const String DIVINATION_SENSE_VITALS                         = "82962a820ebc0e7408b8582fdc3f4c0c"; // Lebenswichtige Organe erkennen
         public const String DIVINATION_TRUE_SEEING_CAST                     = "4cf3d0fae3239ec478f51e86f49161cb"; // Wahrer Blick
         public const String DIVINATION_TRUE_STRIKE                          = "2c38da66e5a599347ac95b3294acbe00"; // Zielsicherer Schlag
+
         public const String ENCHANTMENT_AID                                 = "03a9630394d10164a9410882d31572f0"; // Helfen
         public const String ENCHANTMENT_BANE                                = "8bc64d869456b004b9db255cdd1ea734"; // Verderben
         public const String ENCHANTMENT_BLESS                               = "90e59f4a4ada87243b7b3535a06d0638"; // Segnen
@@ -191,6 +194,7 @@ namespace PF_Classes.Identifier
         public const String ENCHANTMENT_SONG_OF_DISCORD                     = "d38aaf487e29c3d43a3bffa4a4a55f8f"; // Lied der Zwietracht
         public const String ENCHANTMENT_UNBREAKABLE_HEART                   = "dd38f33c56ad00a4da386c1afaa49967"; // Unzerbrechliches Herz
         public const String ENCHANTMENT_WAVES_OF_ECTASY                     = "1e2d1489781b10a45a3b70192bba9be3"; // Wellen der Ekstase
+
         public const String EVOCATION_ARBITRAMENT                           = "0f5bd128c76dd374b8cb9111e3b5186b"; // Extremismus strafen
         public const String EVOCATION_ARCHONS_AURA                          = "e67efd8c84f69d24ab472c9f546fff7e"; // Aura des Archonten
         public const String EVOCATION_ARROW_OF_LAW                          = "dd2a5a6e76611c04e9eac6254fcf8c6b"; // Pfeil der Ordnung
@@ -255,6 +259,7 @@ namespace PF_Classes.Identifier
         public const String EVOCATION_THUNDERING_DRUMS                      = "c26eeeeabf732914ba723f2b67fe9b9d"; // Donnernde Trommeln
         public const String EVOCATION_VOLCANIC_STORM                        = "16ce660837fb2544e96c3b7eaad73c63"; // Fels- und Ascheregen
         public const String EVOCATION_WORD_OF_CHAOS                         = "69f2e7aff2d1cd148b8075ee476515b1"; // Wort des Chaos
+
         public const String ILLUSION_BLUR                                   = "14ec7a4e52e90fa47a4c8d63c69fd5c1"; // Verschwimmen
         public const String ILLUSION_CHAMELEON_STRIDE                       = "27bf851c585817c4fbd079c970a162fa"; // Segen des Chamäleons
         public const String ILLUSION_CHAMELEON_STRIDE_GREATER               = "7ec0ffdd8779c344f85337109af0c6c5"; // Mächtiger Segen des Chamäleons
@@ -272,6 +277,7 @@ namespace PF_Classes.Identifier
         public const String ILLUSION_SHADOW_EVOCATION_GREATER               = "3c4a2d4181482e84d9cd752ef8edc3b6"; // Mächtige Schattenhervorrufung
         public const String ILLUSION_VANISH                                 = "f001c73999fb5a543a199f890108d936"; // Verschwinden
         public const String ILLUSION_WEIRD                                  = "870af83be6572594d84d276d7fc583e0"; // Unheimliches Schicksal
+
         public const String NECROMANCY_ANIMATE_DEAD                         = "4b76d32feb089ad4499c3a1ce8e1ac27"; // Tote beleben
         public const String NECROMANCY_BANSHEE_BLAST                        = "d42c6d3f29e07b6409d670792d72bc82"; // Heulende Todesfeen
         public const String NECROMANCY_BESTOW_CURSE                         = "989ab5c44240907489aba0a8568d0603"; // Fluch
@@ -323,6 +329,7 @@ namespace PF_Classes.Identifier
         public const String NECROMANCY_WAIL_OF_BANSHEE                      = "b24583190f36a8442b212e45226c54fc"; // Wehgeschrei der Todesfee
         public const String NECROMANCY_WAVES_OF_EXHAUSTION                  = "3e4d3b9a5bd03734d9b053b9067c2f38"; // Wellen der Entkräftung
         public const String NECROMANCY_WAVES_OF_FATIGUE                     = "8878d0c46dfbd564e9d5756349d5e439"; // Wellen der Erschöpfung
+
         public const String TRANSMUTATION_ACID_MAW                          = "75de4ded3e731dc4f84d978fe947dc67"; // Säuremaul
         public const String TRANSMUTATION_ANGELIC_ASPECT                    = "75a10d5a635986641bfbcceceec87217"; // Engelsaspekt
         public const String TRANSMUTATION_ANGELIC_ASPECT_GREATER            = "b1c7576bd06812b42bda3f09ab202f14"; // Mächtiger Engelsaspekt

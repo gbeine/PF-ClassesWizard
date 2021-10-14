@@ -1,0 +1,293 @@
+{
+  "Guid": "03797870b0c54a16b7e917d01b9b3f2d",
+  "Name": "VillainClass",
+  "DisplayName": "Villain",
+  "Description": "",
+  "Icon": "ref:INQUISITOR",
+  "EquipmentEntities": "ref:INQUISITOR",
+  "MaleEquipmentEntities": "ref:INQUISITOR",
+  "FemaleEquipmentEntities": "ref:INQUISITOR",
+  "PrimaryColor": 30,
+  "SecondaryColor": 22,
+  "SkillPoints": 5,
+  "HitDie": "D8",
+  "BaseAttackBonus": "BAB_MEDIUM",
+  "FortitudeSave": "SAVES_LOW",
+  "WillSave": "SAVES_HIGH",
+  "ReflexSave": "SAVES_HIGH",
+  "IsDivineCaster": false,
+  "IsArcaneCaster": true,
+  "StartingGold": 500,
+  "StartingItems": "ref:ROGUE",
+  "Alignment": [
+    "Evil",
+    "ChaoticNeutral",
+    "TrueNeutral"
+  ],
+  "ClassSkills": [
+    "Thievery",
+    "Stealth",
+    "KnowledgeArcana",
+    "KnowledgeWorld",
+    "LoreReligion",
+    "Perception",
+    "Persuasion",
+    "UseMagicDevice"
+  ],
+  "RecommendedAttributes": [
+    "Dexterity",
+    "Intelligence",
+    "Charisma"
+  ],
+  "NotRecommendedAttributes": [],
+  "Progression": {
+    "Guid": "8711de119c3a4fefb3287406d280c795",
+    "Name": "VillainProgression",
+    "LevelEntries": {
+      "1": [
+        "COMMON_DEITY_SELECTION",
+        "COMMON_DETECT_MAGIC",
+        "COMMON_DOMAINS_SELECTION",
+        "COMMON_SNEAK_ATTACK",
+        "CLERIC_SECOND_DOMAINS_SELECTION",
+        "ROGUE_THUG_FRIGHTENING",
+        "ROGUE_TRAPFINDING",
+        "INQUISITOR_TACTICAL_LEADER_DIPLOMACY"
+      ],
+      "2": [
+        "COMMON_EVASION",
+        "ROGUE_TALENT_SELECTION"
+      ],
+      "3": [
+        "INQUISITOR_TEAMWORK_FEAT"
+      ],
+      "4": [
+        "COMMON_SNEAK_ATTACK",
+        "COMMON_UNCANNY_DODGE",
+        "FIGHTER_FEAT_SELECTION"
+      ],
+      "5": [
+        "ROGUE_TALENT_SELECTION"
+      ],
+      "6": [
+        "INQUISITOR_TEAMWORK_FEAT",
+        "MAGUS_ARCANE_MEDIUM_ARMOR"
+      ],
+      "7": [
+        "COMMON_SNEAK_ATTACK",
+        "FIGHTER_FEAT_SELECTION"
+      ],
+      "8": [
+        "FIGHTER_TWO_HANDED_FIGHTER_WEAPON_TRAINING",
+        "ROGUE_TALENT_SELECTION"
+      ],
+      "9": [
+        "INQUISITOR_TEAMWORK_FEAT"
+      ],
+      "10": [
+        "COMMON_IMPROVED_EVASION",
+        "COMMON_SNEAK_ATTACK",
+        "FIGHTER_FEAT_SELECTION"
+      ],
+      "11": [
+        "ROGUE_TALENT_SELECTION"
+      ],
+      "12": [
+        "COMMON_IMPROVED_UNCANNY_DODGE",
+        "INQUISITOR_TEAMWORK_FEAT"
+      ],
+      "13": [
+        "COMMON_SNEAK_ATTACK",
+        "FIGHTER_FEAT_SELECTION"
+      ],
+      "14": [
+        "MAGUS_ARCANE_HEAVY_ARMOR",
+        "ROGUE_TALENT_SELECTION"
+      ],
+      "15": [
+        "INQUISITOR_TEAMWORK_FEAT"
+      ],
+      "16": [
+        "COMMON_SNEAK_ATTACK",
+        "FIGHTER_FEAT_SELECTION"
+      ],
+      "17": [
+        "ROGUE_TALENT_SELECTION"
+      ],
+      "18": [
+        "INQUISITOR_TEAMWORK_FEAT"
+      ],
+      "19": [
+        "COMMON_SNEAK_ATTACK",
+        "FIGHTER_FEAT_SELECTION"
+      ],
+      "20": [
+        "ROGUE_TALENT_SELECTION"
+      ]
+    },
+    "UiGroups": [
+      [
+        "COMMON_SNEAK_ATTACK"
+      ],[
+        "ROGUE_THUG_FRIGHTENING",
+        "FIGHTER_FEAT_SELECTION"
+      ],[
+        "INQUISITOR_TACTICAL_LEADER_DIPLOMACY",
+        "INQUISITOR_TEAMWORK_FEAT"
+      ],[
+      ],[
+        "COMMON_EVASION",
+        "COMMON_UNCANNY_DODGE",
+        "COMMON_IMPROVED_EVASION",
+        "COMMON_IMPROVED_UNCANNY_DODGE",
+        "FIGHTER_TWO_HANDED_FIGHTER_WEAPON_TRAINING",
+        "MAGUS_ARCANE_MEDIUM_ARMOR",
+        "MAGUS_ARCANE_HEAVY_ARMOR"
+      ]
+    ],
+    "UiDeterminatorsGroup": [
+      "COMMON_DETECT_MAGIC",
+      "COMMON_DEITY_SELECTION",
+      "COMMON_DOMAINS_SELECTION",
+      "CLERIC_SECOND_DOMAINS_SELECTION",
+      "ROGUE_TRAPFINDING"
+    ]
+  },
+  "Proficiencies": {
+    "Guid": "4a97974344fe4bb9a815779978db891f",
+    "Name": "VillainProficiencies",
+    "DisplayName": "Villain Proficiencies",
+    "Description": "Villains are skilled in the use of all simple weapons, short swords, long swords, rapiers, great axes, greatswords, and bows. They are proficient with light armour and shields.",
+    "From": "BARD_PROFICIENCIES",
+    "Add": {
+      "Features": [ "WEAPON_PROFICIENCY_ESTOC" ],
+      "WeaponProficiencies": [ "Longbow", "Greataxe", "Greatsword" ]
+    }
+  },
+  "Spellbook": {
+    "Guid": "7cefdab19a1641719837389b79217a34",
+    "Name": "VillainSpellbook",
+    "IsArcane": true,
+    "IsSpontaneous": true,
+    "CanCopyScrolls": false,
+    "AllSpellsKnown": true,
+    "CastingAttribute": "Intelligence",
+    "Cantrips": "Cantrips",
+    "SpellList": {
+      "Guid": "47a21db9109a40cba61c892f649246b7",
+      "Name": "VillainSpellList",
+      "SpellsByLevel": {
+        "0": [
+          "NECROMANCY_TOUCH_OF_FATIGUE_CAST",
+          "TRANSMUTATION_JOLT"
+        ],
+        "1": [
+          "CONJURATION_MAGE_ARMOR",
+          "CONJURATION_SUMMON_MONSTER_I_SINGLE",
+          "NECROMANCY_BLINDNESS",
+          "NECROMANCY_CAUSE_FEAR",
+          "NECROMANCY_INFLICT_LIGHT_WOUNDS_CAST",
+          "NECROMANCY_RAY_OF_ENFEEBLEMENT",
+          "NECROMANCY_RAY_OF_SICKENING"
+        ],
+        "2": [
+          "CONJURATION_CREATE_PIT",
+          "CONJURATION_SUMMON_MONSTER_II_BASE",
+          "NECROMANCY_BONESHAKER",
+          "NECROMANCY_FALSE_LIFE",
+          "NECROMANCY_INFLICT_MODERATE_WOUNDS_CAST",
+          "NECROMANCY_PERNICIOUS_POISON",
+          "NECROMANCY_SCARE"
+        ],
+        "3": [
+          "CONJURATION_SPIKED_PIT",
+          "CONJURATION_SUMMON_MONSTER_III_BASE",
+          "NECROMANCY_ANIMATE_DEAD",
+          "NECROMANCY_ENERVATION",
+          "NECROMANCY_INFLICT_SERIOUS_WOUNDS_CAST",
+          "NECROMANCY_VAMPIRIC_TOUCH_CAST",
+          "TRANSMUTATION_HASTE"
+        ],
+        "4": [
+          "CONJURATION_ACID_PIT",
+          "CONJURATION_SUMMON_MONSTER_IV_BASE",
+          "NECROMANCY_BESTOW_CURSE",
+          "NECROMANCY_BONESHATTER",
+          "NECROMANCY_CONTAGION",
+          "NECROMANCY_FEAR",
+          "NECROMANCY_INFLICT_CRITICAL_WOUNDS_CAST"
+        ],
+        "5": [
+          "CONJURATION_HUNGRY_PIT",
+          "CONJURATION_SUMMON_MONSTER_V_BASE",
+          "NECROMANCY_FALSE_LIFE_GREATER",
+          "NECROMANCY_INFLICT_LIGHT_WOUNDS_MASS",
+          "NECROMANCY_VAMPIRIC_SHADOW_SHIELD",
+          "NECROMANCY_WAVES_OF_FATIGUE"
+        ],
+        "6": [
+          "CONJURATION_SUMMON_MONSTER_VI_BASE",
+          "NECROMANCY_BANSHEE_BLAST",
+          "NECROMANCY_CIRCLE_OF_DEATH",
+          "NECROMANCY_EYEBITE",
+          "NECROMANCY_INFLICT_MODERATE_WOUNDS_MASS",
+          "NECROMANCY_UNDEATH_TO_DEATH",
+          "TRANSMUTATION_FORM_OF_THE_DRAGON_I"
+        ],
+        "7": [
+          "CONJURATION_RIFT_OF_RUIN",
+          "CONJURATION_SUMMON_MONSTER_VII_BASE",
+          "NECROMANCY_CREATE_UNDEAD_BASE",
+          "NECROMANCY_INFLICT_SERIOUS_WOUNDS_MASS",
+          "NECROMANCY_PLAGUE_STORM",
+          "NECROMANCY_UMBRAL_STRIKE",
+          "TRANSMUTATION_FORM_OF_THE_DRAGON_II"
+        ],
+        "8": [
+          "CONJURATION_SUMMON_MONSTER_VIII_BASE",
+          "NECROMANCY_FINGER_OF_DEATH",
+          "NECROMANCY_DEATH_CLUTCH",
+          "NECROMANCY_INFLICT_CRITICAL_WOUNDS_MASS",
+          "NECROMANCY_HORRID_WILTING",
+          "NECROMANCY_WAVES_OF_EXHAUSTION",
+          "TRANSMUTATION_FORM_OF_THE_DRAGON_III"
+        ],
+        "9": [
+          "CONJURATION_SUMMON_MONSTER_IX_BASE",
+          "ENCHANTMENT_POWER_WORD_KILL",
+          "ILLUSION_WEIRD",
+          "NECROMANCY_ENERGY_DRAIN",
+          "NECROMANCY_WAIL_OF_BANSHEE",
+          "TRANSMUTATION_FIERY_BODY"
+        ]
+      }
+    },
+    "SpellsPerDay": {
+      "Name": "VillainSpellsPerDay",
+      "Guid": "071dc1c3ea2b45f1b7a39fbcd9ffd9ec",
+      "Table": {
+        "0": [],
+        "1": [0, 3],
+        "2": [0, 4],
+        "3": [0, 5, 3],
+        "4": [0, 6, 4],
+        "5": [0, 6, 5, 3],
+        "6": [0, 6, 6, 4],
+        "7": [0, 6, 6, 5, 3],
+        "8": [0, 6, 6, 6, 4],
+        "9": [0, 6, 6, 6, 5, 3],
+        "10": [0, 6, 6, 6, 6, 4],
+        "11": [0, 6, 6, 6, 6, 5, 3],
+        "12": [0, 6, 6, 6, 6, 6, 4],
+        "13": [0, 6, 6, 6, 6, 6, 5, 3],
+        "14": [0, 6, 6, 6, 6, 6, 6, 4],
+        "15": [0, 6, 6, 6, 6, 6, 6, 5, 3],
+        "16": [0, 6, 6, 6, 6, 6, 6, 6, 4],
+        "17": [0, 6, 6, 6, 6, 6, 6, 6, 5, 3],
+        "18": [0, 6, 6, 6, 6, 6, 6, 6, 6, 4],
+        "19": [0, 6, 6, 6, 6, 6, 6, 6, 6, 5],
+        "20": [0, 6, 6, 6, 6, 6, 6, 6, 6, 6]
+      }
+    }
+  }
+}
