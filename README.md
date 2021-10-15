@@ -42,14 +42,14 @@ Gerrit
 | SecondaryColor           | true     | 19                                 | The character class' secondary color as int, see color table for values |
 | SkillPoints              | true     | 5                                  | The skill points a character recieves on a new level |
 | HitDie                   | false    | "D8"                               | Default: D6; The hit die the character uses. The value has to be one of the hit die identifiers listed below |
-| BaseAttackBonus          | false    | "BAB_LOW"                          | Default: BAB_LOW; How the base attack bonus grows when the character level. The value has to be one of the base attack bonus identifiers listed below |
-| FortitudeSave            | false    | "SAVES_LOW"                        | Default: SAVES_LOW; How the fortidude bonus grows when the character level. The value has to be one of the save roll identifiers listed below |
-| WillSave                 | false    | "SAVES_HIGH"                       | Default: SAVES_LOW; How the fortidude bonus grows when the character level. The value has to be one of the save roll identifiers listed below |
-| ReflexSave               | false    | "SAVES_LOW"                        | Default: SAVES_LOW; How the fortidude bonus grows when the character level. The value has to be one of the save roll identifiers listed below |
+| BaseAttackBonus          | false    | "ref:BAB_LOW"                      | Default: BAB_LOW; How the base attack bonus grows when the character level. Use "ref:<IDENTIFIER>" where <IDENTIFIER> has to be one of the base attack bonus identifiers listed below |
+| FortitudeSave            | false    | "ref:SAVES_LOW"                    | Default: SAVES_LOW; How the fortidude bonus grows when the character level. Use "ref:<IDENTIFIER>" where <IDENTIFIER> has to be one of the save roll identifiers listed below |
+| WillSave                 | false    | "ref:SAVES_HIGH"                   | Default: SAVES_LOW; How the fortidude bonus grows when the character level. Use "ref:<IDENTIFIER>" where <IDENTIFIER> has to be one of the save roll identifiers listed below |
+| ReflexSave               | false    | "ref:SAVES_LOW"                    | Default: SAVES_LOW; How the fortidude bonus grows when the character level. Use "ref:<IDENTIFIER>" where <IDENTIFIER> has to be one of the save roll identifiers listed below |
 | IsDivineCaster           | false    | false                              | Default: false; Specifies if the character class is a divine caster |
 | IsArcaneCaster           | false    | false                              | Default: false; Specifies if the character class is an arcane caster |
 | ComponentsArray          | false    | "ref:ROGUE"                        | Default: nothing; Components of the character class, taken from another character class. This is not required and can be left out. Use "ref:<IDENTIFIER>" where <IDENTIFIER> is one of the character class identifiers listed below |
-| StartingGold             | false    | 500                                | Default: 500; The amount of gold your character starts with |
+| StartingGold             | false    | 500                                | Default: 411; The amount of gold your character starts with |
 | StartingItems            | false    | "ref:ROGUE"                        | Default: nothing; The items your character starts with, taken from another character class. Use "ref:<IDENTIFIER>" where <IDENTIFIER> is one of the character class identifiers listed below |
 | Alignment                | false    | [ "NeutralGood", "ChaoticGood" ]   | Default: Any; The possible alignments for the character starts. Not listed alignments are not allowed. The values has to be from the alignment identifiers listed below |
 | ClassSkills              | false    | [ "Thievery", "Stealth" ]          | Default: nothing; The skills to use as class skills for the character starts. The values has to be from the skill identifiers listed below |
@@ -67,7 +67,7 @@ Gerrit
 | Guid                     | true     | "3106acb568bb47a0b3d11adc6c378c14" | A 32 progression GUID |
 | Name                     | true     | "CharlatanProgression"             | The name of the progression class, used internally |
 | LevelEntries             | true     | "LevelEntries": { }                | See below; The features a character gains on a certain level |
-| UiDeterminatorsGroup     | false    | [ "BARD_PROFICIENCIES" ]           | Default: nothing; The list of features from the first level to highlight. Use "<IDENTIFIER>" where <IDENTIFIER> is one of the feature identifiers |
+| UiDeterminatorsGroup     | false    | [ "ref:BARD_PROFICIENCIES" ]       | Default: nothing; The list of features from the first level to highlight. Use "ref:<IDENTIFIER>" where <IDENTIFIER> is one of the feature identifiers |
 | UiGroups                 | false    | See below                          | See below; Which features from the level entries should be shown in a row |
 
 Defining the LevelEntries is quite easy, so learn from an example.
@@ -76,21 +76,21 @@ You may leave out levels where no features should be added.
 ```
 "LevelEntries": {
   "1": [
-    "COMMON_DETECT_MAGIC",
-    "INQUISITOR_TACTICAL_LEADER_DIPLOMACY",
-    "BARD_BARDIC_KNOWLEDGE"
+    "ref:COMMON_DETECT_MAGIC",
+    "ref:INQUISITOR_TACTICAL_LEADER_DIPLOMACY",
+    "ref:BARD_BARDIC_KNOWLEDGE"
   ],
   "2": [
-    "COMMON_EVASION",
-    "ROGUE_TALENT_SELECTION",
-    "WIZARD_FEAT_SELECTION"
+    "ref:COMMON_EVASION",
+    "ref:ROGUE_TALENT_SELECTION",
+    "ref:WIZARD_FEAT_SELECTION"
   ],
   "8": [
-    "ARCANE_SCHOOL_ILLUSION_INVISIBILITY_FIELD",
-    "ROGUE_TALENT_SELECTION"
+    "ref:ARCANE_SCHOOL_ILLUSION_INVISIBILITY_FIELD",
+    "ref:ROGUE_TALENT_SELECTION"
   ],
   "20": [
-    "ROGUE_TALENT_SELECTION"
+    "ref:ROGUE_TALENT_SELECTION"
   ]
 }
 ```
@@ -100,10 +100,10 @@ This UiGroups definition will show the ROGUE_TALENT_SELECTION as one row and in 
 ```
 "UiGroups": [
   [
-    "ROGUE_TALENT_SELECTION"
+    "ref:OGUE_TALENT_SELECTION"
   ],[
-    "WIZARD_FEAT_SELECTION",
-    "ARCANE_SCHOOL_ILLUSION_INVISIBILITY_FIELD"
+    "ref:WIZARD_FEAT_SELECTION",
+    "ref:ARCANE_SCHOOL_ILLUSION_INVISIBILITY_FIELD"
   ]
 ]
 ```
@@ -124,7 +124,16 @@ This UiGroups definition will show the ROGUE_TALENT_SELECTION as one row and in 
 | SpellsPerDay             | true     | See below                          | See below |
 | SpellsKnown              | false    | See below                          | See below; use only if AllSpellsKnown is false |
 
-SpellsByLevels contains the list of possible spells to learn per level.
+#### SpellList
+
+A the SpellList can be referenced from another spellbook or definied individually.
+If an existing spellbook should be used, use "ref:<IDENTIFIER>" where <IDENTIFIER> is one of the spellbook identifiers:
+
+```
+"SpellList": "ref:CLERIC_SPELLBOOK",
+```
+
+SpellList contains the list of possible spells to learn per level.
 Please note: identifiers are mandatory and reference to the spell levels.
 Identifiers need to start with 0 (the cantrips level) and end with the highest level possible in this book.
 If there should be no cantrips, define level 0 as an empty array like `"0": [ ]`.
@@ -139,21 +148,30 @@ SpellList has a Guid and a Name like all other definitions.
       "Daze"
     ],
     "1": [
-      "CURE_LIGHT_WOUNDS_CAST",
-      "SUMMON_MONSTER_I_SINGLE"
+      "ref:CURE_LIGHT_WOUNDS_CAST",
+      "ref:SUMMON_MONSTER_I_SINGLE"
     ],
     "2": [
-      "CURE_MODERATE_WOUNDS_CAST",
-      "SUMMON_MONSTER_II_BASE",
-      "MAGE_ARMOR",
-      "DELAY_POISON"
+      "ref:CURE_MODERATE_WOUNDS_CAST",
+      "ref:SUMMON_MONSTER_II_BASE",
+      "ref:MAGE_ARMOR",
+      "ref:DELAY_POISON"
     ],
     ...
     "9": [
-      "SUMMON_MONSTER_IX_BASE"
+      "ref:SUMMON_MONSTER_IX_BASE"
     ]
   }
 }
+```
+
+#### SpellsPerDay
+
+A the SpellsPerDay can be referenced from another spellbook or definied individually.
+If an existing spellbook should be used, use "ref:<IDENTIFIER>" where <IDENTIFIER> is one of the spellbook identifiers.
+
+```
+"SpellsPerDay": "ref:SORCERER_SPELLBOOK",
 ```
 
 SpellsPerDay determines how many spells of this book a character is able to cast per day.
@@ -182,8 +200,18 @@ SpellsPerDay has a Guid and a Name like all other definitions.
 }
 ```
 
-SpellsKnown enables you character to learn spells for different spell level depending on the class level.
+#### SpellsKnown
+
 Do no use SpellsKnown while AllSpellsKnown is set to true!
+
+A the SpellsKnown can be referenced from another spellbook or definied individually.
+If an existing spellbook should be used, use "ref:<IDENTIFIER>" where <IDENTIFIER> is one of the spellbook identifiers.
+
+```
+"SpellsKnown": "ref:SORCERER_SPELLBOOK",
+```
+
+SpellsKnown enables you character to learn spells for different spell level depending on the class level.
 Each line in the Table shows how many spells of a certain spell level the character is able to know at a certain class level.
 Identifiers are mandatory and reference to the character levels.
 The entry for level 0 is mandatory.
@@ -236,14 +264,44 @@ The proficiencies feature will automatically be added to the features of the fir
 | Description              | false    | "Cool proficiencies"               | The description of the proficiencies feature, if not defined DisplayName is used |
 | Icon                     | false    | "ref:BARD_PROFICIENCIES"           | Default: nothingn; Icon representation of the proficiencies feature, taken from another feature. Use "ref:<IDENTIFIER>" where <IDENTIFIER> is one of the feature identifiers |
 | Add                      | false    | See below                          | Features, weapon proficiencies, and armor proficiencies to add with this proficiencies feature. |
-| Add->Features            | false    | [ "WEAPON_PROFICIENCY_ESTOC" ]     | Default: nothing; The list of features to add with the proficiencies. Use "<IDENTIFIER>" where <IDENTIFIER> is one of the feature identifiers |
-| Add->WeaponProficiencies | false    | [ "Longbow", "Starknife" ]         | Default: nothing; The list of weapon skills to add with the proficiencies. Use "<IDENTIFIER>" where <IDENTIFIER> is one of the weapon identifiers |
-| Add->ArmorProficiencies  | false    | [ "Light", "Buckler" ]             | Default: nothing; The list of armor skills to add with the proficiencies. Use "<IDENTIFIER>" where <IDENTIFIER> is one of the armor identifiers |
-| From                     | false    | "BARD_PROFICIENCIES"               | Proficiencies feature to derive these proficiencies. Use "<IDENTIFIER>" where <IDENTIFIER> is one of the feature identifiers |
+| Add->Features            | false    | [ "ref:WEAPON_PROFICIENCY_ESTOC" ] | Default: nothing; The list of features to add with the proficiencies. Use "ref:<IDENTIFIER>" where <IDENTIFIER> is one of the feature identifiers |
+| Add->WeaponProficiencies | false    | [ "Longbow", "Starknife" ]         | Default: nothing; The list of weapon skills to add with the proficiencies. Use "ref:<IDENTIFIER>" where <IDENTIFIER> is one of the weapon identifiers |
+| Add->ArmorProficiencies  | false    | [ "Light", "Buckler" ]             | Default: nothing; The list of armor skills to add with the proficiencies. Use "ref:<IDENTIFIER>" where <IDENTIFIER> is one of the armor identifiers |
+| From                     | false    | "ref:BARD_PROFICIENCIES"           | Proficiencies feature to derive these proficiencies. Use "ref:<IDENTIFIER>" where <IDENTIFIER> is one of the feature identifiers |
 
 ### Character Class Identifiers
 
 Possible values: ALCHEMIST, BARBARIAN, BARD, CLERIC, DRUID, FIGHTER, INQUISITOR, KINETICIST, MAGUS, MONK, PALADIN, RANGER, ROGUE, SLAYER, SORCERER, WIZARD    
+
+### SpellBook Identifiers
+
+Possible values:
+```
+ALCHEMIST_SPELLBOOK
+BARD_SPELLBOOK
+CLERIC_SPELLBOOK
+CLERIC_CRUSADER_SPELLBOOK
+DRUID_SPELLBOOK
+DRUID_FEYSPEAKER_SPELLBOOK
+INQUISITOR_SPELLBOOK
+MAGUS_SPELLBOOK
+MAGUS_SWORD_SAINT_SPELLBOOK
+MAGUS_MAGUS_ELDRITCH_SCION_SPELLBOOK
+PALADIN_SPELLBOOK
+RANGER_SPELLBOOK
+ROGUE_ELDRITCH_SCOUNDREL_SPELLBOOK
+SORCERER_SPELLBOOK
+SORCERER_EMPYREAL_SORCERER_SPELLBOOK
+SORCERER_SAGE_SORCERER_SPELLBOOK
+WIZARD_SPELLBOOK
+WIZARD_THASSILONIAN_SPECIALIST_ABJURATION_SPELLBOOK
+WIZARD_THASSILONIAN_SPECIALIST_CONJURATION_SPELLBOOK
+WIZARD_THASSILONIAN_SPECIALIST_ENCHANTMENT_SPELLBOOK
+WIZARD_THASSILONIAN_SPECIALIST_EVOCATIION_SPELLBOOK
+WIZARD_THASSILONIAN_SPECIALIST_ILLUSION_SPELLBOOK
+WIZARD_THASSILONIAN_SPECIALIST_NECROMANCY_SPELLBOOK
+WIZARD_THASSILONIAN_SPECIALIST_TRANSMUTATION_SPELLBOOK
+```
 
 ### Hit Die Identifiers
 
