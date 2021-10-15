@@ -18,7 +18,7 @@ namespace PF_Classes.JsonTypes
                 : DisplayName;
 
             JToken jFrom = jObject.SelectToken("From");
-            Description = jFrom != null
+            From = jFrom != null
                 ? jFrom.Value<String>()
                 : null;
         }

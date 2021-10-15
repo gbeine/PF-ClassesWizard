@@ -1,10 +1,13 @@
 using System;
 using System.Data.Common;
+using PF_Core;
 
 namespace PF_Classes.Identifier
 {
     public class IdentifierLookup
     {
+        private static readonly Logger _logger = Logger.INSTANCE;
+
         internal static readonly IdentifierLookup INSTANCE = new IdentifierLookup();
 
         private const string REFERENCE = "ref:";
@@ -20,6 +23,7 @@ namespace PF_Classes.Identifier
 
         private String performLookup(Identifier identifierInstance, String value)
         {
+            _logger.Debug($"Lookup identifier for {value}");
             if (value.StartsWith(REFERENCE))
             {
                 return identifierInstance.GetGuidFor(value.Replace(REFERENCE, ""));

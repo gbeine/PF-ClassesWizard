@@ -158,9 +158,9 @@
     "Name": "VillainProficiencies",
     "DisplayName": "Villain Proficiencies",
     "Description": "Villains are skilled in the use of all simple weapons, short swords, long swords, rapiers, great axes, greatswords, and bows. They are proficient with light armour and shields.",
-    "From": "BARD_PROFICIENCIES",
+    "From": "ref:BARD_PROFICIENCIES",
     "Add": {
-      "Features": [ "WEAPON_PROFICIENCY_ESTOC" ],
+      "Features": [ "ref:WEAPON_PROFICIENCY_ESTOC" ],
       "WeaponProficiencies": [ "Longbow", "Greataxe", "Greatsword" ]
     }
   },

@@ -28,7 +28,7 @@ namespace PF_Classes.Transformations
             {
                 proficiencies = _featureFactory.CreateFeatureFrom(
                     proficienciesData.Name, proficienciesData.Guid,
-                    Features.INSTANCE.GetGuidFor(proficienciesData.From),
+                    IdentifierLookup.INSTANCE.lookupFeature(proficienciesData.From),
                     proficienciesData.DisplayName, proficienciesData.Description);
             }
             else

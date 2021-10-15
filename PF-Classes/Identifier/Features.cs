@@ -86,14 +86,14 @@ namespace PF_Classes.Identifier
         public const String COMMON_IMPROVED_EVASION                                             = "ce96af454a6137d47b9c6a1e02e66803"; // Verbessertes Entrinnen
         public const String COMMON_UNCANNY_DODGE                                                = "3c08d842e802c3e4eb19d15496145709"; // Reflexbewegung
         public const String COMMON_IMPROVED_UNCANNY_DODGE                                       = "485a18c05792521459c7d06c63128c79"; // Verbesserte Reflexbewegung
-        public const String COMMON_RAY_CALCULATE_FEATURE                    = "d3e6275cfa6e7a04b9213b7b292a011c"; //
-        public const String COMMON_TOUCH_CALCULATE_FEATURE                  = "62ef1cdb90f1d654d996556669caf7fa"; //
-        public const String COMMON_FULL_CASTER_FEATURE              = "9fc9813f569e2e5448ddc435abf774b3"; // Vollwertiger Zauberwirker
-        public const String COMMON_DEITY_SELECTION                  = "59e7a76987fe3b547b9cce045f4db3e4"; // Wahl einer Gottheit
-        public const String COMMON_DOMAINS_SELECTION                = "48525e5da45c9c243a343fc6545dbdb9"; // Domänen-Auswahl
-        public const String COMMON_FAVORITE_ENEMY_SELECTION                      = "16cc2c937ea8d714193017780e7d4fc6"; // Erzfeind
-        public const String COMMON_FAVORITE_ENEMY_RANK_UP                        = "c1be13839472aad46b152cf10cf46179"; // Erzfeind
-        public const String COMMON_BLOODLINE_SELECTION                        = "24bef8d1bee12274686f6da6ccbc8914"; // Blutlinie
+        public const String COMMON_RAY_CALCULATE_FEATURE                                        = "d3e6275cfa6e7a04b9213b7b292a011c"; //
+        public const String COMMON_TOUCH_CALCULATE_FEATURE                                      = "62ef1cdb90f1d654d996556669caf7fa"; //
+        public const String COMMON_FULL_CASTER_FEATURE                                          = "9fc9813f569e2e5448ddc435abf774b3"; // Vollwertiger Zauberwirker
+        public const String COMMON_DEITY_SELECTION                                              = "59e7a76987fe3b547b9cce045f4db3e4"; // Wahl einer Gottheit
+        public const String COMMON_DOMAINS_SELECTION                                            = "48525e5da45c9c243a343fc6545dbdb9"; // Domänen-Auswahl
+        public const String COMMON_FAVORITE_ENEMY_SELECTION                                     = "16cc2c937ea8d714193017780e7d4fc6"; // Erzfeind
+        public const String COMMON_FAVORITE_ENEMY_RANK_UP                                       = "c1be13839472aad46b152cf10cf46179"; // Erzfeind
+        public const String COMMON_BLOODLINE_SELECTION                                          = "24bef8d1bee12274686f6da6ccbc8914"; // Blutlinie
 
         public const String ARCANE_SCHOOL_ILLUSION_BLINDING_RAY                                 = "9be5e050244352d43a1cb50aad8d548f"; // Blendender Strahl
         public const String ARCANE_SCHOOL_ILLUSION_INVISIBILITY_FIELD                           = "f0585eb111ede2c4ebf00b057d069463"; // Unsichtbarkeitsfeld
