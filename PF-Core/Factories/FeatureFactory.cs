@@ -41,7 +41,8 @@ namespace PF_Core.Factories
         {
             _logger.Debug($"Create feature {name} with id {guid}");
 
-            BlueprintFeature feature = CreateFeature(name, guid, displayName, description);
+            BlueprintFeature feature = CreateFeature(name, guid);
+            feature.SetNameDescription(displayName, description);
 
             _logger.Debug($"DONE: Create feature {name} with id {guid}");
             return feature;
@@ -51,7 +52,8 @@ namespace PF_Core.Factories
         {
             _logger.Debug($"Create feature {name} with id {guid}");
 
-            BlueprintFeature feature = CreateFeature(name, guid, displayName, description, icon);
+            BlueprintFeature feature = CreateFeature(name, guid);
+            feature.SetNameDescriptionIcon(displayName, description, icon);
 
             _logger.Debug($"DONE: Create feature {name} with id {guid}");
             return feature;
