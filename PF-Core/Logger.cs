@@ -2,6 +2,7 @@ using System;
 using System.Diagnostics;
 using System.IO;
 using System.Reflection;
+using System.Runtime.CompilerServices;
 using UnityModManagerNet;
 
 namespace PF_Core
@@ -9,7 +10,7 @@ namespace PF_Core
     public class Logger
     {
         public static readonly Logger INSTANCE = new Logger();
-        
+
         private UnityModManager.ModEntry.ModLogger _logger;
         private StreamWriter _logfile;
 
@@ -18,7 +19,7 @@ namespace PF_Core
             String m_exePath = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
             _logfile = File.AppendText(m_exePath + "/" + "log.txt");
         }
-        
+
         public void init(UnityModManager.ModEntry modEntry)
         {
             _logger = modEntry.Logger;
@@ -53,15 +54,16 @@ namespace PF_Core
         }
 
         [Conditional("DEBUG")]
-        public void Debug(object obj) => Debug(obj?.ToString() ?? "null");
-        
+        public void Debug(object obj, [CallerLineNumber] int lineNumber = 0, [CallerMemberName] string caller = null)
+            => Debug(obj?.ToString() ?? "null", lineNumber, caller);
+
         [Conditional("DEBUG")]
-        public void Debug(string message)
+        public void Debug(string message, [CallerLineNumber] int lineNumber = 0, [CallerMemberName] string caller = null)
         {
             _logger?.Log(message);
-            append(message);
+            append(message + " at line " + lineNumber + " (" + caller + ")");
         }
-        
+
         private void append(string logMessage)
         {
             _logfile.WriteLine("{0} {1}: {2}", DateTime.Now.ToLongTimeString(), DateTime.Now.ToLongDateString(), logMessage);
