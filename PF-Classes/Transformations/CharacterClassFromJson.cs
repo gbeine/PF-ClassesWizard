@@ -3,9 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Kingmaker.Blueprints.Classes;
 using Kingmaker.Blueprints.Classes.Spells;
-using Kingmaker.RuleSystem;
 using Kingmaker.UnitLogic.Alignments;
-using Newtonsoft.Json.Linq;
 using PF_Classes.Identifier;
 using PF_Classes.JsonTypes;
 using PF_Core;
@@ -27,7 +25,7 @@ namespace PF_Classes.Transformations
 
         public static BlueprintCharacterClass GetCharacterClass(CharacterClass characterClassData)
         {
-            _logger.Log("Creating character class from JSON data {characterClassData.Guid}");
+            _logger.Log($"Creating character class from JSON data {characterClassData.Guid}");
 
             List<BlueprintFeature> startFeatures = new List<BlueprintFeature>();
 
@@ -102,15 +100,16 @@ namespace PF_Classes.Transformations
             BlueprintProgression progression = ProgressionFromJson.GetProgression(characterClassData.Progression, characterClass, startFeatures);
             characterClass.Progression = progression;
 
+            _logger.Log($"DONE: Creating character class from JSON data {characterClassData.Guid}");
+            IdentifierRegistry.INSTANCE.Register(characterClass);
             return characterClass;
         }
 
         private static BlueprintStatProgression getStatProgression(String value) =>
             _statProgressionRepository.GetStatProgression(
-                StatProgession.INSTANCE.GetGuidFor(value));
+                IdentifierLookup.INSTANCE.lookupStatProgession(value));
         private static BlueprintCharacterClass getCharacterClass(String value) =>
             _characterClassesRepository.GetCharacterClass(
-                CharacterClasses.INSTANCE.GetGuidFor(
-                    value.Replace("ref:","")));
+                IdentifierLookup.INSTANCE.lookupCharacterClass(value));
     }
 }

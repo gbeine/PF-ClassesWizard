@@ -54,10 +54,12 @@ namespace PF_Classes.Transformations
             );
 
             _logger.Log("DONE: Create proficiencies");
+            IdentifierRegistry.INSTANCE.Register(proficiencies);
             return proficiencies;
         }
 
         private static BlueprintFeature getFeature(String value) =>
-            _featuresRepository.GetFeature(Features.INSTANCE.GetGuidFor(value));
+            _featuresRepository.GetFeature(
+                IdentifierLookup.INSTANCE.lookupFeature(value));
     }
 }

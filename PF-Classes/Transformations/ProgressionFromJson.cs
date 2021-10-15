@@ -13,7 +13,7 @@ namespace PF_Classes.Transformations
     public class ProgressionFromJson
     {
         private static readonly Logger _logger = Logger.INSTANCE;
-        
+
         private static readonly FeaturesRepository _featuresRepository = FeaturesRepository.INSTANCE;
 
         private static readonly ProgressionFactory _progressionFactory = new ProgressionFactory();
@@ -23,24 +23,26 @@ namespace PF_Classes.Transformations
         public static BlueprintProgression GetProgression(Progression progressionData,
             BlueprintCharacterClass characterClass, List<BlueprintFeature> startFeatures) =>
             GetProgression(progressionData, characterClass, startFeatures.ToArray());
+
         public static BlueprintProgression GetProgression(Progression progressionData, BlueprintCharacterClass characterClass, params BlueprintFeature[] startFeatures)
         {
             _logger.Log($"Creating progression from JSON data {progressionData.Guid}");
-            
-            BlueprintProgression progression = _progressionFactory.CreateProgression(
-                progressionData.Name, progressionData.Guid, characterClass);
 
-            progression.UIDeterminatorsGroup = getUIDeterminatorsGroup(progressionData, startFeatures);
-            progression.UIGroups = getUIGroups(progressionData);;
-            progression.LevelEntries = getLevelEntries(progressionData, startFeatures);
+            BlueprintProgression progression = _progressionFactory.CreateProgression(
+                progressionData.Name, progressionData.Guid, characterClass,
+                getUIDeterminatorsGroup(progressionData, startFeatures).ToArray(),
+                getUIGroups(progressionData).ToArray(),
+                getLevelEntries(progressionData, startFeatures).ToArray());
 
             _logger.Log("DONE: Creating progression");
+            IdentifierRegistry.INSTANCE.Register(progression);
             return progression;
         }
 
-        private static BlueprintFeatureBase[] getUIDeterminatorsGroup(Progression progressionData) =>
+        private static List<BlueprintFeatureBase> getUIDeterminatorsGroup(Progression progressionData) =>
             getUIDeterminatorsGroup(progressionData, Array.Empty<BlueprintFeature>());
-        private static BlueprintFeatureBase[] getUIDeterminatorsGroup(Progression progressionData, BlueprintFeature[] startFeatures)
+
+        private static List<BlueprintFeatureBase> getUIDeterminatorsGroup(Progression progressionData, BlueprintFeature[] startFeatures)
         {
             _logger.Log("Creating UIDeterminatorsGroup");
             List<BlueprintFeatureBase> uiDeterminatorsGroup = new List<BlueprintFeatureBase>();
@@ -51,12 +53,12 @@ namespace PF_Classes.Transformations
 
             // add start features for class
             uiDeterminatorsGroup.AddRange(startFeatures);
-            
+
             _logger.Log("DONE: Creating UIDeterminatorsGroup");
-            return uiDeterminatorsGroup.ToArray();
+            return uiDeterminatorsGroup;
         }
 
-        private static UIGroup[] getUIGroups(Progression progressionData)
+        private static List<UIGroup> getUIGroups(Progression progressionData)
         {
             _logger.Log("Creating UIGroups");
             List<UIGroup> uiGroups = new List<UIGroup>();
@@ -68,16 +70,17 @@ namespace PF_Classes.Transformations
                     features.Add(getUiGroupEntry(feature));
                 }
 
-                uiGroups.Add(_uiGroupFactory.CreateUIGroup(features));
+                uiGroups.Add(_uiGroupFactory.CreateUIGroup(features.ToArray()));
             }
 
             _logger.Log("DONE: Creating UIGroups");
-            return uiGroups.ToArray();
+            return uiGroups;
         }
 
-        private static LevelEntry[] getLevelEntries(Progression progressionData) =>
+        private static List<LevelEntry> getLevelEntries(Progression progressionData) =>
             getLevelEntries(progressionData, Array.Empty<BlueprintFeature>());
-        private static LevelEntry[] getLevelEntries(Progression progressionData, BlueprintFeature[] startFeatures)
+
+        private static List<LevelEntry> getLevelEntries(Progression progressionData, BlueprintFeature[] startFeatures)
         {
             _logger.Log("Creating LevelEntries");
             List<LevelEntry> levelEntries = new List<LevelEntry>();
@@ -95,21 +98,24 @@ namespace PF_Classes.Transformations
                 _logger.Log($"Done with level {level}");
                 level++;
             }
-            
+
             // add start features for class
             levelEntries[0].Features.AddRange(startFeatures);
 
             _logger.Log("DONE: Creating LevelEntries");
-            return levelEntries.ToArray();
+            return levelEntries;
         }
 
         private static BlueprintFeatureBase getUiDeterminatorGroupEntry(String value) =>
-            _featuresRepository.GetFeature(Features.INSTANCE.GetGuidFor(value));
+            _featuresRepository.GetFeature(
+                IdentifierLookup.INSTANCE.lookupFeature(value));
 
         private static BlueprintFeature getUiGroupEntry(String value) =>
-            _featuresRepository.GetFeature(Features.INSTANCE.GetGuidFor(value));
+            _featuresRepository.GetFeature(
+                IdentifierLookup.INSTANCE.lookupFeature(value));
 
         private static BlueprintFeature getLevelEntryFeature(String value) =>
-            _featuresRepository.GetFeature(Features.INSTANCE.GetGuidFor(value));
+            _featuresRepository.GetFeature(
+                IdentifierLookup.INSTANCE.lookupFeature(value));
     }
 }

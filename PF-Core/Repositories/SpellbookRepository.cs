@@ -1,21 +1,22 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Kingmaker.Blueprints.Classes.Spells;
 using Kingmaker.UnitLogic.Abilities.Blueprints;
 using PF_Core.Facades;
 
 namespace PF_Core.Repositories
 {
-    public class SpellRepository
+    public class SpellbookRepository
     {
         private static readonly Logger _logger = Logger.INSTANCE;
         private static readonly Library _library = Library.INSTANCE;
 
-        private static readonly SpellRepository __instance = new SpellRepository();
+        private static readonly SpellbookRepository __instance = new SpellbookRepository();
 
-        private SpellRepository() { }
+        private SpellbookRepository() { }
 
-        public static SpellRepository INSTANCE
+        public static SpellbookRepository INSTANCE
         {
             get { return __instance;  }
         }
@@ -23,6 +24,12 @@ namespace PF_Core.Repositories
         public List<BlueprintAbility> AllSpells
         {
             get { return _library.GetAbilities().Where(s=> s.IsSpell).ToList(); }
+        }
+
+        public BlueprintSpellbook GetSpellbook(String assetId)
+        {
+            _logger.Debug($"Search for Spellbook {assetId}");
+            return _library.GetSpellbook(assetId);
         }
 
         public BlueprintAbility GetSpell(String assetId)

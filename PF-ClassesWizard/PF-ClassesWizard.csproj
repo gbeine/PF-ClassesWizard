@@ -95,4 +95,9 @@
     </None>
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Features" />
+    <Folder Include="Spells" />
+  </ItemGroup>
+
 </Project>

@@ -87,6 +87,7 @@ namespace PF_Core.Factories
             spellbook.SpellsPerDay = spellsPerDay;
             spellbook.CantripsType = cantripsType;
             spellbook.SpellList = spellList;
+            spellbook.CharacterClass = characterClass;
 
             _logger.Debug($"DONE: Create spellbook {name} with id {guid}");
             return spellbook;

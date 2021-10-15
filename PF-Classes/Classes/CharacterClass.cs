@@ -12,9 +12,10 @@ namespace PF_Classes.Classes
     {
         protected static readonly CharacterClassesRepository _classesRepository = CharacterClassesRepository.INSTANCE;
         protected static readonly FeaturesRepository _featuresRepository = FeaturesRepository.INSTANCE;
-        protected static readonly SpellRepository _spellRepository = SpellRepository.INSTANCE;
+        protected static readonly SpellbookRepository _spellbookRepository = SpellbookRepository.INSTANCE;
 
         protected static readonly CharacterClassFactory _classFactoryFactory = new CharacterClassFactory();
+        protected static readonly CantripsFactory _cantripsFactory = new CantripsFactory();
         protected static readonly FeatureFactory _featureFactory = new FeatureFactory();
         protected static readonly LevelEntryFactory _levelEntryFactory = new LevelEntryFactory();
         protected static readonly ProgressionFactory _progressionFactory = new ProgressionFactory();
@@ -44,7 +45,7 @@ namespace PF_Classes.Classes
         protected StatType[] NotRecommendedAttributes() => Empty<StatType>();
 
         private T[] Empty<T>()
-        { 
+        {
             return Array.Empty<T>();
         }
     }

@@ -16,11 +16,17 @@ namespace PF_Classes.JsonTypes
             Description = jDescription != null
                 ? jDescription.Value<String>()
                 : DisplayName;
+
+            JToken jFrom = jObject.SelectToken("From");
+            Description = jFrom != null
+                ? jFrom.Value<String>()
+                : null;
         }
         public string Guid { get; set; }
         public string Name { get; set; }
         public string DisplayName { get; set; }
         public string Description { get; set; }
         public string Icon { get; set; }
+        public string From { get; set; }
     }
 }

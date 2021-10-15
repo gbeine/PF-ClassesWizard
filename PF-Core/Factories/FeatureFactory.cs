@@ -12,6 +12,7 @@ using Kingmaker.UnitLogic.Abilities.Blueprints;
 using Kingmaker.UnitLogic.FactLogic;
 using PF_Core.Extensions;
 using PF_Core.Facades;
+using UnityEngine;
 
 namespace PF_Core.Factories
 {
@@ -40,8 +41,17 @@ namespace PF_Core.Factories
         {
             _logger.Debug($"Create feature {name} with id {guid}");
 
-            BlueprintFeature feature = CreateFeature(name, guid);
-            feature.SetNameDescription(displayName, description);
+            BlueprintFeature feature = CreateFeature(name, guid, displayName, description);
+
+            _logger.Debug($"DONE: Create feature {name} with id {guid}");
+            return feature;
+        }
+
+        public BlueprintFeature CreateFeature(String name, String guid, String displayName, String description, Sprite icon)
+        {
+            _logger.Debug($"Create feature {name} with id {guid}");
+
+            BlueprintFeature feature = CreateFeature(name, guid, displayName, description, icon);
 
             _logger.Debug($"DONE: Create feature {name} with id {guid}");
             return feature;
@@ -73,8 +83,20 @@ namespace PF_Core.Factories
             return feature;
         }
 
+        public BlueprintFeature CreateFeatureFrom(String name, String guid, String fromAssetId, String displayName, String description, Sprite icon)
+        {
+            _logger.Debug($"Create feature {name} with id {guid} based on {fromAssetId}");
+
+            BlueprintFeature feature = CreateFeatureFrom(name, guid, fromAssetId);
+            feature.SetNameDescriptionIcon(displayName, description, icon);
+
+            _logger.Debug($"DONE: Create feature {name} with id {guid} based on {fromAssetId}");
+            return feature;
+        }
+
         public AddProficiencies CreateAddWeaponProficiencies(IEnumerable<WeaponCategory> weapons) =>
             CreateAddWeaponArmorProficiencies(weapons, Array.Empty<ArmorProficiencyGroup>().ToList());
+
         public AddProficiencies CreateAddArmorProficiencies(IEnumerable<ArmorProficiencyGroup> armor) =>
             CreateAddWeaponArmorProficiencies(Array.Empty<WeaponCategory>().ToList(), armor);
 
@@ -103,42 +125,6 @@ namespace PF_Core.Factories
 
             _logger.Debug($"DONE:Create add facts {name}");
             return result;
-        }
-
-        public BlueprintFeature CreateCantrips(String name, String guid, String displayName, String description,
-            UnityEngine.Sprite icon, BlueprintCharacterClass characterClass, BlueprintSpellbook spellbook) =>
-            CreateCantrips(name, guid, displayName, description, icon, characterClass,
-                spellbook.CastingAttribute, spellbook.SpellList.SpellsByLevel[0].Spells.ToArray());
-
-        public BlueprintFeature CreateCantrips(String name, String guid, String displayName, String description,
-            UnityEngine.Sprite icon, BlueprintCharacterClass characterClass,
-            StatType stat, BlueprintAbility[] spellList)
-        {
-            _logger.Debug($"Create cantrips {name} with id {guid}");
-
-            LearnSpells learnSpells = _library.Create<LearnSpells>();
-            learnSpells.CharacterClass = characterClass;
-            learnSpells.Spells = spellList;
-
-            BindAbilitiesToClass bind_spells = _library.Create<BindAbilitiesToClass>();
-            bind_spells.Abilites = spellList;
-            bind_spells.Stat = stat;
-            bind_spells.CharacterClass = characterClass;
-            bind_spells.Archetypes = Array.Empty<BlueprintArchetype>();
-            bind_spells.AdditionalClasses = Array.Empty<BlueprintCharacterClass>();
-            bind_spells.LevelStep = 1;
-            bind_spells.Cantrip = true;
-
-            AddFacts spells = _library.Create<AddFacts>();
-            spells.Facts = spellList;
-
-            BlueprintFeature cantrips = CreateFeature(name, guid);
-            cantrips.SetNameDescriptionIcon(displayName, description, icon);
-            cantrips.Groups = new FeatureGroup[] {FeatureGroup.None};
-            cantrips.SetComponents(spells, learnSpells, bind_spells);
-
-            _logger.Debug($"DONE: Create cantrips {name} with id {guid}");
-            return cantrips;
         }
 
         public BlueprintFeature CreateEmptyFeature()

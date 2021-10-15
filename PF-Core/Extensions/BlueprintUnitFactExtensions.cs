@@ -27,19 +27,11 @@ namespace PF_Core.Extensions
             feature.SetDescription(description);
         }
 
-        public static void SetIcon(this BlueprintUnitFact feature, Sprite icon)
-        {
+        public static void SetIcon(this BlueprintUnitFact feature, Sprite icon) =>
             blueprintUnitFact_set_Icon(feature, icon);
-        }
-
-        public static void SetName(this BlueprintUnitFact feature, String name)
-        {
+        public static void SetName(this BlueprintUnitFact feature, String name) =>
             blueprintUnitFact_set_DisplayName(feature, LocalizationFactoryFactory.CreateString(feature.name + ".Name", name));
-        }
-
-        public static void SetDescription(this BlueprintUnitFact feature, String description)
-        {
+        public static void SetDescription(this BlueprintUnitFact feature, String description) =>
             blueprintUnitFact_set_Description(feature, LocalizationFactoryFactory.CreateString(feature.name + ".Description", description));
-        }
     }
 }

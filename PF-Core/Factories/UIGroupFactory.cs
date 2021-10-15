@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using Kingmaker.Blueprints.Classes;
 
 namespace PF_Core.Factories
@@ -7,14 +6,11 @@ namespace PF_Core.Factories
     {
         private static readonly Logger _logger = Logger.INSTANCE;
 
-        public UIGroup CreateUIGroup(params BlueprintFeatureBase[] features) => 
-            CreateUIGroup((IEnumerable<BlueprintFeatureBase>)features);
-
-        public UIGroup CreateUIGroup(IEnumerable<BlueprintFeatureBase> features)
+        public UIGroup CreateUIGroup(params BlueprintFeatureBase[] features)
         {
             _logger.Debug($"Create UI group");
 
-            var uiGroup = new UIGroup();
+            UIGroup uiGroup = new UIGroup();
             uiGroup.Features.AddRange(features);
 
             return uiGroup;

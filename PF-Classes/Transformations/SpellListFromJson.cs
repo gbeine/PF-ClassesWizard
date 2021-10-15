@@ -13,7 +13,7 @@ namespace PF_Classes.Transformations
     {
         private static readonly Logger _logger = Logger.INSTANCE;
 
-        private static readonly SpellRepository _spellRepository = SpellRepository.INSTANCE;
+        private static readonly SpellbookRepository _spellbookRepository = SpellbookRepository.INSTANCE;
 
         private static readonly SpellbookFactory _spellbookFactory = new SpellbookFactory();
 
@@ -35,10 +35,12 @@ namespace PF_Classes.Transformations
             }
 
             _logger.Log("DONE: Creating spell list");
+            IdentifierRegistry.INSTANCE.Register(spellList);
             return spellList;
         }
 
         private static BlueprintAbility getSpell(String value) =>
-            _spellRepository.GetSpell(Spells.INSTANCE.GetGuidFor(value));
+            _spellbookRepository.GetSpell(
+                IdentifierLookup.INSTANCE.lookupSpell(value));
     }
 }
