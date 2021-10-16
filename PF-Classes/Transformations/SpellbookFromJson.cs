@@ -27,7 +27,7 @@ namespace PF_Classes.Transformations
             {
                 spellsKnown = SpellsTableFromJson.GetSpellsTable(spellbookData.SpellsKnownDefinition);
             }
-            else if (spellbookData.SpellsKnown != null)
+            else if (!String.Empty.Equals(spellbookData.SpellsKnown))
             {
                 spellsKnown = getSpellbook(spellbookData.SpellsKnown).SpellsKnown;
             }
@@ -43,6 +43,7 @@ namespace PF_Classes.Transformations
             BlueprintSpellbook spellbook = _spellbookFactory.CreateSpellbook(
                 spellbookData.Name, spellbookData.Guid, characterClass,
                 spellbookData.IsArcane, spellbookData.IsSpontaneous, spellbookData.CanCopyScrolls, spellbookData.AllSpellsKnown,
+                spellbookData.SpellsPerLevel, spellbookData.CasterLevelModifier,
                 EnumParser.parseStatType(spellbookData.CastingAttribute),
                 EnumParser.parseCantripsType(spellbookData.Cantrips),
                 spellsKnown, spellsPerDay, spellList);

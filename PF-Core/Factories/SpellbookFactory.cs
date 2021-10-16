@@ -45,32 +45,20 @@ namespace PF_Core.Factories
             return clone;
         }
 
-        public BlueprintSpellbook createSpellbookFrom(String name, String guid, String fromAssetId, BlueprintCharacterClass characterClass,
-            bool isArcane, bool isSpontaneous, bool canCopyScrolls, bool allSpellsKnown, StatType castingAttribute,
-            BlueprintSpellsTable spellsKnown, BlueprintSpellsTable spellsPerDay, CantripsType cantripsType, BlueprintSpellList spellList)
+        public BlueprintSpellbook createSpellbookFrom(String name, String guid, String fromAssetId, BlueprintCharacterClass characterClass)
         {
             _logger.Debug(String.Format("Create spellbook {0} with id {1} based on {2}", name, guid, fromAssetId));
 
             BlueprintSpellbook spellbook = createSpellbookFrom(name, guid, fromAssetId);
             spellbook.Name = new LocalizationFactory().CreateString($"{name}.Name", characterClass.Name);
-            spellbook.IsArcane = isArcane;
-            spellbook.Spontaneous = isSpontaneous;
-            spellbook.CanCopyScrolls = canCopyScrolls;
-            spellbook.AllSpellsKnown = allSpellsKnown;
-            spellbook.CastingAttribute = castingAttribute;
             spellbook.CharacterClass = characterClass;
-            spellbook.CasterLevelModifier = 0;
-            spellbook.SpellsKnown = spellsKnown;
-            spellbook.SpellsPerDay = spellsPerDay;
-            spellbook.CantripsType = cantripsType;
-            spellbook.SpellList = spellList;
 
             return spellbook;
         }
 
         public BlueprintSpellbook CreateSpellbook(String name, String guid, BlueprintCharacterClass characterClass,
-            bool isArcane, bool isSpontaneous, bool canCopyScrolls, bool allSpellsKnown, StatType castingAttribute, CantripsType cantripsType,
-            BlueprintSpellsTable spellsKnown, BlueprintSpellsTable spellsPerDay, BlueprintSpellList spellList)
+            bool isArcane, bool isSpontaneous, bool canCopyScrolls, bool allSpellsKnown, int SpellsPerLevel, int CasterLevelModifier,
+            StatType castingAttribute, CantripsType cantripsType, BlueprintSpellsTable spellsKnown, BlueprintSpellsTable spellsPerDay, BlueprintSpellList spellList)
         {
             _logger.Debug($"Create spellbook {name} with id {guid}");
 
@@ -82,7 +70,8 @@ namespace PF_Core.Factories
             spellbook.AllSpellsKnown = allSpellsKnown;
             spellbook.CastingAttribute = castingAttribute;
             spellbook.CharacterClass = characterClass;
-            spellbook.CasterLevelModifier = 0;
+            spellbook.SpellsPerLevel = SpellsPerLevel;
+            spellbook.CasterLevelModifier = CasterLevelModifier;
             spellbook.SpellsKnown = spellsKnown;
             spellbook.SpellsPerDay = spellsPerDay;
             spellbook.CantripsType = cantripsType;

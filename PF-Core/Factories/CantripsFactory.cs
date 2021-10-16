@@ -1,5 +1,4 @@
 using System;
-using System.Linq;
 using Kingmaker.Blueprints.Classes;
 using Kingmaker.Blueprints.Classes.Spells;
 using Kingmaker.Designers.Mechanics.Facts;
@@ -19,8 +18,7 @@ namespace PF_Core.Factories
         private static readonly FeatureFactory _featureFactory = new FeatureFactory();
 
         public BlueprintFeature CreateCantripsFrom(String name, String guid, String fromAssetId,
-            String displayName, String description, UnityEngine.Sprite icon,
-            BlueprintCharacterClass characterClass, BlueprintSpellbook spellbook) =>
+            String displayName, String description, UnityEngine.Sprite icon, BlueprintCharacterClass characterClass, BlueprintSpellbook spellbook) =>
             CreateCantripsFrom(name, guid, fromAssetId, displayName, description, icon, characterClass,
                 spellbook.CastingAttribute, spellbook.SpellList.SpellsByLevel[0].Spells.ToArray());
 
@@ -40,15 +38,12 @@ namespace PF_Core.Factories
                 characterClass, stat, spellList);
 
             _logger.Debug($"Binding cantrips {name} to class {characterClass.name}");
-            BindAbilitiesToClass original = cantrips.ComponentsArray.Select(c => c as BindAbilitiesToClass).First();
-            if (original != null)
-            {
-                BindAbilitiesToClass bind = UnityEngine.Object.Instantiate(original);
-                bind.CharacterClass = characterClass;
-                bind.Stat = stat;
 
-                cantrips.SetComponents(bind);
-            }
+            cantrips.ReplaceComponent<BindAbilitiesToClass>(c =>
+            {
+                c.CharacterClass = characterClass;
+                c.Stat = stat;
+            });
 
             _logger.Debug($"DONE: Create cantrips {name} with id {guid} based on {fromAssetId}");
             return cantrips;

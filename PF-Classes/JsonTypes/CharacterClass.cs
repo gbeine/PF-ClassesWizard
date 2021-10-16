@@ -5,12 +5,10 @@ using Newtonsoft.Json.Linq;
 
 namespace PF_Classes.JsonTypes
 {
-    public class CharacterClass
+    public class CharacterClass : JsonType
     {
-        public CharacterClass(JObject jObject)
+        public CharacterClass(JObject jObject) : base(jObject)
         {
-            Guid = jObject.SelectToken("Guid", true).Value<String>();
-            Name = jObject.SelectToken("Name", true).Value<String>();
             DisplayName = jObject.SelectToken("DisplayName", true).Value<String>();
             Icon = jObject.SelectToken("Icon", true).Value<String>();
             EquipmentEntities = jObject.SelectToken("EquipmentEntities", true).Value<String>();
@@ -19,63 +17,25 @@ namespace PF_Classes.JsonTypes
             SkillPoints = jObject.SelectToken("SkillPoints", true).Value<int>();
             Progression = new Progression(jObject.SelectToken("Progression", true).Value<JObject>());
 
-            JToken jDescription = jObject.SelectToken("Description");
-            Description = jDescription != null
-                ? jDescription.Value<String>()
-                : DisplayName;
-            JToken jMaleEquipmentEntities = jObject.SelectToken("MaleEquipmentEntities");
-            MaleEquipmentEntities = jMaleEquipmentEntities != null
-                ? jMaleEquipmentEntities.Value<String>()
-                : EquipmentEntities;
-            JToken jFemaleEquipmentEntities = jObject.SelectToken("FemaleEquipmentEntities");
-            FemaleEquipmentEntities  = jFemaleEquipmentEntities != null
-                ? jFemaleEquipmentEntities.Value<String>()
-                : EquipmentEntities;
+            Description = SelectString(jObject, "Description", DisplayName);
+            MaleEquipmentEntities = SelectString(jObject, "MaleEquipmentEntities", EquipmentEntities);
+            FemaleEquipmentEntities = SelectString(jObject, "FemaleEquipmentEntities", EquipmentEntities);
+            ComponentsArray = SelectString(jObject, "ComponentsArray");
+            StartingItems = SelectString(jObject, "StartingItems");
 
-            JToken jHitDie = jObject.SelectToken("HitDie");
-            HitDie = jHitDie != null
-                ? jHitDie.Value<String>()
-                : "D6";
-            JToken jBaseAttackBonus = jObject.SelectToken("BaseAttackBonus");
-            BaseAttackBonus = jBaseAttackBonus != null
-                ? jBaseAttackBonus.Value<String>()
-                : "BAB_LOW";
-            JToken jFortitudeSave = jObject.SelectToken("FortitudeSave");
-            FortitudeSave = jFortitudeSave != null
-                ? jFortitudeSave.Value<String>()
-                : "SAVES_LOW";
-            JToken jWillSave = jObject.SelectToken("WillSave");
-            WillSave = jWillSave != null
-                ? jWillSave.Value<String>()
-                : "SAVES_LOW";
-            JToken jReflexSave = jObject.SelectToken("ReflexSave");
-            ReflexSave = jReflexSave != null
-                ? jReflexSave.Value<String>()
-                : "SAVES_LOW";
-            JToken jIsDivineCaster = jObject.SelectToken("IsDivineCaster");
-            IsDivineCaster = jIsDivineCaster != null
-                ? jIsDivineCaster.Value<bool>()
-                : false;
-            JToken jIsArcaneCaster = jObject.SelectToken("IsArcaneCaster");
-            IsArcaneCaster = jIsArcaneCaster != null
-                ? jIsArcaneCaster.Value<bool>()
-                : false;
-            JToken jStartingGold = jObject.SelectToken("StartingGold");
-            StartingGold = jStartingGold != null
-                    ? jStartingGold.Value<int>()
-                    : 500;
+            HitDie = SelectString(jObject, "HitDie", "D6");
+            BaseAttackBonus = SelectString(jObject, "BaseAttackBonus", "BAB_LOW");
+            FortitudeSave = SelectString(jObject, "FortitudeSave", "SAVES_LOW");
+            WillSave = SelectString(jObject, "WillSave", "SAVES_LOW");
+            ReflexSave = SelectString(jObject, "ReflexSave", "SAVES_LOW");
 
-            JToken jComponentsArray = jObject.SelectToken("ComponentsArray");
-            ComponentsArray = jComponentsArray != null
-                ? jComponentsArray.Value<String>()
-                : null;
-            JToken jStartingItems = jObject.SelectToken("StartingItems");
-            StartingItems = jStartingItems != null
-                ? jStartingItems.Value<String>()
-                : null;
+            IsDivineCaster = SelectBool(jObject, "IsDivineCaster", false);
+            IsArcaneCaster = SelectBool(jObject, "IsArcaneCaster", false);
+
+            StartingGold = SelectInt(jObject, "StartingGold", 411);
 
             JToken jAlignment = jObject.SelectToken("Alignment");
-            Alignment = jAlignment != null ? jAlignment.Values<String>().ToList() : Array.Empty<String>().ToList();
+            Alignment = jAlignment != null ? jAlignment.Values<String>().ToList() : new List<String>{ "Any" };
             JToken jClassSkills = jObject.SelectToken("ClassSkills");
             ClassSkills = jClassSkills != null ? jClassSkills.Values<String>().ToList() : Array.Empty<String>().ToList();
             JToken jRecommendedAttributes = jObject.SelectToken("RecommendedAttributes");
@@ -99,35 +59,71 @@ namespace PF_Classes.JsonTypes
                 }
                 Spellbook = new Spellbook(jSpellbook.Value<JObject>());
             }
+
+            SelectFeatures(jObject.SelectToken("Features"));
+            SelectFeatureSelections(jObject.SelectToken("FeatureSelections"));
         }
-        public string Guid { get; set; }
-        public string Name { get; set; }
-        public string DisplayName { get; set; }
-        public string Description { get; set; }
-        public string Icon { get; set; }
-        public string EquipmentEntities { get; set; }
-        public string MaleEquipmentEntities { get; set; }
-        public string FemaleEquipmentEntities { get; set; }
-        public int PrimaryColor { get; set; }
-        public int SecondaryColor { get; set; }
-        public int SkillPoints { get; set; }
-        public string HitDie { get; set; }
-        public string BaseAttackBonus { get; set; }
-        public string FortitudeSave { get; set; }
-        public string WillSave { get; set; }
-        public string ReflexSave { get; set; }
-        public bool IsDivineCaster { get; set; }
-        public bool IsArcaneCaster { get; set; }
-        public string ComponentsArray { get; set; }
-        public int StartingGold { get; set; }
-        public string StartingItems { get; set; }
-        public List<String> Alignment { get; set; }
-        public List<String> ClassSkills { get; set; }
-        public List<String> RecommendedAttributes { get; set; }
-        public List<String> NotRecommendedAttributes { get; set; }
-        public Cantrips Cantrips { get; set; }
-        public Proficiencies Proficiencies { get; set; }
-        public Progression Progression { get; set; }
-        public Spellbook Spellbook { get; set; }
+
+        private void SelectFeatures(JToken jFeatures)
+        {
+            if (jFeatures != null)
+            {
+                Features = new List<Feature>();
+                foreach (var jFeature in jFeatures.Value<JArray>())
+                {
+                    Features.Add(new Feature(jFeature.Value<JObject>()));
+                }
+            }
+            else
+            {
+                Features = Array.Empty<Feature>().ToList();
+            }
+        }
+
+        private void SelectFeatureSelections(JToken jFeatureSelections)
+        {
+            if (jFeatureSelections != null)
+            {
+                FeatureSelections = new List<FeatureSelection>();
+                foreach (var jFeatureSelection in jFeatureSelections.Value<JArray>())
+                {
+                    FeatureSelections.Add(new FeatureSelection(jFeatureSelection.Value<JObject>()));
+                }
+            }
+            else
+            {
+                FeatureSelections = Array.Empty<FeatureSelection>().ToList();
+            }
+        }
+
+        public string DisplayName { get; }
+        public string Description { get; }
+        public string Icon { get; }
+        public string EquipmentEntities { get; }
+        public string MaleEquipmentEntities { get; }
+        public string FemaleEquipmentEntities { get; }
+        public int PrimaryColor { get; }
+        public int SecondaryColor { get; }
+        public int SkillPoints { get; }
+        public string HitDie { get; }
+        public string BaseAttackBonus { get; }
+        public string FortitudeSave { get; }
+        public string WillSave { get; }
+        public string ReflexSave { get; }
+        public bool IsDivineCaster { get; }
+        public bool IsArcaneCaster { get; }
+        public string ComponentsArray { get; }
+        public int StartingGold { get; }
+        public string StartingItems { get; }
+        public List<String> Alignment { get; }
+        public List<String> ClassSkills { get; }
+        public List<String> RecommendedAttributes { get; }
+        public List<String> NotRecommendedAttributes { get; }
+        public List<Feature> Features { get; private set; }
+        public List<FeatureSelection> FeatureSelections { get; private set; }
+        public Cantrips Cantrips { get; }
+        public Proficiencies Proficiencies { get; }
+        public Progression Progression { get; }
+        public Spellbook Spellbook { get; }
     }
 }

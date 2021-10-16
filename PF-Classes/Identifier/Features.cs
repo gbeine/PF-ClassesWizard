@@ -254,7 +254,7 @@ namespace PF_Classes.Identifier
         public const String DRUID_FULL_CASTER_FEATURE                     = COMMON_FULL_CASTER_FEATURE;
         public const String DRUID_ALIGNMENT_RESTRICTION                   = "d00ff3791359311449c481126fbf71ce"; // Gesinnungsbeschränkung
         public const String DRUID_SPONTANEOUS_SUMMON                      = "b296531ffe013c8499ad712f8ae97f6b"; // Spontane Herbeizauberung
-        public const String DRUID_STORM_BUFF                              = "0aeba56961779e54a8a0f6dedef081ee"; //
+        public const String DRUID_STORM_BUFF                              = "0aeba56961779e54a8a0f6dedef081ee"; // Inside the storm
         public const String DRUID_RAY_CALCULATE_FEATURE                   = COMMON_RAY_CALCULATE_FEATURE;
         public const String DRUID_TOUCH_CALCULATE_FEATURE                 = COMMON_TOUCH_CALCULATE_FEATURE;
         public const String DRUID_DETECT_MAGIC                            = COMMON_DETECT_MAGIC;

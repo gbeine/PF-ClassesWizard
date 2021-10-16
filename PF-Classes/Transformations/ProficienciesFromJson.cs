@@ -1,7 +1,6 @@
 using System;
 using System.Linq;
 using Kingmaker.Blueprints.Classes;
-using Kingmaker.Enums;
 using PF_Classes.Identifier;
 using PF_Classes.JsonTypes;
 using PF_Core;
@@ -24,7 +23,7 @@ namespace PF_Classes.Transformations
             _logger.Log($"Creating proficiencies from JSON data {proficienciesData.Guid}");
 
             BlueprintFeature proficiencies;
-            if (proficienciesData.From != null)
+            if (!String.Empty.Equals(proficienciesData.From))
             {
                 proficiencies = _featureFactory.CreateFeatureFrom(
                     proficienciesData.Name, proficienciesData.Guid,

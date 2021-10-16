@@ -6,7 +6,6 @@ using PF_Classes.JsonTypes;
 using PF_Core;
 using PF_Core.Factories;
 using PF_Core.Repositories;
-using UnityModManagerNet;
 
 namespace PF_Classes.Transformations
 {
@@ -39,7 +38,7 @@ namespace PF_Classes.Transformations
             return progression;
         }
 
-        private static List<BlueprintFeatureBase> getUIDeterminatorsGroup(Progression progressionData) =>
+        internal static List<BlueprintFeatureBase> getUIDeterminatorsGroup(Progression progressionData) =>
             getUIDeterminatorsGroup(progressionData, Array.Empty<BlueprintFeature>());
 
         private static List<BlueprintFeatureBase> getUIDeterminatorsGroup(Progression progressionData, BlueprintFeature[] startFeatures)
@@ -58,7 +57,7 @@ namespace PF_Classes.Transformations
             return uiDeterminatorsGroup;
         }
 
-        private static List<UIGroup> getUIGroups(Progression progressionData)
+        internal static List<UIGroup> getUIGroups(Progression progressionData)
         {
             _logger.Log("Creating UIGroups");
             List<UIGroup> uiGroups = new List<UIGroup>();
@@ -77,7 +76,7 @@ namespace PF_Classes.Transformations
             return uiGroups;
         }
 
-        private static List<LevelEntry> getLevelEntries(Progression progressionData) =>
+        internal static List<LevelEntry> getLevelEntries(Progression progressionData) =>
             getLevelEntries(progressionData, Array.Empty<BlueprintFeature>());
 
         private static List<LevelEntry> getLevelEntries(Progression progressionData, BlueprintFeature[] startFeatures)

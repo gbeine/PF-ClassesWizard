@@ -22,6 +22,11 @@ namespace PF_Classes.Identifier
             _identifier = _constants.ToDictionary(fi => fi.Name, fi => (String)fi.GetRawConstantValue());
         }
 
+        public bool Contains(String identifier)
+        {
+            return _identifier.ContainsKey(identifier);
+        }
+
         public String GetGuidFor(String intentifier)
         {
             return _identifier[intentifier];

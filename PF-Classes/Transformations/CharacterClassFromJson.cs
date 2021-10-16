@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Kingmaker.Blueprints.Classes;
+using Kingmaker.Blueprints.Classes.Selection;
 using Kingmaker.Blueprints.Classes.Spells;
 using Kingmaker.UnitLogic.Alignments;
 using PF_Classes.Identifier;
@@ -32,7 +33,7 @@ namespace PF_Classes.Transformations
             BlueprintCharacterClass characterClass = _classFactoryFactory.CreateClass(characterClassData.Name,
                 characterClassData.Guid, characterClassData.DisplayName,characterClassData.Description);
 
-            characterClass.m_Icon = getCharacterClass(characterClassData.Icon).Icon;
+            characterClass.m_Icon = SpriteLookup.lookupFor(characterClassData.Icon);
             characterClass.EquipmentEntities = getCharacterClass(characterClassData.EquipmentEntities).EquipmentEntities;
             characterClass.MaleEquipmentEntities = getCharacterClass(characterClassData.MaleEquipmentEntities).MaleEquipmentEntities;
             characterClass.FemaleEquipmentEntities = getCharacterClass(characterClassData.FemaleEquipmentEntities).FemaleEquipmentEntities;
@@ -58,11 +59,11 @@ namespace PF_Classes.Transformations
                 characterClassData.NotRecommendedAttributes
                     .Select(skill => EnumParser.parseStatType(skill)).ToArray();
 
-            if (characterClassData.ComponentsArray != null)
+            if (!String.Empty.Equals(characterClassData.ComponentsArray))
             {
                 characterClass.ComponentsArray = getCharacterClass(characterClassData.ComponentsArray).ComponentsArray;
             }
-            if (characterClassData.StartingItems != null)
+            if (!String.Empty.Equals(characterClassData.StartingItems))
             {
                 characterClass.StartingItems = getCharacterClass(characterClassData.StartingItems).StartingItems;
             }
@@ -78,6 +79,24 @@ namespace PF_Classes.Transformations
                     _prerequisitesFactory.CreatePrerequisiteAlignment(alignmentMask));
             }
 
+            if (characterClassData.Features.Count > 0)
+            {
+                List<BlueprintFeature> features = new List<BlueprintFeature>();
+                foreach (var feature in characterClassData.Features)
+                {
+                    features.Add(FeatureFromJson.GetFeature(feature, characterClass));
+                }
+            }
+
+            if (characterClassData.FeatureSelections.Count > 0)
+            {
+                List<BlueprintFeatureSelection> featureSelections = new List<BlueprintFeatureSelection>();
+                foreach (var featureSelection in characterClassData.FeatureSelections)
+                {
+                    featureSelections.Add(FeatureSelectionFromJson.GetFeatureSelection(featureSelection));
+                }
+            }
+
             if (characterClassData.Proficiencies != null)
             {
                 BlueprintFeature proficiencies =
@@ -85,7 +104,7 @@ namespace PF_Classes.Transformations
                 startFeatures.Add(proficiencies);
             }
 
-            if ( characterClassData.Spellbook != null )
+            if (characterClassData.Spellbook != null)
             {
                 BlueprintSpellbook spellbook = SpellbookFromJson.GetSpellbook(characterClassData.Spellbook, characterClass);
                 characterClass.Spellbook = spellbook;

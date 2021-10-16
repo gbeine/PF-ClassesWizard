@@ -5,13 +5,10 @@ using Newtonsoft.Json.Linq;
 
 namespace PF_Classes.JsonTypes
 {
-    public class SpellList
+    public class SpellList : JsonType
     {
-        public SpellList(JObject jObject)
+        public SpellList(JObject jObject) : base(jObject)
         {
-            Guid = jObject.SelectToken("Guid", true).Value<String>();
-            Name = jObject.SelectToken("Name", true).Value<String>();
-
             // level 0 is for cantrips
             // levels here are spell levels
             JObject jSpellsByLevel = jObject.SelectToken("SpellsByLevel", true).Value<JObject>();
@@ -26,10 +23,7 @@ namespace PF_Classes.JsonTypes
             }
         }
 
-        public string Guid { get; set; }
-        public string Name { get; set; }
-        public int Level { get; set; }
-        public List<List<String>> SpellsByLevel { get; set; }
-
+        public int Level { get; }
+        public List<List<String>> SpellsByLevel { get; }
     }
 }

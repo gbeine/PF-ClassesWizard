@@ -21,7 +21,7 @@ namespace PF_Classes.JsonType
             Assert.IsFalse(spellbook.IsSpontaneous);
             Assert.IsFalse(spellbook.CanCopyScrolls);
             Assert.IsFalse(spellbook.AllSpellsKnown);
-            Assert.IsNull(spellbook.SpellsKnown);
+            Assert.IsNull(spellbook.SpellsKnownDefinition);
             Assert.AreEqual("Cantrips",spellbook.Cantrips);
         }
 
@@ -38,7 +38,7 @@ namespace PF_Classes.JsonType
             Assert.IsTrue(spellbook.IsSpontaneous);
             Assert.IsTrue(spellbook.CanCopyScrolls);
             Assert.IsTrue(spellbook.AllSpellsKnown);
-            Assert.IsNotNull(spellbook.SpellsKnown);
+            Assert.IsNotNull(spellbook.SpellsKnownDefinition);
             Assert.AreEqual("Something Else",spellbook.Cantrips);
         }
 

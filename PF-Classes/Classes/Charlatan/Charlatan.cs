@@ -185,15 +185,11 @@ namespace PF_Classes.Classes.Charlatan
                 CHARLATAN_SPELLBOOK_NAME,
                 CHARLATAN_SPELLBOOK,
                 charlatan_class,
-                true,
-                true,
-                true,
-                false,
+                true, true, true, false,
+                0,0,
                 StatType.Intelligence,
                 CantripsType.Cantrips,
-                SpellsKnown(),
-                SpellsPerDay(),
-                spellList
+                SpellsKnown(), SpellsPerDay(), spellList
             );
 
             _logger.Log("DONE: Create spellbook");

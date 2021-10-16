@@ -20,7 +20,7 @@ namespace PF_Classes.JsonType
             Assert.AreEqual("Charlatan Proficiencies",proficiencies.DisplayName);
             Assert.AreEqual("Proficiencies description",proficiencies.Description);
             Assert.AreEqual("BARD_PROFICIENCIES",proficiencies.From);
-            Assert.IsNull(proficiencies.Icon);
+            Assert.IsEmpty(proficiencies.Icon);
             Assert.IsNotNull(proficiencies.AddFeatures);
             Assert.AreEqual(2, proficiencies.AddFeatures.Count);
             Assert.IsTrue(proficiencies.AddFeatures.Contains("WEAPON_PROFICIENCY_DUELING_SWORD"));
@@ -54,8 +54,8 @@ namespace PF_Classes.JsonType
             Assert.AreEqual("CharlatanProficiencies",proficiencies.Name);
             Assert.AreEqual("Charlatan Proficiencies",proficiencies.DisplayName);
             Assert.AreEqual("Charlatan Proficiencies",proficiencies.Description);
-            Assert.IsNull(proficiencies.From);
-            Assert.IsNull(proficiencies.Icon);
+            Assert.IsEmpty(proficiencies.From);
+            Assert.IsEmpty(proficiencies.Icon);
             Assert.IsNotNull(proficiencies.AddFeatures);
             Assert.AreEqual(0, proficiencies.AddFeatures.Count);
             Assert.IsNotNull(proficiencies.AddWeaponProficiencies);

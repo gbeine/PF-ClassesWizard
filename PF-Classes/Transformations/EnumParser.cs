@@ -1,4 +1,5 @@
 using System;
+using Kingmaker.Blueprints.Classes;
 using Kingmaker.Blueprints.Classes.Spells;
 using Kingmaker.Blueprints.Items.Armors;
 using Kingmaker.EntitySystem.Stats;
@@ -20,7 +21,7 @@ namespace PF_Classes.Transformations
 
             throw new InvalidOperationException($"Cannot parse dice type {value}");
         }
-        
+
         internal static StatType parseStatType(String value)
         {
             StatType statType;
@@ -31,7 +32,7 @@ namespace PF_Classes.Transformations
 
             throw new InvalidOperationException($"Cannot parse stat type {value}");
         }
-        
+
         internal static CantripsType parseCantripsType(String value)
         {
             CantripsType cantripsType;
@@ -42,7 +43,7 @@ namespace PF_Classes.Transformations
 
             throw new InvalidOperationException($"Cannot parse cantrips type {value}");
         }
-        
+
         internal static WeaponCategory parseWeaponCategory(String value)
         {
             WeaponCategory weaponCategory;
@@ -53,7 +54,7 @@ namespace PF_Classes.Transformations
 
             throw new InvalidOperationException($"Cannot parse weapon type {value}");
         }
-        
+
         internal static ArmorProficiencyGroup parseArmorProficiency(String value)
         {
             ArmorProficiencyGroup armorProficiency;
@@ -64,7 +65,7 @@ namespace PF_Classes.Transformations
 
             throw new InvalidOperationException($"Cannot parse armor proficiency type {value}");
         }
-        
+
         internal static AlignmentMaskType parseAlignment(String value)
         {
             AlignmentMaskType alignment;
@@ -74,6 +75,27 @@ namespace PF_Classes.Transformations
             }
 
             throw new InvalidOperationException($"Cannot parse alignment type {value}");
+        }
+        internal static FeatureGroup parseFeatureGroup(String value)
+        {
+            FeatureGroup featureGroup;
+            if (FeatureGroup.TryParse(value, out featureGroup))
+            {
+                return featureGroup;
+            }
+
+            throw new InvalidOperationException($"Cannot parse feature group type {value}");
+        }
+
+        internal static SpellDescriptor parseSpellDescriptor(String value)
+        {
+            SpellDescriptor spellDescriptor;
+            if (SpellDescriptor.TryParse(value, out spellDescriptor))
+            {
+                return spellDescriptor;
+            }
+
+            throw new InvalidOperationException($"Cannot parse spell descriptor type {value}");
         }
     }
 }

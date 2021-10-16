@@ -39,9 +39,9 @@ namespace PF_Core.Facades
         }
 
         internal List<BlueprintArchetype> GetArchtetypes() => _library.GetAll<BlueprintArchetype>();
-        internal List<BlueprintFeature> GetFeatures() => _library.GetAll<BlueprintFeature>(); 
-        internal List<BlueprintAbility> GetAbilities() => _library.GetAll<BlueprintAbility>(); 
-        internal List<BlueprintStatProgression> GetStatProgressions() => _library.GetAll<BlueprintStatProgression>(); 
+        internal List<BlueprintFeature> GetFeatures() => _library.GetAll<BlueprintFeature>();
+        internal List<BlueprintAbility> GetAbilities() => _library.GetAll<BlueprintAbility>();
+        internal List<BlueprintStatProgression> GetStatProgressions() => _library.GetAll<BlueprintStatProgression>();
 
         internal BlueprintCharacterClass GetCharacterClass(String assetId) => Get<BlueprintCharacterClass>(assetId);
         internal BlueprintArchetype GetArchetype(String assetId) => Get<BlueprintArchetype>(assetId);
@@ -56,8 +56,15 @@ namespace PF_Core.Facades
         }
 
         internal T Create<T>() where T : ScriptableObject
-        { 
+        {
             return ScriptableObject.CreateInstance<T>();
+        }
+
+        internal T Create<T>(Action<T> init) where T : ScriptableObject
+        {
+            T scriptableObject = Create<T>();
+            init(scriptableObject);
+            return scriptableObject;
         }
 
         internal void Add(BlueprintScriptableObject blueprintScriptableObject)

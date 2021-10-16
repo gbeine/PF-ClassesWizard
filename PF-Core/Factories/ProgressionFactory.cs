@@ -20,6 +20,11 @@ namespace PF_Core.Factories
                 FeatureGroup.None, characterClass, Array.Empty<BlueprintFeatureBase>(),
                 Array.Empty<UIGroup>(), levelEntries, components);
 
+        public BlueprintProgression CreateProgression(String name, String guid, String displayName, String description,
+            Sprite icon, FeatureGroup group, params BlueprintComponent[] components) =>
+            CreateProgression(name, guid, displayName, description, icon, group,
+                Array.Empty<BlueprintFeatureBase>(), Array.Empty<UIGroup>(), Array.Empty<LevelEntry>(), components);
+
         public BlueprintProgression CreateProgression(String name, String guid, BlueprintCharacterClass characterClass,
             BlueprintFeatureBase[] uiDeterminatorsGroup, UIGroup[] uiGroups, LevelEntry[] levelEntries,
             params BlueprintComponent[] components) =>

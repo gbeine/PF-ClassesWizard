@@ -1,17 +1,13 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using Newtonsoft.Json.Linq;
 
 namespace PF_Classes.JsonTypes
 {
-    public class SpellsTable
+    public class SpellsTable : JsonType
     {
-        public SpellsTable(JObject jObject)
+        public SpellsTable(JObject jObject) : base(jObject)
         {
-            Guid = jObject.SelectToken("Guid", true).Value<String>();
-            Name = jObject.SelectToken("Name", true).Value<String>();
-
             // first int in each line is for cantrips
             // levels here are character levels
             JObject jTable = jObject.SelectToken("Table", true).Value<JObject>();
@@ -22,8 +18,7 @@ namespace PF_Classes.JsonTypes
                 Table.Add(jLevelEntry.Values<int>().ToList());
             }
         }
-        public string Guid { get; set; }
-        public string Name { get; set; }
-        public List<List<int>> Table { get; set; }
+
+        public List<List<int>> Table { get; }
     }
 }

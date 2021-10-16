@@ -5,24 +5,16 @@ using Newtonsoft.Json.Linq;
 
 namespace PF_Classes.JsonTypes
 {
-    public class Proficiencies
+    public class Proficiencies : JsonType
     {
-        public Proficiencies(JObject jObject)
+        public Proficiencies(JObject jObject) : base(jObject)
         {
-            Guid = jObject.SelectToken("Guid", true).Value<String>();
-            Name = jObject.SelectToken("Name", true).Value<String>();
             DisplayName = jObject.SelectToken("DisplayName", true).Value<String>();
 
-            JToken jDescription = jObject.SelectToken("Description");
-            Description = jDescription != null
-                ? jDescription.Value<String>()
-                : DisplayName;
-
-            JToken jIcon = jObject.SelectToken("Icon");
-            Icon = jIcon != null ? jIcon.Value<String>() : null;
-
-            JToken jFrom = jObject.SelectToken("From");
-            From = jFrom != null ? jFrom.Value<String>() : null;
+            DisplayName = SelectString(jObject, "DisplayName");
+            Icon = SelectString(jObject, "Icon");
+            From = SelectString(jObject, "From");
+            Description = SelectString(jObject, "Description", DisplayName);
 
             JToken jAdd = jObject.SelectToken("Add");
             if (jAdd != null)
@@ -48,14 +40,12 @@ namespace PF_Classes.JsonTypes
             }
         }
 
-        public string Guid { get; set; }
-        public string Name { get; set; }
-        public string DisplayName { get; set; }
-        public string Description { get; set; }
-        public string Icon { get; set; }
-        public string From { get; set; }
-        public List<String> AddFeatures { get; set; }
-        public List<String> AddWeaponProficiencies { get; set; }
-        public List<String> AddArmorProficiencies { get; set; }
+        public string DisplayName { get; }
+        public string Description { get; }
+        public string Icon { get; }
+        public string From { get; }
+        public List<String> AddFeatures { get; }
+        public List<String> AddWeaponProficiencies { get; }
+        public List<String> AddArmorProficiencies { get; }
     }
 }
