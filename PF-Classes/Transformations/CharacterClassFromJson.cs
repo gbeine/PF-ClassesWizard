@@ -51,7 +51,7 @@ namespace PF_Classes.Transformations
 
             characterClass.ClassSkills =
                 characterClassData.ClassSkills
-                    .Select(skill => EnumParser.parseStatType($"Skill{skill}")).ToArray();
+                    .Select(skill => EnumParser.parseStatType(skill)).ToArray();
             characterClass.RecommendedAttributes =
                 characterClassData.RecommendedAttributes
                     .Select(skill => EnumParser.parseStatType(skill)).ToArray();

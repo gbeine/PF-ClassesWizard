@@ -61,6 +61,8 @@ namespace PF_Classes.Transformations
                     featureData.Description);
             }
 
+            feature.ReapplyOnLevelUp = featureData.ReapplyOnLevelUp;
+
             List<BlueprintComponent> components = new List<BlueprintComponent>();
             foreach (var component in featureData.Components)
             {

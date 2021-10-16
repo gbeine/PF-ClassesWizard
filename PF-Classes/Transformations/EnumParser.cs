@@ -29,6 +29,10 @@ namespace PF_Classes.Transformations
             {
                 return statType;
             }
+            if (StatType.TryParse($"Skill{value}", out statType))
+            {
+                return statType;
+            }
 
             throw new InvalidOperationException($"Cannot parse stat type {value}");
         }
@@ -85,6 +89,17 @@ namespace PF_Classes.Transformations
             }
 
             throw new InvalidOperationException($"Cannot parse feature group type {value}");
+        }
+
+        internal static ModifierDescriptor parseModifierDescriptor(String value)
+        {
+            ModifierDescriptor modifierDescriptor;
+            if (ModifierDescriptor.TryParse(value, out modifierDescriptor))
+            {
+                return modifierDescriptor;
+            }
+
+            throw new InvalidOperationException($"Cannot parse modifier descriptor type {value}");
         }
 
         internal static SpellDescriptor parseSpellDescriptor(String value)

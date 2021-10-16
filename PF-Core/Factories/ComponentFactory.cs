@@ -3,6 +3,8 @@ using Kingmaker.Blueprints.Classes;
 using Kingmaker.Blueprints.Classes.Prerequisites;
 using Kingmaker.Blueprints.Classes.Spells;
 using Kingmaker.Designers.Mechanics.Facts;
+using Kingmaker.EntitySystem.Stats;
+using Kingmaker.Enums;
 using Kingmaker.UnitLogic.Abilities.Blueprints;
 using Kingmaker.UnitLogic.FactLogic;
 using Kingmaker.Utility;
@@ -25,6 +27,18 @@ namespace PF_Core.Factories
 
             _logger.Debug($"DONE: Create AddKnownSpell for {spell.name}");
             return addKnownSpell;
+        }
+
+        public AddStatBonus CreateAddStatBonus(StatType statType, int value, ModifierDescriptor descriptor)
+        {
+            _logger.Debug($"Create AddStatBonus");
+            AddStatBonus addStatBonus = _library.Create<AddStatBonus>();
+            addStatBonus.Stat = statType;
+            addStatBonus.Value = value;
+            addStatBonus.Descriptor = descriptor;
+
+            _logger.Debug($"DONE: Create AddStatBonus");
+            return addStatBonus;
         }
 
         public BuffDescriptorImmunity CreateBuffDescriptorImmunity(SpellDescriptor spellDescriptor)

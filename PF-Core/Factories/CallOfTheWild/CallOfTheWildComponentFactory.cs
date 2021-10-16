@@ -1,6 +1,7 @@
 using Kingmaker.Enums;
 using Kingmaker.Utility;
 using PF_Core.CallOfTheWild.ConcealementMechanics;
+using PF_Core.CallOfTheWild.NewMechanics;
 using PF_Core.Facades;
 
 namespace PF_Core.Factories.CallOfTheWild
@@ -37,6 +38,17 @@ namespace PF_Core.Factories.CallOfTheWild
 
             _logger.Debug($"DONE: Create AddOutgoingConcealment");
             return addOutgoingConcealment;
+        }
+
+        public WeaponsOnlyAttackBonus CreateWeaponsOnlyAttackBonus(int bonus)
+        {
+            _logger.Debug($"Create WeaponsOnlyAttackBonus");
+
+            WeaponsOnlyAttackBonus weaponsOnlyAttackBonus = _library.Create<WeaponsOnlyAttackBonus>(
+                w => w.Bonus = bonus);
+
+            _logger.Debug($"DONE: Create WeaponsOnlyAttackBonus");
+            return weaponsOnlyAttackBonus;
         }
     }
 }

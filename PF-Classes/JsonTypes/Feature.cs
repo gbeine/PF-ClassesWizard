@@ -17,6 +17,7 @@ namespace PF_Classes.JsonTypes
             From = SelectString(jObject, "From");
             Description = SelectString(jObject, "Description", DisplayName);
             FeatureGroup = SelectString(jObject, "FeatureGroup", "None");
+            ReapplyOnLevelUp = SelectBool(jObject, "ReapplyOnLevelUp", false);
         }
 
         private void SelectProgression(JObject jObject)
@@ -55,6 +56,7 @@ namespace PF_Classes.JsonTypes
         public string Icon { get; }
         public string FeatureGroup { get; }
         public string From { get; }
+        public bool ReapplyOnLevelUp { get; }
         public bool IsProgression { get; private set; }
         public Progression Progression { get; private set; }
         public List<Component> Components { get; private set; }

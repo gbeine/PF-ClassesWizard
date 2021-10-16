@@ -56,6 +56,12 @@ namespace PF_Classes.Transformations
                 (component, characterClass) => _componentFactory.CreateAddKnownSpell(
                     getSpell(component.AsString("Spell")), characterClass, component.AsInt("SpellLevel")));
 
+            createFunctionDelegates.Add("AddStatBonus",
+                (component, characterClass) => _componentFactory.CreateAddStatBonus(
+                    EnumParser.parseStatType(component.AsString("Stat")),
+                    component.AsInt("Bonus"),
+                    EnumParser.parseModifierDescriptor(component.AsString("Descriptor"))));
+
             createFunctionDelegates.Add("BuffDescriptorImmunity",
                 (component, characterClass) => _componentFactory.CreateBuffDescriptorImmunity(
                     EnumParser.parseSpellDescriptor(component.AsString("Descriptor"))));
@@ -93,6 +99,10 @@ namespace PF_Classes.Transformations
             createFunctionDelegates.Add("AddOutgoingConcealment",
                 (component, characterClass) =>
                     _cotwComponentFactory.CreateAddOutgoingConcealment(component.AsInt("DistanceGreater")));
+
+            createFunctionDelegates.Add("WeaponsOnlyAttackBonus",
+                (component, characterClass) =>
+                    _cotwComponentFactory.CreateWeaponsOnlyAttackBonus(component.AsInt("Bonus")));
         }
     }
 }
