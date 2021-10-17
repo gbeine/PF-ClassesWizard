@@ -260,6 +260,7 @@
       "Progression": true,
       "Guid": "3cacc4d801034ffa9a238be569ca350b",
       "DisplayName": "Clouded Vision",
+      "Description": "Your eyes are obscured, making it difficult for you to see.\nYou cannot see anything beyond 20 feet. Targets beyond this range have concealment, and you cannot target any point past that range.",
       "Icon": "ref:NECROMANCY_BLINDNESS",
       "LevelEntries": {
         "1": [
@@ -299,6 +300,311 @@
       "Name": "OracleCurseCloudedVisionHindranceFeature",
       "Guid": "6c5874e8f3524b86bf3dfc167f30cc49",
       "From": "loc:OracleCurseCloudedVision"
+    },
+    {
+      "Name": "OracleCurseBlackened",
+      "Guid": "89325fa2bd6940189b04e329ed79cff0",
+      "DisplayName": "Blackened",
+      "Description": "You take a –4 penalty on weapon attack rolls, but you add burning hands to your list of spells known.",
+      "Icon": "ref:EVOCATION_BURNING_HANDS",
+      "ReapplyOnLevelUp": true,
+      "Components":[
+        {
+          "Type": "AddKnownSpell",
+          "Spell": "ref:EVOCATION_BURNING_HANDS",
+          "SpellLevel": 1
+        },
+        {
+          "Type": "WeaponsOnlyAttackBonus",
+          "Bonus": -4
+        }
+      ]
+    },
+    {
+      "Name": "OracleCurse5Blackened",
+      "Guid": "4ec8de4766a54eefb67dc90b892fa804",
+      "DisplayName": "Blackened",
+      "Description": "At 5th level, add scorching ray and burning arc to your list of spells known.",
+      "Icon": "ref:EVOCATION_SCORCHING_RAY",
+      "ReapplyOnLevelUp": true,
+      "Components":[
+        {
+          "Type": "AddKnownSpell",
+          "Spell": "ref:EVOCATION_SCORCHING_RAY",
+          "SpellLevel": 2
+        },
+        {
+          "Type": "AddKnownSpell",
+          "Spell": "ref:EVOCATION_BURNING_ARC",
+          "SpellLevel": 2
+        }
+      ]
+    },
+    {
+      "Name": "OracleCurse10Blackened",
+      "Guid": "9c584b98d279487b97b3acde2ca54cbb",
+      "DisplayName": "Blackened",
+      "Description": "At 10th level, add wall of fire to your list of spells known and your penalty on weapon attack rolls is reduced to –2.",
+      "Icon": "loc:WALL_OF_FIRE",
+      "ReapplyOnLevelUp": true,
+      "Components":[
+        {
+          "Type": "AddKnownSpell",
+          "Spell": "loc:WALL_OF_FIRE",
+          "SpellLevel": 4
+        },
+        {
+          "Type": "WeaponsOnlyAttackBonus",
+          "Bonus": 2
+        }
+      ]
+    },
+    {
+      "Name": "OracleCurse15Blackened",
+      "Guid": "51d794a54c0847a7913171ddbfc32d41",
+      "DisplayName": "Blackened",
+      "Description": "At 15th level, add firebrand to your list of spells known.",
+      "Icon": "ref:TRANSMUTATION_FIREBRAND",
+      "ReapplyOnLevelUp": true,
+      "Components":[
+        {
+          "Type": "AddKnownSpell",
+          "Spell": "ref:TRANSMUTATION_FIREBRAND",
+          "SpellLevel": 7
+        }
+      ]
+    },
+    {
+      "Name": "OracleBlackenedCurseProgression",
+      "Progression": true,
+      "Guid": "e348bfefa3f242b7be522789800906a3",
+      "DisplayName": "Blackened",
+      "Description": "Your hands and forearms are shriveled and blackened, as if you had plunged your arms into a blazing fire, and your thin, papery skin is sensitive to the touch.",
+      "Icon": "ref:EVOCATION_BURNING_HANDS",
+      "LevelEntries": {
+        "1": [
+          "loc:OracleCurseBlackened"
+        ],
+        "5": [
+          "loc:OracleCurse5Blackened"
+        ],
+        "10": [
+          "loc:OracleCurse10Blackened"
+        ],
+        "15": [
+          "loc:OracleCurse15Blackened"
+        ]
+      },
+      "UIGroups": [
+        [
+          "loc:OracleCurseBlackened",
+          "loc:OracleCurse5Blackened",
+          "loc:OracleCurse10Blackened",
+          "loc:OracleCurse15Blackened"
+        ]
+      ]
+    },
+    {
+      "Name": "OracleCurseBlackenedMinorFeature",
+      "Guid": "2893aebb91e74711b919eccbab3a5912",
+      "DisplayName": "Blackened",
+      "Description": "You take a –4 penalty on weapon attack rolls, but you add burning hands to your list of spells known.",
+      "Icon": "ref:EVOCATION_BURNING_HANDS",
+      "Components":[
+        {
+          "Type": "AddKnownSpell",
+          "Spell": "ref:EVOCATION_BURNING_HANDS",
+          "SpellLevel": 1
+        },
+        {
+          "Type": "WeaponsOnlyAttackBonus",
+          "Bonus": -4
+        },
+        {
+          "Type": "PrerequisiteNoFeature",
+          "Feature": "loc:OracleBlackenedCurseProgression"
+        }
+      ]
+    },
+    {
+      "Name": "OracleCurseBlackenedHindranceFeature",
+      "Guid": "6c5874e8f3524b86bf3dfc167f30cc49",
+      "DisplayName": "Blackened",
+      "Description": "You take a –4 penalty on weapon attack rolls, but you add burning hands to your list of spells known.",
+      "Icon": "ref:EVOCATION_BURNING_HANDS",
+      "Components":[
+        {
+          "Type": "WeaponsOnlyAttackBonus",
+          "Bonus": -4
+        }
+      ]
+    },
+    {
+      "Name": "OracleCurseDeaf",
+      "Guid": "e5d8e0144e4548dc998812680378c4a7",
+      "DisplayName": "Deaf",
+      "Description": "You cannot hear and suffer all of the usual penalties for being deafened: -4 penalty on initiative and -4 perception. It does not affect your ability to cast spells.",
+      "Icon": "ref:EVOCATION_SOUND_BURST",
+      "ReapplyOnLevelUp": true,
+      "Components":[
+        {
+          "Type": "AddStatBonus",
+          "Stat": "Initiative",
+          "Bonus": -4,
+          "Descriptor": "UntypedStackable"
+
+        },
+        {
+          "Type": "AddStatBonus",
+          "Stat": "Perception",
+          "Bonus": -4,
+          "Descriptor": "UntypedStackable"
+        },
+        {
+          "Type": "SpellImmunityToSpellDescriptor",
+          "Descriptor": "LanguageDependent"
+        },
+        {
+          "Type": "SpecificBuffImmunity",
+          "Buff": "loc:DeafenedBuff"
+        },
+        {
+          "Type": "SpecificBuffImmunity",
+          "Buff": "loc:SilenceBuff"
+        },
+        {
+          "Type": "SpecificBuffImmunity",
+          "Buff": "ref:ECHOLOCATION"
+        }
+      ]
+    },
+    {
+      "Name": "OracleCurse5Deaf",
+      "Guid": "3e06bae59329480b906177fd1f41bc0b",
+      "DisplayName": "Deaf",
+      "Description": "At 5th level, you receive a +3 competence bonus on Perception checks, and the initiative penalty for being deaf is reduced to –2.",
+      "Icon": "ref:EVOCATION_SOUND_BURST",
+      "Components":[
+        {
+          "Type": "AddStatBonus",
+          "Stat": "Initiative",
+          "Bonus": 2,
+          "Descriptor": "UntypedStackable"
+        },
+        {
+          "Type": "AddStatBonus",
+          "Stat": "Perception",
+          "Bonus": 3,
+          "Descriptor": "Competence"
+        }
+      ]
+    },
+    {
+      "Name": "OracleCurse10Deaf",
+      "Guid": "63a4d4a379c54dbb9537c858cde9d23a",
+      "DisplayName": "Deaf",
+      "Description": "At 10th level, you gain blindsense out to a range of 15 feet, and you do not suffer any penalty on initiative checks due to being deaf.",
+      "Icon": "ref:IMPROVED_INITIATIVE",
+      "Components":[
+        {
+          "Type": "AddStatBonus",
+          "Stat": "Initiative",
+          "Bonus": 2,
+          "Descriptor": "UntypedStackable"
+        },
+        {
+          "Type": "Blindsense",
+          "Range": 15
+        }
+      ]
+    },
+    {
+      "Name": "OracleCurse15Deaf",
+      "Guid": "5545069e600c46f0a83eae3143fe1745",
+      "DisplayName": "Tremorsense",
+      "Description": "At 15th level, your blindsense range increases to 30 feet.",
+      "Icon": "ref:DIVINATION_SEE_INVISIBILITY",
+      "Components":[
+        {
+          "Type": "Blindsense",
+          "Range": 30
+        }
+      ]
+    },
+    {
+      "Name": "OracleDeafCurseProgression",
+      "Progression": true,
+      "Guid": "782088ee1fd5417db06af8dec7757491",
+      "DisplayName": "Deaf",
+      "Description": "You cannot hear and suffer all of the usual penalties for being deafened: -4 penalty on initiative and -4 perception. It does not affect your ability to cast spells.",
+      "Icon": "ref:EVOCATION_SOUND_BURST",
+      "LevelEntries": {
+        "1": [
+          "loc:OracleCurseDeaf"
+        ],
+        "5": [
+          "loc:OracleCurse5Deaf"
+        ],
+        "10": [
+          "loc:OracleCurse10Deaf"
+        ],
+        "15": [
+          "loc:OracleCurse15Deaf"
+        ]
+      },
+      "UIGroups": [
+        [
+          "loc:OracleCurseDeaf",
+          "loc:OracleCurse5Deaf",
+          "loc:OracleCurse10Deaf",
+          "loc:OracleCurse15Deaf"
+        ]
+      ]
+    },
+    {
+      "Name": "OracleCurseDeafMinorFeature",
+      "Guid": "48bf694bb97947acb423a78698fb4eb0",
+      "DisplayName": "Deaf",
+      "Description": "You cannot hear and suffer all of the usual penalties for being deafened: -4 penalty on initiative and -4 perception. It does not affect your ability to cast spells.",
+      "Icon": "ref:EVOCATION_SOUND_BURST",
+      "Components":[
+        {
+          "Type": "AddStatBonus",
+          "Stat": "Initiative",
+          "Bonus": -4
+        },
+        {
+          "Type": "AddStatBonus",
+          "Stat": "Perception",
+          "Bonus": -4
+        },
+        {
+          "Type": "SpellImmunityToSpellDescriptor",
+          "Descriptor": "LanguageDependent"
+        },
+        {
+          "Type": "SpecificBuffImmunity",
+          "Buff": "loc:DeafenedBuff"
+        },
+        {
+          "Type": "SpecificBuffImmunity",
+          "Buff": "loc:SilenceBuff"
+        },
+        {
+          "Type": "SpecificBuffImmunity",
+          "Buff": "ref:ECHOLOCATION"
+        },
+        {
+          "Type": "PrerequisiteNoFeature",
+          "Feature": "loc:OracleDeafCurseProgression"
+        }
+
+      ]
+    },
+    {
+      "Name": "OracleCurseDeafHindranceFeature",
+      "Guid": "44e0713ec0c34124982adfe65ccac49e",
+      "From": "loc:OracleCurseDeafMinorFeature"
     }
   ],
   "FeatureSelections": [
@@ -319,7 +625,9 @@
       "Description": "Each oracle is cursed, but this curse comes with a benefit as well as a hindrance. This choice is made at 1st level, and once made, it cannot be changed. The oracle’s curse cannot be removed or dispelled without the aid of a deity. An oracle’s curse is based on her oracle level.",
       "FeatureGroup": "AasimarHeritage",
       "Features": [
-        "loc:OracleCloudedVisionCurseProgression"
+        "loc:OracleCloudedVisionCurseProgression",
+        "loc:OracleBlackenedCurseProgression",
+        "loc:OracleDeafCurseProgression"
       ],
       "Components": [
         {
@@ -335,7 +643,9 @@
       "Description": "A dual-cursed oracle must choose a second curse at 1st level. This curse never changes its abilities as the oracle gains levels.",
       "FeatureGroup": "AasimarHeritage",
       "Features": [
-        "loc:OracleCurseCloudedVisionMinorFeature"
+        "loc:OracleCurseCloudedVisionMinorFeature",
+        "loc:OracleCurseBlackenedMinorFeature",
+        "loc:OracleCurseDeafMinorFeature"
       ]
     }
   ]

@@ -26,8 +26,8 @@ namespace PF_Classes
             {
                 try
                 {
-                    _logger.Log("Loading classes...");
-                    string[] buffFiles = Directory.GetFiles($"{m_exePath}/Classes", "*.json");
+                    _logger.Log("Loading buffs...");
+                    string[] buffFiles = Directory.GetFiles($"{m_exePath}/Buffs", "*.json");
                     foreach (var file in buffFiles)
                     {
                         _logger.Log($"Loading from file {file}");

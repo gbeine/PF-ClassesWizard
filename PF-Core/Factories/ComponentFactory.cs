@@ -6,6 +6,7 @@ using Kingmaker.Designers.Mechanics.Facts;
 using Kingmaker.EntitySystem.Stats;
 using Kingmaker.Enums;
 using Kingmaker.UnitLogic.Abilities.Blueprints;
+using Kingmaker.UnitLogic.Buffs.Blueprints;
 using Kingmaker.UnitLogic.FactLogic;
 using Kingmaker.Utility;
 using PF_Core.Facades;
@@ -41,6 +42,17 @@ namespace PF_Core.Factories
             return addStatBonus;
         }
 
+        public Blindsense CreateBlindsense(int range, bool blindsight = false)
+        {
+            _logger.Debug($"Create Blindsense");
+            Blindsense blindsense = _library.Create<Blindsense>();
+            blindsense.Range = range.Feet();
+            blindsense.Blindsight = blindsight;
+
+            _logger.Debug($"DONE: Create Blindsense");
+            return blindsense;
+        }
+
         public BuffDescriptorImmunity CreateBuffDescriptorImmunity(SpellDescriptor spellDescriptor)
         {
             _logger.Debug($"Create BuffDescriptorImmunity {spellDescriptor}");
@@ -49,16 +61,6 @@ namespace PF_Core.Factories
 
             _logger.Debug($"DONE: Create BuffDescriptorImmunity {spellDescriptor}");
             return buffDescriptorImmunity;
-        }
-
-        public SpellImmunityToSpellDescriptor CreateSpellImmunityToSpellDescriptor(SpellDescriptor spellDescriptor)
-        {
-            _logger.Debug($"Create SpellImmunityToSpellDescriptor {spellDescriptor}");
-            SpellImmunityToSpellDescriptor spellImmunityToSpellDescriptor = _library.Create<SpellImmunityToSpellDescriptor>();
-            spellImmunityToSpellDescriptor.Descriptor = spellDescriptor;
-
-            _logger.Debug($"DONE: Create SpellImmunityToSpellDescriptor {spellDescriptor}");
-            return spellImmunityToSpellDescriptor;
         }
 
         public NoSelectionIfAlreadyHasFeature CreateNoSelectionIfAlreadyHasFeature(bool anyFeatureFromSelection)
@@ -73,17 +75,6 @@ namespace PF_Core.Factories
 
             _logger.Debug($"DONE: Create NoSelectionIfAlreadyHasFeature");
             return noSelectionIfAlreadyHasFeature;
-        }
-
-        public Blindsense CreateBlindsense(int range, bool blindsight = false)
-        {
-            _logger.Debug($"Create Blindsense");
-            Blindsense blindsense = _library.Create<Blindsense>();
-            blindsense.Range = range.Feet();
-            blindsense.Blindsight = blindsight;
-
-            _logger.Debug($"DONE: Create Blindsense");
-            return blindsense;
         }
 
         public PrerequisiteNoFeature CreatePrerequisiteNoFeature(BlueprintFeature feature)
@@ -106,6 +97,26 @@ namespace PF_Core.Factories
 
             _logger.Debug($"DONE: Create RemoveFeatureOnApply for {feature.name}");
             return removeFeatureOnApply;
+        }
+
+        public SpecificBuffImmunity CreateSpecificBuffImmunity(BlueprintBuff buff)
+        {
+            _logger.Debug($"Create SpecificBuffImmunity for {buff.name}");
+            SpecificBuffImmunity specificBuffImmunity = _library.Create<SpecificBuffImmunity>();
+            specificBuffImmunity.Buff = buff;
+
+            _logger.Debug($"DONE: Create SpecificBuffImmunity for {buff.name}");
+            return specificBuffImmunity;
+        }
+
+        public SpellImmunityToSpellDescriptor CreateSpellImmunityToSpellDescriptor(SpellDescriptor spellDescriptor)
+        {
+            _logger.Debug($"Create SpellImmunityToSpellDescriptor {spellDescriptor}");
+            SpellImmunityToSpellDescriptor spellImmunityToSpellDescriptor = _library.Create<SpellImmunityToSpellDescriptor>();
+            spellImmunityToSpellDescriptor.Descriptor = spellDescriptor;
+
+            _logger.Debug($"DONE: Create SpellImmunityToSpellDescriptor {spellDescriptor}");
+            return spellImmunityToSpellDescriptor;
         }
     }
 }

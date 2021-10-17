@@ -4,6 +4,7 @@ using System.Linq;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes;
 using Kingmaker.Blueprints.Classes.Spells;
+using Kingmaker.Enums;
 using Kingmaker.UnitLogic.Abilities.Blueprints;
 using Kingmaker.UnitLogic.Buffs.Blueprints;
 using PF_Classes.Identifier;
@@ -83,64 +84,87 @@ namespace PF_Classes.Transformations
 
         static ComponentFromJson()
         {
+            _logger.Debug($"Adding delegate: AddKnownSpell");
             createCharacterClassFunctionDelegates.Add("AddKnownSpell",
                 (component, characterClass) => _componentFactory.CreateAddKnownSpell(
                     getSpell(component.AsString("Spell")), characterClass, component.AsInt("SpellLevel")));
 
+            _logger.Debug($"Adding delegate: AddStatBonus");
             createFunctionDelegates.Add("AddStatBonus",
-                (component) => _componentFactory.CreateAddStatBonus(
+                component => _componentFactory.CreateAddStatBonus(
                     EnumParser.parseStatType(component.AsString("Stat")),
                     component.AsInt("Bonus"),
-                    EnumParser.parseModifierDescriptor(component.AsString("Descriptor"))));
+                    component.Exists("Descriptor")
+                        ? EnumParser.parseModifierDescriptor(component.AsString("Descriptor"))
+                        : ModifierDescriptor.UntypedStackable));
 
+            _logger.Debug($"Adding delegate: Blindsense");
             createFunctionDelegates.Add("Blindsense",
-                (component) => _componentFactory.CreateBlindsense(component.AsInt("Range")));
+                component => _componentFactory.CreateBlindsense(component.AsInt("Range")));
 
+            _logger.Debug($"Adding delegate: Blindsight");
             createFunctionDelegates.Add("Blindsight",
-                (component) => _componentFactory.CreateBlindsense(component.AsInt("Range"), true));
+                component => _componentFactory.CreateBlindsense(component.AsInt("Range"), true));
 
+            _logger.Debug($"Adding delegate: Blindsight");
             createFunctionDelegates.Add("BuffDescriptorImmunity",
                 (component) => _componentFactory.CreateBuffDescriptorImmunity(
                     EnumParser.parseSpellDescriptor(component.AsString("Descriptor"))));
 
+            _logger.Debug($"Adding delegate: NoSelectionIfAlreadyHasFeature");
             createFunctionDelegates.Add("NoSelectionIfAlreadyHasFeature",
                 (component) => _componentFactory.CreateNoSelectionIfAlreadyHasFeature(
                     component.AsBool("AnyFeatureFromSelection")));
 
+            _logger.Debug($"Adding delegate: PrerequisiteNoFeature");
             createFunctionDelegates.Add("PrerequisiteNoFeature",
                 (component) => _componentFactory.CreatePrerequisiteNoFeature(
                     _featuresRepository.GetFeature(
                         IdentifierLookup.INSTANCE.lookupFeature(component.AsString("Feature")))));
 
-            createFunctionDelegates.Add("SpellImmunityToSpellDescriptor",
-                (component) => _componentFactory.CreateSpellImmunityToSpellDescriptor(
-                    EnumParser.parseSpellDescriptor(component.AsString("Descriptor"))));
+            _logger.Debug($"Adding delegate: RemoveFeatureOnApply");
+            createFunctionDelegates.Add("RemoveFeatureOnApply",
+                component => _componentFactory.CreateRemoveFeatureOnApply(
+                    _featuresRepository.GetFeature(IdentifierLookup.INSTANCE.lookupFeature(component.AsString("Feature")))));
 
+            _logger.Debug($"Adding delegate: SpecificBuffImmunity");
+            createFunctionDelegates.Add("SpecificBuffImmunity",
+                component => _componentFactory.CreateSpecificBuffImmunity(
+                    _buffRepository.GetBuff(IdentifierLookup.INSTANCE.lookupBuff(component.AsString("Buff")))));
+
+            _logger.Debug($"Adding delegate: SpellImmunityToSpellDescriptor");
             createFunctionDelegates.Add("SpellImmunityToSpellDescriptor",
                 (component) => _componentFactory.CreateSpellImmunityToSpellDescriptor(
                     EnumParser.parseSpellDescriptor(component.AsString("Descriptor"))));
 
             // components from CallOfTheWild
 
+            _logger.Debug($"Adding delegate: AddOutgoingConcealment");
             createFunctionDelegates.Add("AddOutgoingConcealment",
                 (component) =>
                     _cotwComponentFactory.CreateAddOutgoingConcealment(component.AsInt("DistanceGreater")));
 
+            _logger.Debug($"Adding delegate: SetVisibilityLimit");
             createFunctionDelegates.Add("SetVisibilityLimit",
                 (component) =>
                     _cotwComponentFactory.CreateSetVisibilityLimit(component.AsInt("VisibilityLimit")));
 
+            _logger.Debug($"Adding delegate: Silence");
             createFunctionDelegates.Add("Silence",
                 (component) => _cotwComponentFactory.CreateSilence());
 
+            _logger.Debug($"Adding delegate: SpellFailureChance");
             createFunctionDelegates.Add("SpellFailureChance",
-                (component) => _cotwComponentFactory.CreateSpellFailureChance(
+                component => _cotwComponentFactory.CreateSpellFailureChance(
                     component.AsInt("Chance"), component.AsBool("IgnorePsychic")));
 
+            _logger.Debug($"Adding delegate: SpellFailureChance");
             createFunctionDelegates.Add("SuppressBuffsCorrect",
                 (component) =>
                     _cotwComponentFactory.CreateSuppressBuffsCorrect(
-                        component.Exists("Descriptor") ? EnumParser.parseSpellDescriptor(component.AsString("Descriptor")) : SpellDescriptor.None,
+                        component.Exists("Descriptor")
+                            ? EnumParser.parseSpellDescriptor(component.AsString("Descriptor"))
+                            : SpellDescriptor.None,
                         component.Exists("Buffs")
                             ? component.AsArray("Buffs")
                                 .Select(b => _buffRepository.GetBuff(IdentifierLookup.INSTANCE.lookupBuff(b)))
@@ -148,6 +172,7 @@ namespace PF_Classes.Transformations
                             : Array.Empty<BlueprintBuff>()
                     ));
 
+            _logger.Debug($"Adding delegate: WeaponsOnlyAttackBonus");
             createFunctionDelegates.Add("WeaponsOnlyAttackBonus",
                 (component) =>
                     _cotwComponentFactory.CreateWeaponsOnlyAttackBonus(component.AsInt("Bonus")));

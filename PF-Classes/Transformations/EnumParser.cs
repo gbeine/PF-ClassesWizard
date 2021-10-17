@@ -6,14 +6,18 @@ using Kingmaker.EntitySystem.Stats;
 using Kingmaker.Enums;
 using Kingmaker.RuleSystem;
 using Kingmaker.UnitLogic.Alignments;
+using PF_Core;
 using PF_Core.CallOfTheWild.AdditionalSpellDescriptors;
 
 namespace PF_Classes.Transformations
 {
     public class EnumParser
     {
+        private static readonly Logger _logger = Logger.INSTANCE;
+
         internal static DiceType parseDiceType(String value)
         {
+            _logger.Log($"Parsing DiceType from {value}");
             DiceType diceType;
             if (DiceType.TryParse(value, out diceType))
             {
@@ -25,6 +29,7 @@ namespace PF_Classes.Transformations
 
         internal static StatType parseStatType(String value)
         {
+            _logger.Log($"Parsing StatType from {value}");
             StatType statType;
             if (StatType.TryParse(value, out statType))
             {
@@ -40,6 +45,7 @@ namespace PF_Classes.Transformations
 
         internal static CantripsType parseCantripsType(String value)
         {
+            _logger.Log($"Parsing CantripsType from {value}");
             CantripsType cantripsType;
             if (CantripsType.TryParse(value, out cantripsType))
             {
@@ -51,6 +57,7 @@ namespace PF_Classes.Transformations
 
         internal static WeaponCategory parseWeaponCategory(String value)
         {
+            _logger.Log($"Parsing WeaponCategory from {value}");
             WeaponCategory weaponCategory;
             if (WeaponCategory.TryParse(value, out weaponCategory))
             {
@@ -62,6 +69,7 @@ namespace PF_Classes.Transformations
 
         internal static ArmorProficiencyGroup parseArmorProficiency(String value)
         {
+            _logger.Log($"Parsing ArmorProficiencyGroup from {value}");
             ArmorProficiencyGroup armorProficiency;
             if (ArmorProficiencyGroup.TryParse(value, out armorProficiency))
             {
@@ -73,6 +81,7 @@ namespace PF_Classes.Transformations
 
         internal static AlignmentMaskType parseAlignment(String value)
         {
+            _logger.Log($"Parsing AlignmentMaskType from {value}");
             AlignmentMaskType alignment;
             if (AlignmentMaskType.TryParse(value, out alignment))
             {
@@ -83,6 +92,7 @@ namespace PF_Classes.Transformations
         }
         internal static FeatureGroup parseFeatureGroup(String value)
         {
+            _logger.Log($"Parsing FeatureGroup from {value}");
             FeatureGroup featureGroup;
             if (FeatureGroup.TryParse(value, out featureGroup))
             {
@@ -94,6 +104,7 @@ namespace PF_Classes.Transformations
 
         internal static ModifierDescriptor parseModifierDescriptor(String value)
         {
+            _logger.Log($"Parsing ModifierDescriptor from {value}");
             ModifierDescriptor modifierDescriptor;
             if (ModifierDescriptor.TryParse(value, out modifierDescriptor))
             {
@@ -105,15 +116,18 @@ namespace PF_Classes.Transformations
 
         internal static SpellDescriptor parseSpellDescriptor(String value)
         {
+            _logger.Log($"Parsing SpellDescriptor from {value}");
             SpellDescriptor spellDescriptor;
             if (SpellDescriptor.TryParse(value, out spellDescriptor))
             {
                 return spellDescriptor;
             }
             // CallOfTheWild spell descriptors
-            if (ExtraSpellDescriptor.TryParse(value, out spellDescriptor))
+            _logger.Log($"Parsing ExtraSpellDescriptor from {value}");
+            ExtraSpellDescriptor extraSpellDescriptor;
+            if (ExtraSpellDescriptor.TryParse(value, out extraSpellDescriptor))
             {
-                return spellDescriptor;
+                return (SpellDescriptor)extraSpellDescriptor;
             }
             throw new InvalidOperationException($"Cannot parse spell descriptor type {value}");
         }

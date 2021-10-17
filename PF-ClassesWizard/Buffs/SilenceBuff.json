@@ -1,0 +1,26 @@
+{
+  "Name": "SilenceBuff",
+  "Guid": "15bcb5ad148d4b7b88558437b157b8a4",
+  "DisplayName": "Silence",
+  "Description": "Upon the casting of this spell, complete silence prevails in the affected area. All sound is stopped: Conversation is impossible, spells with verbal components cannot be cast, and no noise whatsoever issues from, enters, or passes through the area. Creatures in an area of a silence spell are immune to sonic or language-based attacks, spells, and effects.",
+  "Icon": "icon:AbilityIcons/Silence.png",
+  "Components": [
+    {
+      "Type": "Silence"
+    },
+    {
+      "Type": "SpellImmunityToSpellDescriptor",
+      "Descriptor": "Silence"
+    },
+    {
+      "Type": "SuppressBuffsCorrect",
+      "Descriptor": "Sonic"
+    },
+    {
+      "Type": "SuppressBuffsCorrect",
+      "Buffs": [
+        "ref:ECHOLOCATION"
+      ]
+    }
+  ]
+}

@@ -26,7 +26,9 @@ namespace PF_Classes.Transformations
             List<BlueprintComponent> components = new List<BlueprintComponent>();
             foreach (var component in buffData.Components)
             {
+                _logger.Debug($"Loading component {component.Type}");
                 components.Add(ComponentFromJson.GetComponent(component));
+                _logger.Debug($"DONE: Loading component {component.Type}");
             }
 
             buff.SetComponents(components.ToArray());
