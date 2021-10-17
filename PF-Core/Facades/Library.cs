@@ -5,6 +5,7 @@ using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes;
 using Kingmaker.Blueprints.Classes.Spells;
 using Kingmaker.UnitLogic.Abilities.Blueprints;
+using Kingmaker.UnitLogic.Buffs.Blueprints;
 using PF_Core.Extensions;
 using UnityEngine;
 
@@ -49,6 +50,7 @@ namespace PF_Core.Facades
         internal BlueprintSpellbook GetSpellbook(String assetId) => Get<BlueprintSpellbook>(assetId);
         internal BlueprintAbility GetAbility(String assetId) => Get<BlueprintAbility>(assetId);
         internal BlueprintStatProgression GetStatProgression(String assetId) => Get<BlueprintStatProgression>(assetId);
+        internal BlueprintBuff GetBuff(String assetId) => Get<BlueprintBuff>(assetId);
 
         internal T Get<T>(String assetId) where T : BlueprintScriptableObject
         {

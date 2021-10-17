@@ -5,7 +5,7 @@ using Kingmaker.UnitLogic;
 using Kingmaker.Utility;
 using Newtonsoft.Json;
 
-namespace PF_Core.CallOfTheWild.ConcealementMechanics
+namespace PF_Core.CallOfTheWild
 {
     public class AdditiveUnitPart : UnitPart
     {
