@@ -1,8 +1,11 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes;
+using Kingmaker.Blueprints.Classes.Spells;
 using Kingmaker.UnitLogic.Abilities.Blueprints;
+using Kingmaker.UnitLogic.Buffs.Blueprints;
 using PF_Classes.Identifier;
 using PF_Classes.JsonTypes;
 using PF_Core;
@@ -17,6 +20,7 @@ namespace PF_Classes.Transformations
 
         private static readonly FeaturesRepository _featuresRepository = FeaturesRepository.INSTANCE;
         private static readonly SpellbookRepository _spellbookRepository = SpellbookRepository.INSTANCE;
+        private static readonly BuffRepository _buffRepository = BuffRepository.INSTANCE;
 
         private static readonly ComponentFactory _componentFactory = new ComponentFactory();
 
@@ -28,9 +32,33 @@ namespace PF_Classes.Transformations
             _logger.Log($"Creating component from JSON data {componentData.Type}");
 
             BlueprintComponent component;
+            if (createCharacterClassFunctionDelegates.ContainsKey(componentData.Type))
+            {
+                component = createCharacterClassFunctionDelegates[componentData.Type](componentData, characterClass);
+            }
+            else if (createFunctionDelegates.ContainsKey(componentData.Type))
+            {
+                component = createFunctionDelegates[componentData.Type](componentData);
+            }
+            else
+            {
+                String message = $"Unknown component type {componentData.Type}";
+                _logger.Error(message);
+                throw new InvalidOperationException(message);
+            }
+
+            _logger.Log($"DONE: Creating component from JSON data {componentData.Type}");
+            return component;
+        }
+
+        public static BlueprintComponent GetComponent(Component componentData)
+        {
+            _logger.Log($"Creating component from JSON data {componentData.Type}");
+
+            BlueprintComponent component;
             if (createFunctionDelegates.ContainsKey(componentData.Type))
             {
-                component = createFunctionDelegates[componentData.Type](componentData, characterClass);
+                component = createFunctionDelegates[componentData.Type](componentData);
             }
             else
             {
@@ -47,61 +75,81 @@ namespace PF_Classes.Transformations
             _spellbookRepository.GetSpell(
                 IdentifierLookup.INSTANCE.lookupSpell(value));
 
-        private static readonly Dictionary<String, Func<Component, BlueprintCharacterClass, BlueprintComponent>> createFunctionDelegates =
+        private static readonly Dictionary<String, Func<Component, BlueprintComponent>> createFunctionDelegates =
+            new Dictionary<string, Func<Component, BlueprintComponent>>();
+
+        private static readonly Dictionary<String, Func<Component, BlueprintCharacterClass, BlueprintComponent>> createCharacterClassFunctionDelegates =
             new Dictionary<string, Func<Component, BlueprintCharacterClass, BlueprintComponent>>();
 
         static ComponentFromJson()
         {
-            createFunctionDelegates.Add("AddKnownSpell",
+            createCharacterClassFunctionDelegates.Add("AddKnownSpell",
                 (component, characterClass) => _componentFactory.CreateAddKnownSpell(
                     getSpell(component.AsString("Spell")), characterClass, component.AsInt("SpellLevel")));
 
             createFunctionDelegates.Add("AddStatBonus",
-                (component, characterClass) => _componentFactory.CreateAddStatBonus(
+                (component) => _componentFactory.CreateAddStatBonus(
                     EnumParser.parseStatType(component.AsString("Stat")),
                     component.AsInt("Bonus"),
                     EnumParser.parseModifierDescriptor(component.AsString("Descriptor"))));
 
-            createFunctionDelegates.Add("BuffDescriptorImmunity",
-                (component, characterClass) => _componentFactory.CreateBuffDescriptorImmunity(
-                    EnumParser.parseSpellDescriptor(component.AsString("Descriptor"))));
+            createFunctionDelegates.Add("Blindsense",
+                (component) => _componentFactory.CreateBlindsense(component.AsInt("Range")));
 
-            createFunctionDelegates.Add("SpellImmunityToSpellDescriptor",
-                (component, characterClass) => _componentFactory.CreateSpellImmunityToSpellDescriptor(
+            createFunctionDelegates.Add("Blindsight",
+                (component) => _componentFactory.CreateBlindsense(component.AsInt("Range"), true));
+
+            createFunctionDelegates.Add("BuffDescriptorImmunity",
+                (component) => _componentFactory.CreateBuffDescriptorImmunity(
                     EnumParser.parseSpellDescriptor(component.AsString("Descriptor"))));
 
             createFunctionDelegates.Add("NoSelectionIfAlreadyHasFeature",
-                (component, characterClass) => _componentFactory.CreateNoSelectionIfAlreadyHasFeature(
+                (component) => _componentFactory.CreateNoSelectionIfAlreadyHasFeature(
                     component.AsBool("AnyFeatureFromSelection")));
 
-            createFunctionDelegates.Add("Blindsense",
-                (component, characterClass) => _componentFactory.CreateBlindsense(component.AsInt("Range")));
-
-            createFunctionDelegates.Add("Blindsight",
-                (component, characterClass) => _componentFactory.CreateBlindsense(component.AsInt("Range"), true));
-
-            createFunctionDelegates.Add("RemoveFeatureOnApply",
-                (component, characterClass) => _componentFactory.CreateRemoveFeatureOnApply(
-                        _featuresRepository.GetFeature(
-                        IdentifierLookup.INSTANCE.lookupFeature(component.AsString("Feature")))));
-
             createFunctionDelegates.Add("PrerequisiteNoFeature",
-                (component, characterClass) => _componentFactory.CreatePrerequisiteNoFeature(
+                (component) => _componentFactory.CreatePrerequisiteNoFeature(
                     _featuresRepository.GetFeature(
                         IdentifierLookup.INSTANCE.lookupFeature(component.AsString("Feature")))));
 
+            createFunctionDelegates.Add("SpellImmunityToSpellDescriptor",
+                (component) => _componentFactory.CreateSpellImmunityToSpellDescriptor(
+                    EnumParser.parseSpellDescriptor(component.AsString("Descriptor"))));
+
+            createFunctionDelegates.Add("SpellImmunityToSpellDescriptor",
+                (component) => _componentFactory.CreateSpellImmunityToSpellDescriptor(
+                    EnumParser.parseSpellDescriptor(component.AsString("Descriptor"))));
+
             // components from CallOfTheWild
 
-            createFunctionDelegates.Add("SetVisibilityLimit",
-                (component, characterClass) =>
-                    _cotwComponentFactory.CreateSetVisibilityLimit(component.AsInt("VisibilityLimit")));
-
             createFunctionDelegates.Add("AddOutgoingConcealment",
-                (component, characterClass) =>
+                (component) =>
                     _cotwComponentFactory.CreateAddOutgoingConcealment(component.AsInt("DistanceGreater")));
 
+            createFunctionDelegates.Add("SetVisibilityLimit",
+                (component) =>
+                    _cotwComponentFactory.CreateSetVisibilityLimit(component.AsInt("VisibilityLimit")));
+
+            createFunctionDelegates.Add("Silence",
+                (component) => _cotwComponentFactory.CreateSilence());
+
+            createFunctionDelegates.Add("SpellFailureChance",
+                (component) => _cotwComponentFactory.CreateSpellFailureChance(
+                    component.AsInt("Chance"), component.AsBool("IgnorePsychic")));
+
+            createFunctionDelegates.Add("SuppressBuffsCorrect",
+                (component) =>
+                    _cotwComponentFactory.CreateSuppressBuffsCorrect(
+                        component.Exists("Descriptor") ? EnumParser.parseSpellDescriptor(component.AsString("Descriptor")) : SpellDescriptor.None,
+                        component.Exists("Buffs")
+                            ? component.AsArray("Buffs")
+                                .Select(b => _buffRepository.GetBuff(IdentifierLookup.INSTANCE.lookupBuff(b)))
+                                .ToArray()
+                            : Array.Empty<BlueprintBuff>()
+                    ));
+
             createFunctionDelegates.Add("WeaponsOnlyAttackBonus",
-                (component, characterClass) =>
+                (component) =>
                     _cotwComponentFactory.CreateWeaponsOnlyAttackBonus(component.AsInt("Bonus")));
         }
     }

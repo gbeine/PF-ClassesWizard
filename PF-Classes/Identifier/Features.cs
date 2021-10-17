@@ -95,6 +95,8 @@ namespace PF_Classes.Identifier
         public const String COMMON_FAVORITE_ENEMY_RANK_UP                                       = "c1be13839472aad46b152cf10cf46179"; // Erzfeind
         public const String COMMON_BLOODLINE_SELECTION                                          = "24bef8d1bee12274686f6da6ccbc8914"; // Blutlinie
 
+        public const String IMPROVED_INITIATIVE = "797f25d709f559546b29e7bcb181cc74"; // Verbesserte Initiative
+
         public const String ARCANE_SCHOOL_ILLUSION_BLINDING_RAY                                 = "9be5e050244352d43a1cb50aad8d548f"; // Blendender Strahl
         public const String ARCANE_SCHOOL_ILLUSION_INVISIBILITY_FIELD                           = "f0585eb111ede2c4ebf00b057d069463"; // Unsichtbarkeitsfeld
 

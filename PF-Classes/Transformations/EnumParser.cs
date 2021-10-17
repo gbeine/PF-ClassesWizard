@@ -6,6 +6,7 @@ using Kingmaker.EntitySystem.Stats;
 using Kingmaker.Enums;
 using Kingmaker.RuleSystem;
 using Kingmaker.UnitLogic.Alignments;
+using PF_Core.CallOfTheWild.AdditionalSpellDescriptors;
 
 namespace PF_Classes.Transformations
 {
@@ -109,7 +110,11 @@ namespace PF_Classes.Transformations
             {
                 return spellDescriptor;
             }
-
+            // CallOfTheWild spell descriptors
+            if (ExtraSpellDescriptor.TryParse(value, out spellDescriptor))
+            {
+                return spellDescriptor;
+            }
             throw new InvalidOperationException($"Cannot parse spell descriptor type {value}");
         }
     }

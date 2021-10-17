@@ -1,5 +1,6 @@
 using System;
 using PF_Classes.Identifier;
+using PF_Core;
 using PF_Core.Repositories;
 using UnityEngine;
 
@@ -38,6 +39,15 @@ namespace PF_Classes.Transformations
                 return _spellbookRepository.GetSpell(
                     _identifierLookup.lookupSpell(identifier)
                     ).Icon;
+            }
+
+            if (identifier.StartsWith("icon:"))
+            {
+                String fileName = identifier.Replace("icon:", "");
+                if (Image2Sprite.Exists(fileName))
+                {
+                    return Image2Sprite.Create(fileName);
+                }
             }
 
             return null;

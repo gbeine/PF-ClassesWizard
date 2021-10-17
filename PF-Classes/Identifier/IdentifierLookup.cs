@@ -19,6 +19,7 @@ namespace PF_Classes.Identifier
         internal String lookupFeature(String value) => performLookup(Features.INSTANCE, value);
         internal String lookupSpell(String value) => performLookup(Spells.INSTANCE, value);
         internal String lookupSpellbook(String value) => performLookup(Spellbooks.INSTANCE, value);
+        internal String lookupBuff(String value) => performLookup(Buffs.INSTANCE, value);
 
         internal bool existsCharacterClass(String value) => performExists(CharacterClasses.INSTANCE, value);
         internal bool existsFeature(String value) => performExists(Features.INSTANCE, value);
