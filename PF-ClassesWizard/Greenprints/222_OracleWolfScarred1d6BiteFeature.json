@@ -1,0 +1,11 @@
+{
+  "Name": "OracleWolfScarred1d6BiteFeature",
+  "Guid": "404b37055ff64dc7813d591dbde1ce5f",
+  "HideInUI": true,
+  "Components": [
+    {
+      "Type": "AddAdditionalLimb",
+      "Weapon": "ref:WEAPON_BITE_D6"
+    }
+  ]
+}

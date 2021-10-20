@@ -1,0 +1,17 @@
+{
+  "Name": "OracleCurse15Wasting",
+  "Guid": "2837309521ba4af8a8a7f76815a97330",
+  "DisplayName": "Immune to Nauseated",
+  "Description": "At 15th level, you are immune to the nauseated condition.",
+  "Icon": "ref:MERCY_NAUSEATED",
+  "Components":[
+    {
+      "Type": "AddConditionImmunity",
+      "Condition": "Nauseated"
+    },
+    {
+      "Type": "BuffDescriptorImmunity",
+      "Descriptor": "Nauseated"
+    }
+  ]
+}

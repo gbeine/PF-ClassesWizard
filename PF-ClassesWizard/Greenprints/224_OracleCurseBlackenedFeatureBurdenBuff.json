@@ -1,0 +1,11 @@
+{
+  "Name": "OracleCurseBlackenedFeatureBurdenBuff",
+  "Guid": "0e47cc60eaf3470d83cc561d301f751c",
+  "DisplayName": "Oracle's Burden: Blackened",
+  "Components": [
+    {
+      "Type": "AddFacts",
+      "Fact": "ref:OracleCurseBlackenedHindranceFeature"
+    }
+  ]
+}

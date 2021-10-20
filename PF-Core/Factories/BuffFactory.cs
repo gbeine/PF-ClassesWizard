@@ -10,8 +10,6 @@ namespace PF_Core.Factories
 {
     public class BuffFactory
     {
-        private static readonly Harmony.FastSetter blueprintBuff_set_AssetId = Harmony.CreateFieldSetter<BlueprintBuff>("m_AssetGuid");
-
         private static readonly Logger _logger = Logger.INSTANCE;
         private static readonly Library _library = Library.INSTANCE;
 
@@ -24,7 +22,7 @@ namespace PF_Core.Factories
         {
             _logger.Debug($"Create buff {name} with id {guid}");
             BlueprintBuff buff = _library.Create<BlueprintBuff>();
-            blueprintBuff_set_AssetId(buff, guid);
+            buff.SetAssetId(guid);
             buff.name = name;
             buff.SetNameDescriptionIcon(displayName,description,icon);
             buff.SetComponents(components);

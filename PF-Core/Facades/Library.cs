@@ -4,6 +4,7 @@ using System.Linq;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes;
 using Kingmaker.Blueprints.Classes.Spells;
+using Kingmaker.Blueprints.Items;
 using Kingmaker.UnitLogic.Abilities.Blueprints;
 using Kingmaker.UnitLogic.Buffs.Blueprints;
 using PF_Core.Extensions;
@@ -48,9 +49,13 @@ namespace PF_Core.Facades
         internal BlueprintArchetype GetArchetype(String assetId) => Get<BlueprintArchetype>(assetId);
         internal BlueprintFeature GetFeature(String assetId) => Get<BlueprintFeature>(assetId);
         internal BlueprintSpellbook GetSpellbook(String assetId) => Get<BlueprintSpellbook>(assetId);
+        internal BlueprintSpellList GetSpellList(String assetId) => Get<BlueprintSpellList>(assetId);
         internal BlueprintAbility GetAbility(String assetId) => Get<BlueprintAbility>(assetId);
         internal BlueprintStatProgression GetStatProgression(String assetId) => Get<BlueprintStatProgression>(assetId);
         internal BlueprintBuff GetBuff(String assetId) => Get<BlueprintBuff>(assetId);
+        internal BlueprintItem GetItem(String assetId) => Get<BlueprintItem>(assetId);
+        internal BlueprintProgression GetProgression(String assetId) => Get<BlueprintProgression>(assetId);
+        internal BlueprintAbilityAreaEffect GetAreaEffect(String assetId) => Get<BlueprintAbilityAreaEffect>(assetId);
 
         internal T Get<T>(String assetId) where T : BlueprintScriptableObject
         {

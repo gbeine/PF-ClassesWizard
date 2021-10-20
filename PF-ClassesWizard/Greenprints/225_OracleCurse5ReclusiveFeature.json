@@ -1,0 +1,13 @@
+{
+  "Name": "OracleCurse5Reclusive",
+  "Guid": "7946a1207f0e411291d7a46efb819310",
+  "DisplayName": "Reclusive",
+  "Description": "At 5th level, any spells you cast only on yourself affect you as if they were modified by the Extend Spell feat. This does not increase their level or casting time.",
+  "Icon": "ref:METAMAGIC_EXTEND_SPELL_FEAT",
+  "Components":[
+    {
+      "Type": "ApplyMetamagicToPersonalSpell",
+      "Metamagic": "Extend"
+    }
+  ]
+}

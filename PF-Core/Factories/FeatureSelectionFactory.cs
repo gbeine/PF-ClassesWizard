@@ -8,8 +8,6 @@ namespace PF_Core.Factories
 {
     public class FeatureSelectionFactory
     {
-        private static readonly Harmony.FastSetter blueprintFeatureSelection_set_AssetId = Harmony.CreateFieldSetter<BlueprintFeatureSelection>("m_AssetGuid");
-
         private static readonly Logger _logger = Logger.INSTANCE;
         private static readonly Library _library = Library.INSTANCE;
 
@@ -18,7 +16,7 @@ namespace PF_Core.Factories
             _logger.Debug($"Create feature selection {name} with id {guid}");
 
             BlueprintFeatureSelection selection = _library.Create<BlueprintFeatureSelection>();
-            blueprintFeatureSelection_set_AssetId(selection, guid);
+            selection.SetAssetId(guid);
             selection.name = name;
 
             _library.Add(selection);
@@ -32,13 +30,14 @@ namespace PF_Core.Factories
 
         public BlueprintFeatureSelection CreateFeatureSelection(String name, String guid, String displayName, String description, FeatureGroup group, params BlueprintFeature[] features)
         {
-            _logger.Debug($"Create feature selection for {guid}");
+            _logger.Debug($"Create feature selection {name} with id {guid}");
+
             BlueprintFeatureSelection selection = CreateFeatureSelection(name, guid);
             selection.SetNameDescription(displayName, description);
             selection.Group = group;
             selection.AllFeatures = features;
 
-            _logger.Debug($"DONE: Create feature selection for {guid}");
+            _logger.Debug($"DONE: Create feature selection {name} with id {guid}");
             return selection;
         }
 

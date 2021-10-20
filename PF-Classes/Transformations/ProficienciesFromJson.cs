@@ -3,19 +3,13 @@ using System.Linq;
 using Kingmaker.Blueprints.Classes;
 using PF_Classes.Identifier;
 using PF_Classes.JsonTypes;
-using PF_Core;
 using PF_Core.Extensions;
 using PF_Core.Factories;
-using PF_Core.Repositories;
 
 namespace PF_Classes.Transformations
 {
-    public class ProficienciesFromJson
+    public class ProficienciesFromJson : JsonTransformation
     {
-        private static readonly Logger _logger = Logger.INSTANCE;
-
-        private static readonly FeaturesRepository _featuresRepository = FeaturesRepository.INSTANCE;
-
         private static readonly FeatureFactory _featureFactory = new FeatureFactory();
 
         public static BlueprintFeature GetProficiencies(Proficiencies proficienciesData)

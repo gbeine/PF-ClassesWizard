@@ -3,19 +3,13 @@ using Kingmaker.Blueprints.Classes.Spells;
 using Kingmaker.UnitLogic.Abilities.Blueprints;
 using PF_Classes.Identifier;
 using PF_Classes.JsonTypes;
-using PF_Core;
 using PF_Core.Factories;
-using PF_Core.Repositories;
 
 namespace PF_Classes.Transformations
 {
-    public class SpellListFromJson
+    public class SpellListFromJson : JsonTransformation
     {
-        private static readonly Logger _logger = Logger.INSTANCE;
-
-        private static readonly SpellbookRepository _spellbookRepository = SpellbookRepository.INSTANCE;
-
-        private static readonly SpellbookFactory _spellbookFactory = new SpellbookFactory();
+        private static readonly SpellbookFactory _spellbookFactory = SpellbookFactory.INSTANCE;
 
         public static BlueprintSpellList GetSpellList(SpellList spellListData)
         {
@@ -41,6 +35,6 @@ namespace PF_Classes.Transformations
 
         private static BlueprintAbility getSpell(String value) =>
             _spellbookRepository.GetSpell(
-                IdentifierLookup.INSTANCE.lookupSpell(value));
+                _identifierLookup.lookupSpell(value));
     }
 }

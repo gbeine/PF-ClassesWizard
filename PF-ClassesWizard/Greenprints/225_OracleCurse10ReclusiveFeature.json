@@ -1,0 +1,19 @@
+{
+  "Name": "OracleCurse10Reclusive",
+  "Guid": "536872334f954d52bc6df252bca354b0",
+  "DisplayName": "Reclusive",
+  "Description": "At 10th level, you are immune to charm spells and spell-like abilities.",
+  "Icon": "ref:ENCHANTMENT_MIND_FOG",
+  "Components":[
+    {
+      "Type": "BuffDescriptorImmunity",
+      "Descriptor": "Charm"
+    },
+    {
+      "Type": "SpellImmunityToSpellDescriptor",
+      "Descriptor": [
+        "Charm"
+      ]
+    }
+  ]
+}

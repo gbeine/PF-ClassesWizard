@@ -1,0 +1,17 @@
+{
+  "Name": "OracleCurse5Lame",
+  "Guid": "1d7f38fd30064b0986cc379552d9ae45",
+  "DisplayName": "Immune to Fatigue",
+  "Description": "At 5th level, you are immune to the fatigued condition (but not exhaustion).",
+  "Icon": "ref:MERCY_FATIGUED",
+  "Components":[
+    {
+      "Type": "AddConditionImmunity",
+      "Condition": "Fatigued"
+    },
+    {
+      "Type": "BuffDescriptorImmunity",
+      "Descriptor": "Fatigue"
+    }
+  ]
+}

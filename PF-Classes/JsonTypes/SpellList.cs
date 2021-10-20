@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using Newtonsoft.Json.Linq;
@@ -19,11 +18,11 @@ namespace PF_Classes.JsonTypes
             for (int i = 0; i < jSpellsByLevel.Count; i++)
             {
                 JArray jSpells = jSpellsByLevel.SelectToken(i.ToString(), true).Value<JArray>();
-                SpellsByLevel.Add(jSpells.Values<String>().ToList());
+                SpellsByLevel.Add(jSpells.Values<string>().ToList());
             }
         }
 
         public int Level { get; }
-        public List<List<String>> SpellsByLevel { get; }
+        public List<List<string>> SpellsByLevel { get; }
     }
 }

@@ -1,0 +1,13 @@
+{
+  "Name": "OracleCurseWasting",
+  "Guid": "968610e2e5b44adbaef759ccb06b84c6",
+  "From": "loc:OracleCurseWastingHindranceFeature",
+  "Components":[
+    {
+      "Type": "SavingThrowBonusAgainstDescriptor",
+      "Value": 4,
+      "ModifierDescriptor": "Competence",
+      "SpellDescriptor": "Disease"
+    }
+  ]
+}

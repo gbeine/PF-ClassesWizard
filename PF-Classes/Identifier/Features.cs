@@ -118,6 +118,24 @@ namespace PF_Classes.Identifier
         public const String ARCANE_SCHOOL_OPPOSED_TRANSMUTATION                                 = "fc519612a3c604446888bb345bca5234"; // Gegensätzliche Schule – Verwandlung
         public const String ARCANE_SCHOOL_SPECIAL_UNIVERSALIST                                  = ""; // Spezialisierte Schule – Universalist
 
+        public const String METAMAGIC_EXTEND_SPELL_FEAT = "f180e72e4a9cbaa4da8be9bc958132ef"; // Metamagie (Zauber ausdehnen)
+
+        public const String MERCY_BLINDED    = "23c3fb906c6346440b4e7d92fc25319b"; // Gnade – Blind
+        public const String MERCY_CONFUSED   = "d306e052d2f85b24cb5082951459045e"; // Gnade – Verwirrt
+        public const String MERCY_CURSED     = "445c696bead5140459909ffbed14750e"; // Gnade – Verflucht
+        public const String MERCY_DAZED      = "7df9329013baaec4fac20ae08bc1f849"; // Gnade – Benommenheit
+        public const String MERCY_DISEASED   = "3990a92ce97efa3439e55c160412ce14"; // Gnade – Krank
+        public const String MERCY_EXHAUSTED  = "25641bda25467224e930e8c70eaf9a83"; // Gnade – Entkräftet
+        public const String MERCY_FATIGUED   = "e5aa306af9b91974a9b2f2cbe702f562"; // Gnade – Erschöpft
+        public const String MERCY_FRIGHTENED = "7687aa3764cb651448a50016e1758069"; // Gnade – Verängstigt
+        public const String MERCY_NAUSEATED  = "a0cacf71d872d2a42ae3deb6bf977962"; // Gnade – Übelkeit
+        public const String MERCY_PARALYZED  = "62582b4636218d74db34606f872c9c05"; // Gnade – Gelähmt
+        public const String MERCY_POISONED   = "19f936eb38c3d224988e2a02cbe12878"; // Gnade – Vergiftet
+        public const String MERCY_SHAKEN     = "c4732ca5b0af7214a98f9b4dafe87da9"; // Gnade – Erschüttert
+        public const String MERCY_SICKENED   = "7ee2ef06226a4884f80b7647a2aa2dee"; // Gnade – Kränkelnd
+        public const String MERCY_STAGGERED  = "19250e5a12db1fc448970b81e0f38922"; // Gnade – Wankend
+        public const String MERCY_STUNNED    = "7775c915661f8fb449c38dd873524389"; // Gnade – Betäubt
+
         // Features by classes
         public const String ALCHEMNIST_PROFICIENCIES                        = "a1a8971f48a829d4683097f8b14e41c8"; // Alchemisten-Kenntnisse
         public const String ALCHEMNIST_OMBS_FEATURE                         = "c59b2f256f5a70a4d896568658315b7d"; // Bombe

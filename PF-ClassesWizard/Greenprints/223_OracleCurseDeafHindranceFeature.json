@@ -1,0 +1,39 @@
+{
+  "Name": "OracleCurseDeafHindranceFeature",
+  "Guid": "44e0713ec0c34124982adfe65ccac49e",
+  "DisplayName": "Deaf",
+  "Description": "You cannot hear and suffer all of the usual penalties for being deafened: -4 penalty on initiative and -4 perception. It does not affect your ability to cast spells.",
+  "Icon": "ref:EVOCATION_SOUND_BURST",
+  "Components":[
+    {
+      "Type": "AddStatBonus",
+      "Stat": "Initiative",
+      "Bonus": -4,
+      "Descriptor": "UntypedStackable"
+    },
+    {
+      "Type": "AddStatBonus",
+      "Stat": "Perception",
+      "Bonus": -4,
+      "Descriptor": "UntypedStackable"
+    },
+    {
+      "Type": "SpellImmunityToSpellDescriptor",
+      "Descriptor": [
+        "LanguageDependent"
+      ]
+    },
+    {
+      "Type": "SpecificBuffImmunity",
+      "Buff": "loc:DeafenedBuff"
+    },
+    {
+      "Type": "SpecificBuffImmunity",
+      "Buff": "loc:SilenceBuff"
+    },
+    {
+      "Type": "SpecificBuffImmunity",
+      "Buff": "ref:ECHOLOCATION"
+    }
+  ]
+}

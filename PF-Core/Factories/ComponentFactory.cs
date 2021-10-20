@@ -1,4 +1,5 @@
 using System;
+using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes;
 using Kingmaker.Blueprints.Classes.Prerequisites;
 using Kingmaker.Blueprints.Classes.Spells;
@@ -6,9 +7,13 @@ using Kingmaker.Designers.Mechanics.Facts;
 using Kingmaker.EntitySystem.Stats;
 using Kingmaker.Enums;
 using Kingmaker.UnitLogic.Abilities.Blueprints;
+using Kingmaker.UnitLogic.Abilities.Components;
 using Kingmaker.UnitLogic.Buffs.Blueprints;
 using Kingmaker.UnitLogic.FactLogic;
+using Kingmaker.UnitLogic.Mechanics.Components;
+using Kingmaker.UnitLogic.Mechanics.Properties;
 using Kingmaker.Utility;
+using PF_Core.Extensions;
 using PF_Core.Facades;
 
 namespace PF_Core.Factories
@@ -18,105 +23,31 @@ namespace PF_Core.Factories
         private static readonly Logger _logger = Logger.INSTANCE;
         private static readonly Library _library = Library.INSTANCE;
 
-        public AddKnownSpell CreateAddKnownSpell(BlueprintAbility spell, BlueprintCharacterClass characterClass, int level)
-        {
-            _logger.Debug($"Create AddKnownSpell for {spell.name}");
-            AddKnownSpell addKnownSpell = _library.Create<AddKnownSpell>();
-            addKnownSpell.Spell = spell;
-            addKnownSpell.SpellLevel = level;
-            addKnownSpell.CharacterClass = characterClass;
+        private static readonly ComponentFactory __instance = new ComponentFactory();
 
-            _logger.Debug($"DONE: Create AddKnownSpell for {spell.name}");
-            return addKnownSpell;
+        private ComponentFactory() { }
+
+        public static ComponentFactory INSTANCE
+        {
+            get { return __instance;  }
         }
 
-        public AddStatBonus CreateAddStatBonus(StatType statType, int value, ModifierDescriptor descriptor)
+        public T CreateComponent<T>(Action<T> init) where T : BlueprintComponent
         {
-            _logger.Debug($"Create AddStatBonus");
-            AddStatBonus addStatBonus = _library.Create<AddStatBonus>();
-            addStatBonus.Stat = statType;
-            addStatBonus.Value = value;
-            addStatBonus.Descriptor = descriptor;
+            _logger.Debug($"Create Component for {typeof(T)}");
+            T component = _library.Create<T>(init);
 
-            _logger.Debug($"DONE: Create AddStatBonus");
-            return addStatBonus;
+            _logger.Debug($"DONE: Create Component for {typeof(T)}");
+            return component;
         }
 
-        public Blindsense CreateBlindsense(int range, bool blindsight = false)
+        public T CreateComponent<T>() where T : BlueprintComponent
         {
-            _logger.Debug($"Create Blindsense");
-            Blindsense blindsense = _library.Create<Blindsense>();
-            blindsense.Range = range.Feet();
-            blindsense.Blindsight = blindsight;
+            _logger.Debug($"Create Component for {typeof(T)}");
+            T component = _library.Create<T>();
 
-            _logger.Debug($"DONE: Create Blindsense");
-            return blindsense;
-        }
-
-        public BuffDescriptorImmunity CreateBuffDescriptorImmunity(SpellDescriptor spellDescriptor)
-        {
-            _logger.Debug($"Create BuffDescriptorImmunity {spellDescriptor}");
-            BuffDescriptorImmunity buffDescriptorImmunity = _library.Create<BuffDescriptorImmunity>();
-            buffDescriptorImmunity.Descriptor = spellDescriptor;
-
-            _logger.Debug($"DONE: Create BuffDescriptorImmunity {spellDescriptor}");
-            return buffDescriptorImmunity;
-        }
-
-        public NoSelectionIfAlreadyHasFeature CreateNoSelectionIfAlreadyHasFeature(bool anyFeatureFromSelection)
-        {
-            _logger.Debug($"Create NoSelectionIfAlreadyHasFeature");
-            NoSelectionIfAlreadyHasFeature noSelectionIfAlreadyHasFeature =
-                _library.Create<NoSelectionIfAlreadyHasFeature>(n =>
-                    {
-                        n.AnyFeatureFromSelection = anyFeatureFromSelection;
-                        n.Features = Array.Empty<BlueprintFeature>();
-                    });
-
-            _logger.Debug($"DONE: Create NoSelectionIfAlreadyHasFeature");
-            return noSelectionIfAlreadyHasFeature;
-        }
-
-        public PrerequisiteNoFeature CreatePrerequisiteNoFeature(BlueprintFeature feature)
-        {
-            _logger.Debug($"Create PrerequisiteNoFeature");
-            PrerequisiteNoFeature prerequisiteNoFeature = _library.Create<PrerequisiteNoFeature>();
-            prerequisiteNoFeature.Feature = feature;
-            prerequisiteNoFeature.Group = Prerequisite.GroupType.All;
-
-            _logger.Debug($"DONE: Create PrerequisiteNoFeature");
-            return prerequisiteNoFeature;
-
-        }
-
-        public RemoveFeatureOnApply CreateRemoveFeatureOnApply(BlueprintFeature feature)
-        {
-            _logger.Debug($"Create RemoveFeatureOnApply for {feature.name}");
-            RemoveFeatureOnApply removeFeatureOnApply = _library.Create<RemoveFeatureOnApply>();
-            removeFeatureOnApply.Feature = feature;
-
-            _logger.Debug($"DONE: Create RemoveFeatureOnApply for {feature.name}");
-            return removeFeatureOnApply;
-        }
-
-        public SpecificBuffImmunity CreateSpecificBuffImmunity(BlueprintBuff buff)
-        {
-            _logger.Debug($"Create SpecificBuffImmunity for {buff.name}");
-            SpecificBuffImmunity specificBuffImmunity = _library.Create<SpecificBuffImmunity>();
-            specificBuffImmunity.Buff = buff;
-
-            _logger.Debug($"DONE: Create SpecificBuffImmunity for {buff.name}");
-            return specificBuffImmunity;
-        }
-
-        public SpellImmunityToSpellDescriptor CreateSpellImmunityToSpellDescriptor(SpellDescriptor spellDescriptor)
-        {
-            _logger.Debug($"Create SpellImmunityToSpellDescriptor {spellDescriptor}");
-            SpellImmunityToSpellDescriptor spellImmunityToSpellDescriptor = _library.Create<SpellImmunityToSpellDescriptor>();
-            spellImmunityToSpellDescriptor.Descriptor = spellDescriptor;
-
-            _logger.Debug($"DONE: Create SpellImmunityToSpellDescriptor {spellDescriptor}");
-            return spellImmunityToSpellDescriptor;
+            _logger.Debug($"DONE: Create Component for {typeof(T)}");
+            return component;
         }
     }
 }

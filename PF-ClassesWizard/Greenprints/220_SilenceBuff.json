@@ -10,7 +10,10 @@
     },
     {
       "Type": "SpellImmunityToSpellDescriptor",
-      "Descriptor": "Silence"
+      "Descriptor": [
+        "Silence",
+        "LanguageDependent"
+      ]
     },
     {
       "Type": "SuppressBuffsCorrect",

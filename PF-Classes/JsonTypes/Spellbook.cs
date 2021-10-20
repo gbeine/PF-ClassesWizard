@@ -1,4 +1,3 @@
-using System;
 using Newtonsoft.Json.Linq;
 
 namespace PF_Classes.JsonTypes
@@ -7,14 +6,19 @@ namespace PF_Classes.JsonTypes
     {
         public Spellbook(JObject jObject) : base(jObject)
         {
-            CastingAttribute = jObject.SelectToken("CastingAttribute", true).Value<String>();
+            CastingAttribute = jObject.SelectToken("CastingAttribute", true).Value<string>();
+            DisplayName = SelectString(jObject, "DisplayName");
+            Description = SelectString(jObject, "Description", DisplayName);
+            Icon = SelectString(jObject, "Icon");
+            From = SelectString(jObject, "From");
+            CharacterClass = SelectString(jObject, "CharacterClass");
 
-            IsArcane = SelectBool(jObject, "IsArcane", false);
-            IsSpontaneous = SelectBool(jObject, "IsSpontaneous", false);
-            CanCopyScrolls = SelectBool(jObject, "CanCopyScrolls", false);
-            AllSpellsKnown = SelectBool(jObject, "AllSpellsKnown", false);
+            IsArcane = SelectBool(jObject, "IsArcane");
+            IsSpontaneous = SelectBool(jObject, "IsSpontaneous");
+            CanCopyScrolls = SelectBool(jObject, "CanCopyScrolls");
+            AllSpellsKnown = SelectBool(jObject, "AllSpellsKnown");
 
-            Cantrips = SelectString(jObject, "Cantrips", "Cantrips");
+            Cantrips = SelectString(jObject, "Cantrips");
             SpellsPerLevel = SelectInt(jObject, "SpellsPerLevel");
             CasterLevelModifier = SelectInt(jObject, "CasterLevelModifier");
 
@@ -30,18 +34,18 @@ namespace PF_Classes.JsonTypes
             {
                 if (jSpellsKnown.Type == JTokenType.String)
                 {
-                    SpellsKnown = jSpellsKnown.Value<String>();
+                    SpellsKnown = jSpellsKnown.Value<string>();
                     SpellsKnownDefinition = null;
                 }
                 else
                 {
-                    SpellsKnown = String.Empty;
+                    SpellsKnown = string.Empty;
                     SpellsKnownDefinition = new SpellsTable(jSpellsKnown.Value<JObject>());
                 }
             }
             else
             {
-                SpellsKnown = String.Empty;
+                SpellsKnown = string.Empty;
                 SpellsKnownDefinition = null;
             }
         }
@@ -51,7 +55,7 @@ namespace PF_Classes.JsonTypes
             JToken jSpellsPerDay = jObject.SelectToken("SpellsPerDay", true);
             if (jSpellsPerDay.Type == JTokenType.String)
             {
-                SpellsPerDay = jSpellsPerDay.Value<String>();
+                SpellsPerDay = jSpellsPerDay.Value<string>();
                 SpellsPerDayDefinition = null;
             }
             else
@@ -66,7 +70,7 @@ namespace PF_Classes.JsonTypes
             JToken jSpellList = jObject.SelectToken("SpellList", true);
             if (jSpellList.Type == JTokenType.String)
             {
-                SpellList = jSpellList.Value<String>();
+                SpellList = jSpellList.Value<string>();
                 SpellListDefinition = null;
             }
             else
@@ -76,17 +80,22 @@ namespace PF_Classes.JsonTypes
             }
         }
 
-        public bool IsArcane { get; }
-        public bool IsSpontaneous { get; }
-        public bool CanCopyScrolls { get; }
-        public bool AllSpellsKnown { get; }
+        public bool? IsArcane { get; }
+        public bool? IsSpontaneous { get; }
+        public bool? CanCopyScrolls { get; }
+        public bool? AllSpellsKnown { get; }
+        public string DisplayName { get; }
+        public string Description { get; }
+        public string From { get; }
+        public string Icon { get; }
+        public string CharacterClass { get; }
         public string CastingAttribute { get; }
         public string Cantrips { get; }
         public string SpellList { get; private set; }
         public string SpellsKnown { get; private set; }
         public string SpellsPerDay { get; private set; }
-        public int SpellsPerLevel { get; }
-        public int CasterLevelModifier { get; }
+        public int? SpellsPerLevel { get; }
+        public int? CasterLevelModifier { get; }
         public bool HasSpellListDefinition { get { return SpellListDefinition != null; } }
         public bool HasSpellsPerDayDefinition { get { return SpellsPerDayDefinition != null; } }
         public bool HasSpellsKnownDefinition { get { return SpellsKnownDefinition != null; } }

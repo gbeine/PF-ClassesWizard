@@ -31,7 +31,9 @@
     },
     {
       "Type": "SpellImmunityToSpellDescriptor",
-      "Descriptor": "LanguageDependent"
+      "Descriptor": [
+        "LanguageDependent"
+      ]
     }
   ]
 }

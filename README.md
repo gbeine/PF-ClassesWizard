@@ -119,6 +119,8 @@ This UiGroups definition will show the ROGUE_TALENT_SELECTION as one row and in 
 | IsSpontaneous            | false    | true                               | Default: false; Determine if the character can cast spontaneoulsy |
 | CanCopyScrolls           | false    | true                               | Default: false; Determine if the character can copy scrolls |
 | AllSpellsKnown           | false    | true                               | Default: false; Determine if the character has access to all spells in the spellbook. Do not use with a SpellsKnown table |
+| SpellsPerLevel           | false    | 5                                  | Default: 0; #GBTODO What does this tell us? |
+| CasterLevelModifier      | false    | 5                                  | Default: 0; #GBTODO What does this tell us? |
 | Cantrips                 | false    | "Orisions"                         | Default: "Cantrips"; The type of cantrips in this book, one of "Orisions" or "Cantrips" |
 | SpellList                | true     | See below                          | See below |
 | SpellsPerDay             | true     | See below                          | See below |
@@ -336,3 +338,16 @@ Possible values: Bardiche, BastardSword, Battleaxe, Bite, Bomb, Claw, Club, Dagg
 ### Armor Identifiers
 
 Possible values: Light, Medium, Heavy, Buckler, LightShield, HeavyShield, TowerShield
+
+## JSON Structure for Feature
+
+### Feature Selection JSON Structure
+
+| Key          | Required | Example                                   | Description |
+|--------------|----------|-------------------------------------------|-------------|
+| Guid         | true     | "b4c9164ec94a47589eeb2a6688b24320"        | A 32 feature selection GUID |
+| Name         | true     | "OracleCurseSelection"                    | The name of the feature selection class, used internally |
+| DisplayName  | true     | "Curse"                                   | The name of the feature selection that is shown to the users |
+| Description  | false    | "Each oracle is cursed - OMG!"            | The description of the feature selection, if not defined DisplayName is used |
+| Icon         | false    | "ref:ARCANE_SCHOOL_ILLUSION_BLINDING_RAY" | Default: nothing; Icon representation of the feature selection, taken from another feature. Use "ref:<IDENTIFIER>" where <IDENTIFIER> is one of the feature identifiers |
+| FeatureGroup | false    | "UpdateLevelUpDeterminatorText"           | Default: None; Quite an hack, don't use it -- please! |

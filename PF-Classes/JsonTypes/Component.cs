@@ -4,44 +4,13 @@ using Newtonsoft.Json.Linq;
 
 namespace PF_Classes.JsonTypes
 {
-    public class Component
+    public class Component : JsonDynamicType
     {
-        private Dictionary<string, JToken> values = new Dictionary<string, JToken>();
-
-        public Component(JObject jObject)
+        public Component(JObject jObject) : base(jObject)
         {
-            Type = jObject.SelectToken("Type", true).Value<String>();
-            foreach (var entry in jObject)
-            {
-                values[entry.Key] = entry.Value;
-            }
+            Type = jObject.SelectToken("Type", true).Value<string>();
         }
 
         public string Type { get; }
-
-        public bool Exists(string key)
-        {
-            return values.ContainsKey(key);
-        }
-
-        public IEnumerable<string> AsArray(string key)
-        {
-            return values[key].Values<string>();
-        }
-
-        public bool AsBool(string key)
-        {
-            return values[key].Value<bool>();
-        }
-
-        public int AsInt(string key)
-        {
-            return values[key].Value<int>();
-        }
-
-        public string AsString(string key)
-        {
-            return values[key].Value<String>();
-        }
     }
 }

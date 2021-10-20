@@ -10,7 +10,6 @@ namespace PF_Classes.JsonTypes
         public Feature(JObject jObject) : base(jObject)
         {
             SelectComponents(jObject);
-            SelectProgression(jObject);
 
             DisplayName = SelectString(jObject, "DisplayName");
             Icon = SelectString(jObject, "Icon");
@@ -18,20 +17,7 @@ namespace PF_Classes.JsonTypes
             Description = SelectString(jObject, "Description", DisplayName);
             FeatureGroup = SelectString(jObject, "FeatureGroup", "None");
             ReapplyOnLevelUp = SelectBool(jObject, "ReapplyOnLevelUp", false);
-        }
-
-        private void SelectProgression(JObject jObject)
-        {
-            JToken jProgression = jObject.SelectToken("Progression");
-            if (jProgression == null)
-            {
-                IsProgression = false;
-            }
-            else
-            {
-                IsProgression = true;
-                Progression = new Progression(jObject);
-            }
+            HideInUI = SelectBool(jObject, "HideInUI", false);
         }
 
         private void SelectComponents(JObject jObject)
@@ -56,9 +42,8 @@ namespace PF_Classes.JsonTypes
         public string Icon { get; }
         public string FeatureGroup { get; }
         public string From { get; }
-        public bool ReapplyOnLevelUp { get; }
-        public bool IsProgression { get; private set; }
-        public Progression Progression { get; private set; }
+        public bool? ReapplyOnLevelUp { get; }
+        public bool? HideInUI { get; }
         public List<Component> Components { get; private set; }
     }
 }

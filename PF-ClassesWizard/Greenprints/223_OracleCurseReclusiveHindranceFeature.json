@@ -1,0 +1,12 @@
+{
+  "Name": "OracleCurseReclusiveHindranceFeature",
+  "Guid": "44e0713ec0c34124982adfe65ccac49e",
+  "DisplayName": "Reclusive",
+  "Description": "You must attempt saving throws to resist all spells cast by anyone other than yourself, even those cast by allies. Spells you cast only on yourself affect you as though your caster level were 1 higher.",
+  "Icon": "icon:AbilityIcons/FogCloud.png",
+  "Components":[
+    {
+      "Type": "SaveAgainstHarmlessSpells"
+    }
+  ]
+}

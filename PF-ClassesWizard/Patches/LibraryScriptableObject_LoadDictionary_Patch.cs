@@ -19,7 +19,7 @@ namespace PF_ClassesWizard.Patches
             Dumper.Dump(__instance);
 
             Library library = new Library(__instance);
-            Loader.init();
+            GreenprintsLoader.init();
 
             _logger.Log("DONE: Patching library");
         }

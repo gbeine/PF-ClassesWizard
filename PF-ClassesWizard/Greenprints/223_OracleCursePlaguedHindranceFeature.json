@@ -1,0 +1,15 @@
+{
+  "Name": "OracleCursePlaguedHindranceFeature",
+  "Guid": "e0164c286ad144fbb34959fbcef68dd9",
+  "DisplayName": "Plagued",
+  "Description": "You take a –1 penalty on all saving throws against disease effects, but you are immune to the sickened condition.",
+  "Icon": "ref:SICKENED",
+  "Components":[
+    {
+      "Type": "SavingThrowBonusAgainstDescriptor",
+      "Bonus": -1,
+      "ModifierDescriptor": "UntypedStackable",
+      "SpellDescriptor": "Disease"
+    }
+  ]
+}

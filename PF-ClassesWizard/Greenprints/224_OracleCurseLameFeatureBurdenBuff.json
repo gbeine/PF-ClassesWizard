@@ -1,0 +1,11 @@
+{
+  "Name": "OracleCurseLameFeatureBurdenBuff",
+  "Guid": "332d378e8f634e7aa6312214cc32c8ab",
+  "DisplayName": "Oracle's Burden: Lame",
+  "Components": [
+    {
+      "Type": "AddFacts",
+      "Fact": "ref:OracleCurseLameHindranceFeature"
+    }
+  ]
+}

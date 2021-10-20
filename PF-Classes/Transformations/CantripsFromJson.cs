@@ -3,18 +3,12 @@ using Kingmaker.Blueprints.Classes;
 using Kingmaker.Blueprints.Classes.Spells;
 using PF_Classes.Identifier;
 using PF_Classes.JsonTypes;
-using PF_Core;
 using PF_Core.Factories;
-using PF_Core.Repositories;
 
 namespace PF_Classes.Transformations
 {
-    public class CantripsFromJson
+    public class CantripsFromJson : JsonTransformation
     {
-        private static readonly Logger _logger = Logger.INSTANCE;
-
-        private static readonly FeaturesRepository _featuresRepository = FeaturesRepository.INSTANCE;
-
         private static readonly CantripsFactory _cantripsFactory = new CantripsFactory();
 
         public static BlueprintFeature GetCantrips(Cantrips cantripsData, BlueprintCharacterClass characterClass, BlueprintSpellbook spellbook)

@@ -1,52 +1,53 @@
 using System;
-using Kingmaker.Blueprints.Classes;
 using Kingmaker.Blueprints.Classes.Spells;
 using PF_Classes.Identifier;
 using PF_Classes.JsonTypes;
-using PF_Core;
 using PF_Core.Factories;
-using PF_Core.Repositories;
 
 namespace PF_Classes.Transformations
 {
-    public class SpellbookFromJson
+    public class SpellbookFromJson : JsonTransformation
     {
-        private static readonly Logger _logger = Logger.INSTANCE;
+        private static readonly SpellbookFactory _spellbookFactory = SpellbookFactory.INSTANCE;
 
-        private static readonly SpellbookRepository _spellbookRepository = SpellbookRepository.INSTANCE;
-
-        private static readonly SpellbookFactory _spellbookFactory = new SpellbookFactory();
-
-        public static BlueprintSpellbook GetSpellbook(Spellbook spellbookData, BlueprintCharacterClass characterClass)
+        public static BlueprintSpellbook GetSpellbook(Spellbook spellbookData)
         {
             _logger.Log($"Creating spellbook from JSON data {spellbookData.Guid}");
 
+            BlueprintSpellbook spellbook = !string.Empty.Equals(spellbookData.From)
+                ? _spellbookFactory.CreateSpellbookFrom(spellbookData.Name, spellbookData.Guid, _identifierLookup.lookupSpellbook(spellbookData.From))
+                : _spellbookFactory.CreateSpellbook(spellbookData.Name, spellbookData.Guid);
+
+            if (spellbookData.IsArcane.HasValue)
+                spellbook.IsArcane = spellbookData.IsArcane.Value;
+            if (spellbookData.IsSpontaneous.HasValue)
+                spellbook.Spontaneous = spellbookData.IsSpontaneous.Value;
+            if (spellbookData.CanCopyScrolls.HasValue)
+                spellbook.CanCopyScrolls = spellbookData.CanCopyScrolls.Value;
+            if (spellbookData.AllSpellsKnown.HasValue)
+                spellbook.AllSpellsKnown = spellbookData.AllSpellsKnown.Value;
+
+            if (!string.Empty.Equals(spellbookData.CastingAttribute))
+                spellbook.CastingAttribute = EnumParser.parseStatType(spellbookData.CastingAttribute);
+
+            if (!string.Empty.Equals(spellbookData.Cantrips))
+                spellbook.CantripsType = EnumParser.parseCantripsType(spellbookData.Cantrips);
+
+            if (spellbookData.HasSpellsPerDayDefinition)
+                spellbook.SpellsPerDay = SpellsTableFromJson.GetSpellsTable(spellbookData.SpellsPerDayDefinition);
+            else if (!String.Empty.Equals(spellbookData.SpellsPerDay))
+                spellbook.SpellsPerDay = getSpellbook(spellbookData.SpellsPerDay).SpellsPerDay;
+
+            if (spellbookData.HasSpellListDefinition)
+                spellbook.SpellList = SpellListFromJson.GetSpellList(spellbookData.SpellListDefinition);
+            else if (!String.Empty.Equals(spellbookData.SpellList))
+                spellbook.SpellList = getSpellbook(spellbookData.SpellList).SpellList;
+
             // SpellsKnow is optional for a spell book
-            BlueprintSpellsTable spellsKnown = null;
             if (spellbookData.HasSpellsKnownDefinition)
-            {
-                spellsKnown = SpellsTableFromJson.GetSpellsTable(spellbookData.SpellsKnownDefinition);
-            }
+                spellbook.SpellsKnown = SpellsTableFromJson.GetSpellsTable(spellbookData.SpellsKnownDefinition);
             else if (!String.Empty.Equals(spellbookData.SpellsKnown))
-            {
-                spellsKnown = getSpellbook(spellbookData.SpellsKnown).SpellsKnown;
-            }
-
-            BlueprintSpellsTable spellsPerDay = spellbookData.HasSpellsPerDayDefinition
-                ? SpellsTableFromJson.GetSpellsTable(spellbookData.SpellsPerDayDefinition)
-                : getSpellbook(spellbookData.SpellsPerDay).SpellsPerDay;
-
-            BlueprintSpellList spellList = spellbookData.HasSpellListDefinition
-                ? SpellListFromJson.GetSpellList(spellbookData.SpellListDefinition)
-                : getSpellbook(spellbookData.SpellList).SpellList;
-
-            BlueprintSpellbook spellbook = _spellbookFactory.CreateSpellbook(
-                spellbookData.Name, spellbookData.Guid, characterClass,
-                spellbookData.IsArcane, spellbookData.IsSpontaneous, spellbookData.CanCopyScrolls, spellbookData.AllSpellsKnown,
-                spellbookData.SpellsPerLevel, spellbookData.CasterLevelModifier,
-                EnumParser.parseStatType(spellbookData.CastingAttribute),
-                EnumParser.parseCantripsType(spellbookData.Cantrips),
-                spellsKnown, spellsPerDay, spellList);
+                spellbook.SpellsKnown = getSpellbook(spellbookData.SpellsKnown).SpellsKnown;
 
             _logger.Log("DONE: Creating spellbook");
             IdentifierRegistry.INSTANCE.Register(spellbook);
@@ -55,6 +56,6 @@ namespace PF_Classes.Transformations
 
         private static BlueprintSpellbook getSpellbook(String value) =>
             _spellbookRepository.GetSpellbook(
-                IdentifierLookup.INSTANCE.lookupSpellbook(value));
+                _identifierLookup.lookupSpellbook(value));
     }
 }

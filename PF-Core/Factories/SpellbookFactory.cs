@@ -3,25 +3,31 @@ using System.Collections.Generic;
 using Kingmaker.Blueprints.Classes;
 using Kingmaker.Blueprints.Classes.Spells;
 using Kingmaker.EntitySystem.Stats;
+using PF_Core.Extensions;
 using PF_Core.Facades;
 
 namespace PF_Core.Factories
 {
     public class SpellbookFactory
     {
-        private static readonly Harmony.FastSetter blueprintSpellbook_set_AssetId = Harmony.CreateFieldSetter<BlueprintSpellbook>("m_AssetGuid");
-        private static readonly Harmony.FastSetter blueprintSpellList_set_AssetId = Harmony.CreateFieldSetter<BlueprintSpellList>("m_AssetGuid");
-        private static readonly Harmony.FastSetter blueprintSpellsTable_set_AssetId = Harmony.CreateFieldSetter<BlueprintSpellsTable>("m_AssetGuid");
-
         private static readonly Logger _logger = Logger.INSTANCE;
         private static readonly Library _library = Library.INSTANCE;
+
+        private static readonly SpellbookFactory __instance = new SpellbookFactory();
+
+        private SpellbookFactory() { }
+
+        public static SpellbookFactory INSTANCE
+        {
+            get { return __instance; }
+        }
 
         public BlueprintSpellbook CreateSpellbook(String name, String guid)
         {
             _logger.Debug($"Create spellbook {name} with id {guid}");
 
             BlueprintSpellbook spellbook = _library.Create<BlueprintSpellbook>();
-            blueprintSpellbook_set_AssetId(spellbook, guid);
+            spellbook.SetAssetId(guid);
             spellbook.name = name;
 
             _library.Add(spellbook);
@@ -30,29 +36,18 @@ namespace PF_Core.Factories
             return spellbook;
         }
 
-        public BlueprintSpellbook createSpellbookFrom(String name, String guid, String fromAssetId)
+        public BlueprintSpellbook CreateSpellbookFrom(String name, String guid, String fromAssetId)
         {
             _logger.Debug($"Create spellbook {name} with id {guid} based on {fromAssetId}");
 
             BlueprintSpellbook original = _library.GetSpellbook(fromAssetId);
-            BlueprintSpellbook clone = UnityEngine.Object.Instantiate(original);
-            blueprintSpellbook_set_AssetId(clone, guid);
-            clone.name = name;
+            BlueprintSpellbook spellbook = UnityEngine.Object.Instantiate(original);
+            spellbook.SetAssetId(guid);
+            spellbook.name = name;
 
-            _library.Add(clone);
+            _library.Add(spellbook);
 
             _logger.Debug($"DONE: Create spellbook {name} with id {guid} based on {fromAssetId}");
-            return clone;
-        }
-
-        public BlueprintSpellbook createSpellbookFrom(String name, String guid, String fromAssetId, BlueprintCharacterClass characterClass)
-        {
-            _logger.Debug(String.Format("Create spellbook {0} with id {1} based on {2}", name, guid, fromAssetId));
-
-            BlueprintSpellbook spellbook = createSpellbookFrom(name, guid, fromAssetId);
-            spellbook.Name = new LocalizationFactory().CreateString($"{name}.Name", characterClass.Name);
-            spellbook.CharacterClass = characterClass;
-
             return spellbook;
         }
 
@@ -85,8 +80,9 @@ namespace PF_Core.Factories
         public BlueprintSpellList createSpellList(String name, String guid, int level)
         {
             _logger.Debug($"Create spell list {name} with id {guid}");
+
             BlueprintSpellList spellList = _library.Create<BlueprintSpellList>();
-            blueprintSpellList_set_AssetId(spellList, guid);
+            spellList.SetAssetId(guid);
             spellList.name = name;
             // +1 here because 0 are cantrips, levels go from one to the value of level
             spellList.SpellsByLevel = new SpellLevelList[level+1];
@@ -118,7 +114,7 @@ namespace PF_Core.Factories
             _logger.Debug($"Create spells table {name} with id {guid}");
 
             BlueprintSpellsTable spellsTable = _library.Create<BlueprintSpellsTable>();
-            blueprintSpellsTable_set_AssetId(spellsTable, guid);
+            spellsTable.SetAssetId(guid);
             spellsTable.name = name;
             spellsTable.Levels = levels;
 

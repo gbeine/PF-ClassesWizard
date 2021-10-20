@@ -1,0 +1,11 @@
+{
+  "Name": "OracleCursePowerlessFeatureBurdenBuff",
+  "Guid": "71652ccb570f4c2c8fb1469bf4c3b5ad",
+  "DisplayName": "Oracle's Burden: Powerless Prophecy",
+  "Components": [
+    {
+      "Type": "AddFacts",
+      "Fact": "ref:OracleCursePowerlessHindranceFeature"
+    }
+  ]
+}

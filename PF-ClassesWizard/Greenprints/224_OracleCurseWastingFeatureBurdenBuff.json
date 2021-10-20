@@ -1,0 +1,11 @@
+{
+  "Name": "OracleCurseWastingFeatureBurdenBuff",
+  "Guid": "cc5789f533394ba39e6d4257ecb3ecc0",
+  "DisplayName": "Oracle's Burden: Wasting",
+  "Components": [
+    {
+      "Type": "AddFacts",
+      "Fact": "ref:OracleCurseWastingHindranceFeature"
+    }
+  ]
+}

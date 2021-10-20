@@ -1,0 +1,19 @@
+{
+  "Name": "OracleCursePrankedHindranceFeature",
+  "Guid": "567b7936ef6d4a988e9e4f38c36ec230",
+  "DisplayName": "Pranked",
+  "Description": "You take a –4 penalty on initiative checks. Furthermore, whenever you attempt to cast a spell using an item, there’s a 25% chance that you fail. You add faerie fire and vanish to your list of spells known.",
+  "Icon": "ref:ENCHANTMENT_HIDEOUS_LAUGHTER",
+  "Components":[
+    {
+      "Type": "AddStatBonus",
+      "Stat": "Initiative",
+      "Bonus": -4,
+      "Descriptor": "Penalty",
+    },
+    {
+      "Type": "ItemUseFailure",
+      "Chance": 25
+    }
+  ]
+}

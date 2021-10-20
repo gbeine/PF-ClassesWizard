@@ -1,0 +1,16 @@
+{
+  "Name": "OracleCurseVampirismHindranceFeature",
+  "Guid": "76a0ed2a8625420785f1570fbee00c2a",
+  "DisplayName": "Vampirism",
+  "Description": "You take damage from positive energy and heal from negative energy as if you were undead.",
+  "Icon": "ref:DAZZLING_DISPLAY_ACTION",
+  "Components":[
+    {
+      "Type": "ConsiderUndeadForHealing"
+    },
+    {
+      "Type": "AddEnergyImmunity",
+      "DamageEnergyType": "NegativeEnergy",
+    }
+  ]
+}

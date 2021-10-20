@@ -20,7 +20,7 @@ namespace PF_Classes.Classes
         protected static readonly LevelEntryFactory _levelEntryFactory = new LevelEntryFactory();
         protected static readonly ProgressionFactory _progressionFactory = new ProgressionFactory();
         protected static readonly UIGroupFactory _uiGroupFactory = new UIGroupFactory();
-        protected static readonly SpellbookFactory _spellbookFactory = new SpellbookFactory();
+        protected static readonly SpellbookFactory _spellbookFactory = SpellbookFactory.INSTANCE;
         protected static readonly PrerequisitesFactory _prerequisitesFactory = new PrerequisitesFactory();
 
         protected BlueprintFeature Proficiencies() => _featureFactory.CreateEmptyFeature();

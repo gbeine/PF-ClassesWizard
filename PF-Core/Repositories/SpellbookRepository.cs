@@ -32,6 +32,12 @@ namespace PF_Core.Repositories
             return _library.GetSpellbook(assetId);
         }
 
+        public BlueprintSpellList GetSpellList(String assetId)
+        {
+            _logger.Debug($"Search for SpellList {assetId}");
+            return _library.GetSpellList(assetId);
+        }
+
         public BlueprintAbility GetSpell(String assetId)
         {
             _logger.Debug($"Search for Spell {assetId}");

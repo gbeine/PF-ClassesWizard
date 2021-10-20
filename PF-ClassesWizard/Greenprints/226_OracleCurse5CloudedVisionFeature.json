@@ -1,0 +1,24 @@
+{
+  "Name": "OracleCurse5CloudedVision",
+  "Progression": true,
+  "Guid": "9fe0a143cb564ea98fc01c3d49d0bb74",
+  "DisplayName": "Clouded Vision",
+  "Description": "At 5th level, your vision distance increases to 30 feet.",
+  "Icon": "ref:NECROMANCY_BLINDNESS",
+  "Components":[
+    {
+      "Type": "RemoveFeatureOnApply",
+      "Feature": "loc:OracleCurseCloudedVision"
+    },
+    {
+      "Type": "SetVisibilityLimit",
+      "VisibilityLimit": 30
+    },
+    {
+      "Type": "AddOutgoingConcealment",
+      "DistanceGreater": 30,
+      "Descriptor": "InitiatorIsBlind",
+      "Concealment": "Total"
+    }
+  ]
+}

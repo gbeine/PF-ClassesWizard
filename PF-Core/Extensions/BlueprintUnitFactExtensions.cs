@@ -17,7 +17,7 @@ namespace PF_Core.Extensions
 
         public static void SetNameDescriptionIcon(this BlueprintUnitFact feature, String displayName, String description, Sprite icon)
         {
-            SetNameDescription(feature, displayName, description);
+            feature.SetNameDescription(displayName, description);
             feature.SetIcon(icon);
         }
 

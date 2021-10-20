@@ -1,0 +1,14 @@
+{
+  "Name": "OracleCurse10Plagued",
+  "Guid": "e3db5767f48349e58fbe3b9e28d510dc",
+  "DisplayName": "Plagued",
+  "Description": "At 10th level, increase the save DC of any disease effect you create by +2.",
+  "Icon": "ref:NECROMANCY_PLAGUE_STORM",
+  "Components":[
+    {
+      "Type": "ContextIncreaseDescriptorSpellsDC",
+      "Value": 2,
+      "Descriptor": "Disease"
+    }
+  ]
+}

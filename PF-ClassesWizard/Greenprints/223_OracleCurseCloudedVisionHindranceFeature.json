@@ -1,0 +1,19 @@
+{
+  "Name": "OracleCurseCloudedVisionHindranceFeature",
+  "Guid": "6c5874e8f3524b86bf3dfc167f30cc49",
+  "DisplayName": "Clouded Vision",
+  "Description": "Your eyes are obscured, making it difficult for you to see.\nYou cannot see anything beyond 20 feet. Targets beyond this range have concealment, and you cannot target any point past that range.",
+  "Icon": "ref:NECROMANCY_BLINDNESS",
+  "Components":[
+    {
+      "Type": "SetVisibilityLimit",
+      "VisibilityLimit": 20
+    },
+    {
+      "Type": "AddOutgoingConcealment",
+      "DistanceGreater": 20,
+      "Descriptor": "InitiatorIsBlind",
+      "Concealment": "Total"
+    }
+  ]
+}

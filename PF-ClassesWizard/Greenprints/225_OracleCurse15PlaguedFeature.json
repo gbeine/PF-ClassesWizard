@@ -1,0 +1,13 @@
+{
+  "Name": "OracleCurse15Plagued",
+  "Guid": "396e1674f65a4a08a1d00eee491204e0",
+  "DisplayName": "Immune to Disease",
+  "Description": "At 15th level, you are immune to the effects of disease.",
+  "Icon": "ref:CONJURATION_REMOVE_DISEASE",
+  "Components":[
+    {
+      "Type": "BuffDescriptorImmunity",
+      "Descriptor": "Disease"
+    }
+  ]
+}

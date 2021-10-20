@@ -1,21 +1,14 @@
 using System;
-using System.Collections.Generic;
-using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes;
 using PF_Classes.Identifier;
 using PF_Classes.JsonTypes;
-using PF_Core;
-using PF_Core.Extensions;
 using PF_Core.Factories;
 
 namespace PF_Classes.Transformations
 {
-    public class FeatureFromJson
+    public class FeatureFromJson : JsonTransformation
     {
-        private static readonly Logger _logger = Logger.INSTANCE;
-
         private static readonly FeatureFactory _featureFactory = new FeatureFactory();
-        private static readonly ProgressionFactory _progressionFactory = new ProgressionFactory();
 
         public static BlueprintFeature GetFeature(Feature featureData, BlueprintCharacterClass characterClass)
         {
@@ -23,29 +16,45 @@ namespace PF_Classes.Transformations
 
             BlueprintFeature feature;
 
-            if (featureData.IsProgression)
-            {
-                if (featureData.Progression.HasLevelEntries)
-                {
-                    feature = _progressionFactory.CreateProgression(
-                        featureData.Name, featureData.Guid, featureData.DisplayName, featureData.Description,
-                        SpriteLookup.lookupFor(featureData.Icon),
-                        EnumParser.parseFeatureGroup(featureData.FeatureGroup),
-                        ProgressionFromJson.getUIDeterminatorsGroup(featureData.Progression).ToArray(),
-                        ProgressionFromJson.getUIGroups(featureData.Progression).ToArray(),
-                        ProgressionFromJson.getLevelEntries(featureData.Progression).ToArray());
-                }
-                else
-                {
-                    feature = _progressionFactory.CreateProgression(
-                        featureData.Name, featureData.Guid, featureData.DisplayName, featureData.Description,
-                        SpriteLookup.lookupFor(featureData.Icon),
-                        EnumParser.parseFeatureGroup(featureData.FeatureGroup)
-                    );
-                }
+            feature = createFeature(featureData);
 
+            foreach (var component in featureData.Components)
+            {
+                _logger.Debug($"Adding component {component.Type}");
+                ComponentFromJson.AddComponent(feature, component, characterClass);
+                _logger.Debug($"DONE: Adding component {component.Type}");
             }
-            else if (!String.Empty.Equals(featureData.From) && IdentifierLookup.INSTANCE.existsFeature(featureData.From))
+
+            _logger.Log("DONE: Create feature");
+            IdentifierRegistry.INSTANCE.Register(feature);
+            return feature;
+        }
+
+        public static BlueprintFeature GetFeature(Feature featureData)
+        {
+            _logger.Log($"Creating feature from JSON data {featureData.Guid}");
+
+            BlueprintFeature feature = createFeature(featureData);
+
+            foreach (var component in featureData.Components)
+            {
+                _logger.Debug($"Adding component {component.Type}");
+                ComponentFromJson.AddComponent(feature, component);
+                _logger.Debug($"DONE: Adding component {component.Type}");
+            }
+
+            _logger.Log("DONE: Create feature");
+            IdentifierRegistry.INSTANCE.Register(feature);
+            return feature;
+        }
+
+        private static BlueprintFeature createFeature(Feature featureData)
+        {
+            _logger.Log($"Creating feature from JSON data {featureData.Guid}");
+
+            BlueprintFeature feature;
+
+            if (!String.Empty.Equals(featureData.From) && IdentifierLookup.INSTANCE.existsFeature(featureData.From))
             {
                 feature = _featureFactory.CreateFeatureFrom(featureData.Name, featureData.Guid,
                     IdentifierLookup.INSTANCE.lookupFeature(featureData.From));
@@ -61,18 +70,12 @@ namespace PF_Classes.Transformations
                     featureData.Description);
             }
 
-            feature.ReapplyOnLevelUp = featureData.ReapplyOnLevelUp;
+            // feature.HideInUI = featureData.HideInUI;
+            // feature.ReapplyOnLevelUp = featureData.ReapplyOnLevelUp;
 
-            List<BlueprintComponent> components = new List<BlueprintComponent>();
-            foreach (var component in featureData.Components)
-            {
-                components.Add(ComponentFromJson.GetComponent(component, characterClass));
-            }
-
-            feature.SetComponents(components.ToArray());
+            // TODO: remove components
 
             _logger.Log("DONE: Create feature");
-            IdentifierRegistry.INSTANCE.Register(feature);
             return feature;
         }
     }

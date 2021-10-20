@@ -25,7 +25,6 @@ namespace PF_Classes.JsonType
             Assert.AreEqual(0,characterClass.PrimaryColor);
             Assert.AreEqual(19,characterClass.SecondaryColor);
             Assert.AreEqual(5,characterClass.SkillPoints);
-            Assert.IsNotNull(characterClass.Progression);
 
             // defaults for optional values
             Assert.AreEqual("Charlatan",characterClass.Description);
@@ -43,7 +42,7 @@ namespace PF_Classes.JsonType
             Assert.IsEmpty(characterClass.ClassSkills);
             Assert.IsEmpty(characterClass.RecommendedAttributes);
             Assert.IsEmpty(characterClass.NotRecommendedAttributes);
-            Assert.IsEmpty(characterClass.ComponentsArray);
+            Assert.IsTrue(string.IsNullOrEmpty(characterClass.ComponentsArray));
             Assert.IsEmpty(characterClass.StartingItems);
             Assert.IsNull(characterClass.Proficiencies);
             Assert.IsNull(characterClass.Cantrips);
@@ -65,7 +64,6 @@ namespace PF_Classes.JsonType
             Assert.AreEqual(0,characterClass.PrimaryColor);
             Assert.AreEqual(19,characterClass.SecondaryColor);
             Assert.AreEqual(5,characterClass.SkillPoints);
-            Assert.IsNotNull(characterClass.Progression);
 
             // optional values
             Assert.AreEqual("The charlatan is a jolly fellow.",characterClass.Description);
@@ -106,7 +104,6 @@ namespace PF_Classes.JsonType
             Assert.AreEqual(0,characterClass.PrimaryColor);
             Assert.AreEqual(19,characterClass.SecondaryColor);
             Assert.AreEqual(5,characterClass.SkillPoints);
-            Assert.IsNotNull(characterClass.Progression);
 
             // optional values
             Assert.IsTrue(characterClass.IsArcaneCaster);

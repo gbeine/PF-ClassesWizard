@@ -9,17 +9,15 @@ namespace PF_Classes.JsonTypes
     {
         public Progression(JObject jObject) : base(jObject)
         {
-            SelectUiDeterminatorsGroup(jObject);
+            DisplayName = SelectString(jObject, "DisplayName");
+            Description = SelectString(jObject, "Description", DisplayName);
+            Icon = SelectString(jObject, "Icon");
+            From = SelectString(jObject, "From");
+            CharacterClass = SelectString(jObject, "CharacterClass");
+            UiDeterminatorsGroup = SelectStringList(jObject, "UiDeterminatorsGroup");
+
             SelectUIGroups(jObject);
             SelectLevelEntries(jObject);
-        }
-
-        private void SelectUiDeterminatorsGroup(JObject jObject)
-        {
-            JToken jUiDeterminatorsGroup = jObject.SelectToken("UiDeterminatorsGroup");
-            UiDeterminatorsGroup = jUiDeterminatorsGroup != null
-                ? jUiDeterminatorsGroup.Value<JArray>().Values<String>().ToList()
-                : Array.Empty<String>().ToList();
         }
 
         private void SelectUIGroups(JObject jObject)
@@ -35,7 +33,7 @@ namespace PF_Classes.JsonTypes
                 UiGroups = new List<List<string>>();
                 foreach (var jUiGroup in jUiGroups.Value<JArray>())
                 {
-                    UiGroups.Add(jUiGroup.Values<String>().ToList());
+                    UiGroups.Add(jUiGroup.Values<string>().ToList());
                 }
             }
         }
@@ -53,16 +51,21 @@ namespace PF_Classes.JsonTypes
                 for (int i = 1; i < 21; i++)
                 {
                     JToken jLevel = jLevelEntries.SelectToken(i.ToString());
-                    List<String> levelEntries = jLevel != null
-                        ? jLevel.Value<JArray>().Values<String>().ToList()
+                    List<string> levelEntries = jLevel != null
+                        ? jLevel.Value<JArray>().Values<string>().ToList()
                         : Array.Empty<String>().ToList();
                     LevelEntries.Add(levelEntries);
                 }
             }
         }
 
+        public string DisplayName { get; }
+        public string Description { get; }
+        public string Icon { get; }
+        public string From { get; }
+        public string CharacterClass { get; }
         public bool HasLevelEntries { get { return LevelEntries.Count > 0; } }
-        public List<string> UiDeterminatorsGroup { get; private set; }
+        public List<string> UiDeterminatorsGroup { get; }
         public List<List<string>> UiGroups { get; private set; }
         public List<List<string>> LevelEntries { get; private set; }
     }

@@ -1,0 +1,11 @@
+{
+  "Name": "OracleCurseCloudedVisionFeatureBurdenBuff",
+  "Guid": "0d0893563261495587cd954976e7ba66",
+  "DisplayName": "Oracle's Burden: Clouded Vision",
+  "Components": [
+    {
+      "Type": "AddFacts",
+      "Fact": "ref:OracleCurseCloudedVisionHindranceFeature"
+    }
+  ]
+}

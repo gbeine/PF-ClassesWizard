@@ -1,0 +1,14 @@
+{
+  "Name": "OracleCurseLameHindranceFeature",
+  "Guid": "58dbbe0e0ea8455382e5e5d3319723d1",
+  "DisplayName": "Lame",
+  "Description": "One of your legs is permanently wounded, reducing your base land speed by 10 feet if your base speed is 30 feet or more. If your base speed is less than 30 feet, your speed is reduced by 5 feet. Your speed is never reduced due to encumbrance.",
+  "Icon": "ref:TRANSMUTATION_SLOW",
+  "Components":[
+    {
+      "Type": "AddSpeedBonusBasedOnRaceSize",
+      "SmallRaceSpeedBonus": -5,
+      "NormalRaceSpeedBonus": -10
+    }
+  ]
+}

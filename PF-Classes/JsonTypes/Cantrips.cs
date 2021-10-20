@@ -1,4 +1,3 @@
-using System;
 using Newtonsoft.Json.Linq;
 
 namespace PF_Classes.JsonTypes
@@ -7,7 +6,7 @@ namespace PF_Classes.JsonTypes
     {
         public Cantrips(JObject jObject) : base(jObject)
         {
-            DisplayName = jObject.SelectToken("DisplayName", true).Value<String>();
+            DisplayName = jObject.SelectToken("DisplayName", true).Value<string>();
 
             Description = SelectString(jObject, "Description", DisplayName);
             Icon = SelectString(jObject, "Icon");

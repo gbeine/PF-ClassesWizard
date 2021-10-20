@@ -9,7 +9,7 @@ namespace PF_Classes.JsonTypes
     {
         public Proficiencies(JObject jObject) : base(jObject)
         {
-            DisplayName = jObject.SelectToken("DisplayName", true).Value<String>();
+            DisplayName = jObject.SelectToken("DisplayName", true).Value<string>();
 
             DisplayName = SelectString(jObject, "DisplayName");
             Icon = SelectString(jObject, "Icon");
@@ -19,24 +19,15 @@ namespace PF_Classes.JsonTypes
             JToken jAdd = jObject.SelectToken("Add");
             if (jAdd != null)
             {
-                JToken jAddFeatures = jAdd.SelectToken("Features");
-                AddFeatures = jAddFeatures != null
-                    ? jAddFeatures.Values<String>().ToList()
-                    : Array.Empty<String>().ToList();
-                JToken jAddWeapon = jAdd.SelectToken("WeaponProficiencies");
-                AddWeaponProficiencies = jAddWeapon != null
-                    ? jAddWeapon.Values<String>().ToList()
-                    : Array.Empty<String>().ToList();
-                JToken jAddArmor = jAdd.SelectToken("ArmorProficiencies");
-                AddArmorProficiencies = jAddArmor != null
-                    ? jAddArmor.Values<String>().ToList()
-                    : Array.Empty<String>().ToList();
+                AddFeatures = SelectStringList(jAdd, "Features");
+                AddWeaponProficiencies = SelectStringList(jAdd, "WeaponProficiencies");
+                AddArmorProficiencies = SelectStringList(jAdd, "ArmorProficiencies");
             }
             else
             {
-                AddFeatures = Array.Empty<String>().ToList();
-                AddWeaponProficiencies = Array.Empty<String>().ToList();
-                AddArmorProficiencies = Array.Empty<String>().ToList();
+                AddFeatures = Array.Empty<string>().ToList();
+                AddWeaponProficiencies = Array.Empty<string>().ToList();
+                AddArmorProficiencies = Array.Empty<string>().ToList();
             }
         }
 
@@ -44,8 +35,8 @@ namespace PF_Classes.JsonTypes
         public string Description { get; }
         public string Icon { get; }
         public string From { get; }
-        public List<String> AddFeatures { get; }
-        public List<String> AddWeaponProficiencies { get; }
-        public List<String> AddArmorProficiencies { get; }
+        public List<string> AddFeatures { get; }
+        public List<string> AddWeaponProficiencies { get; }
+        public List<string> AddArmorProficiencies { get; }
     }
 }

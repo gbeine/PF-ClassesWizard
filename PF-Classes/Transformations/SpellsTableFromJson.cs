@@ -1,16 +1,13 @@
 using Kingmaker.Blueprints.Classes.Spells;
 using PF_Classes.Identifier;
 using PF_Classes.JsonTypes;
-using PF_Core;
 using PF_Core.Factories;
 
 namespace PF_Classes.Transformations
 {
-    public class SpellsTableFromJson
+    public class SpellsTableFromJson : JsonTransformation
     {
-        private static readonly Logger _logger = Logger.INSTANCE;
-
-        private static readonly SpellbookFactory _spellbookFactory = new SpellbookFactory();
+        private static readonly SpellbookFactory _spellbookFactory = SpellbookFactory.INSTANCE;
 
         public static BlueprintSpellsTable GetSpellsTable(SpellsTable spellsTableData)
         {

@@ -1,0 +1,11 @@
+{
+  "Name": "OracleCursePlaguedFeatureBurdenBuff",
+  "Guid": "8ef101a251624701912c7b429f7a42c8",
+  "DisplayName": "Oracle's Burden: Plagued",
+  "Components": [
+    {
+      "Type": "AddFacts",
+      "Fact": "ref:OracleCursePlaguedHindranceFeature"
+    }
+  ]
+}

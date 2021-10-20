@@ -2,11 +2,13 @@ using System;
 
 namespace PF_Classes.Identifier
 {
-    public class Spells : Identifier
+    public class Abilities : Identifier
     {
-        public static readonly Spells INSTANCE = new Spells();
+        public static readonly Abilities INSTANCE = new Abilities();
 
-        private Spells() { }
+        private Abilities() { }
+
+        // Spells
 
         public const String ABJURATION_AURA_OF_GREATER_COURAGE              = "acb787cf9f76e924a9a93bbd011af040"; // Aura der größeren Tapferkeit
         public const String ABJURATION_BANISHMENT                           = "d361391f645db984bbf58907711a146a"; // Verbannung
@@ -415,5 +417,15 @@ namespace PF_Classes.Identifier
         public const String TRANSMUTATION_TRANSFORMATION                    = "27203d62eb3d4184c9aced94f22e1806"; // Umwandlung
         public const String TRANSMUTATION_VIRTUE                            = "d3a852385ba4cd740992d1970170301a"; // Tugend
         public const String TRANSMUTATION_WEB                               = "134cb6d492269aa4f8662700ef57449f"; // Spinnennetz
+
+        // Abilities
+
+        public const String DAZZLING_DISPLAY_ACTION            = "5f3126d4120b2b244a95cb2ec23d69fb"; // Bedrohliche Darbietung
+        public const String ELEMENTAL_WALL_ABILITY             = "d47ff3c6bffb18a4597f77e49d282492"; // Elementarwand
+        public const String ELEMENTAL_WALL_ACID_ABILITY        = "1e418794638cf95409f6e33c8c3dbe1a"; // Elementarwand – Säure
+        public const String ELEMENTAL_WALL_COLD_ABILITY        = "e377feb2ecec95e478e0565da621ea55"; // Elementarwand – Kälte
+        public const String ELEMENTAL_WALL_ELECTRICITY_ABILITY = "8ba05ef69b06ea04c9430427a95685f6"; // Elementarwand – Elektrizität
+        public const String ELEMENTAL_WALL_FIRE_ABILITY        = "77d255c06e4c6a745b807400793cf7b1"; // Elementarwand – Feuer
+        public const String WALL_FIRE_BLAST_ABILITY            = "19309b5551a28d74288f4b6f7d8d838d"; // Mauer
     }
 }

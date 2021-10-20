@@ -1,0 +1,17 @@
+{
+  "Name": "OracleCurse15Lame",
+  "Guid": "4199515603554ba38feebbd1a638284f",
+  "DisplayName": "Immune to Exhausted",
+  "Description": "At 15th level, you are immune to the exhausted condition.",
+  "Icon": "ref:MERCY_EXHAUSTED",
+  "Components":[
+    {
+      "Type": "AddConditionImmunity",
+      "Condition": "Exhausted"
+    },
+    {
+      "Type": "BuffDescriptorImmunity",
+      "Descriptor": "Exhausted"
+    }
+  ]
+}

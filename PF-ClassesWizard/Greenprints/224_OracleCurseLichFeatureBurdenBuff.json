@@ -1,0 +1,11 @@
+{
+  "Name": "OracleCurseLichFeatureBurdenBuff",
+  "Guid": "c10dd7b490ea45168e7ece860d877b78",
+  "DisplayName": "Oracle's Burden: Lich",
+  "Components": [
+    {
+      "Type": "AddFacts",
+      "Fact": "ref:OracleCurseLichHindranceFeature"
+    }
+  ]
+}

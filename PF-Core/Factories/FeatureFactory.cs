@@ -18,8 +18,6 @@ namespace PF_Core.Factories
 {
     public class FeatureFactory
     {
-        private static readonly Harmony.FastSetter blueprintFeature_set_AssetId = Harmony.CreateFieldSetter<BlueprintFeature>("m_AssetGuid");
-
         private static readonly Logger _logger = Logger.INSTANCE;
         private static readonly Library _library = Library.INSTANCE;
 
@@ -28,7 +26,7 @@ namespace PF_Core.Factories
             _logger.Debug($"Create feature {name} with id {guid}");
 
             BlueprintFeature feature = _library.Create<BlueprintFeature>();
-            blueprintFeature_set_AssetId(feature, guid);
+            feature.SetAssetId(guid);
             feature.name = name;
 
             _library.Add(feature);
@@ -65,7 +63,7 @@ namespace PF_Core.Factories
 
             BlueprintFeature original = _library.GetFeature(fromAssetId);
             BlueprintFeature feature = UnityEngine.Object.Instantiate(original);
-            blueprintFeature_set_AssetId(feature, guid);
+            feature.SetAssetId(guid);
             feature.name = name;
 
             _library.Add(feature);

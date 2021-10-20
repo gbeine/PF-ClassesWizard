@@ -62,7 +62,7 @@ namespace PF_Classes
         [Test]
         public void TestSpells()
         {
-            Spells i = Spells.INSTANCE;
+            Abilities i = Abilities.INSTANCE;
 
             Assert.AreEqual(400, i.AllIdentifiers.Count);
             Assert.AreEqual("52b5df2a97df18242aec67610616ded0", i.GetGuidFor("CONJURATION_SUMMON_MONSTER_IX_BASE"));

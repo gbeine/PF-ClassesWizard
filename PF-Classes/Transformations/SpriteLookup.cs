@@ -8,10 +8,12 @@ namespace PF_Classes.Transformations
 {
     public class SpriteLookup
     {
+        private static readonly IdentifierLookup _identifierLookup = IdentifierLookup.INSTANCE;
+
         private static readonly CharacterClassesRepository _characterClassesRepository = CharacterClassesRepository.INSTANCE;
         private static readonly FeaturesRepository _featuresRepository = FeaturesRepository.INSTANCE;
+        private static readonly ProgressionRepository _progressionRepository = ProgressionRepository.INSTANCE;
         private static readonly SpellbookRepository _spellbookRepository = SpellbookRepository.INSTANCE;
-        private static readonly IdentifierLookup _identifierLookup = IdentifierLookup.INSTANCE;
 
         internal static Sprite lookupFor(String identifier)
         {
@@ -39,6 +41,13 @@ namespace PF_Classes.Transformations
                 return _spellbookRepository.GetSpell(
                     _identifierLookup.lookupSpell(identifier)
                     ).Icon;
+            }
+
+            if (_identifierLookup.existsProgression(identifier))
+            {
+                return _progressionRepository.GetProgression(
+                    _identifierLookup.lookupProgression(identifier)
+                ).Icon;
             }
 
             if (identifier.StartsWith("icon:"))

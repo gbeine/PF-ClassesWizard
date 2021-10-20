@@ -1,0 +1,28 @@
+{
+  "Name": "OracleCurseWastingHindranceFeature",
+  "Guid": "44e0713ec0c34124982adfe65ccac49e",
+  "DisplayName": "Wasting",
+  "Description": "You take a –4 penalty on Charisma-based skill checks, except for Intimidate. You gain a +4 competence bonus on saves made against disease.",
+  "Icon": "icon:AbilityIcons/FleshwormInfestation.png",
+  "Components":[
+    {
+      "Type": "AddStatBonus",
+      "Stat": "CheckDiplomacy",
+      "Bonus": -4,
+      "Descriptor": "Penalty"
+
+    },
+    {
+      "Type": "AddStatBonus",
+      "Stat": "CheckBluff",
+      "Bonus": -4,
+      "Descriptor": "Penalty"
+    },
+    {
+      "Type": "AddStatBonus",
+      "Stat": "UseMagicDevice",
+      "Bonus": -4,
+      "Descriptor": "Penalty"
+    }
+  ]
+}

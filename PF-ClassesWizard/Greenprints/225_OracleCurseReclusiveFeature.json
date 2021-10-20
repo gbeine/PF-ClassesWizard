@@ -1,0 +1,11 @@
+{
+  "Name": "OracleCurseReclusive",
+  "Guid": "5d86f906ee92490d91a5b425cd577306",
+  "From": "OracleCurseReclusiveHindranceFeature",
+  "Components":[
+    {
+      "Type": "ApplyMetamagicToPersonalSpell",
+      "CasterLevelIncrease": 1
+    }
+  ]
+}

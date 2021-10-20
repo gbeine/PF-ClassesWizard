@@ -1,0 +1,11 @@
+{
+  "Name": "FireDomainWallOfFireSpellAbility",
+  "Guid": "0058b93ceada490eb4a67b72a2015558",
+  "From": "loc:WallOfFireSpellAbility",
+  "ReplaceProgessions": [
+    {
+      "Progession": "ref:FIRE_DOMAIN_PROGRESSION",
+      "Level": 4
+    }
+  ]
+}

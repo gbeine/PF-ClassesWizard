@@ -3,18 +3,12 @@ using Kingmaker.Blueprints.Classes;
 using Kingmaker.Blueprints.Classes.Selection;
 using PF_Classes.Identifier;
 using PF_Classes.JsonTypes;
-using PF_Core;
 using PF_Core.Factories;
-using PF_Core.Repositories;
 
 namespace PF_Classes.Transformations
 {
-    public class FeatureSelectionFromJson
+    public class FeatureSelectionFromJson : JsonTransformation
     {
-        private static readonly Logger _logger = Logger.INSTANCE;
-
-        private static readonly FeaturesRepository _featuresRepository = FeaturesRepository.INSTANCE;
-
         private static readonly FeatureSelectionFactory _featureSelectionFactory = new FeatureSelectionFactory();
 
         public static BlueprintFeatureSelection GetFeatureSelection(FeatureSelection featureSelectionData)

@@ -1,0 +1,11 @@
+{
+  "Name": "OracleCurseReclusiveFeatureBurdenBuff",
+  "Guid": "e9d251e3d38f4ca99f7b75bf4793e7d3",
+  "DisplayName": "Oracle's Burden: Reclusive",
+  "Components": [
+    {
+      "Type": "AddFacts",
+      "Fact": "ref:OracleCurseReclusiveHindranceFeature"
+    }
+  ]
+}
