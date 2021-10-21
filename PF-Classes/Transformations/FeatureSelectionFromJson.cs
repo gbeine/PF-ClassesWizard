@@ -26,7 +26,7 @@ namespace PF_Classes.Transformations
                     featureSelectionData.Description, EnumParser.parseFeatureGroup(featureSelectionData.FeatureGroup), features.ToArray());
 
             _logger.Log("DONE: Create feature selection");
-            IdentifierRegistry.INSTANCE.Register(selection);
+            _identifierRegistry.Register(selection);
             return selection;
         }
     }

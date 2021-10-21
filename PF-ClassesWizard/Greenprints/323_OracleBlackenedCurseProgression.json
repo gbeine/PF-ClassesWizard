@@ -1,0 +1,30 @@
+{
+  "Name": "OracleBlackenedCurseProgression",
+  "Guid": "e348bfefa3f242b7be522789800906a3",
+  "DisplayName": "Blackened",
+  "Description": "Your hands and forearms are shriveled and blackened, as if you had plunged your arms into a blazing fire, and your thin, papery skin is sensitive to the touch.",
+  "Icon": "ref:EVOCATION_BURNING_HANDS",
+  "Class": "loc:OracleClass",
+  "LevelEntries": {
+    "1": [
+      "loc:OracleCurseBlackened"
+    ],
+    "5": [
+      "loc:OracleCurse5Blackened"
+    ],
+    "10": [
+      "loc:OracleCurse10Blackened"
+    ],
+    "15": [
+      "loc:OracleCurse15Blackened"
+    ]
+  },
+  "UIGroups": [
+    [
+      "loc:OracleCurseBlackened",
+      "loc:OracleCurse5Blackened",
+      "loc:OracleCurse10Blackened",
+      "loc:OracleCurse15Blackened"
+    ]
+  ]
+}

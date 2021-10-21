@@ -1,0 +1,15 @@
+{
+  "Name": "OracleCurse5Plagued",
+  "Guid": "a03c15bb55464b3f9601ef2bb426da0c",
+  "DisplayName": "Pox Pustules",
+  "Description": "At 5th level, you add pox pustules to your list of 2nd-level oracle spells known.",
+  "Icon": "ref:NECROMANCY_POX_PUSTULES",
+  "Class": "loc:OracleClass",
+  "Components":[
+    {
+      "Type": "AddKnownSpell",
+      "Spell": "ref:NECROMANCY_POX_PUSTULES",
+      "SpellLevel": 2
+    }
+  ]
+}

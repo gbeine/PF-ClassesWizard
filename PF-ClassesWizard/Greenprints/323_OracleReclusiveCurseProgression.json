@@ -1,0 +1,30 @@
+{
+  "Name": "OracleReclusiveCurseProgression",
+  "Guid": "9108cd96d9d54a14867ed2b068d285f5",
+  "DisplayName": "Reclusive",
+  "Description": "You are reclusive and paranoid to the point that your allies cannot easily help you in times of stress or unease.",
+  "Icon": "icon:AbilityIcons/FogCloud.png",
+  "Class": "loc:OracleClass",
+  "LevelEntries": {
+    "1": [
+      "loc:OracleCurseReclusive"
+    ],
+    "5": [
+      "loc:OracleCurse5Reclusive"
+    ],
+    "10": [
+      "loc:OracleCurse10Reclusive"
+    ],
+    "15": [
+      "loc:OracleCurse15Reclusive"
+    ]
+  },
+  "UIGroups": [
+    [
+      "loc:OracleCurseReclusive",
+      "loc:OracleCurse5Reclusive",
+      "loc:OracleCurse10Reclusive",
+      "loc:OracleCurse15Reclusive"
+    ]
+  ]
+}

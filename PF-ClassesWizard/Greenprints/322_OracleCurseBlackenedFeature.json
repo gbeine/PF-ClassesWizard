@@ -1,0 +1,14 @@
+{
+  "Name": "OracleCurseBlackened",
+  "Guid": "89325fa2bd6940189b04e329ed79cff0",
+  "From": "loc:OracleCurseBlackenedHindranceFeature",
+  "ReapplyOnLevelUp": true,
+  "Class": "loc:OracleClass",
+  "Components":[
+    {
+      "Type": "AddKnownSpell",
+      "Spell": "ref:EVOCATION_BURNING_HANDS",
+      "SpellLevel": 1
+    }
+  ]
+}

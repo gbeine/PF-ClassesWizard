@@ -1,6 +1,6 @@
 {
   "Name": "OracleCurseDeaf",
   "Guid": "e5d8e0144e4548dc998812680378c4a7",
-  "From": "OracleCurseDeafHindranceFeature",
+  "From": "loc:OracleCurseDeafHindranceFeature",
   "ReapplyOnLevelUp": true
 }

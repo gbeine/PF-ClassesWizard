@@ -17,7 +17,7 @@ namespace PF_Classes.Transformations
                 spellsTableData.Name, spellsTableData.Guid, spellsTableData.Table);
 
             _logger.Log("DONE: Creating spell list");
-            IdentifierRegistry.INSTANCE.Register(spellsTable);
+            _identifierRegistry.Register(spellsTable);
             return spellsTable;
         }
     }

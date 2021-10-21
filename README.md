@@ -121,7 +121,7 @@ This UiGroups definition will show the ROGUE_TALENT_SELECTION as one row and in 
 | AllSpellsKnown           | false    | true                               | Default: false; Determine if the character has access to all spells in the spellbook. Do not use with a SpellsKnown table |
 | SpellsPerLevel           | false    | 5                                  | Default: 0; #GBTODO What does this tell us? |
 | CasterLevelModifier      | false    | 5                                  | Default: 0; #GBTODO What does this tell us? |
-| Cantrips                 | false    | "Orisions"                         | Default: "Cantrips"; The type of cantrips in this book, one of "Orisions" or "Cantrips" |
+| Cantrips                 | false    | "Orisons"                          | Default: "Cantrips"; The type of cantrips in this book, one of "Orisons" or "Cantrips" |
 | SpellList                | true     | See below                          | See below |
 | SpellsPerDay             | true     | See below                          | See below |
 | SpellsKnown              | false    | See below                          | See below; use only if AllSpellsKnown is false |

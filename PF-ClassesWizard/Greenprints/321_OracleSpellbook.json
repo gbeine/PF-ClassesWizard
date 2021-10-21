@@ -1,0 +1,17 @@
+{
+  "Name": "OracleSpellbook",
+  "Guid": "c26cdf7ee670428c96aad20225f3fdca",
+  "DisplayName": "Oracle",
+  "CharacterClass": "loc:OracleClass",
+  "IsArcane": false,
+  "IsSpontaneous": true,
+  "CanCopyScrolls": false,
+  "AllSpellsKnown": false,
+  "SpellsPerLevel": 0,
+  "CasterLevelModifier": 0,
+  "CastingAttribute": "Charisma",
+  "Cantrips": "Orisons",
+  "SpellList": "ref:CLERIC_SPELLBOOK",
+  "SpellsKnown": "ref:SORCERER_SPELLBOOK",
+  "SpellsPerDay": "ref:SORCERER_SPELLBOOK"
+}

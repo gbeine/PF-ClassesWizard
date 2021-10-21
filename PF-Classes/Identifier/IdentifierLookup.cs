@@ -1,4 +1,7 @@
 using System;
+using Kingmaker.Blueprints.Classes;
+using Kingmaker.Blueprints.Classes.Spells;
+using Kingmaker.UnitLogic.Abilities.Blueprints;
 using PF_Core;
 
 namespace PF_Classes.Identifier
@@ -14,21 +17,22 @@ namespace PF_Classes.Identifier
 
         private IdentifierLookup() { }
 
-        internal String lookupCharacterClass(String value) => performLookup(CharacterClasses.INSTANCE, value);
-        internal String lookupStatProgession(String value) => performLookup(StatProgession.INSTANCE, value);
-        internal String lookupFeature(String value) => performLookup(Features.INSTANCE, value);
         internal String lookupAbility(String value) => performLookup(Abilities.INSTANCE, value);
+        internal String lookupBuff(String value) => performLookup(Buffs.INSTANCE, value);
+        internal String lookupCharacterClass(String value) => performLookup(CharacterClasses.INSTANCE, value);
+        internal String lookupFeature(String value) => performLookup(Features.INSTANCE, value);
+        internal String lookupItem(String value) => performLookup(Items.INSTANCE, value);
+        internal String lookupProgression(String value) => performLookup(Progressions.INSTANCE, value);
         internal String lookupSpell(String value) => performLookup(Abilities.INSTANCE, value);
         internal String lookupSpellbook(String value) => performLookup(Spellbooks.INSTANCE, value);
         internal String lookupSpellList(String value) => performLookup(SpellLists.INSTANCE, value);
-        internal String lookupBuff(String value) => performLookup(Buffs.INSTANCE, value);
-        internal String lookupItem(String value) => performLookup(Items.INSTANCE, value);
-        internal String lookupProgression(String value) => performLookup(Progressions.INSTANCE, value);
+        internal String lookupStatProgession(String value) => performLookup(StatProgession.INSTANCE, value);
 
-        internal bool existsCharacterClass(String value) => performExists(CharacterClasses.INSTANCE, value);
-        internal bool existsFeature(String value) => performExists(Features.INSTANCE, value);
-        internal bool existsSpell(String value) => performExists(Spellbooks.INSTANCE, value);
-        internal bool existsProgression(String value) => performExists(Progressions.INSTANCE, value);
+        internal bool existsCharacterClass(String value) => performExists(CharacterClasses.INSTANCE, value, typeof(BlueprintCharacterClass));
+        internal bool existsFeature(String value) => performExists(Features.INSTANCE, value, typeof(BlueprintFeature));
+        internal bool existsProgression(String value) => performExists(Progressions.INSTANCE, value, typeof(BlueprintProgression));
+        internal bool existsSpell(String value) => performExists(Abilities.INSTANCE, value,typeof(BlueprintAbility));
+        internal bool existsSpellbook(String value) => performExists(Spellbooks.INSTANCE, value, typeof(BlueprintSpellbook));
 
         private String performLookup(Identifier identifierInstance, String value)
         {
@@ -50,7 +54,7 @@ namespace PF_Classes.Identifier
             return value;
         }
 
-        private bool performExists(Identifier identifierInstance, String value)
+        private bool performExists(Identifier identifierInstance, String value, Type type)
         {
             _logger.Debug($"Test if identifier for {value} exists");
             bool exists = false;
@@ -63,7 +67,7 @@ namespace PF_Classes.Identifier
 
                 if (value.StartsWith(INTRODUCED))
                 {
-                    exists |= IdentifierRegistry.INSTANCE.NameExists(value.Replace(INTRODUCED, ""));
+                    exists |= IdentifierRegistry.INSTANCE.ExistsAndIsA(value.Replace(INTRODUCED, ""), type);
                 }
             }
             return exists;

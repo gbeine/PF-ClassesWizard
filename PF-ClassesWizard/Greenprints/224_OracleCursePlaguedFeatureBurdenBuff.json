@@ -5,7 +5,7 @@
   "Components": [
     {
       "Type": "AddFacts",
-      "Fact": "ref:OracleCursePlaguedHindranceFeature"
+      "Fact": "loc:OracleCursePlaguedHindranceFeature"
     }
   ]
 }

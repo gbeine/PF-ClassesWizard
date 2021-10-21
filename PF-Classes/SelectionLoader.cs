@@ -1,11 +1,7 @@
 using System;
-using System.IO;
-using Kingmaker.Blueprints.Classes;
 using Kingmaker.Blueprints.Classes.Selection;
-using Newtonsoft.Json.Linq;
 using PF_Classes.JsonTypes;
 using PF_Classes.Transformations;
-using PF_Core;
 
 namespace PF_Classes
 {

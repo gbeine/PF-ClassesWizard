@@ -5,15 +5,11 @@ using Newtonsoft.Json.Linq;
 
 namespace PF_Classes.JsonTypes
 {
-    public class Progression : JsonType
+    public class Progression : Feature
     {
         public Progression(JObject jObject) : base(jObject)
         {
-            DisplayName = SelectString(jObject, "DisplayName");
-            Description = SelectString(jObject, "Description", DisplayName);
-            Icon = SelectString(jObject, "Icon");
-            From = SelectString(jObject, "From");
-            CharacterClass = SelectString(jObject, "CharacterClass");
+            IsClassProgression = SelectBool(jObject, "IsClassProgression", false);
             UiDeterminatorsGroup = SelectStringList(jObject, "UiDeterminatorsGroup");
 
             SelectUIGroups(jObject);
@@ -23,14 +19,10 @@ namespace PF_Classes.JsonTypes
         private void SelectUIGroups(JObject jObject)
         {
             JToken jUiGroups = jObject.SelectToken("UiGroups");
+            UiGroups = Array.Empty<List<string>>().ToList();
 
-            if (jUiGroups == null)
+            if (jUiGroups != null)
             {
-                UiGroups = Array.Empty<List<string>>().ToList();
-            }
-            else
-            {
-                UiGroups = new List<List<string>>();
                 foreach (var jUiGroup in jUiGroups.Value<JArray>())
                 {
                     UiGroups.Add(jUiGroup.Values<string>().ToList());
@@ -59,11 +51,9 @@ namespace PF_Classes.JsonTypes
             }
         }
 
-        public string DisplayName { get; }
-        public string Description { get; }
-        public string Icon { get; }
-        public string From { get; }
-        public string CharacterClass { get; }
+        public bool IsClassProgression { get; }
+        public bool HasUiDeterminatorsGroup { get { return UiDeterminatorsGroup.Count > 0; } }
+        public bool HasUiGroups { get { return UiGroups.Count > 0; } }
         public bool HasLevelEntries { get { return LevelEntries.Count > 0; } }
         public List<string> UiDeterminatorsGroup { get; }
         public List<List<string>> UiGroups { get; private set; }

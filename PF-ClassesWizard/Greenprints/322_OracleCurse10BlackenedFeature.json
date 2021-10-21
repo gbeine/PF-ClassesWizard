@@ -1,0 +1,19 @@
+{
+  "Name": "OracleCurse10Blackened",
+  "Guid": "9c584b98d279487b97b3acde2ca54cbb",
+  "DisplayName": "Blackened",
+  "Description": "At 10th level, add wall of fire to your list of spells known and your penalty on weapon attack rolls is reduced to –2.",
+  "Icon": "loc:WallOfFireSpellAbility",
+  "Class": "loc:OracleClass",
+  "Components":[
+    {
+      "Type": "AddKnownSpell",
+      "Spell": "loc:WallOfFireSpellAbility",
+      "SpellLevel": 4
+    },
+    {
+      "Type": "WeaponsOnlyAttackBonus",
+      "Bonus": 2
+    }
+  ]
+}

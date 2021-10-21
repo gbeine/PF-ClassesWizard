@@ -94,41 +94,32 @@ namespace PF_Classes.Transformations
             }
 
             _logger.Log("Replacing components");
-            if (spellData.ReplaceComponents.Count > 0)
+            foreach (var component in spellData.ReplaceComponents)
             {
-                foreach (var component in spellData.ReplaceComponents)
-                {
-                    _logger.Debug($"Replacing component {component.Type}");
-                    ReplaceComponentFromJson.ReplaceComponent(spell, component);
-                    _logger.Debug($"DONE: Replacing component {component.Type}");
-                }
+                _logger.Debug($"Replacing component {component.Type}");
+                ReplaceComponentFromJson.ReplaceComponent(spell, component);
+                _logger.Debug($"DONE: Replacing component {component.Type}");
             }
 
             _logger.Log("Adding components");
-            if (spellData.Components.Count > 0)
+            foreach (var component in spellData.Components)
             {
-                foreach (var component in spellData.Components)
-                {
-                    _logger.Debug($"Adding component {component.Type}");
-                    ComponentFromJson.AddComponent(spell, component);
-                    _logger.Debug($"DONE: Adding component {component.Type}");
-                }
+                _logger.Debug($"Adding component {component.Type}");
+                ComponentFromJson.AddComponent(spell, component);
+                _logger.Debug($"DONE: Adding component {component.Type}");
             }
 
             _logger.Log("Adding to spell lists");
-            if (spellData.SpellLists.Count > 0)
+            foreach (var entry in spellData.SpellLists)
             {
-                foreach (var entry in spellData.SpellLists)
-                {
-                    BlueprintSpellList spellList = _spellbookRepository.GetSpellList(_identifierLookup.lookupSpellList(entry.Key));
-                    spellList.SpellsByLevel[entry.Value].Spells.Add(spell);
-                    SpellListComponent spellListComponent = _componentFactory.CreateComponent<SpellListComponent>(c =>
-                        {
-                            c.SpellLevel = entry.Value;
-                            c.SpellList = spellList;
-                        });
-                    spell.AddComponent(spellListComponent);
-                }
+                BlueprintSpellList spellList = _spellbookRepository.GetSpellList(_identifierLookup.lookupSpellList(entry.Key));
+                spellList.SpellsByLevel[entry.Value].Spells.Add(spell);
+                SpellListComponent spellListComponent = _componentFactory.CreateComponent<SpellListComponent>(c =>
+                    {
+                        c.SpellLevel = entry.Value;
+                        c.SpellList = spellList;
+                    });
+                spell.AddComponent(spellListComponent);
             }
 
             // TODO: Replace Progression
@@ -136,7 +127,7 @@ namespace PF_Classes.Transformations
             // TODO: add scroll
 
             _logger.Log($"DONE: Creating spell from JSON data {spellData.Name}");
-            IdentifierRegistry.INSTANCE.Register(spell);
+            _identifierRegistry.Register(spell);
             return spell;
         }
     }

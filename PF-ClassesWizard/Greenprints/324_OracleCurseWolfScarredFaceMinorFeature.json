@@ -1,0 +1,15 @@
+{
+  "Name": "OracleCurseWolfScarredFaceMinorFeature",
+  "Guid": "9bcb26279320473f810d644f0266435f",
+  "From": "loc:OracleCurseWolfScarredFaceHindranceFeature",
+  "Components":[
+    {
+      "Type": "AddAdditionalLimb",
+      "Weapon": "ref:WEAPON_BITE_D4"
+    },
+    {
+      "Type": "PrerequisiteNoFeature",
+      "Feature": "loc:OracleWolfScarredFaceCurseProgression"
+    }
+  ]
+}

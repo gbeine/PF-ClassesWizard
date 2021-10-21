@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using Newtonsoft.Json.Linq;
 
@@ -16,8 +15,8 @@ namespace PF_Classes.JsonTypes
             SkillPoints = jObject.SelectToken("SkillPoints", true).Value<int>();
 
             Description = SelectString(jObject, "Description", DisplayName);
-            MaleEquipmentEntities = SelectString(jObject, "MaleEquipmentEntities");
-            FemaleEquipmentEntities = SelectString(jObject, "FemaleEquipmentEntities");
+            MaleEquipmentEntities = SelectString(jObject, "MaleEquipmentEntities", EquipmentEntities);
+            FemaleEquipmentEntities = SelectString(jObject, "FemaleEquipmentEntities", EquipmentEntities);
             ComponentsArray = SelectString(jObject, "ComponentsArray");
             StartingItems = SelectString(jObject, "StartingItems");
 
@@ -32,25 +31,15 @@ namespace PF_Classes.JsonTypes
 
             StartingGold = SelectInt(jObject, "StartingGold");
 
-            Alignment = SelectStringList(jObject, "Alignment");
+            Alignment = SelectStringList(jObject, "Alignment", new []{ "Any" });
             ClassSkills = SelectStringList(jObject, "ClassSkills");
             RecommendedAttributes = SelectStringList(jObject, "RecommendedAttributes");
             NotRecommendedAttributes = SelectStringList(jObject, "NotRecommendedAttributes");
-
-            JToken jProficiencies = jObject.SelectToken("Proficiencies");
-            if (jProficiencies != null)
-            {
-                Proficiencies = new Proficiencies(jProficiencies.Value<JObject>());
-            }
 
             JToken jSpellbook = jObject.SelectToken("Spellbook");
             JToken jCantrips = jObject.SelectToken("Cantrips");
             if (jSpellbook != null)
             {
-                if (jCantrips != null)
-                {
-                    Cantrips = new Cantrips(jCantrips.Value<JObject>());
-                }
                 Spellbook = new Spellbook(jSpellbook.Value<JObject>());
             }
         }
@@ -78,8 +67,6 @@ namespace PF_Classes.JsonTypes
         public List<string> ClassSkills { get; }
         public List<string> RecommendedAttributes { get; }
         public List<string> NotRecommendedAttributes { get; }
-        public Cantrips Cantrips { get; }
-        public Proficiencies Proficiencies { get; }
         public Spellbook Spellbook { get; }
     }
 }

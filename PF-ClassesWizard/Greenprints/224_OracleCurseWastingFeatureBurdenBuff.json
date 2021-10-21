@@ -5,7 +5,7 @@
   "Components": [
     {
       "Type": "AddFacts",
-      "Fact": "ref:OracleCurseWastingHindranceFeature"
+      "Fact": "loc:OracleCurseWastingHindranceFeature"
     }
   ]
 }

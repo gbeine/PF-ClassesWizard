@@ -1,0 +1,30 @@
+{
+  "Name": "OracleCloudedVisionCurseProgression",
+  "Guid": "3cacc4d801034ffa9a238be569ca350b",
+  "DisplayName": "Clouded Vision",
+  "Description": "Your eyes are obscured, making it difficult for you to see.\nYou cannot see anything beyond 20 feet. Targets beyond this range have concealment, and you cannot target any point past that range.",
+  "Icon": "ref:NECROMANCY_BLINDNESS",
+  "Class": "loc:OracleClass",
+  "LevelEntries": {
+    "1": [
+      "loc:OracleCurseCloudedVision"
+    ],
+    "5": [
+      "loc:OracleCurse5CloudedVision"
+    ],
+    "10": [
+      "loc:OracleCurse10CloudedVision"
+    ],
+    "15": [
+      "loc:OracleCurse15CloudedVision"
+    ]
+  },
+  "UIGroups": [
+    [
+      "loc:OracleCurseCloudedVision",
+      "loc:OracleCurse5CloudedVision",
+      "loc:OracleCurse10CloudedVision",
+      "loc:OracleCurse15CloudedVision"
+    ]
+  ]
+}

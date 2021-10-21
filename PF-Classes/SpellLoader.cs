@@ -1,10 +1,7 @@
 using System;
-using System.IO;
 using Kingmaker.UnitLogic.Abilities.Blueprints;
-using Newtonsoft.Json.Linq;
 using PF_Classes.JsonTypes;
 using PF_Classes.Transformations;
-using PF_Core;
 
 namespace PF_Classes
 {
@@ -18,7 +15,7 @@ namespace PF_Classes
         {
             _logger.Debug("Parsing spell");
             _spell = Deserialize();
-            _logger.Log($"DONE: Parsing buff {_spell.Guid}");
+            _logger.Log($"DONE: Parsing spell {_spell.Guid}");
             return true;
         }
 

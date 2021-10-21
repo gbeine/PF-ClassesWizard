@@ -27,34 +27,5 @@
   "NotRecommendedAttributes": [],
   "EquipmentEntities": "ref:CLERIC",
   "ComponentsArray": "ref:CLERIC",
-  "StartingItems": "ref:CLERIC",
-  "Proficiencies": {
-    "Name": "OracleProficiencies",
-    "Guid": "baee2212dee249cb8136bda72a872ba4",
-    "DisplayName": "Oracle Proficiencies",
-    "Description": "Oracles are proficient with all simple weapons, light armor, medium armor, and shields (except tower shields). Some oracle revelations grant additional proficiencies.",
-    "From": "ref:CLERIC_PROFICIENCIES"
-  },
-  "Cantrips": {
-    "Name": "OracleOrisonsFeature",
-    "Guid": "2464f9cfc5a34b608b5a9edb9c5f6e7b",
-    "DisplayName": "Oracle Orisons",
-    "Description": "Oracles learn a number of orisons, or 0-level spells. These spells are cast like any other spell, but they do not consume any slots and may be used again.",
-    "From": "e62f392949c24eb4b8fb2bc9db4345e3"
-  },
-  "Spellbook": {
-    "Name": "OracleSpellbook",
-    "Guid": "c26cdf7ee670428c96aad20225f3fdca",
-    "IsArcane": false,
-    "IsSpontaneous": true,
-    "CanCopyScrolls": false,
-    "AllSpellsKnown": false,
-    "SpellsPerLevel": 0,
-    "CasterLevelModifier": 0,
-    "CastingAttribute": "Charisma",
-    "Cantrips": "Orisions",
-    "SpellList": "ref:CLERIC_SPELLBOOK",
-    "SpellsKnown": "ref:SORCERER_SPELLBOOK",
-    "SpellsPerDay": "ref:SORCERER_SPELLBOOK"
-  },
+  "StartingItems": "ref:CLERIC"
 }

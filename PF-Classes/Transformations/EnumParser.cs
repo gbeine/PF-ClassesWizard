@@ -100,6 +100,8 @@ namespace PF_Classes.Transformations
         internal static CantripsType parseCantripsType(String value)
         {
             _logger.Log($"Parsing CantripsType from {value}");
+            if ("Orisons".Equals(value)) // this is a fix for the typo in the enum - hahahahaha
+                value = "Orisions";
             CantripsType cantripsType;
             if (Enum.TryParse(value, out cantripsType))
             {

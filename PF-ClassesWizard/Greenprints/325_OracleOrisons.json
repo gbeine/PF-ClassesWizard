@@ -1,0 +1,8 @@
+{
+  "Name": "OracleOrisons",
+  "Guid": "2464f9cfc5a34b608b5a9edb9c5f6e7b",
+  "DisplayName": "Oracle Orisons",
+  "Description": "Oracles learn a number of orisons, or 0-level spells. These spells are cast like any other spell, but they do not consume any slots and may be used again.",
+  "From": "e62f392949c24eb4b8fb2bc9db4345e3",
+  "Class": "loc:OracleClass"
+}

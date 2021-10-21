@@ -10,13 +10,13 @@ namespace PF_Core.CallOfTheWild.HarmlessSaves
     {
         public override void OnTurnOn()
         {
-            this.Owner.Ensure<UnitPartSaveAgainstHarmlessSpells>().addBuff(this.Fact);
+            Owner.Ensure<UnitPartSaveAgainstHarmlessSpells>().addBuff(Fact);
         }
 
 
         public override void OnTurnOff()
         {
-            this.Owner.Get<UnitPartSaveAgainstHarmlessSpells>()?.removeBuff(this.Fact);
+            Owner.Get<UnitPartSaveAgainstHarmlessSpells>()?.removeBuff(Fact);
         }
     }
 }

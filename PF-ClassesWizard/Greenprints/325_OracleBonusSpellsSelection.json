@@ -1,0 +1,11 @@
+{
+  "Name": "OracleBonusSpellsFeature",
+  "Guid": "11725271a33144f486b50c7db96a1009",
+  "DisplayName": "Bonus Spells",
+  "Description": "In addition to the spells gained by oracles as they gain levels, each oracle also adds all of either the cure spells or the inflict spells to her list of spells known (cure spells include all spells with “cure” in the name, inflict spells include all spells with “inflict” in the name). These spells are added as soon as the oracle is capable of casting them. This choice is made when the oracle gains her first level and cannot be changed.",
+  "Class": "loc:OracleClass",
+  "Features": [
+    "loc:OracleFreeCureSpells",
+    "loc:OracleFreeInflictSpells"
+  ]
+}

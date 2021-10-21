@@ -15,21 +15,20 @@ namespace PF_Classes.JsonTypes
             Icon = SelectString(jObject, "Icon");
             From = SelectString(jObject, "From");
             Description = SelectString(jObject, "Description", DisplayName);
-            FeatureGroup = SelectString(jObject, "FeatureGroup", "None");
-            ReapplyOnLevelUp = SelectBool(jObject, "ReapplyOnLevelUp", false);
-            HideInUI = SelectBool(jObject, "HideInUI", false);
+            FeatureGroup = SelectString(jObject, "FeatureGroup");
+            Class = SelectString(jObject, "Class");
+            ReapplyOnLevelUp = SelectBool(jObject, "ReapplyOnLevelUp");
+            HideInUI = SelectBool(jObject, "HideInUI");
+            IsClassFeature = SelectBool(jObject, "IsClassFeature");
+            RemoveComponents = SelectStringList(jObject, "RemoveComponents");
         }
 
         private void SelectComponents(JObject jObject)
         {
             JToken jComponents = jObject.SelectToken("Components");
-            if (jComponents == null)
+            Components = Array.Empty<Component>().ToList();
+            if (jComponents != null)
             {
-                Components = Array.Empty<Component>().ToList();
-            }
-            else
-            {
-                Components = new List<Component>();
                 foreach (var jComponent in jComponents.Value<JArray>())
                 {
                     Components.Add(new Component(jComponent.Value<JObject>()));
@@ -42,8 +41,11 @@ namespace PF_Classes.JsonTypes
         public string Icon { get; }
         public string FeatureGroup { get; }
         public string From { get; }
+        public string Class { get; }
+        public bool? IsClassFeature { get; }
         public bool? ReapplyOnLevelUp { get; }
         public bool? HideInUI { get; }
+        public List<string> RemoveComponents { get; }
         public List<Component> Components { get; private set; }
     }
 }

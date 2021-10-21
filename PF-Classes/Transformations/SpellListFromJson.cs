@@ -29,7 +29,7 @@ namespace PF_Classes.Transformations
             }
 
             _logger.Log("DONE: Creating spell list");
-            IdentifierRegistry.INSTANCE.Register(spellList);
+            _identifierRegistry.Register(spellList);
             return spellList;
         }
 

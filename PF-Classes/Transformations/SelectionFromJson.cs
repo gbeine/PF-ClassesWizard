@@ -26,7 +26,7 @@ namespace PF_Classes.Transformations
                 );
 
             _logger.Log($"DONE: Creating buff from JSON data {featureSelectionData.Name}");
-            IdentifierRegistry.INSTANCE.Register(selection);
+            _identifierRegistry.Register(selection);
             return selection;
         }
     }

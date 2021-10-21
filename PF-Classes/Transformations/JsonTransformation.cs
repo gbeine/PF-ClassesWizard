@@ -9,6 +9,7 @@ namespace PF_Classes.Transformations
         protected static readonly Logger _logger = Logger.INSTANCE;
 
         protected static readonly IdentifierLookup _identifierLookup = IdentifierLookup.INSTANCE;
+        protected static readonly IdentifierRegistry _identifierRegistry = IdentifierRegistry.INSTANCE;
 
         protected static readonly BuffRepository _buffRepository = BuffRepository.INSTANCE;
         protected static readonly CharacterClassesRepository _characterClassesRepository = CharacterClassesRepository.INSTANCE;

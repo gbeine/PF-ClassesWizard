@@ -1,13 +1,13 @@
 using System;
 using System.Collections.Generic;
+using Harmony12;
 using Kingmaker.Blueprints.Classes;
-using PF_Classes.Identifier;
 using PF_Classes.JsonTypes;
 using PF_Core.Factories;
 
 namespace PF_Classes.Transformations
 {
-    public class ProgressionFromJson : JsonTransformation
+    public class ProgressionFromJson : FeatureFromJson
     {
         private static readonly ProgressionFactory _progressionFactory = new ProgressionFactory();
         private static readonly UIGroupFactory _uiGroupFactory = new UIGroupFactory();
@@ -17,44 +17,33 @@ namespace PF_Classes.Transformations
         {
             _logger.Log($"Creating progression from JSON data {progressionData.Guid}");
 
-            BlueprintProgression progression;
-            if (!String.Empty.Equals(progressionData.From))
-            {
-                progression = _progressionFactory.CreateProgressionFrom(progressionData.Name, progressionData.Guid, progressionData.From);
-            }
-            else
-            {
-                progression = _progressionFactory.CreateProgression(progressionData.Name, progressionData.Guid, progressionData.DisplayName, progressionData.Description, null);
-            }
+            BlueprintProgression progression = !string.Empty.Equals(progressionData.From)
+                ? _progressionFactory.CreateProgressionFrom(progressionData.Name, progressionData.Guid, progressionData.From)
+                : _progressionFactory.CreateProgression(progressionData.Name, progressionData.Guid);
 
-            //     getUIDeterminatorsGroup(progressionData),
-            //     getUIGroups(progressionData).ToArray(),
-            //     getLevelEntries(progressionData).ToArray());
-            //
-            // feature = _progressionFactory.CreateProgression(
-            //     featureData.Name, featureData.Guid, featureData.DisplayName, featureData.Description,
-            //     SpriteLookup.lookupFor(featureData.Icon),
-            //     EnumParser.parseFeatureGroup(featureData.FeatureGroup), characterClass,
-            //     ProgressionFromJson.getUIDeterminatorsGroup(featureData.Progression).ToArray(),
-            //     ProgressionFromJson.getUIGroups(featureData.Progression).ToArray(),
-            //     ProgressionFromJson.getLevelEntries(featureData.Progression).ToArray());
-            // if (featureData.IsProgression && !String.Empty.Equals(featureData.From) && IdentifierLookup.INSTANCE.existsFeature(featureData.From))
-            // {
-            //     // TODO: implement
-            //     feature = null;
-            // }
-            // else if (featureData.IsProgression)
-            // {
-            //     feature = _progressionFactory.CreateProgression(
-            //         featureData.Name, featureData.Guid, featureData.DisplayName, featureData.Description,
-            //         SpriteLookup.lookupFor(featureData.Icon),
-            //         EnumParser.parseFeatureGroup(featureData.FeatureGroup)
-            //     );
-            // }
-            //
+            BlueprintCharacterClass characterClass = !string.Empty.Equals(progressionData.Class)
+                ? _characterClassesRepository.GetCharacterClass(
+                    _identifierLookup.lookupCharacterClass(progressionData.Class))
+                : null;
+
+            SetValuesFromData(progression, progressionData, characterClass);
+
+            if (progressionData.HasUiDeterminatorsGroup)
+                progression.UIDeterminatorsGroup = getUIDeterminatorsGroup(progressionData).ToArray();
+            if (progressionData.HasUiGroups)
+                progression.UIGroups = getUIGroups(progressionData).ToArray();
+            if (progressionData.HasLevelEntries)
+                progression.LevelEntries = getLevelEntries(progressionData).ToArray();
+
+            if (progressionData.IsClassProgression && characterClass != null)
+            {
+                _logger.Debug("Adding progression to character class");
+                characterClass.Progression = progression;
+                progression.Classes = new[] { characterClass };
+            }
 
             _logger.Log("DONE: Creating progression");
-            IdentifierRegistry.INSTANCE.Register(progression);
+            _identifierRegistry.Register(progression);
             return progression;
         }
 
@@ -115,14 +104,14 @@ namespace PF_Classes.Transformations
 
         private static BlueprintFeatureBase getUiDeterminatorGroupEntry(String value) =>
             _featuresRepository.GetFeature(
-                IdentifierLookup.INSTANCE.lookupFeature(value));
+                _identifierLookup.lookupFeature(value));
 
         private static BlueprintFeature getUiGroupEntry(String value) =>
             _featuresRepository.GetFeature(
-                IdentifierLookup.INSTANCE.lookupFeature(value));
+                _identifierLookup.lookupFeature(value));
 
         private static BlueprintFeature getLevelEntryFeature(String value) =>
             _featuresRepository.GetFeature(
-                IdentifierLookup.INSTANCE.lookupFeature(value));
+                _identifierLookup.lookupFeature(value));
     }
 }

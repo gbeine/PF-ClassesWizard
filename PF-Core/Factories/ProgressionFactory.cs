@@ -28,16 +28,13 @@ namespace PF_Core.Factories
 
         }
 
-        public BlueprintProgression CreateProgression(String name, String guid, String displayName, String description,
-            Sprite icon, params BlueprintComponent[] components)
+        public BlueprintProgression CreateProgression(String name, String guid)
         {
             _logger.Debug($"Create progession {name} with id {guid}");
 
             BlueprintProgression progression = _library.Create<BlueprintProgression>();
             progression.SetAssetId(guid);
             progression.name = name;
-            progression.SetNameDescriptionIcon(displayName, description, icon);
-            progression.SetComponents(components);
 
             _library.Add(progression);
 
@@ -47,7 +44,7 @@ namespace PF_Core.Factories
 
         public BlueprintProgression CreateEmptyProgression()
         {
-            _logger.Debug("Create emptu=y progession");
+            _logger.Debug("Create empty progession");
 
             return _library.Create<BlueprintProgression>();
         }

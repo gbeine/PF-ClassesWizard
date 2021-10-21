@@ -9,15 +9,21 @@ namespace PF_Classes.Identifier
     {
         private static readonly Logger _logger = Logger.INSTANCE;
 
-        internal static readonly IdentifierRegistry INSTANCE = new IdentifierRegistry();
-
         private static readonly Dictionary<String, String> nameToGuidMap = new Dictionary<String, String>();
         private static readonly Dictionary<String, String> guidToNameMap = new Dictionary<String, String>();
+        private static readonly Dictionary<String, Type> nameToType = new Dictionary<String, Type>();
+
+        private static readonly IdentifierRegistry __instance = new IdentifierRegistry();
 
         private IdentifierRegistry() { }
 
+        public static IdentifierRegistry INSTANCE
+        {
+            get { return __instance;  }
+        }
+
         internal void Register(BlueprintScriptableObject blueprintScriptableObject) =>
-            Register(blueprintScriptableObject.name, blueprintScriptableObject.AssetGuid);
+            Register(blueprintScriptableObject.name, blueprintScriptableObject.AssetGuid, blueprintScriptableObject.GetType());
 
         internal bool GuidExists(String assetId)
         {
@@ -34,12 +40,17 @@ namespace PF_Classes.Identifier
             return nameToGuidMap.ContainsKey(name);
         }
 
+        internal bool ExistsAndIsA(String name, Type type)
+        {
+            return nameToType.ContainsKey(name) && nameToType[name] == type;
+        }
+
         internal String GuidForName(String name)
         {
             return nameToGuidMap[name];
         }
 
-        private void Register(String name, String assetId)
+        private void Register(String name, String assetId, Type type)
         {
             if (GuidExists(assetId))
             {
@@ -53,6 +64,7 @@ namespace PF_Classes.Identifier
             }
             nameToGuidMap[name] = assetId;
             guidToNameMap[assetId] = name;
+            nameToType[name] = type;
         }
     }
 }

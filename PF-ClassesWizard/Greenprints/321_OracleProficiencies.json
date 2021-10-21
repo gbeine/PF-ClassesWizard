@@ -1,0 +1,8 @@
+{
+  "Name": "OracleProficiencies",
+  "Guid": "baee2212dee249cb8136bda72a872ba4",
+  "DisplayName": "Oracle Proficiencies",
+  "Description": "Oracles are proficient with all simple weapons, light armor, medium armor, and shields (except tower shields). Some oracle revelations grant additional proficiencies.",
+  "From": "ref:CLERIC_PROFICIENCIES",
+  "Class": "loc:OracleClass"
+}

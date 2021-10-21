@@ -1,7 +1,7 @@
 {
   "Name": "OracleCurseLame",
   "Guid": "2e3a6dffa35b4820b245a6d75564bbdb",
-  "From": "OracleCurseLameHindranceFeature",
+  "From": "loc:OracleCurseLameHindranceFeature",
   "Components":[
     {
       "Type": "IgnoreEncumbrence"

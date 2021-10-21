@@ -1,0 +1,30 @@
+{
+  "Name": "OraclePlaguedCurseProgression",
+  "Guid": "fe9633378546417e9cbab920100d3b23",
+  "DisplayName": "Plagued",
+  "Description": "You suffer from minor ailments and sicknesses. While you struggle to resist new diseases, you have grown accustomed to the many inconveniences of sickness.",
+  "Icon": "ref:SICKENED",
+  "Class": "loc:OracleClass",
+  "LevelEntries": {
+    "1": [
+      "loc:OracleCursePlagued"
+    ],
+    "5": [
+      "loc:OracleCurse5Plagued"
+    ],
+    "10": [
+      "loc:OracleCurse10Plagued"
+    ],
+    "15": [
+      "loc:OracleCurse15Plagued"
+    ]
+  },
+  "UIGroups": [
+    [
+      "loc:OracleCursePlagued",
+      "loc:OracleCurse5Plagued",
+      "loc:OracleCurse10Plagued",
+      "loc:OracleCurse15Plagued"
+    ]
+  ]
+}

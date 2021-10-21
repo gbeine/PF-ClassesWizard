@@ -1,0 +1,23 @@
+{
+  "Name": "OracleCurseSelection",
+  "Guid": "7bca4f2f296b419cba84f800bab612f9",
+  "DisplayName": "Oracle's Curse",
+  "Description": "Each oracle is cursed, but this curse comes with a benefit as well as a hindrance. This choice is made at 1st level, and once made, it cannot be changed. The oracle’s curse cannot be removed or dispelled without the aid of a deity. An oracle’s curse is based on her oracle level.",
+  "FeatureGroup": "AasimarHeritage",
+  "Class": "loc:OracleClass",
+  "Features": [
+    "loc:OracleBlackenedCurseProgression",
+    "loc:OracleCloudedVisionCurseProgression",
+    "loc:OracleDeafCurseProgression",
+    "loc:OracleLameCurseProgression",
+    "loc:OraclePlaguedCurseProgression",
+    "loc:OracleReclusiveCurseProgression",
+    "loc:OracleWastingCurseProgression"
+  ],
+  "Components": [
+    {
+      "Type": "NoSelectionIfAlreadyHasFeature",
+      "AnyFeatureFromSelection": true
+    }
+  ]
+}

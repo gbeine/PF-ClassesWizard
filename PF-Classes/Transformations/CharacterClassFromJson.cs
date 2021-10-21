@@ -77,28 +77,14 @@ namespace PF_Classes.Transformations
                 characterClass.AddComponent(
                     _prerequisitesFactory.CreatePrerequisiteAlignment(alignmentMask));
             }
-
-            if (characterClassData.Proficiencies != null)
-            {
-                BlueprintFeature proficiencies =
-                    ProficienciesFromJson.GetProficiencies(characterClassData.Proficiencies);
-                startFeatures.Add(proficiencies);
-            }
-
             if (characterClassData.Spellbook != null)
             {
                 BlueprintSpellbook spellbook = SpellbookFromJson.GetSpellbook(characterClassData.Spellbook);
                 characterClass.Spellbook = spellbook;
-
-                if (characterClassData.Cantrips != null)
-                {
-                    BlueprintFeature cantrips = CantripsFromJson.GetCantrips(characterClassData.Cantrips, characterClass, spellbook);
-                    startFeatures.Add(cantrips);
-                }
             }
 
             _logger.Log($"DONE: Creating character class from JSON data {characterClassData.Guid}");
-            IdentifierRegistry.INSTANCE.Register(characterClass);
+            _identifierRegistry.Register(characterClass);
             return characterClass;
         }
 

@@ -24,7 +24,7 @@ namespace PF_Classes.Transformations
             }
 
             _logger.Log($"DONE: Creating buff from JSON data {buffData.Name}");
-            IdentifierRegistry.INSTANCE.Register(buff);
+            _identifierRegistry.Register(buff);
             return buff;
         }
     }

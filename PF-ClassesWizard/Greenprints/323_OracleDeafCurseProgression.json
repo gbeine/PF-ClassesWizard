@@ -1,0 +1,30 @@
+{
+  "Name": "OracleDeafCurseProgression",
+  "Guid": "782088ee1fd5417db06af8dec7757491",
+  "DisplayName": "Deaf",
+  "Description": "You cannot hear and suffer all of the usual penalties for being deafened: -4 penalty on initiative and -4 perception. It does not affect your ability to cast spells.",
+  "Icon": "ref:EVOCATION_SOUND_BURST",
+  "Class": "loc:OracleClass",
+  "LevelEntries": {
+    "1": [
+      "loc:OracleCurseDeaf"
+    ],
+    "5": [
+      "loc:OracleCurse5Deaf"
+    ],
+    "10": [
+      "loc:OracleCurse10Deaf"
+    ],
+    "15": [
+      "loc:OracleCurse15Deaf"
+    ]
+  },
+  "UIGroups": [
+    [
+      "loc:OracleCurseDeaf",
+      "loc:OracleCurse5Deaf",
+      "loc:OracleCurse10Deaf",
+      "loc:OracleCurse15Deaf"
+    ]
+  ]
+}

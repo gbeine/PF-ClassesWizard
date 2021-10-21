@@ -1,4 +1,5 @@
 using System;
+using Kingmaker.Blueprints.Classes;
 using Kingmaker.Blueprints.Classes.Spells;
 using PF_Classes.Identifier;
 using PF_Classes.JsonTypes;
@@ -9,6 +10,7 @@ namespace PF_Classes.Transformations
     public class SpellbookFromJson : JsonTransformation
     {
         private static readonly SpellbookFactory _spellbookFactory = SpellbookFactory.INSTANCE;
+        private static readonly LocalizationFactory _localizationFactory = new LocalizationFactory();
 
         public static BlueprintSpellbook GetSpellbook(Spellbook spellbookData)
         {
@@ -18,6 +20,11 @@ namespace PF_Classes.Transformations
                 ? _spellbookFactory.CreateSpellbookFrom(spellbookData.Name, spellbookData.Guid, _identifierLookup.lookupSpellbook(spellbookData.From))
                 : _spellbookFactory.CreateSpellbook(spellbookData.Name, spellbookData.Guid);
 
+            BlueprintCharacterClass characterClass = !string.Empty.Equals(spellbookData.CharacterClass)
+                ? _characterClassesRepository.GetCharacterClass(
+                    _identifierLookup.lookupCharacterClass(spellbookData.CharacterClass))
+                : null;
+
             if (spellbookData.IsArcane.HasValue)
                 spellbook.IsArcane = spellbookData.IsArcane.Value;
             if (spellbookData.IsSpontaneous.HasValue)
@@ -26,6 +33,9 @@ namespace PF_Classes.Transformations
                 spellbook.CanCopyScrolls = spellbookData.CanCopyScrolls.Value;
             if (spellbookData.AllSpellsKnown.HasValue)
                 spellbook.AllSpellsKnown = spellbookData.AllSpellsKnown.Value;
+
+            if (!string.Empty.Equals(spellbookData.DisplayName))
+                spellbook.Name = _localizationFactory.CreateString($"{spellbookData.Name}.Name", spellbookData.DisplayName);;
 
             if (!string.Empty.Equals(spellbookData.CastingAttribute))
                 spellbook.CastingAttribute = EnumParser.parseStatType(spellbookData.CastingAttribute);
@@ -49,8 +59,15 @@ namespace PF_Classes.Transformations
             else if (!String.Empty.Equals(spellbookData.SpellsKnown))
                 spellbook.SpellsKnown = getSpellbook(spellbookData.SpellsKnown).SpellsKnown;
 
+            if (characterClass != null)
+            {
+                _logger.Debug("Adding spellbook to character class");
+                characterClass.Spellbook = spellbook;
+                spellbook.CharacterClass = characterClass;
+            }
+
             _logger.Log("DONE: Creating spellbook");
-            IdentifierRegistry.INSTANCE.Register(spellbook);
+            _identifierRegistry.Register(spellbook);
             return spellbook;
         }
 
