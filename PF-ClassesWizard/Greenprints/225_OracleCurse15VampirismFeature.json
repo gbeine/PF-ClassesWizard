@@ -1,0 +1,14 @@
+{
+  "Name": "OracleCurse15Vampirism",
+  "Guid": "ee274398189e48f79eae498c11bf08fb",
+  "DisplayName": "Damage Reduction",
+  "Description": "At 15th level, you gain damage reduction 5/magic.",
+  "Icon": "ref:NECROMANCY_VAMPIRIC_SHADOW_SHIELD",
+  "Components":[
+    {
+      "Type": "AddDamageResistancePhysical",
+      "Value": 5,
+      "BypassedByMagic": true
+    }
+  ]
+}

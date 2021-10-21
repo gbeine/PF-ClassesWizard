@@ -12,6 +12,7 @@ namespace PF_Classes.Transformations
     {
         private static readonly ComponentFactory _componentFactory = ComponentFactory.INSTANCE;
         private static readonly SpellFactory _spellFactory = new SpellFactory();
+        private static readonly LocalizationFactory _localizationFactory = new LocalizationFactory();
 
         public static BlueprintAbility GetSpell(Spell spellData)
         {
@@ -30,20 +31,11 @@ namespace PF_Classes.Transformations
             if (!string.Empty.Equals(spellData.Icon))
                 spell.SetIcon(SpriteLookup.lookupFor(spellData.Icon));
 
-            if (spellData.SpellResistance.HasValue)
-                spell.SpellResistance = spellData.SpellResistance.Value;
-
-            if (spellData.CanTargetEnemies.HasValue)
-                spell.CanTargetEnemies = spellData.CanTargetEnemies.Value;
-
-            if (spellData.CanTargetFriends.HasValue)
-                spell.CanTargetFriends = spellData.CanTargetFriends.Value;
-
-            if (spellData.CanTargetSelf.HasValue)
-                spell.CanTargetSelf = spellData.CanTargetSelf.Value;
-
-            if (spellData.CanTargetPoint.HasValue)
-                spell.CanTargetPoint = spellData.CanTargetPoint.Value;
+            spell.SpellResistance = spellData.SpellResistance.HasValue && spellData.SpellResistance.Value;
+            spell.CanTargetEnemies = spellData.CanTargetEnemies.HasValue && spellData.CanTargetEnemies.Value;
+            spell.CanTargetFriends = spellData.CanTargetFriends.HasValue && spellData.CanTargetFriends.Value;
+            spell.CanTargetSelf = spellData.CanTargetSelf.HasValue && spellData.CanTargetSelf.Value;
+            spell.CanTargetPoint = spellData.CanTargetPoint.HasValue && spellData.CanTargetPoint.Value;
 
             if (!string.Empty.Equals(spellData.Type))
                 spell.Type = EnumParser.parseAbilityType(spellData.Type);
@@ -67,12 +59,24 @@ namespace PF_Classes.Transformations
                 spell.AnimationStyle = EnumParser.parseCastAnimationStyle(spellData.AnimationStyle);
 
             if (!string.Empty.Equals(spellData.Duration))
-                spell.LocalizedDuration = _spellbookRepository
-                    .GetSpell(_identifierLookup.lookupSpell(spellData.Duration)).LocalizedDuration;
+            {
+                if (_identifierLookup.existsSpell(spellData.Duration))
+                    spell.LocalizedDuration = _spellbookRepository
+                        .GetSpell(_identifierLookup.lookupSpell(spellData.Duration)).LocalizedDuration;
+                else
+                    spell.LocalizedSavingThrow =
+                        _localizationFactory.CreateString($"{spell.name}.Duration", spellData.Duration);
+            }
 
             if (!string.Empty.Equals(spellData.SavingThrow))
-                spell.LocalizedSavingThrow = _spellbookRepository
-                    .GetSpell(_identifierLookup.lookupSpell(spellData.SavingThrow)).LocalizedSavingThrow;
+            {
+                if (_identifierLookup.existsSpell(spellData.SavingThrow))
+                    spell.LocalizedSavingThrow = _spellbookRepository
+                        .GetSpell(_identifierLookup.lookupSpell(spellData.SavingThrow)).LocalizedSavingThrow;
+                else
+                    spell.LocalizedSavingThrow =
+                        _localizationFactory.CreateString($"{spell.name}.SavingThrow", spellData.SavingThrow);
+            }
 
             if (spellData.AvailableMetamagic.Count > 0)
             {

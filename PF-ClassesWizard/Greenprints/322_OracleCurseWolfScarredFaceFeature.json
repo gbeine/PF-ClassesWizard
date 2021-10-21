@@ -1,16 +1,16 @@
 {
   "Name": "OracleCurseWolfScarredFace",
   "Guid": "84f62f0a969d4da6b3b74d61d4ff640a",
-  "DisplayName": "Wolf-scarred Face",
-  "Description": "You have a severe speech impediment, and any spells you cast have a 20% chance of failing, wasting your action but not expending the spell. You gain a natural bite attack that deals 1d4 points of damage if you are a Medium creature or 1d3 points of damage if you are Small.",
-  "Icon": "ref:TRANSMUTATION_CATS_GRACE",
+  "From": "loc:OracleCurseWolfScarredFaceHindranceFeature",
   "Class": "loc:OracleClass",
-  "Components":[
+  "ReplaceComponents": [
     {
       "Type": "SpellFailureChance",
       "Chance": 20,
       "DoNotSpendSlotIfFailed": true
-    },
+    }
+  ],
+  "Components":[
     {
       "Type": "AddFeatureOnClassLevel",
       "Feature": "loc:OracleWolfScarred1d4BiteFeature",

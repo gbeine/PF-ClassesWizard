@@ -1,0 +1,20 @@
+{
+  "Name": "OracleCurse10Vampirism",
+  "Guid": "3155da9be5f24583aaaad4693d5f4be7",
+  "DisplayName": "Vampirism",
+  "Description": "At 10th level, you add vampiric touch to your list of 3rd-level oracle spells known and undead anatomy II to your list of 5th-level oracle spells known.",
+  "Icon": "ref:NECROMANCY_VAMPIRIC_TOUCH_CAST",
+  "Class": "loc:OracleClass",
+  "Components":[
+    {
+      "Type": "AddKnownSpell",
+      "Spell": "ref:NECROMANCY_VAMPIRIC_TOUCH_CAST",
+      "SpellLevel": 3
+    },
+    {
+      "Type": "AddKnownSpell",
+      "Spell": "loc:UndeadAnatomyIIAbility",
+      "SpellLevel": 5
+    }
+  ]
+}

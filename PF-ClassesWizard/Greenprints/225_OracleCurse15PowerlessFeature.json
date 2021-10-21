@@ -1,0 +1,20 @@
+{
+  "Name": "OracleCurse15VPowerless",
+  "Guid": "447bebdebffa4205a8151efea82f3f98",
+  "DisplayName": "Powerless Prophecy",
+  "Description": "At 15th level, you gain a +4 insight bonus on all your saving throws and to your AC during surprise round.",
+  "Icon": "ref:DIVINATION_FORESIGHT",
+  "Components": [
+    {
+      "Type": "ActionInSurpriseRound",
+      "Actions": [
+        {
+          "Type": "ContextActionApplyBuff",
+          "Buff": "loc:OracleCurse15VPowerlessBuff",
+          "BonusValue": "1",
+          "IsNotDispelable": true
+        }
+      ]
+    }
+  ]
+}

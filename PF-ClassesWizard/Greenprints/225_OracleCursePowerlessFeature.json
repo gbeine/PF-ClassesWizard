@@ -1,0 +1,11 @@
+{
+  "Name": "OracleCursePowerless",
+  "Guid": "63d7cf1dcce147989366775914c02e75",
+  "From": "loc:OracleCursePowerlessHindranceFeature",
+  "Components": [
+    {
+      "Type": "AddFacts",
+      "Fact": "ref:COMMON_UNCANNY_DODGE"
+    }
+  ]
+}

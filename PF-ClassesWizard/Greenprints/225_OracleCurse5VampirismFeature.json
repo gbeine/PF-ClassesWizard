@@ -1,0 +1,17 @@
+{
+  "Name": "OracleCurse5Vampirism",
+  "Guid": "86de0fe0a60d40f18000a8acbe4cec78",
+  "DisplayName": "Channel Resistance",
+  "Description": "At 5th level, you gain channel resistance +4.",
+  "Icon": "ref:CHANNEL_NEGATIVE_ENERGY",
+  "Components":[
+    {
+      "Type": "SavingThrowBonusAgainstSpecificSpells",
+      "Value": 4,
+      "BypassFeatures": [
+        "SUN_DOMAIN_BASE_FEATURE"
+      ],
+      "TODO": "ChannelEnergyEngine.addChannelResitance(curse5); -> Spells"
+    }
+  ]
+}

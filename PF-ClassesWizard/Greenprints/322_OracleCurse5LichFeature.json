@@ -1,0 +1,15 @@
+{
+  "Name": "OracleCurse5Lich",
+  "Guid": "98dcae62cc8a4455815fdea23801885c",
+  "DisplayName": "Ghoul Touch",
+  "Description": "At 5th level, you add ghoul touch to your list of 2nd-level oracle spells known.",
+  "Icon": "ref:NECROMANCY_BESTOW_CURSE",
+  "Class": "loc:OracleClass",
+  "Components":[
+    {
+      "Type": "AddKnownSpell",
+      "Spell": "loc:GhoulTouchAbility",
+      "SpellLevel": 2
+    }
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "Name": "OracleWolfScarredFaceCurseProgression",
+  "Guid": "a31f4870452b4f31b6ae77fb4935d410",
+  "DisplayName": "Wolf-scarred Face",
+  "Description": "Your face is deformed, as though you were born with a wolf’s muzzle instead of an ordinary nose and jaw. Many mistake you for a werewolf, and in areas plagued by lycanthropes, you must take pains to hide your face.",
+  "Icon": "ref:TRANSMUTATION_CATS_GRACE",
+  "Class": "loc:OracleClass",
+  "LevelEntries": {
+    "1": [
+      "loc:OracleCurseWolfScarredFace"
+    ],
+    "5": [
+      "loc:OracleCurse5WolfScarredFace"
+    ],
+    "10": [
+      "loc:OracleCurse10WolfScarredFace"
+    ],
+    "15": [
+      "loc:OracleCurse15WolfScarredFace"
+    ]
+  },
+  "UIGroups": [
+    [
+      "loc:OracleCurseWolfScarredFace",
+      "loc:OracleCurse5WolfScarredFace",
+      "loc:OracleCurse10WolfScarredFace",
+      "loc:OracleCurse15WolfScarredFace"
+    ]
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "Name": "OracleCurse10Lich",
+  "Guid": "4b3633ae32654533ac3f02e62c829bcc",
+  "DisplayName": "Lich",
+  "Description": "At 10th level, add undead anatomy I to your list of 3rd-level oracle spells known and undead anatomy II to your list of 5th-level oracle spells known.",
+  "Icon": "ref:NECROMANCY_BANSHEE_BLAST",
+  "Class": "loc:OracleClass",
+  "Components":[
+    {
+      "Type": "AddKnownSpell",
+      "Spell": "loc:UndeadAnatomyIAbility",
+      "SpellLevel": 3
+    },
+    {
+      "Type": "AddKnownSpell",
+      "Spell": "loc:UndeadAnatomyIIAbility",
+      "SpellLevel": 5
+    }
+  ]
+}

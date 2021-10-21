@@ -10,6 +10,7 @@ using Kingmaker.UnitLogic;
 using Kingmaker.UnitLogic.Abilities;
 using Kingmaker.UnitLogic.Abilities.Blueprints;
 using Kingmaker.UnitLogic.Alignments;
+using Kingmaker.UnitLogic.Buffs.Blueprints;
 using Kingmaker.UnitLogic.Commands.Base;
 using Kingmaker.UnitLogic.FactLogic;
 using Kingmaker.UnitLogic.Mechanics;
@@ -301,6 +302,30 @@ namespace PF_Classes.Transformations
                 return (SpellDescriptor)extraSpellDescriptor;
             }
             throw new InvalidOperationException($"Cannot parse SpellDescriptor {value}");
+        }
+
+        internal static SpellSchool parseSpellSchool(String value)
+        {
+            _logger.Log($"Parsing SpellSchool from {value}");
+            SpellSchool spellSchool;
+            if (Enum.TryParse(value, out spellSchool))
+            {
+                return spellSchool;
+            }
+
+            throw new InvalidOperationException($"Cannot parse SpellSchool {value}");
+        }
+
+        internal static StackingType parseStackingType(String value)
+        {
+            _logger.Log($"Parsing StackingType from {value}");
+            StackingType stackingType;
+            if (Enum.TryParse(value, out stackingType))
+            {
+                return stackingType;
+            }
+
+            throw new InvalidOperationException($"Cannot parse StackingType {value}");
         }
 
         internal static StatType parseStatType(String value)

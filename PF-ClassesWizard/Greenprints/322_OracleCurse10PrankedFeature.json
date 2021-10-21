@@ -1,0 +1,15 @@
+{
+  "Name": "OracleCurse10Pranked",
+  "Guid": "60514f1da2ab4ac584bbdbc2f71db5a4",
+  "DisplayName": "Pranked",
+  "Description": "At 10th level, you add confusion to your list of spells known as a 5th-level spell.",
+  "Icon": "ref:ENCHANTMENT_CONFUSION_SPELL",
+  "Class": "loc:OracleClass",
+  "Components":[
+    {
+      "Type": "AddKnownSpell",
+      "Spell": "ref:ENCHANTMENT_CONFUSION_SPELL",
+      "SpellLevel": 5
+    }
+  ]
+}

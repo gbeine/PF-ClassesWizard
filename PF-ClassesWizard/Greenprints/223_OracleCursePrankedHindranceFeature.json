@@ -9,7 +9,7 @@
       "Type": "AddStatBonus",
       "Stat": "Initiative",
       "Bonus": -4,
-      "Descriptor": "Penalty",
+      "Descriptor": "Penalty"
     },
     {
       "Type": "ItemUseFailure",

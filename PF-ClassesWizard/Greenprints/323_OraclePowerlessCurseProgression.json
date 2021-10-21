@@ -1,0 +1,30 @@
+{
+  "Name": "OraclePowerlessCurseProgression",
+  "Guid": "ef1bc319d9d54318922d06bdbbd54812",
+  "DisplayName": "Powerless Prophecy",
+  "Description": "You are forewarned of danger but can’t act to prevent it.",
+  "Icon": "ref:STAGGERED",
+  "Class": "loc:OracleClass",
+  "LevelEntries": {
+    "1": [
+      "loc:OracleCursePowerless"
+    ],
+    "5": [
+      "loc:OracleCurse5Powerless"
+    ],
+    "10": [
+      "loc:OracleCurse10Powerless"
+    ],
+    "15": [
+      "loc:OracleCurse15Powerless"
+    ]
+  },
+  "UIGroups": [
+    [
+      "loc:OracleCursePowerless",
+      "loc:OracleCurse5Powerless",
+      "loc:OracleCurse10Powerless",
+      "loc:OracleCurse15Powerless"
+    ]
+  ]
+}

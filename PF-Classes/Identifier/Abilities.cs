@@ -420,7 +420,13 @@ namespace PF_Classes.Identifier
 
         // Abilities
 
+        public const String CHANNEL_ENERGY                     = "f5fc9a1a2a3c1a946a31b320d1dd31b2"; // Positive Energie fokussieren – Lebende heilen
+        public const String CHANNEL_NEGATIVE_ENERGY            = "89df18039ef22174b81052e2e419c728"; // Negativ Energie fokussieren – Lebende verletzen
+        public const String CHANNEL_NEGATIVE_HEAL              = "9be3aa47a13d5654cbcb8dbd40c325f2"; // Negativ Energie fokussieren – Untote heilen
+        public const String CHANNEL_POSITIVE_HARM              = "279447a6bf2d3544d93a0a39c3b8e91d"; // Positive Energie fokussieren – Untote verletzen
         public const String DAZZLING_DISPLAY_ACTION            = "5f3126d4120b2b244a95cb2ec23d69fb"; // Bedrohliche Darbietung
+        public const String DEATH_WARD                         = "0413915f355a38146bc6ad40cdf27b3f"; // Todesschutz
+        public const String DEATH_WARD_CAST                    = "e9cc9378fd6841f48ad59384e79e9953"; // Todesschutz
         public const String ELEMENTAL_WALL_ABILITY             = "d47ff3c6bffb18a4597f77e49d282492"; // Elementarwand
         public const String ELEMENTAL_WALL_ACID_ABILITY        = "1e418794638cf95409f6e33c8c3dbe1a"; // Elementarwand – Säure
         public const String ELEMENTAL_WALL_COLD_ABILITY        = "e377feb2ecec95e478e0565da621ea55"; // Elementarwand – Kälte

@@ -16,6 +16,9 @@ namespace PF_Classes.Transformations
             BlueprintBuff buff = _buffFactory.CreateBuff(buffData.Name, buffData.Guid,
                 buffData.DisplayName, buffData.Description, SpriteLookup.lookupFor(buffData.Icon));
 
+            if (!string.Empty.Equals(buffData.Stacking))
+                buff.Stacking = EnumParser.parseStackingType(buffData.Stacking);
+
             foreach (var component in buffData.Components)
             {
                 _logger.Debug($"Adding component {component.Type}");

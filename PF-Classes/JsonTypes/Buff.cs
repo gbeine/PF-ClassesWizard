@@ -11,6 +11,7 @@ namespace PF_Classes.JsonTypes
         {
             DisplayName = SelectString(jObject, "DisplayName");
             Icon = SelectString(jObject, "Icon");
+            Stacking = SelectString(jObject, "Stacking");
 
             Description = SelectString(jObject, "Description", DisplayName);
             SelectComponents(jObject);
@@ -36,6 +37,7 @@ namespace PF_Classes.JsonTypes
         public string DisplayName { get; }
         public string Description { get; }
         public string Icon { get; }
+        public string Stacking { get; }
         public List<Component> Components { get; private set; }
     }
 }

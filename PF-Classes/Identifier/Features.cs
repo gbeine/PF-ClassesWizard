@@ -97,6 +97,8 @@ namespace PF_Classes.Identifier
 
         public const String IMPROVED_INITIATIVE = "797f25d709f559546b29e7bcb181cc74"; // Verbesserte Initiative
 
+        public const String SUN_DOMAIN_BASE_FEATURE = "3d8e38c9ed54931469281ab0cec506e9"; // Domäne der Sonne
+
         public const String ARCANE_SCHOOL_ILLUSION_BLINDING_RAY                                 = "9be5e050244352d43a1cb50aad8d548f"; // Blendender Strahl
         public const String ARCANE_SCHOOL_ILLUSION_INVISIBILITY_FIELD                           = "f0585eb111ede2c4ebf00b057d069463"; // Unsichtbarkeitsfeld
 

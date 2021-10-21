@@ -11,6 +11,7 @@ using PF_Core.CallOfTheWild.BuffMechanics;
 using PF_Core.CallOfTheWild.ConcealementMechanics;
 using PF_Core.CallOfTheWild.EncumbranceMechanics;
 using PF_Core.CallOfTheWild.HarmlessSaves;
+using PF_Core.CallOfTheWild.InitiativeMechanics;
 using PF_Core.CallOfTheWild.MetamagicMechanics;
 using PF_Core.CallOfTheWild.NewMechanics;
 using PF_Core.CallOfTheWild.SpellFailureMechanics;
@@ -29,6 +30,24 @@ namespace PF_Classes.Transformations.ComponentDelegates
 
         static CallOfTheWildComponentDelegates()
         {
+            _logger.Debug($"Adding delegate: ActionInSurpriseRound");
+            CreateComponentDelegates.Add("ActionInSurpriseRound",
+                (target, componentData) => target.AddComponent(
+                    _componentFactory.CreateComponent<ActionInSurpriseRound>(c =>
+                        {
+                            if (componentData.Exists("Actions"))
+                            {
+                                List<GameAction> actions = new List<GameAction>();
+                                foreach (var action in componentData.AsList<JsonTypes.Action>("Actions"))
+                                {
+                                    actions.Add(ActionFromJson.CreateAction(action));
+                                }
+
+                                c.actions = new ActionList() {Actions = actions.ToArray()};
+                            }
+                        })
+                    ));
+
             _logger.Debug($"Adding delegate: AddOutgoingConcealment");
             CreateComponentDelegates.Add("AddOutgoingConcealment",
                 (target, componentData) => target.AddComponent(

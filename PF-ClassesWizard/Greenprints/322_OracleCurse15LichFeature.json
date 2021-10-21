@@ -1,0 +1,14 @@
+{
+  "Name": "OracleCurse15Lich",
+  "Guid": "2c116de22d604732850532ae8209fc54",
+  "DisplayName": "Immunity To Death Effects",
+  "Description": "At 15th level, you are immune to death effects.",
+  "Icon": "ref:DEATH_WARD",
+  "Class": "loc:OracleClass",
+  "Components":[
+    {
+      "Type": "BuffDescriptorImmunity",
+      "Descriptor": "Death"
+    }
+  ]
+}

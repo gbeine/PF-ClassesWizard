@@ -1,0 +1,15 @@
+{
+  "Name": "OracleCurse15Pranked",
+  "Guid": "",
+  "DisplayName": "Pranked",
+  "Description": "At 15th level, you add invisibility, mass to your list of spells known.",
+  "Icon": "ref:ILLUSION_INVISIBILITY_MASS",
+  "Class": "loc:OracleClass",
+  "Components":[
+    {
+      "Type": "AddKnownSpell",
+      "Spell": "ref:ILLUSION_INVISIBILITY_MASS",
+      "SpellLevel": 7
+    }
+  ]
+}

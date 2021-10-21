@@ -1,0 +1,30 @@
+{
+  "Name": "OracleLichCurseProgression",
+  "Guid": "ef1bc319d9d54318922d06bdbbd54812",
+  "DisplayName": "Lich",
+  "Description": "Every living spellcaster hides a secret in their flesh—a unique, personalized set of conditions that, when all are fulfilled in the correct order, can trigger the transformation into a lich. Normally, one must expend years and tens of thousands of gold pieces to research this deeply personalized method of attaining immortality. Yet, in a rare few cases, chance and ill fortune can conspire against an unsuspecting spellcaster.",
+  "Icon": "ref:BLOODLINE_UNDEAD_PROGRESSION",
+  "Class": "loc:OracleClass",
+  "LevelEntries": {
+    "1": [
+      "loc:OracleCurseLich"
+    ],
+    "5": [
+      "loc:OracleCurse5Lich"
+    ],
+    "10": [
+      "loc:OracleCurse10Lich"
+    ],
+    "15": [
+      "loc:OracleCurse15Lich"
+    ]
+  },
+  "UIGroups": [
+    [
+      "loc:OracleCurseLich",
+      "loc:OracleCurse5Lich",
+      "loc:OracleCurse10Lich",
+      "loc:OracleCurse15Lich"
+    ]
+  ]
+}

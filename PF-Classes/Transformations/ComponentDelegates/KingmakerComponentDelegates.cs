@@ -12,6 +12,7 @@ using Kingmaker.Designers.Mechanics.Facts;
 using Kingmaker.ElementsSystem;
 using Kingmaker.EntitySystem.Stats;
 using Kingmaker.Enums;
+using Kingmaker.UnitLogic.Abilities.Blueprints;
 using Kingmaker.UnitLogic.Abilities.Components;
 using Kingmaker.UnitLogic.FactLogic;
 using Kingmaker.UnitLogic.Mechanics;
@@ -98,6 +99,17 @@ namespace PF_Classes.Transformations.ComponentDelegates
                     _componentFactory.CreateComponent<AddConditionImmunity>(c =>
                         {
                             c.Condition = EnumParser.parseUnitCondition(componentData.AsString("Condition"));
+                        })
+                    ));
+
+            _logger.Debug($"Adding delegate: AddDamageResistancePhysical");
+            CreateComponentDelegates.Add("AddDamageResistancePhysical",
+                (target, componentData) => target.AddComponent(
+                    _componentFactory.CreateComponent<AddDamageResistancePhysical>(c =>
+                        {
+                            c.BypassedByMagic = componentData.Exists("BypassedByMagic") && componentData.AsBool("BypassedByMagic");
+                            if (componentData.Exists("Value"))
+                                c.Value = componentData.AsInt("Value");
                         })
                     ));
 
@@ -274,6 +286,49 @@ namespace PF_Classes.Transformations.ComponentDelegates
                     })
                 ));
 
+            _logger.Debug($"Adding delegate: SavingThrowBonusAgainstSpecificSpells");
+            CreateComponentDelegates.Add("SavingThrowBonusAgainstSpecificSpells",
+                (target, componentData) => target.AddComponent(
+                    _componentFactory.CreateComponent<SavingThrowBonusAgainstSpecificSpells>(c =>
+                    {
+                        c.Value = componentData.Exists("Value")
+                            ? componentData.AsInt("Value")
+                            : 0;
+
+                        if (componentData.Exists("ModifierDescriptor"))
+                            c.ModifierDescriptor = EnumParser.parseModifierDescriptor(componentData.AsString("ModifierDescriptor"));
+
+                        if (componentData.Exists("Spells"))
+                        {
+                            c.Spells = Array.Empty<BlueprintAbility>();
+                            foreach (var spell in componentData.AsArray("Spells"))
+                            {
+                                c.Spells.Add(
+                                    _spellbookRepository.GetSpell(
+                                        _identifierLookup.lookupSpell(spell)));
+                            }
+                        }
+                        else
+                        {
+                            c.Spells = new BlueprintAbility[0];
+                        }
+                        if (componentData.Exists("BypassFeatures"))
+                        {
+                            c.BypassFeatures = Array.Empty<BlueprintFeature>();
+                            foreach (var feature in componentData.AsArray("BypassFeatures"))
+                            {
+                                c.BypassFeatures.Add(
+                                    _featuresRepository.GetFeature(
+                                        _identifierLookup.lookupFeature(feature)));
+                            }
+                        }
+                        else
+                        {
+                            c.BypassFeatures = new BlueprintFeature[0];
+                        }
+                    })
+                ));
+
             _logger.Debug($"Adding delegate: SpecificBuffImmunity");
             CreateComponentDelegates.Add("SpecificBuffImmunity",
                 (target, componentData) => target.AddComponent(
@@ -282,6 +337,16 @@ namespace PF_Classes.Transformations.ComponentDelegates
                             c.Buff = _buffRepository.GetBuff(
                                 _identifierLookup.lookupBuff(componentData.AsString("Buff"))
                                 );
+                        })
+                    ));
+
+            _logger.Debug($"Adding delegate: SpellComponent");
+            CreateComponentDelegates.Add("SpellComponent",
+                (target, componentData) => target.AddComponent(
+                    _componentFactory.CreateComponent<SpellComponent>(c =>
+                        {
+                            if (componentData.Exists("School"))
+                                c.School = EnumParser.parseSpellSchool(componentData.AsString("School"));
                         })
                     ));
 

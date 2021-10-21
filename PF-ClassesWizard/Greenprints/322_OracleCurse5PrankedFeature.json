@@ -1,0 +1,20 @@
+{
+  "Name": "OracleCurse5Pranked",
+  "Guid": "7267337e284c428ab39e9e46823c2d18",
+  "DisplayName": "Pranked",
+  "Description": "At 5th level, you add glitterdust and hideous laughter to your list of spells known.",
+  "Icon": "ref:CONJURATION_GLITTERDUST",
+  "Class": "loc:OracleClass",
+  "Components":[
+    {
+      "Type": "AddKnownSpell",
+      "Spell": "ref:ENCHANTMENT_HIDEOUS_LAUGHTER",
+      "SpellLevel": 2
+    },
+    {
+      "Type": "AddKnownSpell",
+      "Spell": "ref:CONJURATION_GLITTERDUST",
+      "SpellLevel": 2
+    }
+  ]
+}
