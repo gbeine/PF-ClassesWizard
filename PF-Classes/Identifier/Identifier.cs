@@ -8,7 +8,7 @@ namespace PF_Classes.Identifier
     public abstract class Identifier
     {
         protected List<FieldInfo> _constants;
-        protected IReadOnlyDictionary<String, String> _identifier;
+        protected IReadOnlyDictionary<string, string> _identifier;
 
         public Identifier()
         {
@@ -16,23 +16,23 @@ namespace PF_Classes.Identifier
 
             _constants = type.GetFields(BindingFlags.Public | BindingFlags.Static | BindingFlags.FlattenHierarchy)
                 .Where(
-                    fi => fi.IsLiteral && !fi.IsInitOnly && fi.FieldType == typeof(String))
+                    fi => fi.IsLiteral && !fi.IsInitOnly && fi.FieldType == typeof(string))
                 .ToList();
 
-            _identifier = _constants.ToDictionary(fi => fi.Name, fi => (String)fi.GetRawConstantValue());
+            _identifier = _constants.ToDictionary(fi => fi.Name, fi => (string)fi.GetRawConstantValue());
         }
 
-        public bool Contains(String identifier)
+        public bool Contains(string identifier)
         {
             return _identifier.ContainsKey(identifier);
         }
 
-        public String GetGuidFor(String intentifier)
+        public string GetGuidFor(string intentifier)
         {
             return _identifier[intentifier];
         }
 
-        public IReadOnlyDictionary<String, String> AllIdentifiers
+        public IReadOnlyDictionary<string, string> AllIdentifiers
         {
             get { return _identifier; }
         }

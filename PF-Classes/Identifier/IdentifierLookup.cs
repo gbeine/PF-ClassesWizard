@@ -17,24 +17,24 @@ namespace PF_Classes.Identifier
 
         private IdentifierLookup() { }
 
-        internal String lookupAbility(String value) => performLookup(Abilities.INSTANCE, value);
-        internal String lookupBuff(String value) => performLookup(Buffs.INSTANCE, value);
-        internal String lookupCharacterClass(String value) => performLookup(CharacterClasses.INSTANCE, value);
-        internal String lookupFeature(String value) => performLookup(Features.INSTANCE, value);
-        internal String lookupItem(String value) => performLookup(Items.INSTANCE, value);
-        internal String lookupProgression(String value) => performLookup(Progressions.INSTANCE, value);
-        internal String lookupSpell(String value) => performLookup(Abilities.INSTANCE, value);
-        internal String lookupSpellbook(String value) => performLookup(Spellbooks.INSTANCE, value);
-        internal String lookupSpellList(String value) => performLookup(SpellLists.INSTANCE, value);
-        internal String lookupStatProgession(String value) => performLookup(StatProgession.INSTANCE, value);
+        internal string lookupAbility(string value) => performLookup(Abilities.INSTANCE, value);
+        internal string lookupBuff(string value) => performLookup(Buffs.INSTANCE, value);
+        internal string lookupCharacterClass(string value) => performLookup(CharacterClasses.INSTANCE, value);
+        internal string lookupFeature(string value) => performLookup(Features.INSTANCE, value);
+        internal string lookupItem(string value) => performLookup(Items.INSTANCE, value);
+        internal string lookupProgression(string value) => performLookup(Progressions.INSTANCE, value);
+        internal string lookupSpell(string value) => performLookup(Abilities.INSTANCE, value);
+        internal string lookupSpellbook(string value) => performLookup(Spellbooks.INSTANCE, value);
+        internal string lookupSpellList(string value) => performLookup(SpellLists.INSTANCE, value);
+        internal string lookupStatProgession(string value) => performLookup(StatProgession.INSTANCE, value);
 
-        internal bool existsCharacterClass(String value) => performExists(CharacterClasses.INSTANCE, value, typeof(BlueprintCharacterClass));
-        internal bool existsFeature(String value) => performExists(Features.INSTANCE, value, typeof(BlueprintFeature));
-        internal bool existsProgression(String value) => performExists(Progressions.INSTANCE, value, typeof(BlueprintProgression));
-        internal bool existsSpell(String value) => performExists(Abilities.INSTANCE, value,typeof(BlueprintAbility));
-        internal bool existsSpellbook(String value) => performExists(Spellbooks.INSTANCE, value, typeof(BlueprintSpellbook));
+        internal bool existsCharacterClass(string value) => performExists(CharacterClasses.INSTANCE, value, typeof(BlueprintCharacterClass));
+        internal bool existsFeature(string value) => performExists(Features.INSTANCE, value, typeof(BlueprintFeature));
+        internal bool existsProgression(string value) => performExists(Progressions.INSTANCE, value, typeof(BlueprintProgression));
+        internal bool existsSpell(string value) => performExists(Abilities.INSTANCE, value,typeof(BlueprintAbility));
+        internal bool existsSpellbook(string value) => performExists(Spellbooks.INSTANCE, value, typeof(BlueprintSpellbook));
 
-        private String performLookup(Identifier identifierInstance, String value)
+        private string performLookup(Identifier identifierInstance, string value)
         {
             _logger.Debug($"Lookup identifier for {value}");
             if (value != null)
@@ -54,7 +54,7 @@ namespace PF_Classes.Identifier
             return value;
         }
 
-        private bool performExists(Identifier identifierInstance, String value, Type type)
+        private bool performExists(Identifier identifierInstance, string value, Type type)
         {
             _logger.Debug($"Test if identifier for {value} exists");
             bool exists = false;
