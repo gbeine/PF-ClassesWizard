@@ -1,0 +1,6 @@
+{
+  "Name": "WallOfFireSpellAbilityAreaEffect",
+  "Guid": "51b6d5fc3c9f4b1787475b9cc45e4d19",
+  "From": "ref:FIRE",
+  "BaseValueType": "CasterLevel"
+}

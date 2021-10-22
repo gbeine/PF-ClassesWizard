@@ -1,0 +1,136 @@
+{
+  "Name": "GhoulTouchSickenedAreaEffect",
+  "Guid": "addfd60d21d749a7877206ce28558266",
+  "From": "ref:OFTEN_USED_UNKNOWN_EFFECT",
+  "RemoveComponents": [
+    "AbilityAreaEffectBuff"
+  ],
+  "Components": [
+    {
+      "Type": "AbilityAreaEffectRunAction",
+      "UnitEnter": [
+        {
+          "Type": "Conditional",
+          "Condition": {
+            "Type": "Or",
+            "Conditions": [
+              {
+                "Type": "ContextConditionHasFact",
+                "Feature": "ref:UNDEAD_TYPE"
+              },
+              {
+                "Type": "ContextConditionHasFact",
+                "Feature": "ref:CONSTRUCT_TYPE"
+              },
+              {
+                "Type": "ContextConditionHasFact",
+                "Feature": "ref:SUBTYPE_ELEMENTAL"
+              },
+              {
+                "Type": "ContextConditionIsCaster"
+              }
+            ]
+          },
+          "IfTrue": [],
+          "IfFalse": [
+            {
+              "Type": "ContextActionSavingThrow",
+              "SavingThrowType": "Fortitude",
+              "Actions": [
+                {
+                  "Type": "ContextActionConditionalSaved",
+                  "Failed": [
+                    {
+                      "Type": "ContextActionApplyBuff",
+                      "Buff": "loc:GhoulTouchSickened",
+                      "IsChild": true,
+                      "IsPermanent": true
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "UnitExit": [
+        {
+          "Type": "Conditional",
+          "Condition": {
+            "Type": "Or",
+            "Conditions": [
+              {
+                "Type": "ContextConditionHasFact",
+                "Feature": "ref:UNDEAD_TYPE"
+              },
+              {
+                "Type": "ContextConditionHasFact",
+                "Feature": "ref:CONSTRUCT_TYPE"
+              },
+              {
+                "Type": "ContextConditionHasFact",
+                "Feature": "ref:SUBTYPE_ELEMENTAL"
+              },
+              {
+                "Type": "ContextConditionIsCaster"
+              }
+            ]
+          },
+          "IfTrue": [],
+          "IfFalse": [
+            {
+              "Type": "ContextActionRemoveBuffSingleStack",
+              "TargetBuff": "loc:GhoulTouchSickened"
+            }
+          ]
+        }
+      ],
+      "UnitMove": [ ],
+      "Round": [
+        {
+          "Type": "Conditional",
+          "Condition": {
+            "Type": "Or",
+            "Conditions": [
+              {
+                "Type": "ContextConditionHasFact",
+                "Feature": "ref:UNDEAD_TYPE"
+              },
+              {
+                "Type": "ContextConditionHasFact",
+                "Feature": "ref:CONSTRUCT_TYPE"
+              },
+              {
+                "Type": "ContextConditionHasFact",
+                "Feature": "ref:SUBTYPE_ELEMENTAL"
+              },
+              {
+                "Type": "ContextConditionIsCaster"
+              }
+            ]
+          },
+          "IfTrue": [],
+          "IfFalse": [
+            {
+              "Type": "ContextActionSavingThrow",
+              "SavingThrowType": "Fortitude",
+              "Actions": [
+                {
+                  "Type": "ContextActionConditionalSaved",
+                  "Failed": [
+                    {
+                      "Type": "ContextActionApplyBuff",
+                      "Buff": "loc:GhoulTouchSickened",
+                      "IsChild": true,
+                      "IsPermanent": true
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

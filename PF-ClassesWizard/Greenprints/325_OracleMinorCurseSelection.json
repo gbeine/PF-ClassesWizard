@@ -11,7 +11,10 @@
     "loc:OracleCurseDeafMinorFeature",
     "loc:OracleCurseLameMinorFeature",
     "loc:OracleCursePlaguedMinorFeature",
+    "loc:OracleCursePowerlessMinorFeature",
+    "loc:OracleCursePrankedMinorFeature",
     "loc:OracleCurseReclusiveMinorFeature",
     "loc:OracleCurseWastingMinorFeature",
+    "loc:OracleCurseWolfScarredFaceMinorFeature"
   ]
 }

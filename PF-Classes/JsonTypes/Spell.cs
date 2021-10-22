@@ -33,10 +33,8 @@ namespace PF_Classes.JsonTypes
             AnimationStyle = SelectString(jObject, "AnimationStyle");
 
             AvailableMetamagic = SelectStringList(jObject, "AvailableMetamagic");
-            RemoveComponents = SelectStringList(jObject, "RemoveComponents");
 
             SelectSpellLists(jObject);
-            SelectComponents(jObject);
             SelectReplaceComponents(jObject);
             SelectReplaceProgression(jObject);
         }
@@ -56,31 +54,12 @@ namespace PF_Classes.JsonTypes
             }
         }
 
-        private void SelectComponents(JObject jObject)
-        {
-            JToken jComponents = jObject.SelectToken("Components");
-            if (jComponents == null)
-            {
-                Components = Array.Empty<Component>().ToList();
-            }
-            else
-            {
-                Components = new List<Component>();
-                foreach (var jComponent in jComponents.Value<JArray>())
-                {
-                    Components.Add(new Component(jComponent.Value<JObject>()));
-                }
-            }
-        }
 
         private void SelectReplaceComponents(JObject jObject)
         {
             JToken jComponents = jObject.SelectToken("ReplaceComponents");
-            if (jComponents == null)
-            {
-                ReplaceComponents = Array.Empty<Component>().ToList();
-            }
-            else
+            ReplaceComponents = Array.Empty<Component>().ToList();
+            if (jComponents != null)
             {
                 ReplaceComponents = new List<Component>();
                 foreach (var jComponent in jComponents.Value<JArray>())
@@ -127,8 +106,6 @@ namespace PF_Classes.JsonTypes
         public bool? CanTargetPoint { get; }
         public List<string> AvailableMetamagic { get; }
         public Dictionary<string,int> SpellLists { get; private set; }
-        public List<string> RemoveComponents { get; }
-        public List<Component> Components { get; private set; }
         public List<Component> ReplaceComponents { get; private set; }
         public Dictionary<string, int> ReplaceProgression { get; private set; }
     }

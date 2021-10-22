@@ -93,7 +93,7 @@
     <None Update="Icons\AbilityIcons\FogCloud.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Update="Greenprints\020_WallOfFireSpell.json">
+    <None Update="Greenprints\021_WallOfFireSpell.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Update="Greenprints\220_DeafenedBuff.json">
@@ -183,7 +183,7 @@
     <None Update="Greenprints\224_OracleCurseWolfScarredFaceFeatureBurdenBuff.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Update="Greenprints\021_FireDomainWallOfFireSpell.json">
+    <None Update="Greenprints\022_FireDomainWallOfFireSpell.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Update="Greenprints\225_OracleCurse10CloudedVisionFeature.json">
@@ -420,7 +420,7 @@
     <None Update="Greenprints\225_OracleCurse10PowerlessFeature.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Update="Greenprints\221_OracleCurse15VPowerlessBuff.json">
+    <None Update="Greenprints\221_OracleCurse15PowerlessBuff.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Update="Greenprints\225_OracleCurse15PowerlessFeature.json">
@@ -430,6 +430,33 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Update="Greenprints\324_OracleCursePowerlessMinorFeature.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Greenprints\020_GhoulTouchSickenedBuff.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Greenprints\020_UndeadAnatomyIAbility.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Greenprints\020_UndeadAnatomyIIAbility.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Greenprints\021_GhoulTouchSickenedAreaEffect.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Greenprints\022_GhoulTouchAuraBuff.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Greenprints\023_GhoulTouchBuff.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Greenprints\030_GhoulTouchAbility.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Icons\AbilityIcons\SavageMaw.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Greenprints\020_WallOfFireSpellAbilityAreaEffect.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>

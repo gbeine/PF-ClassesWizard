@@ -1,0 +1,11 @@
+{
+  "Name": "GhoulTouchAuraBuff",
+  "Guid": "c0ff2e9537a24f7ca22c3637e72f52e9",
+  "Flags": "HiddenInUi",
+  "Components": [
+    {
+      "Type": "AddAreaEffect",
+      "AreaEffect": "loc:GhoulTouchSickenedAreaEffect"
+    }
+  ]
+}

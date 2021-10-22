@@ -12,8 +12,13 @@ using Kingmaker.Designers.Mechanics.Facts;
 using Kingmaker.ElementsSystem;
 using Kingmaker.EntitySystem.Stats;
 using Kingmaker.Enums;
+using Kingmaker.ResourceLinks;
 using Kingmaker.UnitLogic.Abilities.Blueprints;
 using Kingmaker.UnitLogic.Abilities.Components;
+using Kingmaker.UnitLogic.Abilities.Components.AreaEffects;
+using Kingmaker.UnitLogic.Abilities.Components.Base;
+using Kingmaker.UnitLogic.Abilities.Components.TargetCheckers;
+using Kingmaker.UnitLogic.Buffs.Components;
 using Kingmaker.UnitLogic.FactLogic;
 using Kingmaker.UnitLogic.Mechanics;
 using Kingmaker.UnitLogic.Mechanics.Components;
@@ -26,15 +31,54 @@ using PF_Core.Factories;
 
 namespace PF_Classes.Transformations.ComponentDelegates
 {
-    public class KingmakerComponentDelegates : JsonTransformation
+    public class KingmakerComponentCreateDelegates : JsonTransformation
     {
         private static readonly ComponentFactory _componentFactory = ComponentFactory.INSTANCE;
 
-        internal static readonly Dictionary<String, Action<BlueprintScriptableObject, Component>> CreateComponentDelegates =
+        internal static readonly Dictionary<string, Action<BlueprintScriptableObject, Component>> CreateComponentDelegates =
             new Dictionary<string, Action<BlueprintScriptableObject, Component>>();
 
-        static KingmakerComponentDelegates()
+        internal static readonly Dictionary<string, Type> ComponentTypes = new Dictionary<string, Type>();
+
+        static KingmakerComponentCreateDelegates()
         {
+
+            _logger.Debug($"Adding delegate: AbilityAreaEffectRunAction");
+            ComponentTypes.Add("AbilityAreaEffectRunAction", typeof(AbilityAreaEffectRunAction));
+            CreateComponentDelegates.Add("AbilityAreaEffectRunAction",
+                (target, componentData) => target.AddComponent(
+                    _componentFactory.CreateComponent<AbilityAreaEffectRunAction>(c =>
+                        {
+                            if (componentData.Exists("UnitEnter"))
+                            {
+                                IEnumerable<GameAction> actions = componentData.AsList<JsonTypes.Action>("UnitEnter")
+                                    .Select(a => ActionFromJson.CreateAction(a));
+
+                                c.UnitEnter = new ActionList() { Actions = actions.ToArray() };
+                            }
+                            if (componentData.Exists("UnitExit"))
+                            {
+                                IEnumerable<GameAction> actions = componentData.AsList<JsonTypes.Action>("UnitExit")
+                                    .Select(a => ActionFromJson.CreateAction(a));
+
+                                c.UnitExit = new ActionList() { Actions = actions.ToArray() };
+                            }
+                            if (componentData.Exists("UnitMove"))
+                            {
+                                IEnumerable<GameAction> actions = componentData.AsList<JsonTypes.Action>("UnitMove")
+                                    .Select(a => ActionFromJson.CreateAction(a));
+
+                                c.UnitMove = new ActionList() { Actions = actions.ToArray() };
+                            }
+                            if (componentData.Exists("Round"))
+                            {
+                                IEnumerable<GameAction> actions = componentData.AsList<JsonTypes.Action>("Round")
+                                    .Select(a => ActionFromJson.CreateAction(a));
+
+                                c.Round = new ActionList() { Actions = actions.ToArray() };
+                            }
+                        })
+                    ));
 
             _logger.Debug($"Adding delegate: AbilityDeliverTouch");
             CreateComponentDelegates.Add("AbilityDeliverTouch",
@@ -82,15 +126,60 @@ namespace PF_Classes.Transformations.ComponentDelegates
                         })
                     ));
 
+            _logger.Debug($"Adding delegate: AbilitySpawnFx");
+            CreateComponentDelegates.Add("AbilitySpawnFx",
+                (target, componentData) => target.AddComponent(
+                    _componentFactory.CreateComponent<AbilitySpawnFx>(c =>
+                        {
+                            if (componentData.Exists("Link"))
+                                c.PrefabLink = new PrefabLink()
+                                    {AssetId = _identifierLookup.lookupBuff(componentData.AsString("Link"))};
+
+                            c.PositionAnchor = componentData.Exists("PositionAnchor")
+                                ? EnumParser.parseAbilitySpawnFxAnchor(componentData.AsString("PositionAnchor"))
+                                : AbilitySpawnFxAnchor.None;
+                            c.OrientationAnchor = componentData.Exists("OrientationAnchor")
+                                ? EnumParser.parseAbilitySpawnFxAnchor(componentData.AsString("OrientationAnchor"))
+                                : AbilitySpawnFxAnchor.None;
+                            c.Anchor = componentData.Exists("Anchor")
+                                ? EnumParser.parseAbilitySpawnFxAnchor(componentData.AsString("Anchor"))
+                                : AbilitySpawnFxAnchor.None;
+                        })
+                    ));
+
+            _logger.Debug($"Adding delegate: AbilityTargetHasFact");
+            ComponentTypes.Add("AbilityTargetHasFact", typeof(AbilityTargetHasFact));
+
+            _logger.Debug($"Adding delegate: AbilityTargetHasNoFactUnless");
+            ComponentTypes.Add("AbilityTargetHasNoFactUnless", typeof(AbilityTargetHasNoFactUnless));
+
             _logger.Debug($"Adding delegate: AddAdditionalLimb");
             CreateComponentDelegates.Add("AddAdditionalLimb",
                 (target, componentData) => target.AddComponent(
                     _componentFactory.CreateComponent<AddAdditionalLimb>(c =>
-                    {
-                        c.Weapon = _itemRepository.GetWeapon(
+                        {
+                            c.Weapon = _itemRepository.GetWeapon(
                             _identifierLookup.lookupItem(componentData.AsString("Weapon")));
+                        })
+                    ));
 
-                    })
+            _logger.Debug($"Adding delegate: AddAreaEffect");
+            CreateComponentDelegates.Add("AddAreaEffect",
+                (target, componentData) => target.AddComponent(
+                    _componentFactory.CreateComponent<AddAreaEffect>(c =>
+                        {
+                            c.AreaEffect = _areaEffectRepository.GetAreaEffect(
+                                _identifierLookup.lookupAbilityAreaEffect(componentData.AsString("AreaEffect")));
+                        })
+                    ));
+
+            _logger.Debug($"Adding delegate: AddCondition");
+            CreateComponentDelegates.Add("AddCondition",
+                (target, componentData) => target.AddComponent(
+                    _componentFactory.CreateComponent<AddCondition>(c =>
+                        {
+                            c.Condition = EnumParser.parseUnitCondition(componentData.AsString("Condition"));
+                        })
                     ));
 
             _logger.Debug($"Adding delegate: AddConditionImmunity");
@@ -207,6 +296,16 @@ namespace PF_Classes.Transformations.ComponentDelegates
                             c.Descriptor = componentData.Exists("Descriptor")
                                 ? EnumParser.parseModifierDescriptor(componentData.AsString("Descriptor"))
                                 : ModifierDescriptor.UntypedStackable;
+                        })
+                    ));
+
+            _logger.Debug($"Adding delegate: AuraFeatureComponent");
+            CreateComponentDelegates.Add("AuraFeatureComponent",
+                (target, componentData) => target.AddComponent(
+                    _componentFactory.CreateComponent<AuraFeatureComponent>(c =>
+                        {
+                            c.Buff = _buffRepository.GetBuff(
+                                _identifierLookup.lookupBuff(componentData.AsString("Buff")));
                         })
                     ));
 
@@ -347,6 +446,21 @@ namespace PF_Classes.Transformations.ComponentDelegates
                         {
                             if (componentData.Exists("School"))
                                 c.School = EnumParser.parseSpellSchool(componentData.AsString("School"));
+                        })
+                    ));
+
+            _logger.Debug($"Adding delegate: SpellDescriptorComponent");
+            CreateComponentDelegates.Add("SpellDescriptorComponent",
+                (target, componentData) => target.AddComponent(
+                    _componentFactory.CreateComponent<SpellDescriptorComponent>(c =>
+                        {
+                            SpellDescriptor spellDescriptor = SpellDescriptor.None;
+                            foreach (var descriptor in componentData.AsArray("Descriptor"))
+                            {
+                                spellDescriptor |= EnumParser.parseSpellDescriptor(descriptor);
+                            }
+
+                            c.Descriptor = spellDescriptor;
                         })
                     ));
 

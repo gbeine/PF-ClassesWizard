@@ -18,6 +18,7 @@ namespace PF_Classes.Identifier
         private IdentifierLookup() { }
 
         internal string lookupAbility(string value) => performLookup(Abilities.INSTANCE, value);
+        internal string lookupAbilityAreaEffect(string value) => performLookup(AbilityAreaEffects.INSTANCE, value);
         internal string lookupBuff(string value) => performLookup(Buffs.INSTANCE, value);
         internal string lookupCharacterClass(string value) => performLookup(CharacterClasses.INSTANCE, value);
         internal string lookupFeature(string value) => performLookup(Features.INSTANCE, value);

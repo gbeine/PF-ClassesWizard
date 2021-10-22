@@ -1,6 +1,6 @@
 using Kingmaker.UnitLogic.Buffs.Blueprints;
-using PF_Classes.Identifier;
 using PF_Classes.JsonTypes;
+using PF_Core.Extensions;
 using PF_Core.Factories;
 
 namespace PF_Classes.Transformations
@@ -18,6 +18,9 @@ namespace PF_Classes.Transformations
 
             if (!string.Empty.Equals(buffData.Stacking))
                 buff.Stacking = EnumParser.parseStackingType(buffData.Stacking);
+
+            if (!string.Empty.Equals(buffData.Flags))
+                buff.SetFlags(EnumParser.parseBuffFlags(buffData.Flags));
 
             foreach (var component in buffData.Components)
             {

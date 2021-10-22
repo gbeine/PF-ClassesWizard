@@ -9,7 +9,7 @@
       "Type": "SavingThrowBonusAgainstSpecificSpells",
       "Value": 4,
       "BypassFeatures": [
-        "SUN_DOMAIN_BASE_FEATURE"
+        "ref:SUN_DOMAIN_BASE_FEATURE"
       ],
       "TODO": "ChannelEnergyEngine.addChannelResitance(curse5); -> Spells"
     }

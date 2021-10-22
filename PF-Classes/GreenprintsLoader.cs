@@ -21,7 +21,7 @@ namespace PF_Classes
         private static readonly Dictionary<String, Action<String>> _loader = new Dictionary<string, Action<string>>();
         private static readonly string m_exePath = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
         private static readonly string path = $"{m_exePath}/Greenprints";
-        private static readonly Regex regex = new Regex(".*(Archetype|Buff|Cantrips|Class|Feature|Orisons|Proficiencies|Progression|Selection|Spell|Spellbook).json");
+        private static readonly Regex regex = new Regex(".*(Archetype|AreaEffect|Buff|Cantrips|Class|Feature|Orisons|Proficiencies|Progression|Selection|Spell|Spellbook).json");
 
         private static bool loaded = false;
 
@@ -77,6 +77,14 @@ namespace PF_Classes
                 // {
                 //     BlueprintArchetype archetype = archetypeLoader.Archetype;
                 // }
+            });
+            _loader.Add("AreaEffect", file =>
+            {
+                AreaEffectLoader areaEffectLoader = new AreaEffectLoader(file);
+                if (areaEffectLoader.load())
+                {
+                    BlueprintAbilityAreaEffect areaEffect = areaEffectLoader.AreaEffect;
+                }
             });
             _loader.Add("Buff", file =>
             {

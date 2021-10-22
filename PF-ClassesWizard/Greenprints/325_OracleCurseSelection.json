@@ -11,8 +11,11 @@
     "loc:OracleDeafCurseProgression",
     "loc:OracleLameCurseProgression",
     "loc:OraclePlaguedCurseProgression",
+    "loc:OraclePowerlessCurseProgression",
+    "loc:OraclePrankedCurseProgression",
     "loc:OracleReclusiveCurseProgression",
-    "loc:OracleWastingCurseProgression"
+    "loc:OracleWastingCurseProgression",
+    "loc:OracleWolfScarredFaceCurseProgression"
   ],
   "Components": [
     {

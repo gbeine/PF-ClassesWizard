@@ -85,9 +85,6 @@ namespace PF_Classes.Transformations
                 spell.AvailableMetamagic = metamagic;
             }
 
-            _logger.Log("Adding area effects");
-            // TODO: area effects
-
             _logger.Log("Removing components");
             if (spellData.RemoveComponents.Count > 0)
             {
@@ -110,6 +107,14 @@ namespace PF_Classes.Transformations
             {
                 _logger.Debug($"Adding component {component.Type}");
                 ComponentFromJson.AddComponent(spell, component);
+                _logger.Debug($"DONE: Adding component {component.Type}");
+            }
+
+            _logger.Log("Adding components from other blueprints");
+            foreach (var component in spellData.ComponentsFrom)
+            {
+                _logger.Debug($"Adding component {component.Type}");
+                ComponentFromJson.AddComponentFrom(spell, component);
                 _logger.Debug($"DONE: Adding component {component.Type}");
             }
 

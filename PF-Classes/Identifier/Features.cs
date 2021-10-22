@@ -95,6 +95,26 @@ namespace PF_Classes.Identifier
 
         public const string IMPROVED_INITIATIVE = "797f25d709f559546b29e7bcb181cc74"; // Verbesserte Initiative
 
+        public const string CONSTRUCT_TYPE = "fd389783027d63343b4a5634bd81645f"; //
+        public const string UNDEAD_TYPE = "734a29b693e9ec346ba2951b27987e33"; //
+
+        public const string SUBTYPE_AIR         = "dd3d0c7f4f57f304cbdbb68170b1b775"; // Unterart "Luft"
+        public const string SUBTYPE_ANGEL       = "65d9b6889df167044abb624e2160c43b"; // Unterart "Engel"
+        public const string SUBTYPE_AQUATIC     = "03ce447c6147ecd46940dbef87f6eed7"; //
+        public const string SUBTYPE_AZATA       = "e422746933151f3469f4c2484f9263db"; // Unterart "Azata"
+        public const string SUBTYPE_CHAOTIC     = "1dd712e7f147ab84bad6ffccd21a878d"; // Unterart "Chaotisch"
+        public const string SUBTYPE_COLD        = "5e4d22d5cb6869e499f5fdc82e2127ad"; // Unterart "Kälte"
+        public const string SUBTYPE_DAEMON      = "75c3a26f37be0c74196deaf64d81ee1a"; // Unterart "Daimon"
+        public const string SUBTYPE_DEVIL       = "6026db1a1a84ac14d9e94404af3baf0a"; // Unterart "Teufel"
+        public const string SUBTYPE_EARTH       = "e147258e5b7c40643893d80c9f2816e8"; // Unterart "Erde"
+        public const string SUBTYPE_ELEMENTAL   = "198fd8924dabcb5478d0f78bd453c586"; // Unterart "Elementar"
+        public const string SUBTYPE_EVIL        = "5279fc8380dd9ba419b4471018ffadd1"; // Unterart "Böse"
+        public const string SUBTYPE_EXTRAPLANAR = "136fa0343d5b4b348bdaa05d83408db3"; // Unterart "Extraplanar"
+        public const string SUBTYPE_FIRE        = "23dc7b90d148b9d439f48e015a520a9c"; // Unterart "Feuer"
+        public const string SUBTYPE_GOOD        = "23247ff3b44fd3a42ab752cd04e629b0"; // Unterart "Gut"
+        public const string SUBTYPE_LAWFUL      = "56af493a739e14f44aa56a6cba0b477b"; // Unterart "Rechtschaffen"
+        public const string SUBTYPE_WATER       = "bf7ee56ec9e43c14fa17727997e91993"; // Wasser-Unterart
+
         public const string SUN_DOMAIN_BASE_FEATURE = "3d8e38c9ed54931469281ab0cec506e9"; // Domäne der Sonne
 
         public const string ARCANE_SCHOOL_ILLUSION_BLINDING_RAY                                 = "9be5e050244352d43a1cb50aad8d548f"; // Blendender Strahl

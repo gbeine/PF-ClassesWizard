@@ -26,9 +26,9 @@ namespace PF_Classes.Transformations
             {
                 _createComponentClassDelegates[componentData.Type](target, componentData, characterClass);
             }
-            else if (KingmakerComponentDelegates.CreateComponentDelegates.ContainsKey(componentData.Type))
+            else if (KingmakerComponentCreateDelegates.CreateComponentDelegates.ContainsKey(componentData.Type))
             {
-                KingmakerComponentDelegates.CreateComponentDelegates[componentData.Type](target, componentData);
+                KingmakerComponentCreateDelegates.CreateComponentDelegates[componentData.Type](target, componentData);
             }
             else if (CallOfTheWildComponentDelegates.CreateComponentDelegates.ContainsKey(componentData.Type))
             {
@@ -48,9 +48,9 @@ namespace PF_Classes.Transformations
         {
             _logger.Log($"Creating component from JSON data {componentData.Type}");
 
-            if (KingmakerComponentDelegates.CreateComponentDelegates.ContainsKey(componentData.Type))
+            if (KingmakerComponentCreateDelegates.CreateComponentDelegates.ContainsKey(componentData.Type))
             {
-                KingmakerComponentDelegates.CreateComponentDelegates[componentData.Type](target, componentData);
+                KingmakerComponentCreateDelegates.CreateComponentDelegates[componentData.Type](target, componentData);
             }
             else if (CallOfTheWildComponentDelegates.CreateComponentDelegates.ContainsKey(componentData.Type))
             {
@@ -64,6 +64,22 @@ namespace PF_Classes.Transformations
             }
 
             _logger.Log($"DONE: Creating component from JSON data {componentData.Type}");
+        }
+
+        public static void AddComponentFrom(BlueprintScriptableObject target, Component componentData)
+        {
+            _logger.Log($"Creating component from blueprint {componentData.Type}");
+
+            BlueprintScriptableObject source = null;
+
+            if (_identifierLookup.existsSpell(componentData.AsString("From")))
+                source = _spellbookRepository.GetSpell(componentData.AsString("From"));
+            // TODO: look for other items
+
+            if (source != null)
+                KingmakerComponentCloneDelegates.CloneComponentDelegates[componentData.Type](target, source);
+
+            _logger.Log($"DONE: Creating component blueprint {componentData.Type}");
         }
 
         private static BlueprintAbility getSpell(String value) =>
@@ -176,7 +192,7 @@ namespace PF_Classes.Transformations
                     ));
         }
         private static ContextRankConfig createContextRankConfig(Component componentData, BlueprintCharacterClass blueprintCharacterClass) =>
-            KingmakerComponentDelegates.createContextRankConfig(componentData, new [] {blueprintCharacterClass});
+            KingmakerComponentCreateDelegates.createContextRankConfig(componentData, new [] {blueprintCharacterClass});
 
     }
 }

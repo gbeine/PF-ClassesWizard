@@ -2,6 +2,7 @@ using System;
 using Kingmaker.Blueprints.Classes;
 using Kingmaker.Blueprints.Classes.Spells;
 using Kingmaker.Blueprints.Items.Armors;
+using Kingmaker.ElementsSystem;
 using Kingmaker.EntitySystem.Stats;
 using Kingmaker.Enums;
 using Kingmaker.Enums.Damage;
@@ -9,6 +10,7 @@ using Kingmaker.RuleSystem;
 using Kingmaker.UnitLogic;
 using Kingmaker.UnitLogic.Abilities;
 using Kingmaker.UnitLogic.Abilities.Blueprints;
+using Kingmaker.UnitLogic.Abilities.Components.Base;
 using Kingmaker.UnitLogic.Alignments;
 using Kingmaker.UnitLogic.Buffs.Blueprints;
 using Kingmaker.UnitLogic.Commands.Base;
@@ -18,6 +20,7 @@ using Kingmaker.UnitLogic.Mechanics.Components;
 using Kingmaker.View.Animation;
 using Kingmaker.Visual.Animation.Kingmaker.Actions;
 using PF_Core;
+using PF_Core.CallOfTheWild;
 using PF_Core.CallOfTheWild.AdditionalSpellDescriptors;
 using PF_Core.CallOfTheWild.MetamagicFeats;
 
@@ -62,6 +65,18 @@ namespace PF_Classes.Transformations
             throw new InvalidOperationException($"Cannot parse AbilityRankType {value}");
         }
 
+        internal static AbilitySpawnFxAnchor parseAbilitySpawnFxAnchor(String value)
+        {
+            _logger.Log($"Parsing AbilitySpawnFxAnchor from {value}");
+            AbilitySpawnFxAnchor abilitySpawnFxAnchor;
+            if (Enum.TryParse(value, out abilitySpawnFxAnchor))
+            {
+                return abilitySpawnFxAnchor;
+            }
+
+            throw new InvalidOperationException($"Cannot parse AbilitySpawnFxAnchor {value}");
+        }
+
         internal static AbilityType parseAbilityType(String value)
         {
             _logger.Log($"Parsing AbilityType from {value}");
@@ -96,6 +111,18 @@ namespace PF_Classes.Transformations
             }
 
             throw new InvalidOperationException($"Cannot parse ArmorProficiencyGroup {value}");
+        }
+
+        internal static BuffFlags parseBuffFlags(String value)
+        {
+            _logger.Log($"Parsing BuffFlags from {value}");
+            BuffFlags buffFlags;
+            if (Enum.TryParse(value, out buffFlags))
+            {
+                return buffFlags;
+            }
+
+            throw new InvalidOperationException($"Cannot parse BuffFlags {value}");
         }
 
         internal static CantripsType parseCantripsType(String value)
@@ -284,6 +311,30 @@ namespace PF_Classes.Transformations
             }
 
             throw new InvalidOperationException($"Cannot parse ModifierDescriptor {value}");
+        }
+
+        internal static Operation parseOperation(String value)
+        {
+            _logger.Log($"Parsing Operation from {value}");
+            Operation operation;
+            if (Enum.TryParse(value, out operation))
+            {
+                return operation;
+            }
+
+            throw new InvalidOperationException($"Cannot parse Operation {value}");
+        }
+
+        internal static SavingThrowType parseSavingThrowType(String value)
+        {
+            _logger.Log($"Parsing SavingThrowType from {value}");
+            SavingThrowType savingThrowType;
+            if (Enum.TryParse(value, out savingThrowType))
+            {
+                return savingThrowType;
+            }
+
+            throw new InvalidOperationException($"Cannot parse SavingThrowType {value}");
         }
 
         internal static SpellDescriptor parseSpellDescriptor(String value)

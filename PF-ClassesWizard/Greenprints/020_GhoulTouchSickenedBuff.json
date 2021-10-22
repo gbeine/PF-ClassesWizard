@@ -1,0 +1,11 @@
+{
+  "Name": "GhoulTouchSickened",
+  "Guid": "fee987b12c0241358096948c990e6d1f",
+  "From": "ref:SICKENED",
+  "Components": [
+    {
+      "Type": "SpellDescriptorComponent",
+      "Descriptor": [ "Poison" ]
+    }
+  ]
+}
