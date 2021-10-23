@@ -13,12 +13,17 @@ namespace PF_Core.Extensions
     {
         private static readonly Harmony.FastSetter blueprintScriptableObject_set_AssetId = Harmony.CreateFieldSetter<BlueprintScriptableObject>("m_AssetGuid");
 
+        private static readonly Func<BlueprintScriptableObject[], BlueprintScriptableObject, BlueprintScriptableObject[]> blueprintScriptableObject_addToArray =
+            Harmony12.CollectionExtensions.AddToArray<BlueprintScriptableObject>;
+
         private static readonly Logger _logger = Logger.INSTANCE;
         private static readonly SaveCompatibility _saveCompatibility = SaveCompatibility.INSTANCE;
-        private static readonly Dictionary<string, Action<BlueprintScriptableObject>> _removeComponents = new Dictionary<string, Action<BlueprintScriptableObject>>();
 
         public static void SetAssetId(this BlueprintScriptableObject blueprintScriptableObject, String assetId) =>
             blueprintScriptableObject_set_AssetId(blueprintScriptableObject, assetId);
+
+        public static BlueprintScriptableObject[] AddToArray(this BlueprintScriptableObject[] blueprintScriptableObjects, BlueprintScriptableObject add) =>
+            blueprintScriptableObject_addToArray(blueprintScriptableObjects, add);
 
         public static void SetComponents(this BlueprintScriptableObject blueprintScriptableObject,
             params BlueprintComponent[] components)
@@ -50,13 +55,6 @@ namespace PF_Core.Extensions
             blueprintScriptableObject.SetComponents(blueprintScriptableObject.ComponentsArray.AddToArray(component));
         }
 
-        public static void RemoveComponents(this BlueprintScriptableObject blueprintScriptableObject, string component)
-        {
-            if (_removeComponents.ContainsKey(component))
-            {
-                _removeComponents[component](blueprintScriptableObject);
-            }
-        }
 
         public static void RemoveComponents<T>(this BlueprintScriptableObject blueprintScriptableObject) where T : BlueprintComponent
         {
@@ -65,13 +63,6 @@ namespace PF_Core.Extensions
             {
                 blueprintScriptableObject.SetComponents(blueprintScriptableObject.ComponentsArray.RemoveFromArray(c));
             }
-        }
-
-        public static void ReplaceComponent<T>(this BlueprintScriptableObject blueprintScriptableObject, Action<T> action) where T : BlueprintComponent
-        {
-            var replacement = blueprintScriptableObject.GetComponent<T>().CreateCopy();
-            action(replacement);
-            ReplaceComponent(blueprintScriptableObject, blueprintScriptableObject.GetComponent<T>(), replacement);
         }
 
         internal static void ReplaceComponent(this BlueprintScriptableObject blueprintScriptableObject, BlueprintComponent original, BlueprintComponent replacement)
@@ -88,9 +79,5 @@ namespace PF_Core.Extensions
             blueprintScriptableObject.SetComponents(newComponents); // fix up names if needed
         }
 
-        static BlueprintScriptableObjectExtensions()
-        {
-            _removeComponents.Add("AbilityResourceLogic", o => o.RemoveComponents<AbilityResourceLogic>());
-        }
     }
 }

@@ -12,6 +12,7 @@ namespace PF_Classes.JsonTypes
             Guid = jObject.SelectToken("Guid", true).Value<string>();
             Name = jObject.SelectToken("Name", true).Value<string>();
 
+            ResetComponents = SelectBool(jObject, "ResetComponents", false);
             RemoveComponents = SelectStringList(jObject, "RemoveComponents");
             SelectComponents(jObject);
             SelectComponentsFrom(jObject);
@@ -46,6 +47,7 @@ namespace PF_Classes.JsonTypes
 
         public string Guid { get; }
         public string Name { get; }
+        public bool ResetComponents { get; }
         public List<string> RemoveComponents { get; }
         public List<Component> Components { get; private set; }
         public List<Component> ComponentsFrom { get; private set; }

@@ -2,9 +2,9 @@ using Kingmaker.Blueprints.Classes;
 using Kingmaker.UnitLogic.FactLogic;
 using PF_Classes.JsonTypes;
 
-namespace PF_Classes.Transformations.ComponentDelegates.AddDelegates
+namespace PF_Classes.Transformations.ComponentDelegates.KingmakerComponents
 {
-    public class AddKnownSpellDelegate : Delegate
+    public class AddKnownSpellDelegate : AbstractComponentDelegate
     {
         public static AddKnownSpell CreateComponent(Component componentData, BlueprintCharacterClass blueprintCharacterClass)
         {

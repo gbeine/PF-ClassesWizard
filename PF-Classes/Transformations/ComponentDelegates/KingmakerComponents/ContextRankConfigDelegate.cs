@@ -6,9 +6,9 @@ using Kingmaker.UnitLogic.Mechanics.Components;
 using PF_Classes.JsonTypes;
 using PF_Core.Extensions;
 
-namespace PF_Classes.Transformations.ComponentDelegates.AddDelegates
+namespace PF_Classes.Transformations.ComponentDelegates.KingmakerComponents
 {
-    public class ContextRankConfigDelegate : Delegate
+    public class ContextRankConfigDelegate : AbstractComponentDelegate
     {
         public static ContextRankConfig CreateComponent(Component componentData, BlueprintCharacterClass blueprintCharacterClass) =>
             CreateComponent(componentData, new []{ blueprintCharacterClass });

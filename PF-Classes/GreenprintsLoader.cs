@@ -21,7 +21,7 @@ namespace PF_Classes
         private static readonly Dictionary<String, Action<String>> _loader = new Dictionary<string, Action<string>>();
         private static readonly string m_exePath = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
         private static readonly string path = $"{m_exePath}/Greenprints";
-        private static readonly Regex regex = new Regex(".*(Archetype|AreaEffect|Buff|Cantrips|Class|Feature|Orisons|Proficiencies|Progression|Selection|Spell|Spellbook).json");
+        private static readonly Regex regex = new Regex(".*(Archetype|AreaEffect|Buff|Cantrips|Class|Feature|Orisons|Proficiencies|Progression|Selection|SpellAbility|Spellbook).json");
 
         private static bool loaded = false;
 
@@ -159,7 +159,7 @@ namespace PF_Classes
                     BlueprintSpellbook spell = spellbookLoader.Spellbook;
                 }
             });
-            _loader.Add("Spell", file =>
+            _loader.Add("SpellAbility", file =>
             {
                 SpellLoader spellLoader = new SpellLoader(file);
                 if (spellLoader.load())

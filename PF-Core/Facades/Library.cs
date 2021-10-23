@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes;
+using Kingmaker.Blueprints.Classes.Selection;
 using Kingmaker.Blueprints.Classes.Spells;
 using Kingmaker.Blueprints.Items;
 using Kingmaker.UnitLogic.Abilities.Blueprints;
@@ -48,6 +49,7 @@ namespace PF_Core.Facades
         internal BlueprintCharacterClass GetCharacterClass(String assetId) => Get<BlueprintCharacterClass>(assetId);
         internal BlueprintArchetype GetArchetype(String assetId) => Get<BlueprintArchetype>(assetId);
         internal BlueprintFeature GetFeature(String assetId) => Get<BlueprintFeature>(assetId);
+        internal BlueprintFeatureSelection GetFeatureSelection(String assetId) => Get<BlueprintFeatureSelection>(assetId);
         internal BlueprintSpellbook GetSpellbook(String assetId) => Get<BlueprintSpellbook>(assetId);
         internal BlueprintSpellList GetSpellList(String assetId) => Get<BlueprintSpellList>(assetId);
         internal BlueprintAbility GetAbility(String assetId) => Get<BlueprintAbility>(assetId);

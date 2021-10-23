@@ -6,7 +6,7 @@ using PF_Core;
 
 namespace PF_Classes.Transformations.ComponentDelegates
 {
-    public class DelegateAction
+    public class ComponentDelegate
     {
         private static readonly Logger _logger = Logger.INSTANCE;
 
@@ -14,8 +14,8 @@ namespace PF_Classes.Transformations.ComponentDelegates
         {
             _logger.Log($"Adding component from JSON data {component.Type} with CharacterClass");
 
-            if (KingmakerCreateComponentCharacterClassDelegates.CanAdd(component.Type))
-                KingmakerCreateComponentCharacterClassDelegates.Add(component, target, blueprintCharacterClass);
+            if (CreateComponentCharacterClassDelegates.CanAdd(component.Type))
+                CreateComponentCharacterClassDelegates.Add(component, target, blueprintCharacterClass);
             else
                 Add(component, target);
 
@@ -26,8 +26,8 @@ namespace PF_Classes.Transformations.ComponentDelegates
         {
             _logger.Log($"Adding component from JSON data {component.Type}");
 
-            if (KingmakerCreateComponentDelegates.CanAdd(component.Type))
-                KingmakerCreateComponentDelegates.Add(component, target);
+            if (CreateComponentDelegates.CanAdd(component.Type))
+                CreateComponentDelegates.Add(component, target);
             else if (CallOfTheWildComponentDelegates.CanAdd(component.Type))
                 CallOfTheWildComponentDelegates.Add(component, target);
             else
@@ -44,8 +44,8 @@ namespace PF_Classes.Transformations.ComponentDelegates
         {
             _logger.Debug($"Removing components {component} for {target.name}");
 
-            if (KingmakerRemoveComponentDelegates.CanRemove(component))
-                KingmakerRemoveComponentDelegates.Remove(component, target);
+            if (RemoveComponentDelegates.CanRemove(component))
+                RemoveComponentDelegates.Remove(component, target);
             else
             {
                 string message = $"Removing of {component} not possible, no delegates known";
@@ -60,8 +60,8 @@ namespace PF_Classes.Transformations.ComponentDelegates
         {
             _logger.Debug($"Cloning components {component} for {target.name}");
 
-            if (KingmakerCloneComponentDelegates.CanClone(component))
-                KingmakerCloneComponentDelegates.Clone(component, target, source);
+            if (CloneComponentDelegates.CanClone(component))
+                CloneComponentDelegates.Clone(component, target, source);
             else
             {
                 string message = $"Cloning of {component} not possible, no delegates known";

@@ -1,8 +1,10 @@
+using Kingmaker.Blueprints.Classes;
+using Kingmaker.Blueprints.Classes.Selection;
 using Kingmaker.Blueprints.Classes.Spells;
 using Kingmaker.UnitLogic.Abilities;
 using Kingmaker.UnitLogic.Abilities.Blueprints;
-using PF_Classes.Identifier;
 using PF_Classes.JsonTypes;
+using PF_Classes.Transformations.ComponentDelegates.KingmakerComponents;
 using PF_Core.Extensions;
 using PF_Core.Factories;
 
@@ -10,7 +12,6 @@ namespace PF_Classes.Transformations
 {
     public class SpellFromJson : JsonTransformation
     {
-        private static readonly ComponentFactory _componentFactory = ComponentFactory.INSTANCE;
         private static readonly SpellFactory _spellFactory = new SpellFactory();
         private static readonly LocalizationFactory _localizationFactory = new LocalizationFactory();
 
@@ -92,21 +93,52 @@ namespace PF_Classes.Transformations
             {
                 BlueprintSpellList spellList = _spellbookRepository.GetSpellList(_identifierLookup.lookupSpellList(entry.Key));
                 spellList.SpellsByLevel[entry.Value].Spells.Add(spell);
-                SpellListComponent spellListComponent = _componentFactory.CreateComponent<SpellListComponent>(c =>
-                    {
-                        c.SpellLevel = entry.Value;
-                        c.SpellList = spellList;
-                    });
-                spell.AddComponent(spellListComponent);
+                spell.AddComponent(SpellListComponentDelegate.CreateComponent(spellList, entry.Value));
             }
 
             // TODO: Replace Progression
-            // TODO: add spell
-            // TODO: add scroll
+            AddSpell(spell);
+            AddScroll(spell);
 
             _logger.Log($"DONE: Creating spell from JSON data {spellData.Name}");
             _identifierRegistry.Register(spell);
             return spell;
+        }
+
+        private static void AddSpell(BlueprintAbility spell)
+        {
+            if (spell.Type == AbilityType.Spell && spell.AvailableMetamagic == default)
+            {
+                _logger.Error($"Error: spell {spell.name} is missing metamagic (should have heighten, quicken at least)");
+            }
+
+            BlueprintFeatureSelection spellSelection = _featuresRepository.GetFeatureSelection(
+                _identifierLookup.lookupFeature("ref:SPELL_SPECIALIZATION_SELECTION"));
+
+            BlueprintFeature[] allSpells = spellSelection.AllFeatures;
+
+            // TODO: implement additional specializations
+            // Main.library.Get<BlueprintParametrizedFeature>("f327a765a4353d04f872482ef3e48c35"), //spell specialization first
+            // Main.library.Get<BlueprintParametrizedFeature>("4a2e8388c2f0dd3478811d9c947bebfb"), //arcane bloodline
+            // Main.library.Get<BlueprintParametrizedFeature>("c66e61dea38f3d8479a54eabec20ac99"), //arcane bloodline magus
+            // Main.library.Get<BlueprintParametrizedFeature>("ea0ce0aeef8c9e04eadc1ed766455178"), //feyspeaker bonus spells
+            // // mt inquisitor spells
+            // Main.library.Get<BlueprintParametrizedFeature>("bcd757ac2aeef3c49b77e5af4e510956"),
+            // Main.library.Get<BlueprintParametrizedFeature>("4869109802e135e45af20741f9056fd5"),
+            // Main.library.Get<BlueprintParametrizedFeature>("e3a9ed781f9093341ac1073f59018e3f"),
+            // Main.library.Get<BlueprintParametrizedFeature>("7668fd94a4f943e4f85ee025a0140434"),
+            // Main.library.Get<BlueprintParametrizedFeature>("d3d8b837733879848b549189f02f535c"),
+            // Main.library.Get<BlueprintParametrizedFeature>("0495474b37304054eaf016016d0002b4")
+
+            foreach (BlueprintParametrizedFeature ss in allSpells)
+            {
+                ss.BlueprintParameterVariants = ss.BlueprintParameterVariants.AddToArray(spell);
+            }
+        }
+
+        private static void AddScroll(BlueprintAbility spell)
+        {
+            // TODO: implement
         }
     }
 }

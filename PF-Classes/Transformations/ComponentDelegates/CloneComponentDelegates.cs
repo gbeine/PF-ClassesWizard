@@ -7,17 +7,17 @@ using PF_Core.Extensions;
 
 namespace PF_Classes.Transformations.ComponentDelegates
 {
-    public class KingmakerCloneComponentDelegates
+    public class CloneComponentDelegates
     {
         private static readonly Logger _logger = Logger.INSTANCE;
 
-        private static readonly Dictionary<string, Action<BlueprintScriptableObject, BlueprintScriptableObject>> CloneComponentDelegates =
+        private static readonly Dictionary<string, Action<BlueprintScriptableObject, BlueprintScriptableObject>> Delegates =
             new Dictionary<string, Action<BlueprintScriptableObject, BlueprintScriptableObject>>();
 
-        public static bool CanClone(string component) => CloneComponentDelegates.ContainsKey(component);
+        public static bool CanClone(string component) => Delegates.ContainsKey(component);
 
         public static void Clone(string component, BlueprintScriptableObject target, BlueprintScriptableObject source) =>
-                CloneComponentDelegates[component](target, source);
+                Delegates[component](target, source);
 
         private static void Clone<T>(BlueprintScriptableObject target, BlueprintScriptableObject source) where T : BlueprintComponent
         {
@@ -29,14 +29,14 @@ namespace PF_Classes.Transformations.ComponentDelegates
             _logger.Debug($"DONE: Cloning components of {typeof(T)} for {target.name}");
         }
 
-        static KingmakerCloneComponentDelegates()
+        static CloneComponentDelegates()
         {
             _logger.Debug("Adding delegate: AbilityTargetHasFact");
-            CloneComponentDelegates.Add("AbilityTargetHasFact",
+            Delegates.Add("AbilityTargetHasFact",
                 (target, source) => Clone<AbilityTargetHasFact>(target, source));
 
             _logger.Debug("Adding delegate: AbilityTargetHasNoFactUnless");
-            CloneComponentDelegates.Add("AbilityTargetHasNoFactUnless",
+            Delegates.Add("AbilityTargetHasNoFactUnless",
                 (target, source) => Clone<AbilityTargetHasNoFactUnless>(target, source));
         }
     }

@@ -1,216 +1,99 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using Kingmaker.Blueprints;
-using Kingmaker.Blueprints.Classes.Spells;
-using Kingmaker.ElementsSystem;
-using Kingmaker.UnitLogic.Buffs.Blueprints;
-using Kingmaker.Utility;
 using PF_Classes.JsonTypes;
-using PF_Core.CallOfTheWild.BuffMechanics;
-using PF_Core.CallOfTheWild.ConcealementMechanics;
-using PF_Core.CallOfTheWild.EncumbranceMechanics;
-using PF_Core.CallOfTheWild.HarmlessSaves;
-using PF_Core.CallOfTheWild.InitiativeMechanics;
-using PF_Core.CallOfTheWild.MetamagicMechanics;
-using PF_Core.CallOfTheWild.NewMechanics;
-using PF_Core.CallOfTheWild.SpellFailureMechanics;
-using PF_Core.CallOfTheWild.UndeadMechanics;
+using PF_Classes.Transformations.ComponentDelegates.CallOfTheWildComponents;
 using PF_Core.Extensions;
-using PF_Core.Factories;
 
 namespace PF_Classes.Transformations.ComponentDelegates
 {
     public class CallOfTheWildComponentDelegates : JsonTransformation
     {
-        private static readonly ComponentFactory _componentFactory = ComponentFactory.INSTANCE;
-
-        private static readonly Dictionary<String, Action<BlueprintScriptableObject, Component>> CreateComponentDelegates =
+        private static readonly Dictionary<String, Action<BlueprintScriptableObject, Component>> Delegates =
             new Dictionary<string, Action<BlueprintScriptableObject, Component>>();
 
         public static bool CanAdd(string component) =>
-            CreateComponentDelegates.ContainsKey(component);
+            Delegates.ContainsKey(component);
 
         public static void Add(Component component, BlueprintScriptableObject target) =>
-            CreateComponentDelegates[component.Type](target, component);
+            Delegates[component.Type](target, component);
 
         static CallOfTheWildComponentDelegates()
         {
             _logger.Debug($"Adding delegate: ActionInSurpriseRound");
-            CreateComponentDelegates.Add("ActionInSurpriseRound",
-                (target, componentData) => target.AddComponent(
-                    _componentFactory.CreateComponent<ActionInSurpriseRound>(c =>
-                        {
-                            if (componentData.Exists("Actions"))
-                            {
-                                List<GameAction> actions = new List<GameAction>();
-                                foreach (var action in componentData.AsList<JsonTypes.Action>("Actions"))
-                                {
-                                    actions.Add(ActionFromJson.CreateAction(action));
-                                }
-
-                                c.actions = new ActionList() {Actions = actions.ToArray()};
-                            }
-                        })
-                    ));
+            Delegates.Add("ActionInSurpriseRound",
+                (target, componentData) =>
+                    target.AddComponent(ActionInSurpriseRoundDelegate.CreateComponent(componentData)));
 
             _logger.Debug($"Adding delegate: AddOutgoingConcealment");
-            CreateComponentDelegates.Add("AddOutgoingConcealment",
-                (target, componentData) => target.AddComponent(
-                    _componentFactory.CreateComponent<AddOutgoingConcealment>(c =>
-                        {
-                            c.CheckDistance = componentData.Exists("CheckDistance")
-                                ? componentData.AsBool("CheckDistance")
-                                : true;
-                            c.Descriptor = EnumParser.parseConcealmentDescriptor(componentData.AsString("Descriptor"));
-                            c.DistanceGreater = componentData.AsInt("DistanceGreater").Feet();
-                            c.Concealment = EnumParser.parseConcealment(componentData.AsString("Concealment"));
-                        })
-                    ));
-
+            Delegates.Add("AddOutgoingConcealment",
+                (target, componentData) =>
+                    target.AddComponent(AddOutgoingConcealmentDelegate.CreateComponent(componentData)));
 
             _logger.Debug($"Adding delegate: AddSpeedBonusBasedOnRaceSize");
-            CreateComponentDelegates.Add("AddSpeedBonusBasedOnRaceSize",
-                (target, componentData) => target.AddComponent(
-                    _componentFactory.CreateComponent<AddSpeedBonusBasedOnRaceSize>(c =>
-                        {
-                            c.small_race_speed_bonus = componentData.AsInt("SmallRaceSpeedBonus");
-                            c.normal_race_speed_bonus = componentData.AsInt("NormalRaceSpeedBonus");
-                        })
-                    ));
-
+            Delegates.Add("AddSpeedBonusBasedOnRaceSize",
+                (target, componentData) =>
+                    target.AddComponent(AddSpeedBonusBasedOnRaceSizeDelegate.CreateComponent(componentData)));
 
             _logger.Debug($"Adding delegate: ApplyMetamagicToPersonalSpell");
-            CreateComponentDelegates.Add("ApplyMetamagicToPersonalSpell",
-                (target, componentData) => target.AddComponent(
-                    _componentFactory.CreateComponent<ApplyMetamagicToPersonalSpell>(c =>
-                        {
-                            c.caster_level_increase = componentData.Exists("CasterLevelIncrease")
-                                ? componentData.AsInt("CasterLevelIncrease")
-                                : 0;
-                            if (componentData.Exists("Metamagic"))
-                            {
-                                c.metamagic = EnumParser.parseMetamagic(componentData.AsString("Metamagic"));
-                            }
-                        })
-                    ));
-
+            Delegates.Add("ApplyMetamagicToPersonalSpell",
+                (target, componentData) =>
+                    target.AddComponent(ApplyMetamagicToPersonalSpellDelegate.CreateComponent(componentData)));
 
             _logger.Debug($"Adding delegate: ConsiderUndeadForHealing");
-            CreateComponentDelegates.Add("ConsiderUndeadForHealing",
-                (target, componentData) => target.AddComponent(
-                    _componentFactory.CreateComponent<ConsiderUndeadForHealing>()
-                ));
-
+            Delegates.Add("ConsiderUndeadForHealing",
+                (target, componentData) =>
+                    target.AddComponent(ConsiderUndeadForHealingDelegate.CreateComponent(componentData)));
 
             _logger.Debug($"Adding delegate: ContextIncreaseDescriptorSpellsDC");
-            CreateComponentDelegates.Add("ContextIncreaseDescriptorSpellsDC",
-                (target, componentData) => target.AddComponent(
-                    _componentFactory.CreateComponent<ContextIncreaseDescriptorSpellsDC>(c =>
-                        {
-                            c.Value = componentData.AsInt("Value");
-                            c.Descriptor = EnumParser.parseSpellDescriptor(componentData.AsString("Descriptor"));
-                        })
-                    ));
-
+            Delegates.Add("ContextIncreaseDescriptorSpellsDC",
+                (target, componentData) =>
+                    target.AddComponent(ContextIncreaseDescriptorSpellsDCDelegate.CreateComponent(componentData)));
 
             _logger.Debug($"Adding delegate: IgnoreEncumbrence");
-            CreateComponentDelegates.Add("IgnoreEncumbrence",
-                (target, componentData) => target.AddComponent(
-                    _componentFactory.CreateComponent<IgnoreEncumbrence>()
-                ));
-
+            Delegates.Add("IgnoreEncumbrence",
+                (target, componentData) =>
+                    target.AddComponent(IgnoreEncumbrenceDelegate.CreateComponent(componentData)));
 
             _logger.Debug($"Adding delegate: ItemUseFailure");
-            CreateComponentDelegates.Add("ItemUseFailure",
-                (target, componentData) => target.AddComponent(
-                    _componentFactory.CreateComponent<ItemUseFailure>(c =>
-                    {
-                        c.chance = componentData.AsInt("Chance");
-                    })
-                ));
-
+            Delegates.Add("ItemUseFailure",
+                (target, componentData) =>
+                    target.AddComponent(ItemUseFailureDelegate.CreateComponent(componentData)));
 
             _logger.Debug($"Adding delegate: RunActionOnCombatStart");
-            CreateComponentDelegates.Add("RunActionOnCombatStart",
-                (target, componentData) => target.AddComponent(
-                    _componentFactory.CreateComponent<RunActionOnCombatStart>(c =>
-                        {
-                            if (componentData.Exists("Actions"))
-                            {
-                                List<GameAction> actions = new List<GameAction>();
-                                foreach (var action in componentData.AsList<JsonTypes.Action>("Actions"))
-                                {
-                                    actions.Add(ActionFromJson.CreateAction(action));
-                                }
-
-                                c.actions = new ActionList() {Actions = actions.ToArray()};
-                            }
-                        })
-                    ));
-
+            Delegates.Add("RunActionOnCombatStart",
+                (target, componentData) =>
+                    target.AddComponent(RunActionOnCombatStartDelegate.CreateComponent(componentData)));
 
             _logger.Debug($"Adding delegate: SaveAgainstHarmlessSpells");
-            CreateComponentDelegates.Add("SaveAgainstHarmlessSpells",
-                (target, componentData) => target.AddComponent(
-                    _componentFactory.CreateComponent<SaveAgainstHarmlessSpells>()
-                ));
-
+            Delegates.Add("SaveAgainstHarmlessSpells",
+                (target, componentData) =>
+                    target.AddComponent(SaveAgainstHarmlessSpellsDelegate.CreateComponent(componentData)));
 
             _logger.Debug($"Adding delegate: SetVisibilityLimit");
-            CreateComponentDelegates.Add("SetVisibilityLimit",
-                (target, componentData) => target.AddComponent(
-                    _componentFactory.CreateComponent<SetVisibilityLimit>(c =>
-                        {
-                            c.visibility_limit = componentData.AsInt("VisibilityLimit").Feet();
-                        })
-                    ));
-
+            Delegates.Add("SetVisibilityLimit",
+                (target, componentData) =>
+                    target.AddComponent(SetVisibilityLimitDelegate.CreateComponent(componentData)));
 
             _logger.Debug($"Adding delegate: Silence");
-            CreateComponentDelegates.Add("Silence",
-                (target, componentData) => target.AddComponent(
-                    _componentFactory.CreateComponent<Silence>()));
-
+            Delegates.Add("Silence",
+                (target, componentData) =>
+                    target.AddComponent(SilenceDelegate.CreateComponent(componentData)));
 
             _logger.Debug($"Adding delegate: SpellFailureChance");
-            CreateComponentDelegates.Add("SpellFailureChance",
-                (target, componentData) => target.AddComponent(
-                    _componentFactory.CreateComponent<SpellFailureChance>(c =>
-                        {
-                            c.chance = componentData.AsInt("Chance");
-                            c.do_not_spend_slot_if_failed = componentData.Exists("DoNotSpendSlotIfFailed") && componentData.AsBool("DoNotSpendSlotIfFailed");
-                            c.ignore_psychic = componentData.Exists("IgnorePsychic") && componentData.AsBool("IgnorePsychic");
-                        })
-                    ));
-
+            Delegates.Add("SpellFailureChance",
+                (target, componentData) =>
+                    target.AddComponent(SpellFailureChanceDelegate.CreateComponent(componentData)));
 
             _logger.Debug($"Adding delegate: SuppressBuffsCorrect");
-            CreateComponentDelegates.Add("SuppressBuffsCorrect",
-                (target, componentData) => target.AddComponent(
-                    _componentFactory.CreateComponent<SuppressBuffsCorrect>(c =>
-                        {
-                            c.Descriptor = componentData.Exists("Descriptor")
-                                ? EnumParser.parseSpellDescriptor(componentData.AsString("Descriptor"))
-                                : SpellDescriptor.None;
-                            c.Buffs = componentData.Exists("Buffs")
-                                ? componentData.AsArray("Buffs")
-                                    .Select(b => _buffRepository.GetBuff(_identifierLookup.lookupBuff(b)))
-                                    .ToArray()
-                                : Array.Empty<BlueprintBuff>();
-                        })
-                    ));
-
+            Delegates.Add("SuppressBuffsCorrect",
+                (target, componentData) =>
+                    target.AddComponent(SuppressBuffsCorrectDelegate.CreateComponent(componentData)));
 
             _logger.Debug($"Adding delegate: WeaponsOnlyAttackBonus");
-            CreateComponentDelegates.Add("WeaponsOnlyAttackBonus",
-                (target, componentData) => target.AddComponent(
-                    _componentFactory.CreateComponent<WeaponsOnlyAttackBonus>(c =>
-                        {
-                            c.Bonus = componentData.AsInt("Bonus");
-                        })
-                    ));
-
+            Delegates.Add("WeaponsOnlyAttackBonus",
+                (target, componentData) =>
+                    target.AddComponent(WeaponsOnlyAttackBonusDelegate.CreateComponent(componentData)));
         }
     }
 }

@@ -11,6 +11,8 @@ namespace PF_Core.Extensions
         private static readonly Harmony.FastSetter blueprintUnitFact_set_DisplayName = Harmony.CreateFieldSetter<BlueprintUnitFact>("m_DisplayName");
         private static readonly Harmony.FastSetter blueprintUnitFact_set_Description = Harmony.CreateFieldSetter<BlueprintUnitFact>("m_Description");
         private static readonly Harmony.FastSetter blueprintUnitFact_set_Icon = Harmony.CreateFieldSetter<BlueprintUnitFact>("m_Icon");
+        private static readonly Func<BlueprintUnitFact[], BlueprintUnitFact, BlueprintUnitFact[]> blueprintUnitFact_addToArray =
+            Harmony12.CollectionExtensions.AddToArray<BlueprintUnitFact>;
 
         private static readonly Logger _logger = Logger.INSTANCE;
         private static readonly LocalizationFactory LocalizationFactoryFactory = new LocalizationFactory();
@@ -27,6 +29,8 @@ namespace PF_Core.Extensions
             feature.SetDescription(description);
         }
 
+        public static BlueprintUnitFact[] AddToArray(this BlueprintUnitFact[] blueprintUnitFacts, BlueprintUnitFact add) =>
+            blueprintUnitFact_addToArray(blueprintUnitFacts, add);
         public static void SetIcon(this BlueprintUnitFact feature, Sprite icon) =>
             blueprintUnitFact_set_Icon(feature, icon);
         public static void SetName(this BlueprintUnitFact feature, String name) =>

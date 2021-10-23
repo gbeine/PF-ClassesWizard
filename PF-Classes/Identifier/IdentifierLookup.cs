@@ -22,6 +22,7 @@ namespace PF_Classes.Identifier
         internal string lookupBuff(string value) => performLookup(Buffs.INSTANCE, value);
         internal string lookupCharacterClass(string value) => performLookup(CharacterClasses.INSTANCE, value);
         internal string lookupFeature(string value) => performLookup(Features.INSTANCE, value);
+        internal string lookupFeatureSelection(string value) => performLookup(FeatureSelections.INSTANCE, value);
         internal string lookupItem(string value) => performLookup(Items.INSTANCE, value);
         internal string lookupProgression(string value) => performLookup(Progressions.INSTANCE, value);
         internal string lookupSpell(string value) => performLookup(Abilities.INSTANCE, value);

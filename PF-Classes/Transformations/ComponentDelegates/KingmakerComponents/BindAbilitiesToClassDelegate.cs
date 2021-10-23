@@ -4,9 +4,9 @@ using Kingmaker.Blueprints.Classes.Spells;
 using Kingmaker.Designers.Mechanics.Facts;
 using PF_Classes.JsonTypes;
 
-namespace PF_Classes.Transformations.ComponentDelegates.AddDelegates
+namespace PF_Classes.Transformations.ComponentDelegates.KingmakerComponents
 {
-    public class BindAbilitiesToClassDelegate : Delegate
+    public class BindAbilitiesToClassDelegate : AbstractComponentDelegate
     {
         public static BindAbilitiesToClass CreateComponent(Component componentData, BlueprintCharacterClass blueprintCharacterClass)
         {

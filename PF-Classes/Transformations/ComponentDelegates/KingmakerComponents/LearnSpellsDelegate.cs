@@ -3,9 +3,9 @@ using Kingmaker.Blueprints.Classes.Spells;
 using Kingmaker.UnitLogic.FactLogic;
 using PF_Classes.JsonTypes;
 
-namespace PF_Classes.Transformations.ComponentDelegates.AddDelegates
+namespace PF_Classes.Transformations.ComponentDelegates.KingmakerComponents
 {
-    public class LearnSpellsDelegate : Delegate
+    public class LearnSpellsDelegate : AbstractComponentDelegate
     {
         public static LearnSpells CreateComponent(Component componentData, BlueprintCharacterClass blueprintCharacterClass)
         {

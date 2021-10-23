@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using Kingmaker.Blueprints.Classes;
+using Kingmaker.Blueprints.Classes.Selection;
 using PF_Core.Facades;
 
 namespace PF_Core.Repositories
@@ -22,6 +23,12 @@ namespace PF_Core.Repositories
         public List<BlueprintFeature> AllFeatures
         {
             get { return _library.GetFeatures(); }
+        }
+
+        public BlueprintFeatureSelection GetFeatureSelection(String assetId)
+        {
+            _logger.Debug($"Search for FeatureSelection {assetId}");
+            return _library.GetFeatureSelection(assetId);
         }
 
         public BlueprintFeature GetFeature(String assetId)

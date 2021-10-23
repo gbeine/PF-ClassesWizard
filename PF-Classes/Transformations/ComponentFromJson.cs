@@ -1,7 +1,9 @@
+using System;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes;
 using PF_Classes.JsonTypes;
 using PF_Classes.Transformations.ComponentDelegates;
+using PF_Core.Extensions;
 
 namespace PF_Classes.Transformations
 {
@@ -14,12 +16,17 @@ namespace PF_Classes.Transformations
         {
             _logger.Debug($"Processing components for {targetData.Name}");
 
+            if (targetData.ResetComponents)
+            {
+                target.SetComponents(Array.Empty<BlueprintComponent>());
+            }
+
             if (targetData.RemoveComponents.Count > 0)
             {
                 _logger.Log("Removing components");
                 foreach (var component in targetData.RemoveComponents)
                 {
-                    DelegateAction.Remove(component, target);
+                    ComponentDelegate.Remove(component, target);
                 }
             }
 
@@ -30,9 +37,9 @@ namespace PF_Classes.Transformations
                 {
                     _logger.Debug($"Adding component {component.Type}");
                     if (blueprintCharacterClass != null)
-                        DelegateAction.Add(component, target, blueprintCharacterClass);
+                        ComponentDelegate.Add(component, target, blueprintCharacterClass);
                     else
-                        DelegateAction.Add(component, target);
+                        ComponentDelegate.Add(component, target);
                     _logger.Debug($"DONE: Adding component {component.Type}");
                 }
             }
@@ -61,7 +68,7 @@ namespace PF_Classes.Transformations
             // TODO: look for other items
 
             if (source != null)
-                DelegateAction.Clone(componentData.Type, target, source);
+                ComponentDelegate.Clone(componentData.Type, target, source);
 
             _logger.Log($"DONE: Creating component blueprint {componentData.Type}");
         }

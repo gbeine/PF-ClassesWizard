@@ -3,9 +3,9 @@ using Kingmaker.Blueprints.Classes;
 using Kingmaker.Designers.Mechanics.Facts;
 using PF_Classes.JsonTypes;
 
-namespace PF_Classes.Transformations.ComponentDelegates.AddDelegates
+namespace PF_Classes.Transformations.ComponentDelegates.KingmakerComponents
 {
-    public class AddFeatureOnClassLevelDelegate : Delegate
+    public class AddFeatureOnClassLevelDelegate : AbstractComponentDelegate
     {
         public static AddFeatureOnClassLevel CreateComponent(Component componentData, BlueprintCharacterClass blueprintCharacterClass)
         {
