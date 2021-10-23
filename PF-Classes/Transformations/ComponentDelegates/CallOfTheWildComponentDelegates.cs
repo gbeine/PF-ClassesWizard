@@ -25,8 +25,14 @@ namespace PF_Classes.Transformations.ComponentDelegates
     {
         private static readonly ComponentFactory _componentFactory = ComponentFactory.INSTANCE;
 
-        internal static readonly Dictionary<String, Action<BlueprintScriptableObject, Component>> CreateComponentDelegates =
+        private static readonly Dictionary<String, Action<BlueprintScriptableObject, Component>> CreateComponentDelegates =
             new Dictionary<string, Action<BlueprintScriptableObject, Component>>();
+
+        public static bool CanAdd(string component) =>
+            CreateComponentDelegates.ContainsKey(component);
+
+        public static void Add(Component component, BlueprintScriptableObject target) =>
+            CreateComponentDelegates[component.Type](target, component);
 
         static CallOfTheWildComponentDelegates()
         {

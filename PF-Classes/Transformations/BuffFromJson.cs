@@ -22,12 +22,7 @@ namespace PF_Classes.Transformations
             if (!string.Empty.Equals(buffData.Flags))
                 buff.SetFlags(EnumParser.parseBuffFlags(buffData.Flags));
 
-            foreach (var component in buffData.Components)
-            {
-                _logger.Debug($"Adding component {component.Type}");
-                ComponentFromJson.AddComponent(buff, component);
-                _logger.Debug($"DONE: Adding component {component.Type}");
-            }
+            ComponentFromJson.ProcessComponents(buff, buffData);
 
             _logger.Log($"DONE: Creating buff from JSON data {buffData.Name}");
             _identifierRegistry.Register(buff);

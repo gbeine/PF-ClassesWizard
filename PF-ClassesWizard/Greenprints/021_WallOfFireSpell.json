@@ -37,9 +37,11 @@
     }
   ],
   "RemoveComponents": [
-    "AbilityResourceLogic"
+    "AbilityResourceLogic",
+    "AbilityEffectRunAction",
+    "ContextRankConfig"
   ],
-  "ReplaceComponents": [
+  "Components": [
     {
       "Type": "AbilityEffectRunAction",
       "Actions": [

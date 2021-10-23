@@ -15,24 +15,6 @@ namespace PF_Classes.JsonTypes
             Flags = SelectString(jObject, "Flags");
 
             Description = SelectString(jObject, "Description", DisplayName);
-            SelectComponents(jObject);
-        }
-
-        private void SelectComponents(JObject jObject)
-        {
-            JToken jComponents = jObject.SelectToken("Components");
-            if (jComponents == null)
-            {
-                Components = Array.Empty<Component>().ToList();
-            }
-            else
-            {
-                Components = new List<Component>();
-                foreach (var jComponent in jComponents.Value<JArray>())
-                {
-                    Components.Add(new Component(jComponent.Value<JObject>()));
-                }
-            }
         }
 
         public string DisplayName { get; }
@@ -40,6 +22,5 @@ namespace PF_Classes.JsonTypes
         public string Icon { get; }
         public string Stacking { get; }
         public string Flags { get; }
-        public List<Component> Components { get; private set; }
     }
 }

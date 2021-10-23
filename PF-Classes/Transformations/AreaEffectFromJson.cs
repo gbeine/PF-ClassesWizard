@@ -30,22 +30,7 @@ namespace PF_Classes.Transformations
                 throw new InvalidOperationException("Not implemented");
             }
 
-            _logger.Log("Removing components");
-            if (areaEffectData.RemoveComponents.Count > 0)
-            {
-                foreach (var component in areaEffectData.RemoveComponents)
-                {
-                    RemoveComponentFromJson.Remove(areaEffect, component);
-                }
-            }
-
-            _logger.Log("Adding components");
-            foreach (var component in areaEffectData.Components)
-            {
-                _logger.Debug($"Adding component {component.Type}");
-                ComponentFromJson.AddComponent(areaEffect, component);
-                _logger.Debug($"DONE: Adding component {component.Type}");
-            }
+            ComponentFromJson.ProcessComponents(areaEffect, areaEffectData);
 
             _logger.Log($"DONE: Creating AreaEffect from JSON data {areaEffectData.Name}");
             _identifierRegistry.Register(areaEffect);

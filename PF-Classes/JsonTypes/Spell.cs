@@ -35,7 +35,6 @@ namespace PF_Classes.JsonTypes
             AvailableMetamagic = SelectStringList(jObject, "AvailableMetamagic");
 
             SelectSpellLists(jObject);
-            SelectReplaceComponents(jObject);
             SelectReplaceProgression(jObject);
         }
 
@@ -50,21 +49,6 @@ namespace PF_Classes.JsonTypes
                     string spellList = entry.SelectToken("SpellList", true).Value<string>();
                     int spellLevel = entry.SelectToken("Level", true).Value<int>();
                     SpellLists.Add(spellList, spellLevel);
-                }
-            }
-        }
-
-
-        private void SelectReplaceComponents(JObject jObject)
-        {
-            JToken jComponents = jObject.SelectToken("ReplaceComponents");
-            ReplaceComponents = Array.Empty<Component>().ToList();
-            if (jComponents != null)
-            {
-                ReplaceComponents = new List<Component>();
-                foreach (var jComponent in jComponents.Value<JArray>())
-                {
-                    ReplaceComponents.Add(new Component(jComponent.Value<JObject>()));
                 }
             }
         }
@@ -106,7 +90,6 @@ namespace PF_Classes.JsonTypes
         public bool? CanTargetPoint { get; }
         public List<string> AvailableMetamagic { get; }
         public Dictionary<string,int> SpellLists { get; private set; }
-        public List<Component> ReplaceComponents { get; private set; }
         public Dictionary<string, int> ReplaceProgression { get; private set; }
     }
 }

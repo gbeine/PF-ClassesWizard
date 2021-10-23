@@ -17,7 +17,6 @@ using Kingmaker.UnitLogic.Abilities.Blueprints;
 using Kingmaker.UnitLogic.Abilities.Components;
 using Kingmaker.UnitLogic.Abilities.Components.AreaEffects;
 using Kingmaker.UnitLogic.Abilities.Components.Base;
-using Kingmaker.UnitLogic.Abilities.Components.TargetCheckers;
 using Kingmaker.UnitLogic.Buffs.Components;
 using Kingmaker.UnitLogic.FactLogic;
 using Kingmaker.UnitLogic.Mechanics;
@@ -25,26 +24,30 @@ using Kingmaker.UnitLogic.Mechanics.Components;
 using Kingmaker.UnitLogic.Mechanics.Properties;
 using Kingmaker.Utility;
 using PF_Classes.JsonTypes;
+using PF_Classes.Transformations.ComponentDelegates.AddDelegates;
 using PF_Core.Extensions;
 using PF_Core.Facades;
 using PF_Core.Factories;
 
 namespace PF_Classes.Transformations.ComponentDelegates
 {
-    public class KingmakerComponentCreateDelegates : JsonTransformation
+    public class KingmakerCreateComponentDelegates : JsonTransformation
     {
         private static readonly ComponentFactory _componentFactory = ComponentFactory.INSTANCE;
 
-        internal static readonly Dictionary<string, Action<BlueprintScriptableObject, Component>> CreateComponentDelegates =
+        private static readonly Dictionary<string, Action<BlueprintScriptableObject, Component>> CreateComponentDelegates =
             new Dictionary<string, Action<BlueprintScriptableObject, Component>>();
 
-        internal static readonly Dictionary<string, Type> ComponentTypes = new Dictionary<string, Type>();
+        public static bool CanAdd(string component) =>
+            CreateComponentDelegates.ContainsKey(component);
 
-        static KingmakerComponentCreateDelegates()
+        public static void Add(Component component, BlueprintScriptableObject target) =>
+            CreateComponentDelegates[component.Type](target, component);
+
+        static KingmakerCreateComponentDelegates()
         {
 
             _logger.Debug($"Adding delegate: AbilityAreaEffectRunAction");
-            ComponentTypes.Add("AbilityAreaEffectRunAction", typeof(AbilityAreaEffectRunAction));
             CreateComponentDelegates.Add("AbilityAreaEffectRunAction",
                 (target, componentData) => target.AddComponent(
                     _componentFactory.CreateComponent<AbilityAreaEffectRunAction>(c =>
@@ -146,12 +149,6 @@ namespace PF_Classes.Transformations.ComponentDelegates
                                 : AbilitySpawnFxAnchor.None;
                         })
                     ));
-
-            _logger.Debug($"Adding delegate: AbilityTargetHasFact");
-            ComponentTypes.Add("AbilityTargetHasFact", typeof(AbilityTargetHasFact));
-
-            _logger.Debug($"Adding delegate: AbilityTargetHasNoFactUnless");
-            ComponentTypes.Add("AbilityTargetHasNoFactUnless", typeof(AbilityTargetHasNoFactUnless));
 
             _logger.Debug($"Adding delegate: AddAdditionalLimb");
             CreateComponentDelegates.Add("AddAdditionalLimb",
@@ -480,90 +477,7 @@ namespace PF_Classes.Transformations.ComponentDelegates
 
         }
 
-        internal static ContextRankConfig createContextRankConfig(Component componentData) =>
-            createContextRankConfig(componentData, Array.Empty<BlueprintCharacterClass>());
-
-        internal static ContextRankConfig createContextRankConfig(Component componentData,
-            [NotNull] BlueprintCharacterClass[] blueprintCharacterClasses)
-        {
-            AbilityRankType type = componentData.Exists("RankType")
-                ? EnumParser.parseAbilityRankType(componentData.AsString("RankType"))
-                : AbilityRankType.Default;
-            ContextRankBaseValueType baseValueType = componentData.Exists("BaseValueType")
-                ? EnumParser.parseContextRankBaseValueType(componentData.AsString("BaseValueType"))
-                : ContextRankBaseValueType.CasterLevel;
-            ContextRankProgression progression = componentData.Exists("RankProgression")
-                ? EnumParser.parseContextRankProgression(componentData.AsString("RankProgression"))
-                : ContextRankProgression.AsIs;
-            StatType stat = componentData.Exists("Stat")
-                ? EnumParser.parseStatType(componentData.AsString("Stat"))
-                : StatType.Unknown;
-
-            int? min = componentData.Exists("Min")
-                ? componentData.AsInt("Min")
-                : (int?) null;
-            int? max = componentData.Exists("Max")
-                ? componentData.AsInt("Max")
-                : (int?) null;
-            ;
-            int startLevel = componentData.Exists("StartLevel")
-                ? componentData.AsInt("StartLevel")
-                : 0;
-            int stepLevel = componentData.Exists("StepLevel")
-                ? componentData.AsInt("StepLevel")
-                : 0;
-
-            bool exceptClasses = componentData.Exists("ExceptClasses") && componentData.AsBool("ExceptClasses");
-
-            BlueprintCharacterClass[] classes = blueprintCharacterClasses;
-            BlueprintFeature feature = componentData.Exists("Feature")
-                ? _featuresRepository.GetFeature(
-                    _identifierLookup.lookupFeature(componentData.AsString("Feature")))
-                : null;
-
-            BlueprintUnitProperty customProperty = null;
-            BlueprintArchetype archetype = null;
-            BlueprintFeature[] featureList = Array.Empty<BlueprintFeature>();
-            (int, int)[] customProgression = null;
-
-            return _componentFactory.CreateComponent<ContextRankConfig>(c =>
-            {
-                c.SetType(type);
-                c.SetBaseValueType(baseValueType);
-                c.SetProgression(progression);
-                c.SetStat(stat);
-                c.SetUseMin(min.HasValue);
-                c.SetMin(min.GetValueOrDefault());
-                c.SetUseMax(max.HasValue);
-                c.SetMax(max.GetValueOrDefault());
-                c.SetStartLevel(startLevel);
-                c.SetStepLevel(stepLevel);
-                c.SetExceptClasses(exceptClasses);
-
-                c.SetFeature(feature);
-                c.SetCustomProperty(customProperty);
-                c.SetClass(classes);
-                c.SetArchetype(archetype);
-                c.SetFeatureList(featureList);
-
-                if (customProgression != null)
-                {
-                    Type customProgressionItemType = c.GetTypeOf("CustomProgressionItem");
-                    var items = Array.CreateInstance(customProgressionItemType, customProgression.Length);
-                    for (int i = 0; i < items.Length; i++)
-                    {
-                        var item = Activator.CreateInstance(customProgressionItemType);
-                        var p = customProgression[i];
-
-                        item.SetField("BaseValue", p.Item1);
-                        item.SetField("ProgressionValue", p.Item2);
-                        items.SetValue(item, i);
-                    }
-
-                    c.SetCustomProgression(items);
-                }
-            });
-
-        }
+        internal static ContextRankConfig createContextRankConfig(JsonTypes.Component componentData) =>
+            ContextRankConfigDelegate.CreateComponent(componentData);
     }
 }

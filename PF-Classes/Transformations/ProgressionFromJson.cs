@@ -7,7 +7,7 @@ using PF_Core.Factories;
 
 namespace PF_Classes.Transformations
 {
-    public class ProgressionFromJson : FeatureFromJson
+    public class ProgressionFromJson : JsonTransformation
     {
         private static readonly ProgressionFactory _progressionFactory = new ProgressionFactory();
         private static readonly UIGroupFactory _uiGroupFactory = new UIGroupFactory();
@@ -26,7 +26,7 @@ namespace PF_Classes.Transformations
                     _identifierLookup.lookupCharacterClass(progressionData.Class))
                 : null;
 
-            SetValuesFromData(progression, progressionData, characterClass);
+            FeatureFromJson.SetValuesFromData(progression, progressionData, characterClass);
 
             if (progressionData.HasUiDeterminatorsGroup)
                 progression.UIDeterminatorsGroup = getUIDeterminatorsGroup(progressionData).ToArray();
@@ -60,7 +60,7 @@ namespace PF_Classes.Transformations
             return uiDeterminatorsGroup;
         }
 
-        internal static List<UIGroup> getUIGroups(Progression progressionData)
+        private static List<UIGroup> getUIGroups(Progression progressionData)
         {
             _logger.Log("Creating UIGroups");
             List<UIGroup> uiGroups = new List<UIGroup>();

@@ -32,7 +32,7 @@ namespace PF_Classes.Transformations
             return feature;
         }
 
-        protected static void SetValuesFromData(BlueprintFeature feature, Feature featureData, BlueprintCharacterClass characterClass)
+        internal static void SetValuesFromData(BlueprintFeature feature, Feature featureData, BlueprintCharacterClass characterClass)
         {
             _logger.Log("Setting feature data");
 
@@ -46,20 +46,7 @@ namespace PF_Classes.Transformations
             if (!string.Empty.Equals(featureData.FeatureGroup))
                 feature.Groups = new[] { EnumParser.parseFeatureGroup(featureData.FeatureGroup) };
 
-            foreach (var component in featureData.RemoveComponents)
-            {
-                RemoveComponentFromJson.Remove(feature, component);
-            }
-
-            foreach (var component in featureData.Components)
-            {
-                _logger.Debug($"Adding component {component.Type}");
-                if (characterClass != null)
-                    ComponentFromJson.AddComponent(feature, component, characterClass);
-                else
-                    ComponentFromJson.AddComponent(feature, component);
-                _logger.Debug($"DONE: Adding component {component.Type}");
-            }
+            ComponentFromJson.ProcessComponents(feature, featureData, characterClass);
 
             _logger.Log("DONE: Setting feature data");
         }

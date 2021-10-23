@@ -85,38 +85,7 @@ namespace PF_Classes.Transformations
                 spell.AvailableMetamagic = metamagic;
             }
 
-            _logger.Log("Removing components");
-            if (spellData.RemoveComponents.Count > 0)
-            {
-                foreach (var component in spellData.RemoveComponents)
-                {
-                    RemoveComponentFromJson.Remove(spell, component);
-                }
-            }
-
-            _logger.Log("Replacing components");
-            foreach (var component in spellData.ReplaceComponents)
-            {
-                _logger.Debug($"Replacing component {component.Type}");
-                ReplaceComponentFromJson.ReplaceComponent(spell, component);
-                _logger.Debug($"DONE: Replacing component {component.Type}");
-            }
-
-            _logger.Log("Adding components");
-            foreach (var component in spellData.Components)
-            {
-                _logger.Debug($"Adding component {component.Type}");
-                ComponentFromJson.AddComponent(spell, component);
-                _logger.Debug($"DONE: Adding component {component.Type}");
-            }
-
-            _logger.Log("Adding components from other blueprints");
-            foreach (var component in spellData.ComponentsFrom)
-            {
-                _logger.Debug($"Adding component {component.Type}");
-                ComponentFromJson.AddComponentFrom(spell, component);
-                _logger.Debug($"DONE: Adding component {component.Type}");
-            }
+            ComponentFromJson.ProcessComponents(spell, spellData);
 
             _logger.Log("Adding to spell lists");
             foreach (var entry in spellData.SpellLists)

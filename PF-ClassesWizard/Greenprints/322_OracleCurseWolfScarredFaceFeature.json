@@ -3,14 +3,15 @@
   "Guid": "84f62f0a969d4da6b3b74d61d4ff640a",
   "From": "loc:OracleCurseWolfScarredFaceHindranceFeature",
   "Class": "loc:OracleClass",
-  "ReplaceComponents": [
+  "RemoveComponents": [
+    "SpellFailureChance"
+  ],
+  "Components":[
     {
       "Type": "SpellFailureChance",
       "Chance": 20,
       "DoNotSpendSlotIfFailed": true
-    }
-  ],
-  "Components":[
+    },
     {
       "Type": "AddFeatureOnClassLevel",
       "Feature": "loc:OracleWolfScarred1d4BiteFeature",
