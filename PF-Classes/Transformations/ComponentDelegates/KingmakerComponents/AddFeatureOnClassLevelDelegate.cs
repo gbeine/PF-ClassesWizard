@@ -11,9 +11,11 @@ namespace PF_Classes.Transformations.ComponentDelegates.KingmakerComponents
         {
             AddFeatureOnClassLevel c = _componentFactory.CreateComponent<AddFeatureOnClassLevel>();
 
-            c.name = $"AddFeatureOnClassLevel${c.Feature.name}";
+            BlueprintFeature feature = getFeature(componentData.AsString("Feature"));
+
+            c.name = $"AddFeatureOnClassLevel${feature.name}";
             c.Level = componentData.AsInt("Level");
-            c.Feature = getFeature(componentData.AsString("Feature"));
+            c.Feature = feature;
             c.Class = blueprintCharacterClass;
             c.BeforeThisLevel = componentData.Exists("Before") && componentData.AsBool("Before");
             c.Archetypes = Array.Empty<BlueprintArchetype>(); // TODO: implement

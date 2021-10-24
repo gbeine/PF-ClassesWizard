@@ -113,7 +113,7 @@ namespace PF_Classes.Transformations
             }
 
             BlueprintFeatureSelection spellSelection = _featuresRepository.GetFeatureSelection(
-                _identifierLookup.lookupFeature("ref:SPELL_SPECIALIZATION_SELECTION"));
+                _identifierLookup.lookupFeatureSelection("ref:SPELL_SPECIALIZATION_SELECTION"));
 
             BlueprintFeature[] allSpells = spellSelection.AllFeatures;
 

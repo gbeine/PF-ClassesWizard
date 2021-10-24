@@ -16,7 +16,7 @@ namespace PF_ClassesWizard.Patches
         {
             _logger.Log("Patching library");
 
-            Dumper.Dump(__instance);
+            PF_Core.Dumper.Dump(__instance);
 
             Library library = new Library(__instance);
             GreenprintsLoader.init();

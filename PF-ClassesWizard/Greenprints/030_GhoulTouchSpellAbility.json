@@ -49,7 +49,7 @@
     },
     {
       "Type": "AbilityDeliverTouch",
-      "TouchWeapon": "WEAPON_TOUCH"
+      "TouchWeapon": "ref:WEAPON_TOUCH"
     },
     {
       "Type": "SpellComponent",

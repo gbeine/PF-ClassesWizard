@@ -64,7 +64,7 @@ namespace PF_Classes.Transformations
             BlueprintScriptableObject source = null;
 
             if (_identifierLookup.existsSpell(componentData.AsString("From")))
-                source = _spellbookRepository.GetSpell(componentData.AsString("From"));
+                source = _spellbookRepository.GetSpell(_identifierLookup.lookupSpell(componentData.AsString("From")));
             // TODO: look for other items
 
             if (source != null)

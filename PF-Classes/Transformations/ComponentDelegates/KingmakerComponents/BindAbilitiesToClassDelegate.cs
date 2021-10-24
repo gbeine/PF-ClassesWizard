@@ -8,6 +8,19 @@ namespace PF_Classes.Transformations.ComponentDelegates.KingmakerComponents
 {
     public class BindAbilitiesToClassDelegate : AbstractComponentDelegate
     {
+        public static BindAbilitiesToClass CreateComponent(BlueprintSpellbook spellbook, BlueprintCharacterClass characterClass, bool cantrips = false, int levelStep = 1)
+        {
+            BindAbilitiesToClass c = _componentFactory.CreateComponent<BindAbilitiesToClass>();
+
+            c.CharacterClass = characterClass;
+            c.LevelStep = levelStep;
+            c.Cantrip = cantrips;
+            c.Abilites = spellbook.SpellList.SpellsByLevel[0].Spells.ToArray();
+            c.Stat = spellbook.CastingAttribute;
+
+            return c;
+        }
+
         public static BindAbilitiesToClass CreateComponent(Component componentData, BlueprintCharacterClass blueprintCharacterClass)
         {
             BindAbilitiesToClass c = _componentFactory.CreateComponent<BindAbilitiesToClass>();
@@ -23,7 +36,10 @@ namespace PF_Classes.Transformations.ComponentDelegates.KingmakerComponents
             else
             {
                 if (blueprintCharacterClass.Spellbook != null)
+                {
+                    c.Abilites = blueprintCharacterClass.Spellbook.SpellList.SpellsByLevel[0].Spells.ToArray();
                     c.Stat = blueprintCharacterClass.Spellbook.CastingAttribute;
+                }
             }
 
             if (componentData.Exists("LevelStep"))

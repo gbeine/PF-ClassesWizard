@@ -7,6 +7,16 @@ namespace PF_Classes.Transformations.ComponentDelegates.KingmakerComponents
 {
     public class LearnSpellsDelegate : AbstractComponentDelegate
     {
+        public static LearnSpells CreateComponent(BlueprintSpellbook spellbook, BlueprintCharacterClass characterClass)
+        {
+            LearnSpells c = _componentFactory.CreateComponent<LearnSpells>();
+
+            c.CharacterClass = characterClass;
+            c.Spells = spellbook.SpellList.SpellsByLevel[0].Spells.ToArray();
+
+            return c;
+        }
+
         public static LearnSpells CreateComponent(Component componentData, BlueprintCharacterClass blueprintCharacterClass)
         {
             LearnSpells c = _componentFactory.CreateComponent<LearnSpells>();

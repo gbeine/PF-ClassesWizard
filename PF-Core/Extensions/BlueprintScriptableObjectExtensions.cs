@@ -55,9 +55,22 @@ namespace PF_Core.Extensions
             blueprintScriptableObject.SetComponents(blueprintScriptableObject.ComponentsArray.AddToArray(component));
         }
 
+        public static void AddComponents<T>(this BlueprintScriptableObject blueprintScriptableObject, params T[] components) where T : BlueprintComponent
+        {
+            blueprintScriptableObject.SetComponents(blueprintScriptableObject.ComponentsArray.AddRangeToArray(components));
+        }
 
+        // this method is used heavily in CloneComponents, but this cannot be recognized by any IDE ;-)
+        public static void CloneComponents<T>(this BlueprintScriptableObject target, BlueprintScriptableObject source) where T : BlueprintComponent
+        {
+            _logger.Debug($"Cloning components of {typeof(T)} from {source.name} to {target.name}");
+            target.AddComponents(source.GetComponents<T>().ToArray());
+        }
+
+        // this method is used heavily in RemoveComponents, but this cannot be recognized by any IDE ;-)
         public static void RemoveComponents<T>(this BlueprintScriptableObject blueprintScriptableObject) where T : BlueprintComponent
         {
+            _logger.Debug($"Removing components of {typeof(T)} from {blueprintScriptableObject.name}");
             var compnents_to_remove = blueprintScriptableObject.GetComponents<T>().ToArray();
             foreach (var c in compnents_to_remove)
             {
@@ -78,6 +91,5 @@ namespace PF_Core.Extensions
             }
             blueprintScriptableObject.SetComponents(newComponents); // fix up names if needed
         }
-
     }
 }

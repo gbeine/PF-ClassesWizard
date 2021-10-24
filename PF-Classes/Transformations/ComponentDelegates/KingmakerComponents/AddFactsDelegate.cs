@@ -11,6 +11,16 @@ namespace PF_Classes.Transformations.ComponentDelegates.KingmakerComponents
 {
     public class AddFactsDelegate : AbstractComponentDelegate
     {
+        public static AddFacts CreateComponent(BlueprintSpellbook spellbook)
+        {
+            AddFacts c = _componentFactory.CreateComponent<AddFacts>();
+
+            c.name = $"AddFacts${spellbook.name}";
+            c.Facts = spellbook.SpellList.SpellsByLevel[0].Spells.ToArray();
+
+            return c;
+        }
+
         public static AddFacts CreateComponent(Component componentData)
         {
             AddFacts c = _componentFactory.CreateComponent<AddFacts>();
