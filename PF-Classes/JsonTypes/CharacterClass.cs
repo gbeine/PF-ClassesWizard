@@ -1,18 +1,22 @@
 using System.Collections.Generic;
+using System.IO;
 using Newtonsoft.Json.Linq;
 
 namespace PF_Classes.JsonTypes
 {
     public class CharacterClass : JsonType
     {
+        private const string _docu = "https://github.com/gbeine/PF-ClassesWizard/blob/main/docs/CharacterClass.md";
+
         public CharacterClass(JObject jObject) : base(jObject)
         {
-            DisplayName = jObject.SelectToken("DisplayName", true).Value<string>();
-            Icon = jObject.SelectToken("Icon", true).Value<string>();
-            EquipmentEntities = jObject.SelectToken("EquipmentEntities", true).Value<string>();
-            PrimaryColor = jObject.SelectToken("PrimaryColor", true).Value<int>();
-            SecondaryColor = jObject.SelectToken("SecondaryColor", true).Value<int>();
-            SkillPoints = jObject.SelectToken("SkillPoints", true).Value<int>();
+            DisplayName = SelectString(jObject, "DisplayName");
+            From = SelectString(jObject, "From");
+            Icon = SelectString(jObject, "Icon");
+            EquipmentEntities = SelectString(jObject, "EquipmentEntities");
+            PrimaryColor = SelectInt(jObject, "PrimaryColor");
+            SecondaryColor = SelectInt(jObject, "SecondaryColor");
+            SkillPoints = SelectInt(jObject, "SkillPoints");
 
             Description = SelectString(jObject, "Description", DisplayName);
             MaleEquipmentEntities = SelectString(jObject, "MaleEquipmentEntities", EquipmentEntities);
@@ -31,7 +35,7 @@ namespace PF_Classes.JsonTypes
 
             StartingGold = SelectInt(jObject, "StartingGold");
 
-            Alignment = SelectStringList(jObject, "Alignment", new []{ "Any" });
+            Alignment = SelectStringList(jObject, "Alignment");
             ClassSkills = SelectStringList(jObject, "ClassSkills");
             RecommendedAttributes = SelectStringList(jObject, "RecommendedAttributes");
             NotRecommendedAttributes = SelectStringList(jObject, "NotRecommendedAttributes");
@@ -42,8 +46,25 @@ namespace PF_Classes.JsonTypes
             {
                 Spellbook = new Spellbook(jSpellbook.Value<JObject>());
             }
+
+            if (!isValid())
+            {
+                throw new InvalidDataException(
+                    $"Character class {Name} need to define either from or other data fiels described here: {_docu}");
+            }
         }
 
+        protected bool isValid()
+        {
+            return !string.Empty.Equals(From)
+                   || (!string.Empty.Equals(Icon)
+                      && !string.Empty.Equals(EquipmentEntities)
+                      && SkillPoints.HasValue
+                      && PrimaryColor.HasValue
+                      && SecondaryColor.HasValue);
+        }
+
+        public string From { get; }
         public string DisplayName { get; }
         public string Description { get; }
         public string Icon { get; }

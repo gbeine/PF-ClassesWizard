@@ -18,6 +18,11 @@ namespace PF_Classes.JsonTypes
             SelectComponentsFrom(jObject);
         }
 
+        protected bool isValid()
+        {
+            return false;
+        }
+
         private void SelectComponents(JObject jObject)
         {
             JToken jComponents = jObject.SelectToken("Components");

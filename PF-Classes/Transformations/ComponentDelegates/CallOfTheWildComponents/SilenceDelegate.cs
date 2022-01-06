@@ -1,6 +1,6 @@
+using PF_CallOfTheWild.CallOfTheWild.SpellFailureMechanics;
 using PF_Classes.JsonTypes;
 using PF_Classes.Transformations.ComponentDelegates.KingmakerComponents;
-using PF_Core.CallOfTheWild.SpellFailureMechanics;
 
 namespace PF_Classes.Transformations.ComponentDelegates.CallOfTheWildComponents
 {

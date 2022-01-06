@@ -6,9 +6,8 @@ namespace PF_Classes.JsonTypes
     {
         public Spellbook(JObject jObject) : base(jObject)
         {
-            CastingAttribute = jObject.SelectToken("CastingAttribute", true).Value<string>();
+            CastingAttribute = SelectString(jObject, "CastingAttribute");
             DisplayName = SelectString(jObject, "DisplayName");
-            Description = SelectString(jObject, "Description", DisplayName);
             Icon = SelectString(jObject, "Icon");
             From = SelectString(jObject, "From");
             CharacterClass = SelectString(jObject, "CharacterClass");
@@ -85,7 +84,6 @@ namespace PF_Classes.JsonTypes
         public bool? CanCopyScrolls { get; }
         public bool? AllSpellsKnown { get; }
         public string DisplayName { get; }
-        public string Description { get; }
         public string From { get; }
         public string Icon { get; }
         public string CharacterClass { get; }

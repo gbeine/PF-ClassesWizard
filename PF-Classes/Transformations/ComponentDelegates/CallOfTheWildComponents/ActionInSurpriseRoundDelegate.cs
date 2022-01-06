@@ -1,8 +1,8 @@
 using System.Collections.Generic;
 using Kingmaker.ElementsSystem;
+using PF_CallOfTheWild.CallOfTheWild.InitiativeMechanics;
 using PF_Classes.JsonTypes;
 using PF_Classes.Transformations.ComponentDelegates.KingmakerComponents;
-using PF_Core.CallOfTheWild.InitiativeMechanics;
 
 namespace PF_Classes.Transformations.ComponentDelegates.CallOfTheWildComponents
 {

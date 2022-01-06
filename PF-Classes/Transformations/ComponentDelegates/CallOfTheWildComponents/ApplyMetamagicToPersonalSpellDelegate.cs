@@ -1,6 +1,6 @@
+using PF_CallOfTheWild.CallOfTheWild.MetamagicMechanics;
 using PF_Classes.JsonTypes;
 using PF_Classes.Transformations.ComponentDelegates.KingmakerComponents;
-using PF_Core.CallOfTheWild.MetamagicMechanics;
 
 namespace PF_Classes.Transformations.ComponentDelegates.CallOfTheWildComponents
 {

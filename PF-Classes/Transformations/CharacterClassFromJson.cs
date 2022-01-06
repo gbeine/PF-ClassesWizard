@@ -20,10 +20,15 @@ namespace PF_Classes.Transformations
         {
             _logger.Log($"Creating character class from JSON data {characterClassData.Guid}");
 
-            List<BlueprintFeature> startFeatures = new List<BlueprintFeature>();
-
-            BlueprintCharacterClass characterClass = _classFactoryFactory.CreateClass(characterClassData.Name,
-                characterClassData.Guid, characterClassData.DisplayName,characterClassData.Description);
+            BlueprintCharacterClass characterClass;
+            if (!string.Empty.Equals(characterClassData.From))
+                characterClass = _classFactoryFactory.CreateClassFrom(
+                    characterClassData.Name, characterClassData.Guid,
+                    characterClassData.From, characterClassData.DisplayName, characterClassData.Description);
+            else
+                characterClass = _classFactoryFactory.CreateClass(
+                    characterClassData.Name,  characterClassData.Guid,
+                    characterClassData.DisplayName,characterClassData.Description);
 
             characterClass.m_Icon = SpriteLookup.lookupFor(characterClassData.Icon);
             characterClass.EquipmentEntities = getCharacterClass(characterClassData.EquipmentEntities).EquipmentEntities;

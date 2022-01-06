@@ -1,4 +1,3 @@
-using System;
 using Kingmaker.Blueprints.Classes;
 using PF_Core.Extensions;
 using PF_Core.Facades;
@@ -12,7 +11,7 @@ namespace PF_Core.Factories
 
         private static readonly LocalizationFactory _localizationFactory = new LocalizationFactory();
 
-        public BlueprintCharacterClass CreateClass(String name, String guid)
+        public BlueprintCharacterClass CreateClass(string name, string guid)
         {
             _logger.Debug($"Create class {name} with id {guid}");
 
@@ -26,7 +25,7 @@ namespace PF_Core.Factories
             return characterClass;
         }
 
-        public BlueprintCharacterClass CreateClass(String name, String guid, String displayName, String description)
+        public BlueprintCharacterClass CreateClass(string name, string guid, string displayName, string description)
         {
             _logger.Debug($"Create class {name} with id {guid}");
 
@@ -37,5 +36,11 @@ namespace PF_Core.Factories
             _logger.Debug($"DONE: Create class {name} with id {guid}");
             return characterClass;
         }
+
+        public BlueprintCharacterClass CreateClassFrom(string name, string guid, string assetGuid, string displayName, string description)
+        {
+            return null; // TODO
+        }
+
     }
 }

@@ -19,10 +19,11 @@ using Kingmaker.UnitLogic.Mechanics;
 using Kingmaker.UnitLogic.Mechanics.Components;
 using Kingmaker.View.Animation;
 using Kingmaker.Visual.Animation.Kingmaker.Actions;
+using PF_CallOfTheWild.CallOfTheWild;
+using PF_CallOfTheWild.CallOfTheWild.AdditionalSpellDescriptors;
+using PF_CallOfTheWild.CallOfTheWild.MetamagicFeats;
 using PF_Core;
-using PF_Core.CallOfTheWild;
-using PF_Core.CallOfTheWild.AdditionalSpellDescriptors;
-using PF_Core.CallOfTheWild.MetamagicFeats;
+using PF_Core.Extensions;
 
 namespace PF_Classes.Transformations
 {

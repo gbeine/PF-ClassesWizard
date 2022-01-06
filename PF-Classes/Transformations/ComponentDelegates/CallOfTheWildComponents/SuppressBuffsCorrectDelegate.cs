@@ -2,8 +2,8 @@ using System;
 using System.Linq;
 using Kingmaker.Blueprints.Classes.Spells;
 using Kingmaker.UnitLogic.Buffs.Blueprints;
+using PF_CallOfTheWild.CallOfTheWild.BuffMechanics;
 using PF_Classes.JsonTypes;
-using PF_Core.CallOfTheWild.BuffMechanics;
 using PF_Classes.Transformations.ComponentDelegates.KingmakerComponents;
 
 namespace PF_Classes.Transformations.ComponentDelegates.CallOfTheWildComponents
